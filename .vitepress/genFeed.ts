@@ -23,7 +23,7 @@ postsData.load(true).then((posts) => {
     const file = path.resolve(dirname, `dist${post.href}`)
     const rendered = readFileSync(file, 'utf-8')
     const content = rendered.match(
-      /<div [^<>]+?class="prose[^<>]+?>([\s\S]*)<\/div><\/div><footer/
+      /<div [^<>]+?class="prose[^<>]+?>([\s\S]*)<\/div>/
     )
 
     if (!content) {
