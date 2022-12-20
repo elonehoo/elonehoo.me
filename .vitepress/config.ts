@@ -21,5 +21,14 @@ export default defineConfig({
         href: '/favicon.ico'
       }
     ],
+    [
+      'script',
+      {
+        src: 'https://cdn.usefathom.com/script.js',
+        'data-site': 'NYHGSGQV',
+        'data-spa': 'auto',
+        defer: ''
+      }
+    ]
   ]
 })
