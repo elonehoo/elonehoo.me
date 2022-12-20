@@ -21,12 +21,12 @@ const isIndex = computed(() =>
 
 <template>
   <div class="antialiased text-gray-700 dark:bg-#050505 dark:text-gray-200">
-    <nav-bar />
+    <NavBar />
     <main id="main" class="px-7 py-10">
-      <home v-if="isIndex === 'me'" />
-      <list-posts v-else-if="isIndex === 'posts'"/>
-      <list-project v-else-if="isIndex === 'projects'" />
-      <blog v-else />
+      <Home v-if="isIndex === 'me'" />
+      <ListPosts v-else-if="isIndex === 'posts'"/>
+      <ListProject v-else-if="isIndex === 'projects'" />
+      <Blog v-else />
     </main>
     <Footer />
   </div>
