@@ -38,7 +38,7 @@ function useAppearance() {
 <template>
   <div class="header z-40">
     <a
-      class="w-20 h-20 absolute lg:fixed m-6 select-none outline-none"
+      class="w-15 h-15 absolute lg:fixed m-6 select-none outline-none"
       href="/"
       focusable="false"
     >
@@ -62,7 +62,7 @@ function useAppearance() {
         <a href="https://github.com/elonehoo" target="_blank" title="GitHub">
           <div i-uil-github-alt />
         </a>
-        <a href="/feed.xml" target="_blank" title="RSS" class="lt-md:hidden">
+        <a href="/feed.rss" target="_blank" title="RSS" class="lt-md:hidden">
           <div i-la-rss-square style="font-size:1.25rem; margin: 0 -0.125rem;" />
         </a>
         <a title="Toggle Color Scheme" @click="useAppearance()" >

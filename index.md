@@ -14,7 +14,7 @@ Outside of programming, I enjoy doing play game and traveling. If you happen to 
 
 ***
 
-Find me on [GitHub](https://github.com/antfu), [Twitter](https://www.twitter.com/antfu7).<br>
+Find me on [GitHub](https://github.com/elonehoo), [Twitter](https://www.twitter.com/elonehoo).<br>
 Mail me at [hi@elonehoo.me](mailto:hi@elonehoo.me).<br>
 
 If you like my works, consider follow me on [GitHub](https://github.com/elonehoo) to keep them sustainable.
