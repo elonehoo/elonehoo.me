@@ -1,6 +1,7 @@
 {
   "name": "elonehoo.me",
-  "private": "true",
+  "version": "1.0.0",
+  "private": true,
   "type": "module",
   "description": "My personal website",
   "scripts": {
@@ -22,7 +23,7 @@
     "typescript": "^4.9.4",
     "unocss": "^0.47.6",
     "vite": "^4.0.2",
-    "vitepress": "1.0.0-alpha.29",
+    "vitepress": "1.0.0-alpha.32",
     "vue": "^3.2.45"
   },
   "pnpm": {

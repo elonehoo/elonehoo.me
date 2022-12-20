@@ -2,7 +2,7 @@ import path from 'path'
 import { readFileSync, writeFileSync } from 'fs'
 import { Feed } from 'feed'
 import { fileURLToPath } from 'url'
-import postsData from './theme/composables/post.data'
+import postsData from './theme/post.data'
 
 const url = `https://elonehoo.me`
 const dirname = path.dirname(fileURLToPath(import.meta.url))
