@@ -13,7 +13,7 @@ const isSameYear = (a: Date | string | number, b: Date | string | number) => a &
     <ul >
       <template v-if="!posts.length">
         <div class="py2 op50">
-          { nothing here yet }
+          <Content />
         </div>
       </template>
       <template v-for="post,idx in posts" :key="post.href">

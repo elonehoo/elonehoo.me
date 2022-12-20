@@ -10,8 +10,6 @@
     </div>
     <Content class="prose content m-auto" />
   </div>
-
-
 </template>
 
 <style scoped>

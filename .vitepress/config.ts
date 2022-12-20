@@ -3,9 +3,6 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title:'website',
   description:'My personal website',
-  themeConfig:{
-    logo:'/logo.svg'
-  },
   head: [
     ['meta', { name: 'twitter:site', content: '@elonehoo' }],
     ['meta', { name: 'twitter:card', content: 'summary' }],

@@ -10,19 +10,22 @@ import ListProject from './ListProject.vue'
 
 const route = useRoute()
 
-const isIndex = computed(() => route.path.replace(/index.html$/, '')==='/')
-const isBlog = computed(() => route.path.replace(/index.html$/, '')==='/posts.html')
-const isProject = computed(() => route.path.replace(/index.html$/, '')==='/projects.html')
+const isIndex = computed(() =>
+  route.path.replace(/index.html$/, '')==='/' ? 'me' :
+  route.path.replace(/index.html$/, '') === '/posts.html' ? 'posts' :
+  route.path.replace(/index.html$/, '') === '/projects.html' ? 'projects' :
+  'other'
+)
 
 </script>
 
 <template>
   <div class="antialiased text-gray-700 dark:bg-#050505 dark:text-gray-200">
     <nav-bar />
-    <main class="px-7 py-10">
-      <home v-if="isIndex" />
-      <list-posts v-else-if="isBlog"/>
-      <list-project v-else-if="isProject" />
+    <main id="main" class="px-7 py-10">
+      <home v-if="isIndex === 'me'" />
+      <list-posts v-else-if="isIndex === 'posts'"/>
+      <list-project v-else-if="isIndex === 'projects'" />
       <blog v-else />
     </main>
     <Footer />

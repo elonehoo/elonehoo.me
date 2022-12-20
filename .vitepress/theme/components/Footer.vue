@@ -2,6 +2,8 @@
 import { useRoute } from 'vitepress';
 
 const route = useRoute()
+
+console.log(route.path)
 </script>
 
 <template>
