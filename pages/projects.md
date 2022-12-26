@@ -5,6 +5,10 @@ subtitle: List of projects that I am proud of
 description: List of projects that I am proud of
 projects:
   Upcoming:
+    - name: 'vue3-cool-lightbox'
+      link: 'https://github.com/elonehoo/vue3-cool-lightbox'
+      desc: 'Vue3 lightbox inspired by fancybox.'
+      icon: 'i-material-symbols-gif-box'
     - name: 'vue-comd-k'
       link: 'https://github.com/elonehoo/vue-comd-k'
       desc: 'fast, portable, and extensible cmd+k interface for your site'
