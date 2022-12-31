@@ -5,6 +5,10 @@ subtitle: List of projects that I am proud of
 description: List of projects that I am proud of
 projects:
   Upcoming:
+    - name: 'unplugin-vue-prop'
+      link: 'https://github.com/elonehoo/unplugin-vue-prop'
+      desc: 'Add import define props type support for Vue3 script-setup and lang is typescript.'
+      icon: 'i-mingcute-file-import-fill'
     - name: 'vue3-cool-lightbox'
       link: 'https://github.com/elonehoo/vue3-cool-lightbox'
       desc: 'Vue3 lightbox inspired by fancybox.'
