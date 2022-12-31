@@ -15,7 +15,7 @@ duration: 5min
 
 - 创建了 **[logon-tracer](https://github.com/logon-tracer)**，SpringBoot 中一个日志报警框架，支持 [Log4j](https://github.com/apache/logging-log4j1), [Log4j2](https://github.com/apache/logging-log4j2) 和 [Logback](https://github.com/qos-ch/logback)
 
-- GitHub 一年提交了 **7,861** 次
+- GitHub 一年提交了 **7,863** 次
 
 - 更新了自己的 [Blog](https://elonehoo.me/)
 
