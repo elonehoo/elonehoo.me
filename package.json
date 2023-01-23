@@ -57,7 +57,7 @@
     "vite-plugin-vue-markdown": "^0.22.1",
     "vite-plugin-yaml": "^1.0.5",
     "vite-ssg": "^0.22.1",
-    "vite-svg-loader": "^3.6.0"
+    "vite-svg-loader": "^4.0.0"
   },
   "eslintConfig": {
     "extends": "@antfu"
