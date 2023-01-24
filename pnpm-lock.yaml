@@ -32,7 +32,7 @@ specifiers:
   markdown-it-table-of-contents: ^0.6.0
   nprogress: ^0.2.0
   pnpm: ^7.18.1
-  rimraf: ^3.0.2
+  rimraf: ^4.1.2
   typescript: ^4.9.4
   unocss: ^0.47.6
   unplugin-auto-import: ^0.12.1
@@ -85,7 +85,7 @@ devDependencies:
   markdown-it-shiki: 0.7.2
   markdown-it-table-of-contents: 0.6.0
   pnpm: 7.18.1
-  rimraf: 3.0.2
+  rimraf: 4.1.2
   typescript: 4.9.4
   unocss: 0.47.6_vite@4.0.0
   unplugin-auto-import: 0.12.1_@vueuse+core@9.6.0
@@ -5726,6 +5726,12 @@ packages:
     hasBin: true
     dependencies:
       glob: 7.1.7
+    dev: true
+
+  /rimraf/4.1.2:
+    resolution: {integrity: sha512-BlIbgFryTbw3Dz6hyoWFhKk+unCcHMSkZGrTFVAx2WmttdBSonsdtRlwiuTbDqTKr+UlXIUqJVS4QT5tUzGENQ==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /rollup-plugin-terser/7.0.2_rollup@2.79.1:
