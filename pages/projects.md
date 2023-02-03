@@ -5,6 +5,10 @@ subtitle: List of projects that I am proud of
 description: List of projects that I am proud of
 projects:
   Upcoming:
+    - name: 'pinia-plugin-persistence'
+      link: 'https://github.com/elonehoo/pinia-plugin-persistence'
+      desc: 'Configurable persistence and rehydration of Pinia stores.'
+      icon: 'i-icon-park-outline-storage-card-two'
     - name: 'vitepress-plugin'
       link: 'https://github.com/elonehoo/vitepress-plugins'
       desc: 'VitePress plugin collection'
