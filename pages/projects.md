@@ -5,23 +5,15 @@ subtitle: List of projects that I am proud of
 description: List of projects that I am proud of
 projects:
   Upcoming:
-    - name: 'pinia-plugin-persistence'
-      link: 'https://github.com/elonehoo/pinia-plugin-persistence'
-      desc: 'Configurable persistence and rehydration of Pinia stores.'
-      icon: 'i-icon-park-outline-storage-card-two'
-    - name: 'vitepress-plugin'
-      link: 'https://github.com/elonehoo/vitepress-plugins'
-      desc: 'VitePress plugin collection'
-      icon: 'i-arcticons-game-plugins'
-  Last:
-    - name: 'keyboard'
-      link: 'https://github.com/elonehoo/keyboard'
-      desc: 'used to capture keyboard input.'
-      icon: 'i-carbon-keyboard'
-    - name: 'haul'
-      link: 'https://github.com/elonehoo/haul'
-      desc: 'convenient and modern wrapper around fetch with smart extensible defaults'
-      icon: 'i-carbon:send-alt'
+    - name: 'vite-plugin-editor-page'
+      link: 'https://github.com/elonehoo/vite-plugin-editor-page'
+      desc: 'Auto navigation with your editor for Vite'
+      icon: 'i-gala-editor'
+  Latest:
+    - name: 'vite-plugin-package-configs'
+      link: 'https://github.com/elonehoo/vite-plugin-package-configs'
+      desc: 'Extend Vite config from package.json field'
+      icon: 'i-bx-package'
   Vue Utils:
     - name: 'vnode-util'
       link: 'https://github.com/elonehoo/vnode-util'
@@ -40,6 +32,11 @@ projects:
       link: 'https://github.com/elonehoo/unplugin-vue-prop'
       desc: 'Add import define props type support for Vue3 script-setup and lang is typescript.'
       icon: 'i-mingcute-file-import-fill'
+  Pinia Plugin:
+    - name: 'pinia-plugin-persistence'
+      link: 'https://github.com/elonehoo/pinia-plugin-persistence'
+      desc: 'Configurable persistence and rehydration of Pinia stores.'
+      icon: 'i-icon-park-outline-storage-card-two'
   Vue Components:
     - name: 'paragraph highlight'
       link: 'https://github.com/elonehoo/paragraph-highlight'
@@ -78,6 +75,14 @@ projects:
       link: 'https://github.com/elonehoo/concise-ms'
       desc: 'understandable milliseconds'
       icon: 'i-material-symbols:broadcast-on-home-sharp'
+    - name: 'haul'
+      link: 'https://github.com/elonehoo/haul'
+      desc: 'convenient and modern wrapper around fetch with smart extensible defaults'
+      icon: 'i-carbon:send-alt'
+    - name: 'keyboard'
+      link: 'https://github.com/elonehoo/keyboard'
+      desc: 'used to capture keyboard input.'
+      icon: 'i-carbon-keyboard'
   Game: 
     - name: 'jumper'
       link: 'https://github.com/elonehoo/vue-junmper'
@@ -178,11 +183,15 @@ projects:
       link: 'https://github.com/elonehoo/typescript-algorithm'
       desc: 'TypeScript Algorithm'
       icon: 'i-simple-icons:thealgorithms'
-  theme:
+  Vitepress:
     - name: 'vitepress-theme-simple'
       link: 'https://github.com/elonehoo/vitepress-theme-simple'
       desc: 'vitepress theme blog'
       icon: 'i-gridicons:themes'
+    - name: 'vitepress-plugin'
+      link: 'https://github.com/elonehoo/vitepress-plugins'
+      desc: 'VitePress plugin collection'
+      icon: 'i-arcticons-game-plugins'
   config:
     - name: 'eslint config'
       link: 'https://github.com/elonehoo/eslint-config'
