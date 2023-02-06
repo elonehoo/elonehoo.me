@@ -14,6 +14,10 @@ projects:
       link: 'https://github.com/elonehoo/vite-plugin-package-configs'
       desc: 'Extend Vite config from package.json field'
       icon: 'i-bx-package'
+    - name: 'unplugin-auto-import-api'
+      link: 'https://github.com/elonehoo/unplugin-auto-import-api'
+      desc: 'Auto import APIs on-demand for Vite, Webpack and Rollup'
+      icon: 'i-carbon-row-insert'
   Vue Utils:
     - name: 'vnode-util'
       link: 'https://github.com/elonehoo/vnode-util'
