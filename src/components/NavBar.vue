@@ -15,11 +15,11 @@ import { isDark } from '~/logics'
     <nav class="nav">
       <div class="spacer" />
       <div class="right">
-        <router-link to="/posts" title="Blog">
+        <router-link to="/posts.html" title="Blog">
           <span class="lt-md:hidden">Blog</span>
           <div i-ri-article-line md:hidden />
         </router-link>
-        <router-link to="/projects" title="Projects">
+        <router-link to="/projects.html" title="Projects">
           <span class="lt-md:hidden">Projects</span>
           <div i-ri-lightbulb-line class="md:hidden" />
         </router-link>
@@ -36,10 +36,10 @@ import { isDark } from '~/logics'
           <span class="lt-md:hidden">Demos</span>
           <div i-ri-screenshot-line class="md:hidden" />
         </router-link> -->
-        <router-link to="/bookmarks" title="Bookmarks">
+        <router-link to="/bookmarks.html" title="Bookmarks">
           <div i-ri-bookmark-line />
         </router-link>
-        <router-link to="/notes" title="Notes">
+        <router-link to="/notes.html" title="Notes">
           <div i-ri-sticky-note-line />
         </router-link>
         <!-- <router-link to="/sponsors-list" title="Sponsors">

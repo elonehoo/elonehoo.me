@@ -82,7 +82,7 @@ onMounted(() => {
       :to="route.path.split('/').slice(0, -1).join('/') || '/'"
       class="font-mono no-underline opacity-50 hover:opacity-75"
     >
-      cd ..
+      > cd ..
     </router-link>
   </div>
 </template>

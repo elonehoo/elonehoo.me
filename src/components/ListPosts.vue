@@ -14,7 +14,7 @@ const routes: Post[] = router.getRoutes()
   .sort((a, b) => +new Date(b.meta.frontmatter.date) - +new Date(a.meta.frontmatter.date))
   .filter(i => !i.path.endsWith('.html') && i.meta.frontmatter.type === props.type)
   .map(i => ({
-    path: i.path,
+    path: i.path + '.html',
     title: i.meta.frontmatter.title,
     date: i.meta.frontmatter.date,
     lang: i.meta.frontmatter.lang,
