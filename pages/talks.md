@@ -1,9 +1,6 @@
 ---
 title: Talks - Elone Hoo
-display: ''
-plum: true
+display: 'Talks'
 ---
-
-<SubNav />
 
 <ListPosts type="talk" />
