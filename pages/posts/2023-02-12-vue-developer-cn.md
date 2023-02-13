@@ -6,7 +6,7 @@ duration: 20min
 upcoming: true
 ---
 
-> 工作分享
+> 分享
 > 
 > Slides: [PDF](https://github.com/elonehoo/talks/blob/main/2023-02-12/2023-02-12-vue-developer-cn.pdf) | [SPA](https://vue-developer-cn.vercel.app/1)
 >
