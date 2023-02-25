@@ -8,7 +8,7 @@ upcoming: true
 
 > 分享
 > 
-> Slides: [PDF](https://github.com/elonehoo/talks/blob/main/2023-02-12/2023-02-12-vue-developer-cn.pdf) | [SPA](https://vue-developer-cn.vercel.app/1)
+> Slides: [PDF](https://github.com/elonehoo/talks/blob/main/2023-03-04/2023-03-04-vue-developer-cn.pdf) | [SPA](https://vue-developer-cn.vercel.app/1)
 >
 > Made with <Slidev class="inline"/>  [**Slidev**](https://github.com/slidevjs/slidev) - presentation slides for developers.
 
