@@ -14,6 +14,10 @@ projects:
       link: 'https://github.com/elonehoo/unocss-unit-to-vw'
       desc: 'Convert all rem/px to vw in utils'
       icon: 'i-simple-icons:unocss'
+    - name: 'plugin-vue-open-ide'
+      link: 'https://github.com/elonehoo/plugin-vue-open-ide'
+      desc: 'jump to local IDE source code while click the element of browser automatically.'
+      icon: 'i-ic:round-open-in-new'
   Vue Utils:
     - name: 'vnode-util'
       link: 'https://github.com/elonehoo/vnode-util'
