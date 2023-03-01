@@ -6,9 +6,13 @@ description: List of projects that I am proud of
 projects:
   Upcoming:
     - name: 'vite-plugin-editor-page'
-      link: 'https://github.com/elonehoo/vite-plugin-editor-page'
+      link: 'https://github.com/wip-elonehoo/vite-plugin-editor-page'
       desc: 'Auto navigation with your editor for Vite'
       icon: 'i-gala-editor'
+    - name: 'vite-plugin-online-vue-jumper'
+      link: 'https://vite-plugin-online-vue-jumper-playground-vue.vercel.app'
+      desc: 'This plugin creates for support jump to source code of the specific element from your web page.'
+      icon: 'i-arcticons:towerjumper'
   Latest:
     - name: 'unocss-unit-to-vw'
       link: 'https://github.com/elonehoo/unocss-unit-to-vw'
