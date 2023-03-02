@@ -5,6 +5,14 @@ subtitle: List of projects that I am proud of
 description: List of projects that I am proud of
 projects:
   Upcoming:
+    - name: 'vite-plugin-hot-client'
+      link: 'https://github.com/wip-elonehoo/vite-plugin-hot-client'
+      desc: 'Get Vite import.meta.hot at runtime.'
+      icon: 'i-arcticons:traccarclient'
+    - name: 'vite-plugin-dev-rpc'
+      link: 'https://github.com/wip-elonehoo/vite-plugin-dev-rpc'
+      desc: 'Remote procedure call for client-server communication in Vite plugins.'
+      icon: 'i-file-icons:powerpc'
     - name: 'vite-plugin-editor-page'
       link: 'https://github.com/wip-elonehoo/vite-plugin-editor-page'
       desc: 'Auto navigation with your editor for Vite'
