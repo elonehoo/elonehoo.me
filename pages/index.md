@@ -4,7 +4,7 @@ title: Elone Hoo
 
 Hello, I am Elone Hoo, a fanatical open sourceror. Working at [benewy](https://github.com/benewy).
 
-Creator of [pistachio](https://github.com/elonehoo/pistachio), [animated-unocss](https://github.com/elonehoo/animated-unocss), [<span i-ph-command-duotone />vue-comd-k](https://github.com/elonehoo/vue-comd-k), [logon-tracer](https://github.com/logon-tracer) and [others](/projects).<br>
+Creator of [pistachio](https://github.com/elonehoo/pistachio), [<span i-simple-icons-unocss />animated-unocss](https://github.com/elonehoo/animated-unocss), [<span i-ph-command-duotone />vue-comd-k](https://github.com/elonehoo/vue-comd-k), [logon-tracer](https://github.com/logon-tracer) and [others](/projects).<br>
 Core team member of [logon-tracer](https://github.com/logon-tracer) and [benewy](https://github.com/benewy) .<br>
 Team member of [Vitest](https://github.com/vitest-dev) and [INet](https://github.com/hzpt-inet-club).
 
