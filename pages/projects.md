@@ -5,6 +5,14 @@ subtitle: List of projects that I am proud of
 description: List of projects that I am proud of
 projects:
   Upcoming:
+    - name: 'tailwindcss-plugin-icon'
+      link: 'https://github.com/wip-elonehoo/tailwindcss-plugin-icon'
+      desc: 'Use any icon (100,000+) from Iconify, for TailwindCSS'
+      icon: 'i-simple-icons:tailwindcss'
+    - name: 'reactivity-vue'
+      link: 'https://github.com/wip-elonehoo/reactivity-vue'
+      desc: 'Reactivity utils set for @vue/reactivity'
+      icon: 'reactivity-vue'
     - name: 'vite-plugin-hot-client'
       link: 'https://github.com/wip-elonehoo/vite-plugin-hot-client'
       desc: 'Get Vite import.meta.hot at runtime.'
