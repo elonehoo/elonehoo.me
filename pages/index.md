@@ -4,7 +4,7 @@ title: Elone Hoo
 
 Hello, I am Elone Hoo, a fanatical open sourceror. Working at [benewy](https://github.com/benewy).
 
-Creator of [pistachio](https://github.com/elonehoo/pistachio), [animated-unocss](https://github.com/elonehoo/animated-unocss), [vue-comd-k](https://github.com/elonehoo/vue-comd-k), [logon-tracer](https://github.com/logon-tracer) and [others](/projects).<br>
+Creator of [pistachio](https://github.com/elonehoo/pistachio), [animated-unocss](https://github.com/elonehoo/animated-unocss), [<span i-ph-command-duotone />vue-comd-k](https://github.com/elonehoo/vue-comd-k), [logon-tracer](https://github.com/logon-tracer) and [others](/projects).<br>
 Core team member of [logon-tracer](https://github.com/logon-tracer) and [benewy](https://github.com/benewy) .<br>
 Team member of [Vitest](https://github.com/vitest-dev) and [INet](https://github.com/hzpt-inet-club).
 
@@ -14,7 +14,7 @@ Outside of programming, I enjoy doing play game and traveling. If you happen to 
 
 ***
 
-Find me on [GitHub](https://github.com/elonehoo), [Twitter](https://www.twitter.com/elonehoo).<br>
-Mail me at [hi@elonehoo.me](mailto:hi@elonehoo.me).<br>
+Find me on [<span i-simple-icons-github />GitHub](https://github.com/elonehoo), [<span i-simple-icons-twitter />Twitter](https://www.twitter.com/elonehoo).<br>
+Mail me at [<span i-cib-minutemailer />hi@elonehoo.me](mailto:hi@elonehoo.me).<br>
 
-If you like my works, consider follow me on [GitHub](https://github.com/elonehoo) to keep them sustainable.
+If you like my works, consider follow me on [<span i-simple-icons-github />GitHub](https://github.com/elonehoo) to keep them sustainable.
