@@ -8,7 +8,7 @@ Creator of [pistachio](https://github.com/elonehoo/pistachio), [<span i-simple-i
 Core team member of [logon-tracer](https://github.com/logon-tracer) and [benewy](https://github.com/benewy) .<br>
 Team member of [Vitest](https://github.com/vitest-dev) and [INet](https://github.com/hzpt-inet-club).
 
-Dreaming up ideas and making them come true is where my passion lies. You can find my [full projects list here](/projects).
+Dreaming up ideas and making them come true is where my passion lies. You can find my [full projects list here](/projects.html).
 
 Outside of programming, I enjoy doing play game and traveling. If you happen to be in the same city I live (currently in hangzhou), maybe we can hang out or code together.
 
