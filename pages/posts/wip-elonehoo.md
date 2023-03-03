@@ -7,6 +7,8 @@ duration: 5min
 
 # Hi 👋🏼
 
+> [中文 Chinese Version](./wip-elonehoo-zh.html)
+
 I am very happy that you can read this article. This is a new plan of mine. I have opened a new [<span i-simple-icons-github /> GitHub organization](https://github.com/wip-elonehoo). I will put my wonderful ideas in it. You are very welcome to join.
 
 It's very easy to join, you can send an [<span i-cib-minutemailer /> Email](mailto:hi@elonehoo.me) or send a message to my [<span i-simple-icons-twitter /> Twitter](https://twitter.com/elonehoo), pulling you into the organization.
