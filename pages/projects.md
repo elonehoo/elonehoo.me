@@ -5,6 +5,10 @@ subtitle: List of projects that I am proud of
 description: List of projects that I am proud of
 projects:
   Upcoming:
+    - name: 'vite-plugin-open-ide'
+      link: 'https://github.com/wip-elonehoo/vite-plugin-open-ide'
+      desc: 'Jump to the local IDE source code while clicking the element of the browser automatically.'
+      icon: 'i-material-symbols:jump-to-element'
     - name: 'tailwindcss-plugin-icon'
       link: 'https://github.com/wip-elonehoo/tailwindcss-plugin-icon'
       desc: 'Use any icon (100,000+) from Iconify, for TailwindCSS'
@@ -25,19 +29,11 @@ projects:
       link: 'https://github.com/wip-elonehoo/vite-plugin-editor-page'
       desc: 'Auto navigation with your editor for Vite'
       icon: 'i-gala-editor'
-    - name: 'vite-plugin-online-vue-jumper'
-      link: 'https://vite-plugin-online-vue-jumper-playground-vue.vercel.app'
-      desc: 'This plugin creates for support jump to source code of the specific element from your web page.'
-      icon: 'i-arcticons:towerjumper'
   Latest:
     - name: 'unocss-unit-to-vw'
       link: 'https://github.com/elonehoo/unocss-unit-to-vw'
       desc: 'Convert all rem/px to vw in utils'
       icon: 'i-simple-icons:unocss'
-    - name: 'plugin-vue-open-ide'
-      link: 'https://github.com/elonehoo/plugin-vue-open-ide'
-      desc: 'jump to local IDE source code while click the element of browser automatically.'
-      icon: 'i-ic:round-open-in-new'
   Vue Utils:
     - name: 'vnode-util'
       link: 'https://github.com/elonehoo/vnode-util'
@@ -47,6 +43,15 @@ projects:
       link: 'https://github.com/elonehoo/vue-hooks-form'
       desc: 'Vue Composition API for validating form.'
       icon: 'i-carbon-data-format'
+  Nuxt:
+    - name: 'nuxt-naive-ui'
+      link: 'https://github.com/elonehoo/nuxt-naive-ui'
+      desc: 'Zero-config Nuxt Framework for Naive-ui'
+      icon: 'i-logos:naiveui'
+    - name: 'content-unocss'
+      link: 'https://github.com/elonehoo/content-unocss'
+      desc: 'A personal website theme powered by Nuxt Content, UnoCss, Iconify and Vue components.'
+      icon: 'i-simple-icons:unocss'
   Unplugin:
     - name: 'unplugin-vue-sfc-name'
       link: 'https://github.com/elonehoo/unplugin-vue-prop'
@@ -56,10 +61,6 @@ projects:
       link: 'https://github.com/elonehoo/unplugin-vue-prop'
       desc: 'Add import define props type support for Vue3 script-setup and lang is typescript.'
       icon: 'i-mingcute-file-import-fill'
-    - name: 'unplugin-auto-import-api'
-      link: 'https://github.com/elonehoo/unplugin-auto-import-api'
-      desc: 'Auto import APIs on-demand for Vite, Webpack and Rollup'
-      icon: 'i-carbon-row-insert'
   Pinia Plugin:
     - name: 'pinia-plugin-persistence'
       link: 'https://github.com/pinia-orm/pinia-plugin-persistence'
