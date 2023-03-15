@@ -1,6 +1,6 @@
 ---
 title: Vue 的开发体验
-date: 2023-03-04T10:15:00.000+08:00
+date: 2023-03-18T10:15:00.000+08:00
 type: talk
 duration: 20min
 upcoming: true
