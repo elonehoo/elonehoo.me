@@ -29,7 +29,7 @@ projects:
     - name: 'vite-plugin-open-ide'
       link: 'https://github.com/jump-ide/vite-plugin-open-ide'
       desc: 'Jump to the local IDE source code while clicking the element of the browser automatically.'
-      icon: 'i-material-symbols:jump-to-element'
+      icon: 'jump-ide'
   Vue Utils:
     - name: 'vnode-util'
       link: 'https://github.com/elonehoo/vnode-util'
