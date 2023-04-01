@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@unhead/vue':
+    specifier: ^1.1.25
+    version: 1.1.25(vue@3.2.47)
   '@unocss/nuxt':
     specifier: ^0.50.6
     version: 0.50.6(postcss@8.4.21)(vite@4.2.1)(webpack@5.77.0)
@@ -1396,20 +1399,17 @@ packages:
     dependencies:
       '@unhead/schema': 1.1.25
       '@unhead/shared': 1.1.25
-    dev: true
 
   /@unhead/schema@1.1.25:
     resolution: {integrity: sha512-ygmaxWgGTAq9CcB6zGY4+0HlGdQt/oMq+CM18tTnvOBY0Og/uPGt7roW8eH717GpTPibKRTpagSYzZYdL0tWeg==}
     dependencies:
       hookable: 5.5.2
       zhead: 2.0.4
-    dev: true
 
   /@unhead/shared@1.1.25:
     resolution: {integrity: sha512-KptKbk4py1MFYHYwDJ/0kPOs+95dYMrWIT1fCV9lGcVAwu20wIHh+WX18s+iEWhc66xkGRxgC/xsl4wJJFPE+w==}
     dependencies:
       '@unhead/schema': 1.1.25
-    dev: true
 
   /@unhead/ssr@1.1.25:
     resolution: {integrity: sha512-2S3tiajy6n3D1WY2pVkRLr74WGaHD08w0+nFaQGNy0LszPlkWUuAmYYqDCXdh03ijEl+Tjwqjn+E9w1e3QakuQ==}
@@ -1428,7 +1428,6 @@ packages:
       hookable: 5.5.2
       unhead: 1.1.25
       vue: 3.2.47
-    dev: true
 
   /@unocss/astro@0.50.6(vite@4.2.1):
     resolution: {integrity: sha512-gSGQIh+hBCor7KbAylu4wBQaMZp3AkT8dW9E6jrecpluVxzGGdar93a79Wqs76OlWiu7hr8zOyRbSDgfkwDung==}
@@ -6829,7 +6828,6 @@ packages:
       '@unhead/schema': 1.1.25
       '@unhead/shared': 1.1.25
       hookable: 5.5.2
-    dev: true
 
   /unified@10.1.2:
     resolution: {integrity: sha512-pUSWAi/RAnVy1Pif2kAoeWNBa3JVrx0MId2LASj8G+7AiHWoKZNTomq6LG326T68U7/e263X6fTdcXIy7XnF7Q==}
@@ -7569,7 +7567,6 @@ packages:
 
   /zhead@2.0.4:
     resolution: {integrity: sha512-V4R94t3ifk9AURym6OskbKcnowzgp5Z88tkoL/NF67vyryNxC62u6mx5F1Ux4oh4+YN7FFmKYEyWy6m5kfPH6g==}
-    dev: true
 
   /zip-stream@4.1.0:
     resolution: {integrity: sha512-zshzwQW7gG7hjpBlgeQP9RuyPGNxvJdzR8SUM3QhxCnLjWN2E7j3dOvpeDcQoETfHx0urRS7EtmVToql7YpU4A==}

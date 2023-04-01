@@ -28,6 +28,7 @@
     "vite-plugin-vue-markdown": "^0.22.4"
   },
   "dependencies": {
+    "@unhead/vue": "^1.1.25",
     "@unocss/nuxt": "^0.50.6",
     "dayjs": "^1.11.7",
     "nprogress": "^0.2.0",
