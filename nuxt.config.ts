@@ -27,4 +27,11 @@ export default defineNuxtConfig({
       }
     },
   },
+  vite:{
+    build:{
+      rollupOptions:{
+        external:['vue','vue-router','@unhead/vue']
+      }
+    }
+  }
 })
