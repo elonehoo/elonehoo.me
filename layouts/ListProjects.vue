@@ -22,7 +22,7 @@ const projects = useContent().navigation.value?.filter((i:any) => i._path.starts
         >
           <div v-if="item.icon" class="pt-2 pr-5">
             <IconJumpIde v-if="item.icon === 'jump-ide'" class="text-4xl opacity-50" />
-            <IconReactivityVue v-if="item.icon === 'reactivity-vue'" class="text-4xl opacity-50" />
+            <IconReactivityVue v-else-if="item.icon === 'reactivity-vue'" class="text-4xl opacity-50" />
             <Icon v-else class="text-3xl opacity-50" :name="item.icon || 'carbon:unknown'" />
           </div>
           <div class="flex-auto">

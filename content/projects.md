@@ -80,7 +80,7 @@ navigation.projects:
     - name: 'vite-plugin-record-time'
       link: 'https://github.com/elonehoo/vite-plugin-record-time'
       desc: 'Time reporting for Vite project.'
-      icon: 'material-symbols-more-time-sharp'
+      icon: 'material-symbols:more-time'
   Vue Components:
     - name: 'paragraph highlight'
       link: 'https://github.com/elonehoo/paragraph-highlight'
@@ -97,7 +97,7 @@ navigation.projects:
     - name: 'vue3-cool-lightbox'
       link: 'https://github.com/elonehoo/vue3-cool-lightbox'
       desc: 'Vue3 lightbox inspired by fancybox.'
-      icon: 'material-symbols-gif-box'
+      icon: 'material-symbols:gif-box'
   TypeScript:
     - name: 'tosi'
       link: 'https://github.com/elonehoo/tosi'
@@ -143,7 +143,7 @@ navigation.projects:
     - name: 'mathler'
       link: 'https://github.com/elonehoo/vue-mathler'
       desc: 'mathler game in Vue.js'
-      icon: 'mathler'
+      icon: 'ph:math-operations'
     - name: 'Bing Dwen Dwen'
       link: 'https://github.com/elonehoo/vue-dwen'
       desc: 'Bing Dwen Dwen in Vue.js'
