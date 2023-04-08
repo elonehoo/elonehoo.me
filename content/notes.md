@@ -11,8 +11,7 @@ navigation.description: Quick notes / tips
 
 _2023/01/22_
 
-今天我的磁盘满了:(
-超级不开心
+Today my disk is full :( Super unhappy.
 
 ```bash
 npm cache clean --force

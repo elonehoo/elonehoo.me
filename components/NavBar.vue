@@ -4,47 +4,47 @@ import { isDark } from '~/composables'
 
 <template>
   <header class="header z-40">
-    <router-link
+    <NuxtLink
       class="w-15 h-15 absolute lg:fixed m-6 select-none outline-none"
       to="/"
       focusable="false"
     >
       <img v-show="isDark" src="/logo-dark.svg" alt="logo">
       <img v-show="!isDark" src="/logo.svg" alt="logo">
-    </router-link>
+    </NuxtLink>
     <nav class="nav">
       <div class="spacer" />
       <div class="right">
-        <router-link to="/posts" title="Blog">
+        <NuxtLink to="/posts" title="Blog">
           <span class="lt-md:hidden">Blog</span>
           <div i-ri-article-line md:hidden />
-        </router-link>
-        <router-link to="/projects" title="Projects">
+        </NuxtLink>
+        <NuxtLink to="/projects" title="Projects">
           <span class="lt-md:hidden">Projects</span>
           <div i-ri-lightbulb-line class="md:hidden" />
-        </router-link>
-        <!-- <router-link to="/talks" class="lt-md:hidden" title="Talks">
+        </NuxtLink>
+        <!-- <NuxtLink to="/talks" class="lt-md:hidden" title="Talks">
           Talks
-        </router-link> -->
-        <!-- <router-link to="/podcasts" class="lt-md:hidden" title="Podcasts">
+        </NuxtLink> -->
+        <!-- <NuxtLink to="/podcasts" class="lt-md:hidden" title="Podcasts">
           Podcasts
-        </router-link>
-        <router-link to="/streams" class="lt-md:hidden" title="Streams">
+        </NuxtLink>
+        <NuxtLink to="/streams" class="lt-md:hidden" title="Streams">
           Streams
-        </router-link> -->
-        <!-- <router-link to="/demos" title="Demos">
+        </NuxtLink> -->
+        <!-- <NuxtLink to="/demos" title="Demos">
           <span class="lt-md:hidden">Demos</span>
           <div i-ri-screenshot-line class="md:hidden" />
-        </router-link> -->
-        <router-link to="/bookmarks" title="Bookmarks">
+        </NuxtLink> -->
+        <NuxtLink to="/bookmarks" title="Bookmarks">
           <div i-ri-bookmark-line />
-        </router-link>
-        <router-link to="/notes" title="Notes">
+        </NuxtLink>
+        <NuxtLink to="/notes" title="Notes">
           <div i-ri-sticky-note-line />
-        </router-link>
-        <!-- <router-link to="/sponsors-list" title="Sponsors">
+        </NuxtLink>
+        <!-- <NuxtLink to="/sponsors-list" title="Sponsors">
           <div i-ri-heart-line />
-        </router-link> -->
+        </NuxtLink> -->
         <a href="https://twitter.com/elonehoo" target="_blank" title="Twitter" class="lt-md:hidden">
           <div i-feather-twitter />
         </a>
