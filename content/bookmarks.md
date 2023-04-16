@@ -13,8 +13,6 @@ navigation.subtitle: Some of my favorite websites/tools with excellent design an
 - [Scale](https://hihayk.github.io/scale/)
 - [Wheel](https://hihayk.github.io/wheel/)
 - [Adobe Color](https://color.adobe.com/)
-- [NIPPON COLORS - 日本の伝統色](https://nipponcolors.com/)
-- [terminal.sexy](https://terminal.sexy/)
 
 #### UI/UX
 
@@ -24,11 +22,9 @@ navigation.subtitle: Some of my favorite websites/tools with excellent design an
 ### Content
 
 - [Hemingway](http://www.hemingwayapp.com/) - Text Editor
-- [Reactive Resume](https://rxresu.me/)
 
 ### Dev
 
-- [Rico's cheatsheets](https://devhints.io/)
 - [Perflink](https://perf.link/) - JS Benchmarks
 - [Regex 101](https://regex101.com/)
 - [RegExper](https://regexper.com/) - Regex Visualizer
@@ -41,6 +37,7 @@ navigation.subtitle: Some of my favorite websites/tools with excellent design an
 - [CSS Vocabulary](http://apps.workflower.fi/vocabs/css/en)
 - [1-Line Layouts](http://1linelayouts.glitch.me/)
 - [Easing functions](https://easings.net/)
+- [unocss](https://unocss.dev/)
 
 ### Resources
 
@@ -52,10 +49,14 @@ navigation.subtitle: Some of my favorite websites/tools with excellent design an
 - [npm name check](https://remarkablemark.org/npm-package-name-checker/)
 - [translate to multiple languages](https://smodin.me/translate-one-text-into-multiple-languages)
 
-### Computer Graphic
-
-- [The Polygon Shredder](https://www.clicktorelease.com/code/polygon-shredder/)
-
 ### Diagram
 
 - [Isoflow](https://isoflow.io/)
+
+### Hosting Platform
+
+- [vercel](https://vercel.com)
+
+### Domain
+
+- [Dynadot](https://www.dynadot.com/)
