@@ -7,6 +7,16 @@ navigation.description: Quick notes / tips
 
 <article>
 
+## My 21-year-old confusion.
+
+_2023/04/28_
+
+I often wonder how I developed the ability to handle immense pressure and work tirelessly for six months without any complaints. It's as if I am like a resilient batch of chives.
+
+</article>
+
+<article>
+
 ## Shortcuts for npm batch installation packages
 
 _2023/04/16_
