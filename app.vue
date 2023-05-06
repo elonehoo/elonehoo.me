@@ -389,7 +389,7 @@ h6:focus .header-anchor {
   content: "`";
 }
 .prose a code {
-  color: #111827;
+  color: #555555;
 }
 .prose pre {
   color: #e5e7eb;
