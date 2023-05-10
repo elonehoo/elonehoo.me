@@ -42,7 +42,7 @@ navigation.subtitle: Some of my favorite websites/tools with excellent design an
 ### Resources
 
 - [World Vector Logo](https://worldvectorlogo.com/)
-- [Icônes](http://icones.js.org/)
+- [Nuxt-Icônes](https://nuxt-icones.vercel.app/)
 
 ### Naming
 
