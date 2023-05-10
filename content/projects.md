@@ -27,8 +27,8 @@ navigation.projects:
       link: 'https://www.npmjs.com/package/vitest-plugin-github-actions'
       desc: 'GitHub actions error and coverage reporter for vitest.'
       icon: 'logos:vitest'
-    - name: 'vite-plugin-open-ide'
-      link: 'https://github.com/jump-ide/vite-plugin-open-ide'
+    - name: 'vite-inspector'
+      link: 'https://github.com/vite-inspector/vite-inspector'
       desc: 'Jump to the local IDE source code while clicking the element of the browser automatically.'
       icon: 'jump-ide'
   Vue Utils:
