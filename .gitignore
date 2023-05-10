@@ -11,3 +11,4 @@ temp
 sponsors.*
 .nuxt
 .output
+.server-controller-port.log

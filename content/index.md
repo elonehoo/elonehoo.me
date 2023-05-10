@@ -5,8 +5,8 @@ navigation.title: Elone Hoo
 
 Hello, I am Elone Hoo, a fanatical open sourceror. Working at [benewy](https://github.com/benewy).
 
-Creator of [vite-plugin-open-ide](https://github.com/jump-ide/vite-plugin-open-ide), [unplugin-unocss-transform](https://github.com/conver-unocss/unocss-plugin-transform), [unplugin-vue-prop](https://github.com/elonehoo/unplugin-vue-prop), [nuxt-naive-ui](https://github.com/elonehoo/nuxt-naive-ui) and [others](/projects).<br>
-Core team member of [logon-tracer](https://github.com/logon-tracer), [Jump IDE](https://github.com/jump-ide) and [vue-hooks-form](https://github.com/vue-hooks-form) .<br>
+Creator of [vite-inspector](https://github.com/vite-inspector/vite-inspector), [animated-unocss](https://github.com/conver-unocss/animated-unocss), [unplugin-vue-prop](https://github.com/elonehoo/unplugin-vue-prop), [nuxt-naive-ui](https://github.com/elonehoo/nuxt-naive-ui) and [others](/projects).<br>
+Core team member of [logon-tracer](https://github.com/logon-tracer), [Vite Inspector](https://github.com/vite-inspector) and [vue-hooks-form](https://github.com/vue-hooks-form) .<br>
 Team member of [:icon{name="logos:vitest" size="1.2em"}Vitest](https://github.com/vitest-dev) and [INet](https://github.com/hzpt-inet-club).
 
 Dreaming up ideas and making them come true is where my passion lies. You can find my [full projects list here](/projects).
