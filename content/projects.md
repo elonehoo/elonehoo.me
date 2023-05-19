@@ -6,9 +6,9 @@ navigation.subtitle: List of projects that I am proud of
 navigation.description: List of projects that I am proud of
 navigation.projects:
   Upcoming:
-    - name: 'hindicss'
-      link: 'https://github.com/wip-elonehoo/hindicss'
-      desc: 'An unscientific CSS engine. Only scoped.'
+    - name: 'samuui'
+      link: 'https://github.com/wip-elonehoo/samuui'
+      desc: 'UnoCss component library.'
       icon: 'eos-icons:science-outlined'
     - name: 'unocss-plugin-transform'
       link: 'https://github.com/wip-elonehoo/unocss-plugin-transform'
@@ -18,10 +18,6 @@ navigation.projects:
       link: 'https://www.npmjs.com/package/tailwindcss-plugin-icon'
       desc: 'Use any icon (100,000+) from Iconify, for TailwindCSS'
       icon: 'simple-icons:tailwindcss'
-    - name: 'reactivity-vue'
-      link: 'https://github.com/wip-elonehoo/reactivity-vue'
-      desc: 'Reactivity utils set for @vue/reactivity'
-      icon: 'reactivity-vue'
   Latest:
     - name: 'vitest-plugin-github-actions'
       link: 'https://www.npmjs.com/package/vitest-plugin-github-actions'
