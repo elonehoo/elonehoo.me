@@ -2,7 +2,7 @@
 navigation.title: 为什么我不使用 MultiRepo
 navigation.date: 2023-06-09T13:37:00.000+00:00
 navigation.lang: zh
-navigation.duration: 12min
+navigation.duration: 20min
 layout: 'default'
 ---
 
