@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import defaultVue from './default.vue'
-const projects = useContent().navigation.value?.filter((i:any) => i._path.startsWith('/projects'))[0].projects
+
+const projects = useContent().navigation.value?.filter((i: any) => i._path.startsWith('/projects'))[0].projects
 
 useHead({
   meta: [
@@ -11,12 +12,12 @@ useHead({
     { name: 'twitter:creator', content: '@elonehoo' },
   ],
   link: [
-      {
-        rel: 'icon',
-        type: 'image/svg+xml',
-        href: '/logo-dark.svg'
-      }
-    ]
+    {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      href: '/logo-dark.svg',
+    },
+  ],
 })
 </script>
 

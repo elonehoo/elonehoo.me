@@ -1,14 +1,26 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
 node_modules
-.DS_Store
+coverage
 dist
-*.local
-.presite
 dist-ssr
-.vite-ssg-temp
-components.d.ts
-auto-imports.d.ts
-temp
-sponsors.*
+*.local
+.temp
+# Editor directories and files
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+cache
 .nuxt
 .output
-.server-controller-port.log

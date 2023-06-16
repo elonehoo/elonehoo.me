@@ -6,11 +6,9 @@ navigation.duration: 25min
 layout: 'default'
 ---
 
-[[toc]]
-
 > 本文会比往期文章相对长些。如果你能花些时间读完，不胜感激。若你在电脑端阅读，可在右侧查看目录。最后，希望能对你有所帮助 :)
 
-## 什么是 `Hook` 
+## 什么是 `Hook`
 
 在 [2018年的 React Conf](https://zh-hans.reactjs.org/blog/2018/11/13/react-conf-recap.html) 上我们第一次看见了 Hook 的出现。
 
@@ -72,15 +70,15 @@ export default class DogImagesContainer extends React.Component {
 ```ts
 // useDogImages.ts
 export default function useDogImages() {
-  const [dogs, setDogs] = useState([]);
+  const [dogs, setDogs] = useState([])
 
   useEffect(() => {
-    fetch("https://dog.ceo/api/breed/labrador/images/random/6")
+    fetch('https://dog.ceo/api/breed/labrador/images/random/6')
       .then(res => res.json())
-      .then(({ message }) => setDogs(message));
-  }, []);
+      .then(({ message }) => setDogs(message))
+  }, [])
 
-  return dogs;
+  return dogs
 }
 ```
 
