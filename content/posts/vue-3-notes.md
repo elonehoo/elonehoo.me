@@ -31,10 +31,10 @@ this.codemirror = markRaw(CodeMirror.fromTextArea(el))
 
 ```vue
 <!-- Vue 2 -->
-<Component name.sync="name"/>
+<Component name.sync="name" />
 
 <!-- Vue 3 -->
-<Component v-model:name="name"/>
+<Component v-model:name="name" />
 ```
 
 `v-model` 在本机元素上将 `value/input` 在自定义组件上更改为 `modelValue` 和 `update:modelValue`
@@ -47,8 +47,9 @@ this.codemirror = markRaw(CodeMirror.fromTextArea(el))
 
 ```ts
 declare module '*.vue' {
-  import { defineComponent } from 'vue';
-  const Component: ReturnType<typeof defineComponent>;
-  export default Component;
+  import { defineComponent } from 'vue'
+
+  const Component: ReturnType<typeof defineComponent>
+  export default Component
 }
 ```

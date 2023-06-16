@@ -9,7 +9,7 @@ const { data } = await useAsyncData(`content-${route.path}`, () => {
   return queryContent().where({ _path: route.path }).findOne()
 })
 
-onMounted(()=>{
+onMounted(() => {
   useHead({
     meta: [
       { property: 'og:title', content: 'Elone Hoo' },
@@ -19,12 +19,12 @@ onMounted(()=>{
       { name: 'twitter:creator', content: '@elonehoo' },
     ],
     link: [
-        {
-          rel: 'icon',
-          type: 'image/svg+xml',
-          href: '/logo-dark.svg'
-        }
-      ]
+      {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/logo-dark.svg',
+      },
+    ],
   })
 })
 
@@ -84,8 +84,8 @@ onMounted(() => {
       {{ data?.navigation.subtitle }}
     </p>
   </div>
-  <article class="prose m-auto" ref="content">
-    <slot/>
+  <article ref="content" class="prose m-auto">
+    <slot />
   </article>
   <div v-if="route.path !== '/'" class="prose m-auto mt-8 mb-8">
     <br>

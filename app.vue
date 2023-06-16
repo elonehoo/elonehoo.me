@@ -8,16 +8,17 @@ useHead({
     { name: 'twitter:creator', content: '@elonehoo' },
   ],
   link: [
-      {
-        rel: 'icon',
-        type: 'image/svg+xml',
-        href: '/logo-dark.svg'
-      }
-    ]
+    {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      href: '/logo-dark.svg',
+    },
+  ],
 })
 </script>
+
 <template>
-  <AppLayout >
+  <AppLayout>
     <NuxtPage />
   </AppLayout>
 </template>

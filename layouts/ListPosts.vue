@@ -13,20 +13,20 @@ useHead({
     { name: 'twitter:creator', content: '@elonehoo' },
   ],
   link: [
-      {
-        rel: 'icon',
-        type: 'image/svg+xml',
-        href: '/logo-dark.svg'
-      }
-    ]
+    {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      href: '/logo-dark.svg',
+    },
+  ],
 })
 
-const routers = navigation.value?.
-  filter(i => i._path.startsWith('/posts'))[0].
-  children?.
-  sort((a,b)=> +new Date(b.date) - +new Date(a.date) ).
-  filter(i => !i._path.endsWith('.html')).
-  map(i => ({
+const routers = navigation.value
+  ?.filter(i => i._path.startsWith('/posts'))[0]
+  .children
+  ?.sort((a, b) => +new Date(b.date) - +new Date(a.date))
+  .filter(i => !i._path.endsWith('.html'))
+  .map(i => ({
     path: i._path,
     title: i.title,
     date: i.date,
@@ -49,7 +49,7 @@ const isSameYear = (a: Date | string | number, b: Date | string | number) => a &
           { nothing here yet }
         </div>
       </template>
-      
+
       <template v-for="route, idx in routers" :key="route.path">
         <div v-if="!isSameYear(route.date, routers![idx - 1]?.date)" relative h20 pointer-events-none>
           <span text-8em op10 absolute left--3rem top--2rem font-bold>{{ getYear(route.date) }}</span>

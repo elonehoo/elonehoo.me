@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxt/devtools',
     '@nuxt/content',
-    'nuxt-icon'
+    'nuxt-icon',
   ],
   css: [
     '@unocss/reset/tailwind.css',
@@ -15,11 +15,11 @@ export default defineNuxtConfig({
   },
   content: {
     documentDriven: true,
-    highlight:{
-      theme:{
-        default:'vitesse-light',
-        dark: 'vitesse-dark'
-      }
+    highlight: {
+      theme: {
+        default: 'vitesse-light',
+        dark: 'vitesse-dark',
+      },
     },
   },
 })
