@@ -11,6 +11,9 @@ dependencies:
   '@unocss/nuxt':
     specifier: ^0.53.1
     version: 0.53.1(postcss@8.4.24)(vite@4.3.9)(webpack@5.87.0)
+  '@vue/runtime-dom':
+    specifier: ^3.3.4
+    version: 3.3.4
   dayjs:
     specifier: ^1.11.8
     version: 1.11.8
