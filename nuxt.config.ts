@@ -31,10 +31,8 @@ export default defineNuxtConfig({
     },
   },
   vite:{
-    build:{
-      rollupOptions:{
-        external: ['vue', 'vue-router','@vue/runtime-core'],
-      }
+    optimizeDeps: {
+      include: ['@vue/reactivity', '@vue/runtime-core', '@vue/shared','vue-router','slugify']
     }
   }
 })
