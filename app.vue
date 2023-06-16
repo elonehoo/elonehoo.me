@@ -28,25 +28,20 @@ useHead({
   --c-scrollbar: #eee;
   --c-scrollbar-hover: #bbb;
 }
-
 html {
   background-color: var(--c-bg);
 }
-
 html.dark {
   --c-bg: #050505;
   --c-scrollbar: #111;
   --c-scrollbar-hover: #222;
 }
-
 html {
   overflow: scroll;
 }
-
 #nprogress {
   pointer-events: none;
 }
-
 #nprogress .bar {
   background: #395;
   opacity: 0.75;
@@ -57,11 +52,9 @@ html {
   width: 100%;
   height: 2px;
 }
-
 * {
   scrollbar-color: var(--c-scrollbar) var(--c-bg);
 }
-
 .sponsorkit-avatar {
   cursor: pointer;
 }
@@ -75,7 +68,6 @@ html {
   font-size: 15px;
   transform: translateY(8px);
 }
-
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -93,67 +85,54 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--c-scrollbar-hover);
 }
-
 h2 + p > em:first-child {
   opacity: 0.5;
   display: block;
   margin-top: -20px;
   font-size: 0.9em;
 }
-
 .dark [img-light] {
   display: none;
 }
-
 html:not(.dark) [img-dark] {
   display: none;
 }
-
 .prose {
   --fg: #555;
   --fg-deep: #222;
   --fg-deeper: #000;
-
   color: var(--fg);
 }
-
 .prose a {
   font-weight: inherit;
   text-decoration: none;
   border-bottom: 1px solid rgba(125, 125, 125, 0.3);
   transition: border 0.3s ease-in-out;
 }
-
 .prose a:hover {
   border-bottom: 1px solid var(--fg);
 }
-
 .prose a code {
   color: inherit;
 }
-
 .prose hr {
   width: 50px;
   margin: 2em auto;
 }
-
 html.dark .prose {
   --fg: #bbb;
   --fg-deep: #ddd;
   --fg-deeper: #fff;
 }
-
 a.item {
   transition: 0.2s all ease-out;
   text-decoration: none;
   border-bottom: none !important;
   opacity: 0.6;
 }
-
 a.item:hover {
   opacity: 1;
 }
-
 a.header-anchor {
   float: left;
   margin-top: 0.125em;
@@ -164,12 +143,10 @@ a.header-anchor {
   text-decoration: none;
   border: 0 !important;
 }
-
 a.header-anchor:hover,
 a.header-anchor:focus {
   text-decoration: none;
 }
-
 h1:hover .header-anchor,
 h1:focus .header-anchor,
 h2:hover .header-anchor,
@@ -184,7 +161,6 @@ h6:hover .header-anchor,
 h6:focus .header-anchor {
   opacity: 0.5;
 }
-
 .prose blockquote {
   font-weight: normal;
   font-style: normal;
@@ -192,29 +168,23 @@ h6:focus .header-anchor {
   padding: 0.6em 1.2em;
   opacity: 0.8;
 }
-
 .prose blockquote > :first-child {
   margin-top: 0;
 }
-
 .prose blockquote > :last-child {
   margin-bottom: 0;
 }
-
 .prose blockquote p:first-of-type::before {
   content: none;
 }
-
 .prose blockquote p:first-of-type::after {
   content: none;
 }
-
 @media (max-width: 1200px) {
   .table-of-contents {
     display: none;
   }
 }
-
 .table-of-contents {
   position: fixed;
   top: 80px;
@@ -229,19 +199,15 @@ h6:focus .header-anchor {
   opacity: 0;
   transition: all .4s ease-out;
 }
-
 .table-of-contents:hover {
   opacity: 0.5;
 }
-
 .table-of-contents ul > li::before {
   display: none;
 }
-
 .table-of-contents ul > li {
   padding-left: 0.8rem;
 }
-
 .prose {
   color: var(--fg);
   max-width: 65ch;
@@ -255,7 +221,6 @@ h6:focus .header-anchor {
   margin-top: 1.2em;
   margin-bottom: 1.2em;
 }
-
 .prose a {
   color: var(--fg-deeper);
   text-decoration: none;
@@ -733,37 +698,30 @@ h6:focus .header-anchor {
 .prose-sm > :last-child {
   margin-bottom: 0;
 }
-
 .prose pre:not(.shiki) {
   padding: 0;
   margin: 0;
   background: transparent;
 }
-
 .prose .shiki {
   font-family: 'DM Mono', 'Input Mono', 'Fira Code', monospace;
   font-size: 1.05em;
   line-height: 1.4;
   margin: 0.5em 0;
 }
-
 .prose img {
   width: 100%;
 }
-
 .shiki-light {
   background: #f8f8f8 !important;
 }
 .shiki-dark {
   background: #0e0e0e !important;
 }
-
 html.dark .shiki-light {
   display: none;
 }
-
 html:not(.dark) .shiki-dark {
   display: none;
 }
-
 </style>
