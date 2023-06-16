@@ -4,6 +4,23 @@ import { formatDate } from '~/composables'
 
 const { data: navigation } = await useAsyncData('navigation', () => fetchContentNavigation())
 
+useHead({
+  meta: [
+    { property: 'og:title', content: 'Elone Hoo' },
+    { property: 'og:image', content: '/og.png' },
+    { name: 'description', content: 'Elone Hoo\'s Blog' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:creator', content: '@elonehoo' },
+  ],
+  link: [
+      {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/logo-dark.svg'
+      }
+    ]
+})
+
 const routers = navigation.value?.
   filter(i => i._path.startsWith('/posts'))[0].
   children?.

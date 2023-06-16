@@ -2,6 +2,22 @@
 import defaultVue from './default.vue'
 const projects = useContent().navigation.value?.filter((i:any) => i._path.startsWith('/projects'))[0].projects
 
+useHead({
+  meta: [
+    { property: 'og:title', content: 'Elone Hoo' },
+    { property: 'og:image', content: '/og.png' },
+    { name: 'description', content: 'Elone Hoo\'s Projects' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:creator', content: '@elonehoo' },
+  ],
+  link: [
+      {
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/logo-dark.svg'
+      }
+    ]
+})
 </script>
 
 <template>

@@ -2,9 +2,9 @@
 useHead({
   meta: [
     { property: 'og:title', content: 'Elone Hoo' },
-    { property: 'og:image', content: 'https://elonehoo.me/og-icon.png' },
+    { property: 'og:image', content: '/og.png' },
     { name: 'description', content: 'Elone Hoo\'s Portfolio' },
-    { name: 'twitter:card', content: 'summary' },
+    { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:creator', content: '@elonehoo' },
   ],
   link: [

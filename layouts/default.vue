@@ -9,6 +9,25 @@ const { data } = await useAsyncData(`content-${route.path}`, () => {
   return queryContent().where({ _path: route.path }).findOne()
 })
 
+onMounted(()=>{
+  useHead({
+    meta: [
+      { property: 'og:title', content: 'Elone Hoo' },
+      { property: 'og:image', content: data.value?.navigation.image === undefined ? '/og.png' : data.value?.navigation.image },
+      { name: 'description', content: data.value?.navigation.title === undefined ? 'Elone Hoo\'s Portfolio' : data.value?.navigation.title },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:creator', content: '@elonehoo' },
+    ],
+    link: [
+        {
+          rel: 'icon',
+          type: 'image/svg+xml',
+          href: '/logo-dark.svg'
+        }
+      ]
+  })
+})
+
 onMounted(() => {
   const navigate = () => {
     if (location.hash) {
