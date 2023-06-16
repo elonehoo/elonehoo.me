@@ -1,7 +1,5 @@
 {
-  "version": "0.0.3",
   "private": "true",
-  "description": "Starter template for Nuxt",
   "author": "Elone Hoo <hi@elonehoo.me>",
   "license": "MIT",
   "scripts": {
@@ -11,8 +9,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "postinstall": "nuxi prepare",
-    "generate": "nuxi generate",
-    "release": "bumpp package.json --commit --push --tag"
+    "generate": "nuxi generate"
   },
   "dependencies": {
     "@iconify/json": "^2.2.79",
