@@ -20,6 +20,9 @@ dependencies:
   unocss:
     specifier: ^0.53.1
     version: 0.53.1(@unocss/webpack@0.53.1)(postcss@8.4.24)(vite@4.3.9)
+  vue:
+    specifier: ^3.3.4
+    version: 3.3.4
 
 devDependencies:
   '@iconify/json':
