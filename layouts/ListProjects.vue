@@ -7,9 +7,13 @@ useHead({
   meta: [
     { property: 'og:title', content: 'Elone Hoo' },
     { property: 'og:image', content: '/og.png' },
-    { name: 'description', content: 'Elone Hoo\'s Projects' },
+    { property: 'og:description', content: 'Elone Hoo\'s Project' },
+    { name: 'description', content: 'Elone Hoo\'s Project' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:creator', content: '@elonehoo' },
+    { name: 'twitter:title', content: 'Project' },
+    { name: 'twitter:description', content: 'Elone Hoo\'s Project' },
+    { name: 'twitter:image', content: '/og.png' }
   ],
   link: [
     {

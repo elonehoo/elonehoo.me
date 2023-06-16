@@ -12,11 +12,15 @@ const { data } = await useAsyncData(`content-${route.path}`, () => {
 onMounted(() => {
   useHead({
     meta: [
-      { property: 'og:title', content: 'Elone Hoo' },
+      { property: 'og:title', content: data.value?.navigation.title },
       { property: 'og:image', content: data.value?.navigation.image === undefined ? '/og.png' : data.value?.navigation.image },
+      { property: 'og:description', content: data.value?.navigation.title === undefined ? 'Elone Hoo\'s Portfolio' : data.value?.navigation.title },
       { name: 'description', content: data.value?.navigation.title === undefined ? 'Elone Hoo\'s Portfolio' : data.value?.navigation.title },
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:creator', content: '@elonehoo' },
+      { name: 'twitter:title', content: data.value?.navigation.title },
+      { name: 'twitter:description', content: data.value?.navigation.title === undefined ? 'Elone Hoo\'s Portfolio' : data.value?.navigation.title },
+      { name: 'twitter:image', content: data.value?.navigation.image === undefined ? '/og.png' : data.value?.navigation.image }
     ],
     link: [
       {
