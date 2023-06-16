@@ -23,7 +23,7 @@
     "markdown-it-link-attributes": "^4.0.1",
     "markdown-it-shiki": "^0.9.0",
     "markdown-it-table-of-contents": "^0.6.0",
-    "nuxt": "^3.5.3",
+    "nuxt": "^3.4.3",
     "nuxt-icon": "^0.4.1",
     "vite-plugin-vue-markdown": "^0.23.5"
   },
