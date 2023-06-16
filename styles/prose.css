@@ -143,9 +143,7 @@
 .prose code::after {
   content: "`";
 }
-.prose a code {
-  color: #111827;
-}
+
 .prose pre {
   color: #e5e7eb;
   overflow-x: auto;
