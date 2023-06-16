@@ -10,7 +10,10 @@ export default defineNuxtConfig({
     'nuxt-icon'
   ],
   css: [
-    '@unocss/reset/tailwind.css'
+    '@unocss/reset/tailwind.css',
+    '~/style/main.css',
+    '~/style/markdown.css',
+    '~/style/prose.css',
   ],
   colorMode: {
     classSuffix: '',
