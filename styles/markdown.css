@@ -1,7 +1,13 @@
+.dark .prose pre:not(.shiki) {
+  background: #0e0e0e!important;
+  padding: .8571429em 1.1428571em;
+  margin: .5em 0;
+}
+
 .prose pre:not(.shiki) {
-  padding: 0;
-  margin: 0;
-  background: transparent;
+  background: #f8f8f8!important;
+  padding: .8571429em 1.1428571em;
+  margin: .5em 0;
 }
 
 .prose .shiki {
