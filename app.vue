@@ -3,9 +3,13 @@ useHead({
   meta: [
     { property: 'og:title', content: 'Elone Hoo' },
     { property: 'og:image', content: '/og.png' },
+    { property: 'og:description', content: 'Elone Hoo\'s Portfolio' },
     { name: 'description', content: 'Elone Hoo\'s Portfolio' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:creator', content: '@elonehoo' },
+    { name: 'twitter:title', content: 'Elone Hoo' },
+    { name: 'twitter:description', content: 'Elone Hoo\'s Portfolio' },
+    { name: 'twitter:image', content: '/og.png' }
   ],
   link: [
     {
