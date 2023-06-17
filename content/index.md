@@ -1,6 +1,7 @@
 ---
 title: Elone Hoo
 navigation.title: Elone Hoo
+navigation.date: 2022-01-01T01:00:00.000+08:00
 ---
 
 > 我想要一份新工作，这是我的[简历](https://resume.elonehoo.me)。如果你有合适的工作机会，可以[联系我](mailto:hi@elonehoo.me)。

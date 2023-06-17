@@ -27,6 +27,7 @@
     "dayjs": "^1.11.8",
     "eslint": "^8.42.0",
     "nuxt-icon": "^0.4.1",
+    "nuxt-rss": "^0.0.3",
     "typescript": "^5.1.3"
   }
 }

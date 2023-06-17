@@ -3,6 +3,7 @@ title: Projects - Elone Hoo
 navigation.display: Projects
 layout: 'list-projects'
 navigation.subtitle: List of projects that I am proud of
+navigation.date: 2022-01-01T01:00:00.000+08:00
 navigation.description: List of projects that I am proud of
 navigation.projects:
   Upcoming:
@@ -36,7 +37,7 @@ navigation.projects:
       link: 'https://github.com/elonehoo/vue-hooks-form'
       desc: 'Vue Composition API for validating form.'
       icon: 'carbon-data-format'
-  UnoCss:    
+  UnoCss:
     - name: 'unocss-unit-to-vw'
       link: 'https://github.com/elonehoo/unocss-unit-to-vw'
       desc: 'Convert all rem/px to vw in utils'
@@ -44,7 +45,7 @@ navigation.projects:
     - name: 'content-unocss'
       link: 'https://github.com/elonehoo/content-unocss'
       desc: 'A personal website theme powered by Nuxt Content, UnoCss, Iconify and Vue components.'
-      icon: 'simple-icons:unocss'  
+      icon: 'simple-icons:unocss'
   Nuxt:
     - name: 'nuxt-naive-ui'
       link: 'https://github.com/elonehoo/nuxt-naive-ui'
@@ -123,7 +124,7 @@ navigation.projects:
       link: 'https://github.com/elonehoo/keyboard'
       desc: 'used to capture keyboard input.'
       icon: 'carbon-keyboard'
-  Game: 
+  Game:
     - name: 'jumper'
       link: 'https://github.com/elonehoo/vue-junmper'
       desc: '3D racing game in Vue.js'
@@ -172,7 +173,7 @@ navigation.projects:
       link: 'https://github.com/elonehoo/three-car'
       desc: '3D car game in three.js'
       icon: 'ic:outline-directions-car'
-  Starter Templates: 
+  Starter Templates:
     - name: 'static'
       link: 'https://github.com/elonehoo/static'
       desc: 'Host for static files'
@@ -229,7 +230,7 @@ navigation.projects:
       link: 'https://github.com/elonehoo/eslint-config'
       desc: 'Elone Hoo is ESLint config presets'
       icon: 'mdi:eslint'
-  Cli: 
+  Cli:
     - name: 'tetris Cli'
       link: 'https://github.com/elonehoo/tetris-cli'
       desc: 'node cli tetris'

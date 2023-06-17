@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     '@nuxt/devtools',
     '@nuxt/content',
     'nuxt-icon',
+    'nuxt-rss'
   ],
   css: [
     '@unocss/reset/tailwind.css',
@@ -25,4 +26,13 @@ export default defineNuxtConfig({
       },
     },
   },
+  feed: {
+    sources: [
+      {
+        path: '/rss.xml',
+        type: 'rss2',
+        cacheTime: 60 * 15,
+      },
+    ],
+},
 })

@@ -1,6 +1,7 @@
 ---
 title: Bookmarks - Elone Hoo
 navigation.display: Bookmarks
+navigation.date: 2022-01-01T01:00:00.000+08:00
 navigation.subtitle: Some of my favorite websites/tools with excellent design and UX that I highly recommend
 ---
 
