@@ -8,6 +8,15 @@ navigation.date: 2022-01-01T01:00:00.000+08:00
 
 <article>
 
+## *To Kill a Mockingbird*
+
+_2023/06/19_
+
+I don't know, but they did it. They've done it before and they did it tonight and they'll do it again and when they do it--seems that only children weep. Good night.
+</article>
+
+<article>
+
 ## My 21-year-old confusion.
 
 _2023/04/28_
