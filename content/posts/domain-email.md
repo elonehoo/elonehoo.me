@@ -24,4 +24,4 @@ That’s it! It also provides some advanced configs, you can check [the doc here
 
 While setting up and reading the docs, I learned that you can explicitly purge the cache for [Cloudflare DNS](https://1.1.1.1/purge-cache/) and [Google DNS](https://developers.google.com/speed/public-dns/cache). That's a very good-to-know tip!
 
-And now, you can say hi to me at [hi@antfu.me](mailto:hi@elonehoo.me)!
+And now, you can say hi to me at [hi@elonehoo.me](mailto:hi@elonehoo.me)!
