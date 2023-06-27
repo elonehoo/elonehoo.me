@@ -4,10 +4,6 @@ navigation.title: Elone Hoo
 navigation.date: 2022-01-01T01:00:00.000+08:00
 ---
 
-> 我想要一份新工作，这是我的[简历](https://resume.elonehoo.me)。如果你有合适的工作机会，可以[联系我](mailto:hi@elonehoo.me)。
-
-> I want a new job, here is my [resume](https://resume.elonehoo.me). If you have any suitable job opportunities, please [contact me](mailto:hi@elonehoo.me).
-
 Hello, I am Elone Hoo, a fanatical open sourceror. Working at [benewy](https://github.com/benewy).
 
 Creator of [vite-inspector](https://github.com/vite-inspector/vite-inspector), [animated-unocss](https://github.com/conver-unocss/animated-unocss), [unplugin-vue-prop](https://github.com/elonehoo/unplugin-vue-prop), [nuxt-naive-ui](https://github.com/elonehoo/nuxt-naive-ui) and [others](/projects).<br>
