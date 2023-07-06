@@ -8,6 +8,15 @@ navigation.date: 2022-01-01T01:00:00.000+08:00
 
 <article>
 
+## *My Depression*
+
+_2023/07/06_
+
+We're all just suicidal kids telling other suicidal kids suicide ain't the answer.
+</article>
+
+<article>
+
 ## *To Kill a Mockingbird*
 
 _2023/06/19_
