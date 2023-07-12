@@ -8,6 +8,16 @@ navigation.date: 2022-01-01T01:00:00.000+08:00
 
 <article>
 
+## *Say No*
+
+_2023/07/12_
+
+Ability is a good thing, especially when you are wronged, you have the right to **say no**.
+
+</article>
+
+<article>
+
 ## *My Depression*
 
 _2023/07/06_
