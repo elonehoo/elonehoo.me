@@ -24,10 +24,6 @@ navigation.projects:
       link: 'https://github.com/elonehoo/unplugin-deploy-info'
       desc: 'Print some help info like vite builtin'
       icon: 'carbon-printer'
-    - name: 'unplugin-auto-env'
-      link: 'https://github.com/elonehoo/unplugin-auto-env'
-      desc: 'Automatically generate env type'
-      icon: 'carbon-workflow-automation'
   Vue Utils:
     - name: 'vnode-util'
       link: 'https://github.com/elonehoo/vnode-util'
