@@ -17,6 +17,6 @@ Outside of programming, I enjoy doing play game and traveling. If you happen to 
 ***
 
 Find me on [:icon{name="mdi:github" size="1.2em"}GitHub](https://github.com/elonehoo), [:icon{name="mdi:twitter" size="1.2em"}Twitter](https://www.twitter.com/elonehoo).<br>
-Mail me at [:icon{name="mdi:email" size="1.2em"}hi@elonehoo.me](mailto:hi@elonehoo.me).<br>
+Mail me at [:icon{name="mdi:email" size="1.2em"}elonehoo@gmail.com](mailto:elonehoo@gmail.com).<br>
 
 If you like my works, consider follow me on [:icon{name="mdi:github" size="1.2em"}GitHub](https://github.com/elonehoo) to keep them sustainable.
