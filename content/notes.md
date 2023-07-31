@@ -8,6 +8,16 @@ navigation.date: 2022-01-01T01:00:00.000+08:00
 
 <article>
 
+## *Live*
+
+_2023/07/31_
+
+Guise i’m still alive ok.
+
+</article>
+
+<article>
+
 ## *Say No*
 
 _2023/07/12_

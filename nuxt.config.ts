@@ -8,15 +8,18 @@ export default defineNuxtConfig({
     'nuxt-icon',
     'nuxt-rss'
   ],
+
   css: [
     '@unocss/reset/tailwind.css',
     '~/styles/main.css',
     '~/styles/markdown.css',
     '~/styles/prose.css',
   ],
+
   colorMode: {
     classSuffix: '',
   },
+
   content: {
     documentDriven: true,
     highlight: {
@@ -26,6 +29,7 @@ export default defineNuxtConfig({
       },
     },
   },
+
   feed: {
     sources: [
       {
