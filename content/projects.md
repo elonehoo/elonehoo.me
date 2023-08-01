@@ -7,10 +7,6 @@ navigation.date: 2022-01-01T01:00:00.000+08:00
 navigation.description: List of projects that I am proud of
 navigation.projects:
   Upcoming:
-    - name: 'samuui'
-      link: 'https://github.com/wip-elonehoo/samuui'
-      desc: 'UnoCss component library.'
-      icon: 'eos-icons:science-outlined'
     - name: 'vue-mailer'
       link: 'https://github.com/wip-elonehoo/vue-mailer'
       desc: 'Build and send emails using Vue'
@@ -20,10 +16,10 @@ navigation.projects:
       desc: 'Nuxt RSS module'
       icon: 'carbon-rss'
   Latest:
-    - name: 'unplugin-deploy-info'
-      link: 'https://github.com/elonehoo/unplugin-deploy-info'
-      desc: 'Print some help info like vite builtin'
-      icon: 'carbon-printer'
+    - name: '@elonehoo/ui'
+      link: 'https://github.com/elonehoo/ui'
+      desc: 'UnoCss component library.'
+      icon: 'eos-icons:science-outlined'
   Vue Utils:
     - name: 'vnode-util'
       link: 'https://github.com/elonehoo/vnode-util'
@@ -60,6 +56,10 @@ navigation.projects:
       link: 'https://github.com/elonehoo/unplugin-vue-prop'
       desc: 'Add import define props type support for Vue3 script-setup and lang is typescript.'
       icon: 'mingcute-file-import-fill'
+    - name: 'unplugin-deploy-info'
+      link: 'https://github.com/elonehoo/unplugin-deploy-info'
+      desc: 'Print some help info like vite builtin'
+      icon: 'carbon-printer'
   Pinia Plugin:
     - name: 'pinia-plugin-persistence'
       link: 'https://github.com/pinia-orm/pinia-plugin-persistence'
