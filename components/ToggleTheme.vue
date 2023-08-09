@@ -39,7 +39,7 @@ const isAppearanceTransition = typeof document !== 'undefined'
           : clipPath,
       },
       {
-        duration: 200,
+        duration: 400,
         easing: 'ease-in',
         pseudoElement: isDark.value
           ? '::view-transition-old(root)'
