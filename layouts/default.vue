@@ -88,7 +88,7 @@ onMounted(() => {
       {{ data?.navigation.subtitle }}
     </p>
   </div>
-  <article ref="content" class="prose m-auto">
+  <article ref="content" class="prose m-auto" :class="[data?.layout === 'gallery' ? 'max-w-90%!' : '']">
     <Toc :class="data?.navigation.tocAlwaysOn ? 'toc-always-on' : ''" v-if="data?._dir === 'posts' && data?.body.toc.links.length !== 0" :list="data?.body.toc.links" />
     <slot />
   </article>
