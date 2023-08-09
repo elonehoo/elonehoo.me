@@ -89,6 +89,7 @@ onMounted(() => {
     </p>
   </div>
   <article ref="content" class="prose m-auto">
+    <Toc :class="data?.navigation.tocAlwaysOn ? 'toc-always-on' : ''" v-if="data?._dir === 'posts' && data?.body.toc.links.length !== 0" :list="data?.body.toc.links" />
     <slot />
   </article>
   <div v-if="route.path !== '/'" class="prose m-auto mt-8 mb-8">

@@ -3,6 +3,7 @@ navigation.title: 原子化 CSS 会丑化我们的代码吗?
 navigation.date: 2023-07-23T21:12:00.000+08:00
 navigation.lang: zh
 navigation.duration: 15min
+navigation.tocAlwaysOn: true
 layout: 'default'
 ---
 
