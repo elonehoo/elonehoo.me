@@ -7,7 +7,7 @@ interface Toc {
 }
 
 const { list } = defineProps<{
-  list:Toc[]
+  list: Toc[]
 }>()
 </script>
 
@@ -17,7 +17,7 @@ const { list } = defineProps<{
       <div class="table-of-contents-anchor">
         <div class="i-carbon-list" />
       </div>
-      <TocItem :tocList="list" />
+      <TocItem :toc-list="list" />
     </div>
   </div>
 </template>

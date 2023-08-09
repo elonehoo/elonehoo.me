@@ -20,7 +20,7 @@ onMounted(() => {
       { name: 'twitter:creator', content: '@elonehoo' },
       { name: 'twitter:title', content: data.value?.navigation.title },
       { name: 'twitter:description', content: data.value?.navigation.title === undefined ? 'Elone Hoo\'s Portfolio' : data.value?.navigation.title },
-      { name: 'twitter:image', content: data.value?.navigation.image === undefined ? '/og.png' : data.value?.navigation.image }
+      { name: 'twitter:image', content: data.value?.navigation.image === undefined ? '/og.png' : data.value?.navigation.image },
     ],
     link: [
       {
@@ -89,7 +89,7 @@ onMounted(() => {
     </p>
   </div>
   <article ref="content" class="prose m-auto" :class="[data?.layout === 'gallery' ? 'max-w-90%!' : '']">
-    <Toc :class="data?.navigation.tocAlwaysOn ? 'toc-always-on' : ''" v-if="data?._dir === 'posts' && data?.body.toc.links.length !== 0" :list="data?.body.toc.links" />
+    <Toc v-if="data?._dir === 'posts' && data?.body.toc.links.length !== 0" :class="data?.navigation.tocAlwaysOn ? 'toc-always-on' : ''" :list="data?.body.toc.links" />
     <slot />
   </article>
   <div v-if="route.path !== '/'" class="prose m-auto mt-8 mb-8">

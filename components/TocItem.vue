@@ -7,7 +7,7 @@ interface Toc {
 }
 
 const { tocList } = defineProps<{
-  tocList:Toc[]
+  tocList: Toc[]
 }>()
 </script>
 
@@ -16,7 +16,7 @@ const { tocList } = defineProps<{
     <li v-for="toc in tocList" :key="toc.id">
       <a :href="`#${toc.id}`">{{ toc.text }}</a>
       <template v-if="toc.children !== undefined">
-        <TocItem :tocList="toc.children" />
+        <TocItem :toc-list="toc.children" />
       </template>
     </li>
   </ul>

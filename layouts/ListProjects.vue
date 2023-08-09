@@ -13,7 +13,7 @@ useHead({
     { name: 'twitter:creator', content: '@elonehoo' },
     { name: 'twitter:title', content: 'Project' },
     { name: 'twitter:description', content: 'Elone Hoo\'s Project' },
-    { name: 'twitter:image', content: '/og.png' }
+    { name: 'twitter:image', content: '/og.png' },
   ],
   link: [
     {

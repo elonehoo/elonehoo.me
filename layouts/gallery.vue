@@ -13,7 +13,7 @@ useHead({
     { name: 'twitter:creator', content: '@elonehoo' },
     { name: 'twitter:title', content: 'Gallery' },
     { name: 'twitter:description', content: 'Elone Hoo\'s Gallery' },
-    { name: 'twitter:image', content: '/og.png' }
+    { name: 'twitter:image', content: '/og.png' },
   ],
   link: [
     {
@@ -29,7 +29,7 @@ useHead({
   <defaultVue>
     <main class="p-2 flex flex-col relative min-h-screen overflow-hidden mx-auto my-0 box-border">
       <div class="grid grid-cols-[repeat(auto-fit,minmax(440px,1fr))] gap-2 box-border">
-        <div v-for="photo in gallery" class="inline-block relative h-[700px] [outline:0px]" style="content: none;">
+        <div v-for="photo in gallery" :key="photo.url" class="inline-block relative h-[700px] [outline:0px]" style="content: none;">
           <img
             class="absolute h-full w-full text-transparent inset-0 select-none object-cover"
             :src="`/gallery${photo.url}`"

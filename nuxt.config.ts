@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     '@nuxt/devtools',
     '@nuxt/content',
     'nuxt-icon',
-    'nuxt-rss'
+    'nuxt-rss',
   ],
 
   css: [
@@ -38,5 +38,5 @@ export default defineNuxtConfig({
         cacheTime: 60 * 15,
       },
     ],
-},
+  },
 })

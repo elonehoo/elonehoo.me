@@ -14,7 +14,7 @@ useHead({
     { name: 'twitter:creator', content: '@elonehoo' },
     { name: 'twitter:title', content: 'Blog' },
     { name: 'twitter:description', content: 'Elone Hoo\'s Blog' },
-    { name: 'twitter:image', content: '/og.png' }
+    { name: 'twitter:image', content: '/og.png' },
   ],
   link: [
     {

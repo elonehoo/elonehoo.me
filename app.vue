@@ -12,7 +12,7 @@ useHead({
     { name: 'twitter:description', content: 'Elone Hoo\'s Portfolio' },
     { name: 'twitter:image', content: '/og.png' },
     { name: 'title', content: 'Elone Hoo' },
-    { name: 'lang', content:'en' },
+    { name: 'lang', content: 'en' },
   ],
   link: [
     {
@@ -31,7 +31,6 @@ useHead({
 </template>
 
 <style>
-
 html {
   background-color: var(--c-bg);
 }
@@ -45,5 +44,4 @@ html.dark {
 html {
   overflow: scroll;
 }
-
 </style>

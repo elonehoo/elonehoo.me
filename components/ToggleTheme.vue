@@ -9,7 +9,7 @@ const isAppearanceTransition = typeof document !== 'undefined'
  * Credit to [@hooray](https://github.com/hooray)
  * @see https://github.com/vuejs/vitepress/pull/2347
  */
- function toggle(event?: MouseEvent) {
+function toggle(event?: MouseEvent) {
   if (!isAppearanceTransition || !event) {
     isDark.value = !isDark.value
     return

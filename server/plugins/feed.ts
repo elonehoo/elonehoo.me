@@ -16,16 +16,16 @@ export default defineNitroPlugin((nitroApp) => {
       copyright: 'CC BY-NC-SA 4.0 2022 © Elone Hoo',
     }
     const data = await $fetch('/api/_content/query')
-    //@ts-ignore
-    data.forEach(post => {
+    // @ts-expect-error bug error
+    data.forEach((post) => {
       feed.addItem({
         title: post._dit === 'post' ? post.navigation.title : post.title,
         id: post._path,
         link: `https://elonehoo.me${post._path}`,
         content: post.description,
-        date: new Date(post.navigation.date)
+        date: new Date(post.navigation.date),
       })
-    });
+    })
     feed.addContributor({
       name: 'Elone Hoo',
       email: 'hi@elonehoo.me',
