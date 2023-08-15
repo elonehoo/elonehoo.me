@@ -203,6 +203,11 @@ navigation.projects:
       link: 'https://github.com/elonehoo/starter-unplugin'
       desc: 'Starter template for unplugin'
       icon: 'carbon-plug'
+  'Websites / Online Tools':
+    - name: 'Photo Planner'
+      link: 'https://github.com/elonehoo/photo-planner'
+      desc: 'Photo post planner.'
+      icon: 'carbon:application'
   Java:
     - name: 'Java-Axios'
       link: 'https://github.com/xiao-akatsuki/axios'
