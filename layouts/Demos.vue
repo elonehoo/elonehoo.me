@@ -18,10 +18,10 @@ const demos = useContent().navigation.value?.filter((i: any) => i._path.startsWi
 const parts = computed(() => {
   const result = Array.from({ length: cols.value }, () => [] as typeof demos)
   demos
-  .sort((a: any, b: any) => +new Date(b.date) - +new Date(a.date))
-  .forEach((item: any, i: any) => {
-    result[i % cols.value].push(item)
-  })
+    .sort((a: any, b: any) => +new Date(b.date) - +new Date(a.date))
+    .forEach((item: any, i: any) => {
+      result[i % cols.value].push(item)
+    })
   return result
 })
 
