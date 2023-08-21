@@ -54,7 +54,7 @@ useHead({
             v-for="demo in items"
             :key="demo.link"
             :href="demo.link"
-            class="dark:[background:#000000] p-4px cursor-pointer block w-full [list-style:none] h-fit relative border overflow-hidden mb-1 rounded-xl border-solid border-[#2e2e2e] hover:border-b-[#2e2e2e]! [transform:translateZ(0px)] text-inherit! no-underline!"
+            class="[background:#ffffff] dark:[background:#000000] p-4px cursor-pointer block w-full [list-style:none] h-fit relative border overflow-hidden mb-1 rounded-xl border-solid border-#e8e8e8 hover:border-b-[#e8e8e8]! dark:border-[#2e2e2e] dark:hover:border-b-[#2e2e2e]! [transform:translateZ(0px)] text-inherit! no-underline!"
             >
               <div
                 class="
@@ -73,7 +73,7 @@ useHead({
                   <p class="text-[rgba(255,255,255,0.592)] font-normal leading-7 text-sm block m-0">{{ dayjs(demo.date).format('MMM D, YYYY') }}</p>
                 </div>
               </div>
-              <div class="h-10 items-center justify-center text-sm font-medium text-[#ededed] flex gap-1 mt-1 rounded-lg [background:#232323] hover:[background:#282828] [transition:background_150ms_ease_0s,_color_150ms_ease_0s]">
+              <div class="h-10 items-center justify-center text-sm font-medium text-#171717 dark:text-[#ededed] flex gap-1 mt-1 rounded-lg [background:#f3f3f3] hover:[background:#ededed] dark:[background:#232323] hover:[background:#282828] [transition:background_150ms_ease_0s,_color_150ms_ease_0s]">
                 {{ demo.meta }} <div i-ri-arrow-right-line/>
               </div>
             </a>
