@@ -9,5 +9,7 @@ navigation.gallery:
   - url: /white_flowers.jpg
   - url: /window.jpg
   - url: /sunset_under_the_leaves.jpg
+  - url: /ningbo.jpg
+  - url: /library.jpg
 layout: 'gallery'
 ---

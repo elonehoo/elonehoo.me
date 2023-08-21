@@ -27,11 +27,11 @@ useHead({
 
 <template>
   <defaultVue>
-    <main class="p-2 flex flex-col relative min-h-screen overflow-hidden mx-auto my-0 box-border">
+    <main class="p-0 md:p-2 flex flex-col relative min-h-screen overflow-hidden mx-0 md:mx-auto my-0 box-border">
       <div class="grid grid-cols-[repeat(auto-fit,minmax(440px,1fr))] gap-2 box-border">
         <div v-for="photo in gallery" :key="photo.url" class="inline-block relative h-[700px] [outline:0px]" style="content: none;">
           <img
-            class="absolute h-full w-full text-transparent inset-0 select-none object-cover"
+            class="absolute h-full w-full text-transparent inset-0 select-none object-cover my-0!"
             :src="`/gallery${photo.url}`"
             alt=""
           >
