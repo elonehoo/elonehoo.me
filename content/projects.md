@@ -205,7 +205,7 @@ navigation.projects:
       icon: 'carbon-plug'
   'Websites / Online Tools':
     - name: 'Photo Planner'
-      link: 'https://github.com/elonehoo/photo-planner'
+      link: 'https://photo.elonehoo.me'
       desc: 'Photo post planner.'
       icon: 'carbon:application'
   Java:

@@ -32,9 +32,13 @@ import { isDark } from '~/composables'
         <NuxtLink to="/streams" class="lt-md:hidden" title="Streams">
           Streams
         </NuxtLink> -->
+        <NuxtLink to="/demos" title="demos">
+          <span class="lt-md:hidden">Demos</span>
+          <div i-ri-screenshot-line class="md:hidden" />
+        </NuxtLink>
         <NuxtLink to="/gallery" title="Gallery">
           <span class="lt-md:hidden">Gallery</span>
-          <div i-ri-screenshot-line class="md:hidden" />
+          <div i-ri-gallery-line class="md:hidden" />
         </NuxtLink>
         <NuxtLink to="/bookmarks" title="Bookmarks">
           <div i-ri-bookmark-line />
