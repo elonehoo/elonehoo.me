@@ -6,6 +6,11 @@ navigation.subtitle: Demonstrations for projects I am working on from Tweets
 navigation.description: Demonstrations for projects I am working on from Tweets
 layout: 'demos'
 navigation.demos:
+  - link: 'https://twitter.com/elonehoo/status/1693977837609619733'
+    desc: 'press Alt for fuzzy reading mode.'
+    date: '2023-8-22'
+    type: 'video'
+    meta: 'Read Twitter'
   - link: 'https://twitter.com/elonehoo/status/1681659676927365120'
     desc: 'I made a fun toggle with UnoCss.'
     date: '2023-7-19'
