@@ -1,18 +1,32 @@
 <script setup lang="ts">
+import { useWindowScroll } from '@vueuse/core'
 import { isDark } from '~/composables'
+
+const { x, y } = useWindowScroll()
+
+const blurHidden = ref(false)
+
+watch(()=>y.value,()=>{
+  if(y.value > 0){
+    blurHidden.value = true
+  }else {
+    blurHidden.value = false
+  }
+})
 </script>
 
 <template>
+  <div class="blur w-full ml-0 md:ml-24 fixed top--2px float-right"/>
   <header class="header z-40">
     <NuxtLink
-      class="w-15 h-15 absolute lg:fixed m-6 select-none outline-none"
+      class="w-15 h-15 absolute lg:fixed mt-8 ml-4 select-none outline-none"
       to="/"
       focusable="false"
     >
       <img v-show="isDark" src="/logo-dark.svg" alt="logo">
       <img v-show="!isDark" src="/logo.svg" alt="logo">
     </NuxtLink>
-    <nav class="nav">
+    <nav class="nav px-8">
       <div class="spacer" />
       <div class="right">
         <NuxtLink to="/posts" title="Blog">
@@ -74,7 +88,6 @@ import { isDark } from '~/composables'
   left: 1.5rem;
 }
 .nav {
-  padding: 2rem;
   width: 100%;
   display: grid;
   grid-template-columns: auto max-content;
@@ -105,5 +118,25 @@ import { isDark } from '~/composables'
 }
 .nav .right > * {
   margin: auto;
+}
+
+.blur {
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  position: sticky;
+  height: 2rem;
+  z-index: 1;
+  backdrop-filter: blur(5px);
+  opacity: 1;
+  mask-image: linear-gradient(to bottom,#000 25%,transparent);
+}
+.blur:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,#000,#000);
 }
 </style>
