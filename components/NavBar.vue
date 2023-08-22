@@ -16,7 +16,7 @@ watch(()=>y.value,()=>{
 </script>
 
 <template>
-  <div class="blur w-full ml-0 md:ml-24 fixed top--2px float-right"/>
+  <div class="blur w-full ml-0 md:ml-24 fixed top--2 float-right"/>
   <header class="header z-40">
     <NuxtLink
       class="w-15 h-15 absolute lg:fixed mt-8 ml-4 select-none outline-none"
