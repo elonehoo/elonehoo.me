@@ -1,4 +1,5 @@
 <script setup lang='ts'>
+import { useStorage } from '@vueuse/core'
 import { formatDate } from '~/composables'
 
 const router = useRouter()
@@ -75,7 +76,7 @@ onMounted(() => {
   setTimeout(navigate, 500)
 })
 
-const markdownAltClass = ref<boolean>(false)
+const markdownAltClass = useStorage('markdown-alt-class', false)
 
 const markdown = ref<any | null>(null)
 
@@ -99,7 +100,7 @@ onKeyStroke(['Alt'], () => {
   </div>
   <article ref="content" class="prose m-0 md:m-auto" :class="[data?.layout === 'gallery' || data?.layout === 'demos' ? 'md:max-w-90%! max-w-full!' : '']">
     <Toc v-if="data?._dir === 'posts' && data?.body.toc.links.length !== 0" :class="data?.navigation.tocAlwaysOn ? 'toc-always-on' : ''" :list="data?.body.toc.links" />
-    <div ref="markdown" class="slide-enter-content" :class="{ alt: markdownAltClass }">
+    <div ref="markdown" class="slide-enter-content" :class="{ alt: markdownAltClass && data?._dir === 'posts' }">
       <slot />
     </div>
   </article>
