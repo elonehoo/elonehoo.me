@@ -55,39 +55,41 @@ const isSameYear = (a: Date | string | number, b: Date | string | number) => a &
       </template>
 
       <template v-for="route, idx in routers" :key="route.path">
-        <div v-if="!isSameYear(route.date, routers![idx - 1]?.date)" relative h20 pointer-events-none>
+        <div v-if="!isSameYear(route.date, routers![idx - 1]?.date)" relative h20 pointer-events-none class="slide-enter" style="--enter-stage: -2; --enter-step: 60ms;">
           <span text-8em op10 absolute left--3rem top--2rem font-bold>{{ getYear(route.date) }}</span>
         </div>
-        <nuxt-link
-          class="item block font-normal mb-6 mt-2 no-underline"
-          :to="route.path"
-        >
-          <li class="no-underline">
-            <div class="title text-lg leading-1.2em">
-              <span
-                v-if="route.lang === 'zh'"
-                align-middle
-                class="text-xs border border-current rounded px-1 pb-0.2 md:ml--10.5 mr2"
-              >中文</span>
-              <span
-                v-if="route.upcoming"
-                align-middle
-                class="text-xs border rounded px-1 pb-0.2 md:ml--19 mr2 bg-lime/10 border-lime text-lime"
-              >upcoming</span>
-              <span align-middle>{{ route.title }}</span>
-              <span
-                v-if="route.recording"
-                align-middle mx1 text-red5
-                i-ri-movie-line
-                title="Has recording playback"
-              />
-            </div>
-            <div class="time opacity-50 text-sm">
-              {{ formatDate(route.date) }}
-              <span v-if="route.duration" op80>· {{ route.duration }}</span>
-            </div>
-          </li>
-        </nuxt-link>
+        <div class="slide-enter" :style="`--enter-stage: ${idx}; --enter-step: 60ms;`">
+          <nuxt-link
+            class="item block font-normal mb-6 mt-2 no-underline "
+            :to="route.path"
+          >
+            <li class="no-underline">
+              <div class="title text-lg leading-1.2em">
+                <span
+                  v-if="route.lang === 'zh'"
+                  align-middle
+                  class="text-xs border border-current rounded px-1 pb-0.2 md:ml--10.5 mr2"
+                >中文</span>
+                <span
+                  v-if="route.upcoming"
+                  align-middle
+                  class="text-xs border rounded px-1 pb-0.2 md:ml--19 mr2 bg-lime/10 border-lime text-lime"
+                >upcoming</span>
+                <span align-middle>{{ route.title }}</span>
+                <span
+                  v-if="route.recording"
+                  align-middle mx1 text-red5
+                  i-ri-movie-line
+                  title="Has recording playback"
+                />
+              </div>
+              <div class="time opacity-50 text-sm">
+                {{ formatDate(route.date) }}
+                <span v-if="route.duration" op80>· {{ route.duration }}</span>
+              </div>
+            </li>
+          </nuxt-link>
+        </div>
       </template>
     </ul>
   </defaultVue>

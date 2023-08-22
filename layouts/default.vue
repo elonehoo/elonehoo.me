@@ -86,7 +86,7 @@ onKeyStroke(['Alt'], () => {
 </script>
 
 <template>
-  <div v-if="data?.navigation.display ?? data?.navigation.title" class="prose m-auto mb-8">
+  <div v-if="data?.navigation.display ?? data?.navigation.title" class="prose m-auto mb-8 slide-enter-50">
     <h1 class="mb-0">
       {{ data?.navigation.display ?? data?.navigation.title }}
     </h1>
@@ -99,11 +99,11 @@ onKeyStroke(['Alt'], () => {
   </div>
   <article ref="content" class="prose m-0 md:m-auto" :class="[data?.layout === 'gallery' || data?.layout === 'demos' ? 'md:max-w-90%! max-w-full!' : '']">
     <Toc v-if="data?._dir === 'posts' && data?.body.toc.links.length !== 0" :class="data?.navigation.tocAlwaysOn ? 'toc-always-on' : ''" :list="data?.body.toc.links" />
-    <div ref="markdown" :class="{ alt: markdownAltClass }">
+    <div ref="markdown" class="slide-enter-content" :class="{ alt: markdownAltClass }">
       <slot />
     </div>
   </article>
-  <div v-if="route.path !== '/'" class="prose m-auto mt-8 mb-8">
+  <div v-if="route.path !== '/'" class="prose m-auto mt-8 mb-8 slide-enter animate-delay-500 print:hidden">
     <br>
     <router-link
       :to="route.path.split('/').slice(0, -1).join('/') || '/'"
