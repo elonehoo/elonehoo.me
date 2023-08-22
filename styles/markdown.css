@@ -253,3 +253,13 @@ h6:focus .header-anchor {
 .table-of-contents ul>li>a:hover {
     opacity: 1
 }
+
+.alt :where(p,pre,li,img,div,h2,h1,h3,h4,h5,h6) {
+  opacity: .6;
+  filter: blur(2px);
+}
+
+.alt :where(p,pre,li,img,div,h2,h1,h3,h4,h5,h6):hover {
+  opacity: 1;
+  filter: blur(0);
+}

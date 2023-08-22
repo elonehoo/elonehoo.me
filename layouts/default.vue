@@ -74,6 +74,16 @@ onMounted(() => {
   navigate()
   setTimeout(navigate, 500)
 })
+
+const markdownAltClass = ref<boolean>(false)
+
+const markdown = ref<any | null>(null)
+
+onKeyStroke(['Alt'], () => {
+  if(data.value?._dir === 'posts'){
+    markdownAltClass.value = !markdownAltClass.value
+  }
+}, { dedupe: true })
 </script>
 
 <template>
@@ -90,7 +100,9 @@ onMounted(() => {
   </div>
   <article ref="content" class="prose m-0 md:m-auto" :class="[data?.layout === 'gallery' || data?.layout === 'demos' ? 'md:max-w-90%! max-w-full!' : '']">
     <Toc v-if="data?._dir === 'posts' && data?.body.toc.links.length !== 0" :class="data?.navigation.tocAlwaysOn ? 'toc-always-on' : ''" :list="data?.body.toc.links" />
-    <slot />
+    <div ref="markdown" :class="{'alt':markdownAltClass}">
+      <slot />
+    </div>
   </article>
   <div v-if="route.path !== '/'" class="prose m-auto mt-8 mb-8">
     <br>
