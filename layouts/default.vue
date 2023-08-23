@@ -91,7 +91,7 @@ onKeyStroke(['F', 'f'], () => {
     <h1 class="mb-0">
       {{ data?.navigation.display ?? data?.navigation.title }}
     </h1>
-    <p v-if="data?.navigation.date && data?._dir === 'posts'" class="opacity-50 !-mt-2">
+    <p v-if="data?.navigation.date && (data?._dir === 'posts' || data?._dir === 'craft' )" class="opacity-50 !-mt-2">
       {{ formatDate(data!.navigation.date) }} <span v-if="data?.navigation.duration">· {{ data?.navigation.duration }}</span>
     </p>
     <p v-if="data?.navigation.subtitle" class="opacity-50 !-mt-6 italic">

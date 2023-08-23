@@ -6,6 +6,11 @@ navigation.subtitle: Demonstrations for projects I am working on from Tweets
 navigation.description: Demonstrations for projects I am working on from Tweets
 layout: 'demos'
 navigation.demos:
+  - link: 'craft/graph-slider'
+    desc: 'Graph Slider'
+    date: '2023-8-24'
+    type: 'video'
+    meta: 'View Prototype'
   - desc: 'Sliding Enter Animation.'
     date: '2023-8-23'
     type: 'video'
