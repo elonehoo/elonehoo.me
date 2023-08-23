@@ -1,18 +1,5 @@
 <script setup lang="ts">
-import { useWindowScroll } from '@vueuse/core'
 import { isDark } from '~/composables'
-
-const { x, y } = useWindowScroll()
-
-const blurHidden = ref(false)
-
-watch(()=>y.value,()=>{
-  if(y.value > 0){
-    blurHidden.value = true
-  }else {
-    blurHidden.value = false
-  }
-})
 </script>
 
 <template>
