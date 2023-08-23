@@ -6,6 +6,9 @@ navigation.subtitle: Demonstrations for projects I am working on from Tweets
 navigation.description: Demonstrations for projects I am working on from Tweets
 layout: 'demos'
 navigation.demos:
+  - desc: 'Sliding Enter Animation.'
+    date: '2023-8-23'
+    type: 'video'
   - link: 'https://twitter.com/elonehoo/status/1693977837609619733'
     desc: 'press Alt for fuzzy reading mode.'
     date: '2023-8-22'
