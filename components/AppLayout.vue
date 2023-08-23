@@ -3,7 +3,7 @@
     <NavBar />
     <main class="px-7 py-10 pb-10 of-x-hidden">
       <slot />
-      <Footer/>
+      <Footer />
     </main>
   </div>
 </template>
