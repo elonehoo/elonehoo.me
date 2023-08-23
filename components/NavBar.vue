@@ -107,6 +107,9 @@ import { isDark } from '~/composables'
   margin: auto;
 }
 
+.dark .blur{
+  mask-image: linear-gradient(to bottom,#000 25%,transparent);
+}
 .blur {
   position: relative;
   -webkit-user-select: none;
@@ -118,9 +121,17 @@ import { isDark } from '~/composables'
   z-index: 1;
   backdrop-filter: blur(5px);
   opacity: 1;
-  mask-image: linear-gradient(to bottom,#000 25%,transparent);
+  mask-image: linear-gradient(to bottom,#fff 25%,transparent);
 }
 .blur:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,#fff,#fff);
+}
+
+
+.dark .blur:after {
   content: "";
   position: absolute;
   inset: 0;
