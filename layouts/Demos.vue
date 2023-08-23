@@ -73,8 +73,12 @@ useHead({
                 :src="`/demos/${demo.date}.png`"
               >
               <div class="w-full h-8 gap-3 absolute z-[1] [transition:opacity_200ms_ease_0s] whitespace-nowrap p-4 left-0 bottom-2 flex-nowrap justify-between items-center flex-row box-border flex">
-                <p class="text-[rgb(237,237,237)] gap-1 overflow-hidden whitespace-nowrap text-ellipsis font-normal leading-7 text-sm block m-0">{{ demo.desc }}</p>
-                <p class="text-[rgba(255,255,255,0.592)] font-normal leading-7 text-sm block m-0">{{ dayjs(demo.date).format('MMM D, YYYY') }}</p>
+                <p class="text-[rgb(237,237,237)] gap-1 overflow-hidden whitespace-nowrap text-ellipsis font-normal leading-7 text-sm block m-0">
+                  {{ demo.desc }}
+                </p>
+                <p class="text-[rgba(255,255,255,0.592)] font-normal leading-7 text-sm block m-0">
+                  {{ dayjs(demo.date).format('MMM D, YYYY') }}
+                </p>
               </div>
             </div>
             <div v-if="demo.meta" class="h-10 items-center justify-center text-sm font-medium text-#171717 dark:text-[#ededed] flex gap-1 mt-1 rounded-lg [background:#f3f3f3] hover:[background:#ededed] dark:[background:#232323] dark:hover:[background:#282828] [transition:background_150ms_ease_0s,_color_150ms_ease_0s]">
