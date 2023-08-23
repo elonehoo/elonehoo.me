@@ -257,6 +257,8 @@ h6:focus .header-anchor {
 .alt :where(p,pre,li,img,div,h2,h1,h3,h4,h5,h6) {
   opacity: .6;
   filter: blur(2px);
+  transition: 240ms;
+  transition-property: opacity,filter;
 }
 
 .alt :where(p,pre,li,img,div,h2,h1,h3,h4,h5,h6):hover {
