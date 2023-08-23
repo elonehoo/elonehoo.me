@@ -80,7 +80,7 @@ const markdownAltClass = useStorage('markdown-alt-class', false)
 
 const markdown = ref<any | null>(null)
 
-onKeyStroke(['Alt'], () => {
+onKeyStroke(['F','f'], () => {
   if (data.value?._dir === 'posts')
     markdownAltClass.value = !markdownAltClass.value
 }, { dedupe: true })
