@@ -88,20 +88,33 @@ onKeyStroke(['F', 'f'], () => {
 const titleCenter = computed(() => {
   return data.value?.layout === 'demos' || data.value?.layout === 'gallery' || data.value?.layout === 'list-projects'
 })
+
+const postsNavBar = computed(() => {
+  return data.value?.layout === 'list-posts' || data.value?.layout === 'list-notes'
+})
+
+const dir = computed(() => {
+  return data.value?._dir === 'posts' || data.value?._dir === 'craft' || data.value?._dir === 'notes'
+})
 </script>
 
 <template>
-  <div v-if="data?.navigation.display ?? data?.navigation.title" class="prose m-auto mb-8 slide-enter-50">
-    <h1 class="mb-0" :class="[titleCenter ? 'text-center': '']">
-      {{ data?.navigation.display ?? data?.navigation.title }}
-    </h1>
-    <p v-if="data?.navigation.date && (data?._dir === 'posts' || data?._dir === 'craft')" class="opacity-50 !-mt-2">
-      {{ formatDate(data!.navigation.date) }} <span v-if="data?.navigation.duration">· {{ data?.navigation.duration }}</span>
-    </p>
-    <p v-if="data?.navigation.subtitle" :class="[titleCenter ? 'text-center': '']" class="opacity-50 !-mt-6 italic">
-      {{ data?.navigation.subtitle }}
-    </p>
-  </div>
+  <template v-if="postsNavBar">
+    <SubNavBar />
+  </template>
+  <template v-else>
+    <div v-if="data?.navigation.display ?? data?.navigation.title" class="prose m-auto mb-8 slide-enter-50">
+      <h1 class="mb-0" :class="[titleCenter ? 'text-center': '']">
+        {{ data?.navigation.display ?? data?.navigation.title }}
+      </h1>
+      <p v-if="data?.navigation.date && dir" class="opacity-50 !-mt-2">
+        {{ formatDate(data!.navigation.date) }} <span v-if="data?.navigation.duration">· {{ data?.navigation.duration }}</span>
+      </p>
+      <p v-if="data?.navigation.subtitle" :class="[titleCenter ? 'text-center': '']" class="opacity-50 !-mt-6 italic">
+        {{ data?.navigation.subtitle }}
+      </p>
+    </div>
+  </template>
   <article ref="content" class="prose m-0 md:m-auto" :class="[titleCenter ? 'md:max-w-90%! max-w-full!' : '']">
     <Toc v-if="data?._dir === 'posts' && data?.body.toc.links.length !== 0" :class="data?.navigation.tocAlwaysOn ? 'toc-always-on' : ''" :list="data?.body.toc.links" />
     <div ref="markdown" class="slide-enter-content" :class="{ alt: markdownAltClass && data?._dir === 'posts' }">
