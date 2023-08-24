@@ -60,15 +60,6 @@ navigation.projects:
       link: 'https://github.com/elonehoo/unplugin-deploy-info'
       desc: 'Print some help info like vite builtin'
       icon: 'carbon-printer'
-  Pinia Plugin:
-    - name: 'pinia-plugin-persistence'
-      link: 'https://github.com/pinia-orm/pinia-plugin-persistence'
-      desc: 'Configurable persistence and rehydration of Pinia stores.'
-      icon: 'icon-park-outline:storage-card-two'
-    - name: 'pinia-plugin-orm'
-      link: 'https://github.com/pinia-orm/pinia-plugin-orm'
-      desc: 'The Pinia plugin to enable Object-Relational Mapping access to the Pinia Store.'
-      icon: 'icon-park-outline:pineapple'
   Vitest Plugin:
     - name: 'vitest-plugin-github-actions'
       link: 'https://github.com/elonehoo/vitest-plugin-github-actions'

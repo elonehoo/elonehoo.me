@@ -2,8 +2,8 @@
 title: Gallery - Elone Hoo
 navigation.display: Gallery
 navigation.date: 2023-08-019T012:00:00.000+08:00
-navigation.subtitle: My personal gallery.
-navigation.description: My personal gallery.
+navigation.subtitle: Record my life with photos.
+navigation.description: Record my life with photos.
 navigation.gallery:
   - url: /ningbo.jpg
   - url: /library.jpg

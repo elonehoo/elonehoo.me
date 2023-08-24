@@ -27,11 +27,20 @@ useHead({
 
 <template>
   <defaultVue>
-    <template v-for="key in Object.keys(projects)" :key="key">
-      <h4 class="mt-10 font-bold">
+    <div
+     v-for="key, cidx in Object.keys(projects)"
+     :key="key"
+     class="slide-enter"
+     :style="{ '--enter-stage': cidx + 1 }"
+    >
+      <h4 class="mt-15 mb-2 font-bold text-center op75">
         {{ key }}
       </h4>
-      <div class="project-grid py-2 -mx-3 gap-2">
+      <div
+       class="project-grid py-2 max-w-500 w-max mx-auto"
+       grid="~ cols-1 md:cols-2 gap-4"
+       :class="projects[key].length === 1 ? 'flex' : projects[key].length > 2 ? 'lg:grid-cols-3' : ''"
+      >
         <a
           v-for="item, idx in projects[key]"
           :key="idx"
@@ -52,8 +61,8 @@ useHead({
           </div>
         </a>
       </div>
-    </template>
-    <div class="markdown pb5">
+    </div>
+    <div class="markdown pb5 text-center mx-auto mt10 max-w-65ch">
       <p op75>
         <em>
           Thanks for getting intersted in my works! If like them or find them useful, consider
@@ -64,25 +73,22 @@ useHead({
           >follow me</a>&nbsp;to support me keeping them sustainable. Cheers! :)
         </em>
       </p>
+      <a op="50" class="text-center" href="https://github.com/elonehoo?tab=repositories" target="_blank">All projects sort by Stars</a>
     </div>
-
-    <a href="https://github.com/elonehoo?tab=repositories" target="_blank">All projects sort by Stars</a>
   </defaultVue>
 </template>
 
 <style scoped>
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
 .project-grid a.item {
-  padding: 0.8em 1em;
   background: transparent;
   font-size: 1.1rem;
+  width: 350px;
+  max-width: 100%;
+  padding: 0.5rem 0.875rem 0.875rem;
+  border-radius: 6px;
 }
 
 .project-grid a.item:hover {
-  background: #88888808;
+  background: #88888811;
 }
 </style>
