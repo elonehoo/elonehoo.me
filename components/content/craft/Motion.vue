@@ -4,9 +4,9 @@
 
 <template>
   <div class="h-full flex justify-center items-center">
-    <div class="shape circle"/>
-    <div class="shape rectangle"/>
-    <div class="shape triangle"/>
+    <div class="shape circle" />
+    <div class="shape rectangle" />
+    <div class="shape triangle" />
   </div>
 </template>
 

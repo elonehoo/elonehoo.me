@@ -104,13 +104,13 @@ const dir = computed(() => {
   </template>
   <template v-else>
     <div v-if="data?.navigation.display ?? data?.navigation.title" class="prose m-auto mb-8 slide-enter-50">
-      <h1 class="mb-0" :class="[titleCenter ? 'text-center': '']">
+      <h1 class="mb-0" :class="[titleCenter ? 'text-center' : '']">
         {{ data?.navigation.display ?? data?.navigation.title }}
       </h1>
       <p v-if="data?.navigation.date && dir" class="opacity-50 !-mt-2">
         {{ formatDate(data!.navigation.date) }} <span v-if="data?.navigation.duration">· {{ data?.navigation.duration }}</span>
       </p>
-      <p v-if="data?.navigation.subtitle" :class="[titleCenter ? 'text-center': '']" class="opacity-50 !-mt-6 italic">
+      <p v-if="data?.navigation.subtitle" :class="[titleCenter ? 'text-center' : '']" class="opacity-50 !-mt-6 italic">
         {{ data?.navigation.subtitle }}
       </p>
     </div>
