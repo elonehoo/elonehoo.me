@@ -6,6 +6,12 @@ navigation.subtitle: Demonstrations for projects I am working on from Tweets
 navigation.description: Demonstrations for projects I am working on from Tweets
 layout: 'demos'
 navigation.demos:
+  - link: 'posts/craft-motion'
+    desc: 'Motion'
+    date: '2023-08-24T13:41:00.000+08:00'
+    url: '2023-8-24T13-41'
+    type: 'video'
+    meta: 'View Prototype'
   - link: 'https://ui.elonehoo.me/components/radio'
     desc: 'Radio'
     date: '2023-08-24T11:46:00.000+08:00'
