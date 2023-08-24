@@ -20,6 +20,9 @@ import { isDark } from '~/composables'
           <span class="lt-md:hidden">Blog</span>
           <div i-ri-article-line md:hidden />
         </NuxtLink>
+        <NuxtLink class="lt-md:hidden" to="/talks" title="Talks">
+          <span>Talks</span>
+        </NuxtLink>
         <NuxtLink to="/projects" title="Projects">
           <span class="lt-md:hidden">Projects</span>
           <div i-ri-lightbulb-line class="md:hidden" />
@@ -43,6 +46,9 @@ import { isDark } from '~/composables'
         </NuxtLink>
         <NuxtLink to="/bookmarks" title="Bookmarks">
           <div i-ri-bookmark-line />
+        </NuxtLink>
+        <NuxtLink to="/notes" title="Notes">
+          <div i-ri-sticky-note-line />
         </NuxtLink>
         <!-- <NuxtLink to="/sponsors-list" title="Sponsors">
           <div i-ri-heart-line />

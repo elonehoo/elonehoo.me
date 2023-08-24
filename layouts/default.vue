@@ -90,11 +90,11 @@ const titleCenter = computed(() => {
 })
 
 const postsNavBar = computed(() => {
-  return data.value?.layout === 'list-posts' || data.value?.layout === 'list-notes'
+  return data.value?.layout === 'list-posts' || data.value?.layout === 'list-notes' || data.value?.layout === 'list-talks'
 })
 
 const dir = computed(() => {
-  return data.value?._dir === 'posts' || data.value?._dir === 'craft' || data.value?._dir === 'notes'
+  return data.value?._dir === 'posts' || data.value?._dir === 'craft' || data.value?._dir === 'notes' || data.value?._dir === 'talks'
 })
 </script>
 

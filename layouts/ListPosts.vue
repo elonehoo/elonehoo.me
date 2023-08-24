@@ -66,7 +66,7 @@ const isSameYear = (a: Date | string | number, b: Date | string | number) => a &
             <li class="no-underline">
               <div class="title text-lg leading-1.2em">
                 <span
-                  v-if="route.lang === 'zh'"
+                  v-if="route.lang === 'zh' && !route.upcoming"
                   align-middle
                   class="text-xs border border-current rounded px-1 pb-0.2 md:ml--10.5 mr2"
                 >中文</span>

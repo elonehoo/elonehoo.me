@@ -8,11 +8,11 @@ useHead({
   meta: [
     { property: 'og:title', content: 'Elone Hoo' },
     { property: 'og:image', content: '/og.png' },
-    { property: 'og:description', content: 'Elone Hoo\'s Notes' },
-    { name: 'description', content: 'Elone Hoo\'s Notes' },
+    { property: 'og:description', content: 'Elone Hoo\'s Blog' },
+    { name: 'description', content: 'Elone Hoo\'s Blog' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:creator', content: '@elonehoo' },
-    { name: 'twitter:title', content: 'Notes' },
+    { name: 'twitter:title', content: 'Blog' },
     { name: 'twitter:description', content: 'Elone Hoo\'s Blog' },
     { name: 'twitter:image', content: '/og.png' },
   ],
@@ -26,7 +26,7 @@ useHead({
 })
 
 const routers = navigation.value
-  ?.filter(i => i._path.startsWith('/notes'))[0]
+  ?.filter(i => i._path.startsWith('/talks'))[0]
   .children
   ?.sort((a, b) => +new Date(b.date) - +new Date(a.date))
   .filter(i => !i._path.endsWith('.html'))
