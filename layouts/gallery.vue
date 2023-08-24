@@ -33,7 +33,7 @@ useHead({
           <img
             class="absolute h-full w-full text-transparent inset-0 select-none object-cover my-0!"
             :src="`/gallery${photo.url}`"
-            alt=""
+            :alt="photo.url"
           >
         </div>
       </div>
