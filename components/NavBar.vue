@@ -47,7 +47,7 @@ import { isDark } from '~/composables'
         <NuxtLink to="/bookmarks" title="Bookmarks">
           <div i-ri-bookmark-line />
         </NuxtLink>
-        <NuxtLink to="/notes" title="Notes">
+        <NuxtLink class="lt-md:hidden" to="/notes" title="Notes">
           <div i-ri-sticky-note-line />
         </NuxtLink>
         <!-- <NuxtLink to="/sponsors-list" title="Sponsors">
