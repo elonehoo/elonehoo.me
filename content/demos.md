@@ -6,6 +6,12 @@ navigation.subtitle: Demonstrations for projects I am working on from Tweets.
 navigation.description: Demonstrations for projects I am working on from Tweets
 layout: 'demos'
 navigation.demos:
+  - link: 'posts/craft-tab-bar'
+    desc: 'TabBar'
+    date: '2023-08-26T18:49:00.000+08:00'
+    url: '2023-8-26T18-49'
+    type: 'video'
+    meta: 'View Prototype'
   - link: 'posts/craft-motion'
     desc: 'Motion'
     date: '2023-08-24T13:41:00.000+08:00'
