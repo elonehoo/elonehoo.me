@@ -6,6 +6,12 @@ navigation.subtitle: Demonstrations for projects I am working on from Tweets.
 navigation.description: Demonstrations for projects I am working on from Tweets
 layout: 'demos'
 navigation.demos:
+  - link: 'posts/craft-todo'
+    desc: 'Todo'
+    date: '2023-08-27T10:56:00.000+08:00'
+    url: '2023-08-27T10-56'
+    type: 'video'
+    meta: 'View Prototype'
   - link: 'posts/craft-tab-bar'
     desc: 'TabBar'
     date: '2023-08-26T18:49:00.000+08:00'
@@ -35,7 +41,7 @@ navigation.demos:
     url: '2023-8-23T9-00'
     type: 'video'
   - link: 'https://twitter.com/elonehoo/status/1693977837609619733'
-    desc: 'press Alt for fuzzy reading mode.'
+    desc: 'press F for fuzzy reading mode.'
     date: '2023-08-22T12:00:00.000+08:00'
     url: '2023-8-22T12-00'
     type: 'video'
