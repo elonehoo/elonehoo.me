@@ -6,20 +6,16 @@ navigation.subtitle: List of projects that I am proud of
 navigation.date: 2022-01-01T01:00:00.000+08:00
 navigation.description: List of projects that I am proud of
 navigation.projects:
+  Current Focus:
+    - name: 'destyler'
+      link: 'https://github.com/destyler/destyler'
+      desc: 'unstyle vue component.'
+      icon: 'destyler'
   Upcoming:
-    - name: 'vue-mailer'
-      link: 'https://github.com/wip-elonehoo/vue-mailer'
-      desc: 'Build and send emails using Vue'
-      icon: 'carbon-email'
     - name: 'nuxt-rss'
       link: 'https://github.com/wip-elonehoo/nuxt-rss'
       desc: 'Nuxt RSS module'
       icon: 'carbon-rss'
-  Latest:
-    - name: '@elonehoo/ui'
-      link: 'https://github.com/elonehoo/ui'
-      desc: 'UnoCss component library.'
-      icon: 'eos-icons:science-outlined'
   Vue Utils:
     - name: 'vnode-util'
       link: 'https://github.com/elonehoo/vnode-util'
@@ -30,6 +26,10 @@ navigation.projects:
       desc: 'Vue Composition API for validating form.'
       icon: 'carbon-data-format'
   UnoCss:
+    - name: '@elonehoo/ui'
+      link: 'https://github.com/elonehoo/ui'
+      desc: 'UnoCss component library.'
+      icon: 'eos-icons:science-outlined'
     - name: 'unocss-unit-to-vw'
       link: 'https://github.com/elonehoo/unocss-unit-to-vw'
       desc: 'Convert all rem/px to vw in utils'
