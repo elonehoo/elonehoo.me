@@ -26,8 +26,8 @@ devDependencies:
     specifier: ^2.7.2
     version: 2.7.2
   '@nuxt/devtools':
-    specifier: ^0.8.1
-    version: 0.8.1(nuxt@3.7.0)(vite@4.4.9)
+    specifier: ^0.8.2
+    version: 0.8.2(nuxt@3.7.0)(vite@4.4.9)
   '@nuxtjs/color-mode':
     specifier: ^3.3.0
     version: 3.3.0
@@ -1145,8 +1145,8 @@ packages:
   /@nuxt/devalue@2.0.2:
     resolution: {integrity: sha512-GBzP8zOc7CGWyFQS6dv1lQz8VVpz5C2yRszbXufwG/9zhStTIH50EtD87NmWbTMwXDvZLNg8GIpb1UFdH93JCA==}
 
-  /@nuxt/devtools-kit@0.8.1(nuxt@3.7.0)(vite@4.4.9):
-    resolution: {integrity: sha512-OmGZUGgIQIDsw6AD54OOTN+btOt8sI3aI9R5X6rcxg4rDzJT8jeWjqzAhLy8el+BDs4wRVw6PkW7JbYs1NxgSg==}
+  /@nuxt/devtools-kit@0.8.2(nuxt@3.7.0)(vite@4.4.9):
+    resolution: {integrity: sha512-GEqpBxa/ojfhAM9HN5L/OzCADpfH9nDbcC7INHFgao6KuAu6JclTpcuV6VZP6LthsETBsd2cKAt93WY+vEJnnQ==}
     peerDependencies:
       nuxt: ^3.6.5
       vite: '*'
@@ -1161,8 +1161,8 @@ packages:
       - supports-color
     dev: true
 
-  /@nuxt/devtools-wizard@0.8.1:
-    resolution: {integrity: sha512-LQ7C3UCiRk95a6/2q8eli7gVnfKTlst5zy3zcvCnK0QGPHTJelmaWDX4WP4HE/tNb84R6Qmsq3YyGhyfD2CPNg==}
+  /@nuxt/devtools-wizard@0.8.2:
+    resolution: {integrity: sha512-d6uT98di8T6Bn/aQpRwMZPjUtrdBmjNAdrDS8s3e2SDy13HVMAsEVbJWKtfYV8oN8vrSkB0Z6tGgdbKyOLyiuw==}
     hasBin: true
     dependencies:
       consola: 3.2.3
@@ -1178,16 +1178,16 @@ packages:
       semver: 7.5.4
     dev: true
 
-  /@nuxt/devtools@0.8.1(nuxt@3.7.0)(vite@4.4.9):
-    resolution: {integrity: sha512-+5V+iAVcDfjppMOPpvqmRMO/CCFhzsdQ1bXxMtcY+TVRifzL6YG/iFdrTrvX3cf7YCiI8NrEiafumLrL3srxdQ==}
+  /@nuxt/devtools@0.8.2(nuxt@3.7.0)(vite@4.4.9):
+    resolution: {integrity: sha512-E3ycLEkqTlXpdz3P7lJRMdB4AnC4tzALM6N6eCUskSCtUQfF57mjk0k7z1duHIjU8xTIFm6gnsotJnR/n6/B0g==}
     hasBin: true
     peerDependencies:
       nuxt: ^3.6.5
       vite: '*'
     dependencies:
       '@antfu/utils': 0.7.6
-      '@nuxt/devtools-kit': 0.8.1(nuxt@3.7.0)(vite@4.4.9)
-      '@nuxt/devtools-wizard': 0.8.1
+      '@nuxt/devtools-kit': 0.8.2(nuxt@3.7.0)(vite@4.4.9)
+      '@nuxt/devtools-wizard': 0.8.2
       '@nuxt/kit': 3.7.0
       birpc: 0.2.13
       boxen: 7.1.1
@@ -1460,6 +1460,7 @@ packages:
     dependencies:
       is-glob: 4.0.3
       micromatch: 4.0.5
+      napi-wasm: 1.1.0
     bundledDependencies:
       - napi-wasm
 
@@ -6373,6 +6374,9 @@ packages:
     resolution: {integrity: sha512-7ZtY5KTCNheRGfEFxnedV5zFiORN1+Y1N6zvPTnHQd8ENUvfaDBeuJDZb2bN/oXwXxu3qkTXDzy57W5vAmDTBw==}
     engines: {node: ^14 || ^16 || >=18}
     hasBin: true
+
+  /napi-wasm@1.1.0:
+    resolution: {integrity: sha512-lHwIAJbmLSjF9VDRm9GoVOy9AGp3aIvkjv+Kvz9h16QR3uSVYH78PNQUnT2U4X53mhlnV2M7wrhibQ3GHicDmg==}
 
   /natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
