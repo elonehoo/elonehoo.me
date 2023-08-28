@@ -13,7 +13,7 @@
         <div class="wave" />
       </label>
       <!-- TAB 2 -->
-      <input id="tab-02"  type="radio" name="tab" value="url(#path-icon-02)">
+      <input id="tab-02" type="radio" name="tab" value="url(#path-icon-02)">
       <label for="tab-02">
         <svg>
           <use xlink:href="#icon-02" class="icon" />
@@ -21,7 +21,7 @@
         <div class="wave" />
       </label>
       <!-- TAB 3 -->
-      <input id="tab-03"  type="radio" name="tab" value="url(#path-icon-03)">
+      <input id="tab-03" type="radio" name="tab" value="url(#path-icon-03)">
       <label for="tab-03">
         <svg>
           <use xlink:href="#icon-03" class="icon" />
@@ -29,7 +29,7 @@
         <div class="wave" />
       </label>
       <!-- TAB 4 -->
-      <input id="tab-04"  type="radio" name="tab" value="url(#path-icon-04)">
+      <input id="tab-04" type="radio" name="tab" value="url(#path-icon-04)">
       <label for="tab-04">
         <svg>
           <use xlink:href="#icon-04" class="icon" />
