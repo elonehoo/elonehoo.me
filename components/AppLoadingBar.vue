@@ -99,7 +99,7 @@ onBeforeUnmount(() => clear)
   width: 0%;
   opacity: 1;
   transition: width 0.1s, height 0.4s, opacity 0.4s;
-  background: repeating-linear-gradient(to right, #00dc82 0%, #34cdfe 50%, #0047e1 100%);
+  background: repeating-linear-gradient(to right, rgba(0, 220, 130,0.5) 0%, rgba(52, 205, 254,0.5) 50%, rgba(0, 71, 225,0.5) 100%);
   z-index: 999999;
 }
 </style>
