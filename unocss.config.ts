@@ -12,6 +12,7 @@ export default defineConfig({
     [/^slide-enter-(\d+)$/, ([_, n]) => ({
       '--enter-stage': n,
     })],
+    ['progress', { background: 'repeating-linear-gradient(to right, rgba(0, 220, 130,0.8) 0%, rgba(52, 205, 254,0.8) 50%, rgba(0, 71, 225,0.8) 100%)' }],
   ],
   presets: [
     presetIcons({
