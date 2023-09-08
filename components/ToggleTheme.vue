@@ -52,7 +52,7 @@ function toggle(event?: MouseEvent) {
 
 <template>
   <a class="select-none" title="Toggle Color Scheme" @click="toggle">
-    <div v-show="isDark" i-ri-moon-line />
-    <div v-show="!isDark" i-ri-sun-line />
+    <div v-show="isDark" i-ri-sun-line />
+    <div v-show="!isDark" i-ri-moon-line />
   </a>
 </template>
