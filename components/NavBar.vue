@@ -1,5 +1,14 @@
 <script setup lang="ts">
 import { isDark } from '~/composables'
+
+const { y: scroll } = useWindowScroll()
+
+function toTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  })
+}
 </script>
 
 <template>
@@ -13,6 +22,15 @@ import { isDark } from '~/composables'
       <img v-show="isDark" src="/logo-dark.svg" alt="logo">
       <img v-show="!isDark" src="/logo.svg" alt="logo">
     </NuxtLink>
+    <button
+      title="Scroll to top"
+      fixed right-3 bottom-3 w-10 h-10 hover:op100 rounded-full
+      hover-bg-hex-8883 transition duration-300 z-100 print:hidden
+      :class="scroll > 300 ? 'op30' : 'op0! pointer-events-none'"
+      @click="toTop()"
+    >
+      <div i-ri-arrow-up-line />
+    </button>
     <nav class="nav px-8">
       <div class="spacer" />
       <div class="right">
