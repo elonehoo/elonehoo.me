@@ -46,6 +46,9 @@ devDependencies:
   '@vueuse/nuxt':
     specifier: ^10.4.1
     version: 10.4.1(nuxt@3.7.4)(vue@3.3.4)
+  '@vueuse/router':
+    specifier: ^10.4.1
+    version: 10.4.1(vue-router@4.2.5)(vue@3.3.4)
   dayjs:
     specifier: ^1.11.10
     version: 1.11.10
@@ -2586,6 +2589,19 @@ packages:
       - '@vue/composition-api'
       - rollup
       - supports-color
+      - vue
+    dev: true
+
+  /@vueuse/router@10.4.1(vue-router@4.2.5)(vue@3.3.4):
+    resolution: {integrity: sha512-gsMuSIDTUj7Gt91pnFbrhUCDaGObceQAs3+XGguRNj/WgzqLpywe37mE4645McDspEbig/n9nvn8SSmo6XRvPw==}
+    peerDependencies:
+      vue-router: '>=4.0.0-rc.1'
+    dependencies:
+      '@vueuse/shared': 10.4.1(vue@3.3.4)
+      vue-demi: 0.14.6(vue@3.3.4)
+      vue-router: 4.2.5(vue@3.3.4)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
       - vue
     dev: true
 
