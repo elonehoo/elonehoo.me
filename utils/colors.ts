@@ -20,8 +20,8 @@ export function rgbToHex(r = 0, g = 0, b = 0) {
 }
 
 /**
- * @param vectors
- * @param num 0~1
+ * @param vectors color vectors
+ * @param n 0~1
  */
 export function colorInterpration(vectors: ColorVector[], n: number) {
   if (n >= 1)
@@ -50,15 +50,15 @@ export function hslToRgb(h: number, s: number, l: number): [number, number, numb
   }
   else {
     const hue2rgb = function hue2rgb(p: number, q: number, t: number) {
-      if (t < 0) 
+      if (t < 0)
         t += 1
-      if (t > 1) 
+      if (t > 1)
         t -= 1
-      if (t < 1 / 6) 
+      if (t < 1 / 6)
         return p + (q - p) * 6 * t
-      if (t < 1 / 2) 
+      if (t < 1 / 2)
         return q
-      if (t < 2 / 3) 
+      if (t < 2 / 3)
         return p + (q - p) * (2 / 3 - t) * 6
       return p
     }
