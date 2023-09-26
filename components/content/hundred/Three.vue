@@ -146,11 +146,11 @@ onMounted(async () => {
     },
   )
   renderer.setPixelRatio(window.devicePixelRatio)
-  renderer.setSize(300, 300)
+  renderer.setSize(640, 310)
   box.value!.appendChild(renderer.domElement)
   renderer.setClearColor(0xFFFFFF, 0)
 
-  const geometry = new THREE.PlaneGeometry(2, 2, 16, 16)
+  const geometry = new THREE.PlaneGeometry(4, 4, 32, 32)
   const material = new THREE.ShaderMaterial({
     vertexShader,
     fragmentShader,
