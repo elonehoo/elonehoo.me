@@ -6,7 +6,7 @@ settings:
 
 dependencies:
   '@iconify/json':
-    specifier: ^2.2.118
+    specifier: ^2.2.120
     version: 2.2.120
   '@vueuse/core':
     specifier: ^10.4.1
@@ -18,12 +18,12 @@ dependencies:
     specifier: ^3.7.4
     version: 3.7.4(eslint@8.50.0)(typescript@5.2.2)
   unocss:
-    specifier: ^0.56.0
+    specifier: ^0.56.2
     version: 0.56.2(@unocss/webpack@0.56.2)(postcss@8.4.30)(vite@4.4.9)
 
 devDependencies:
   '@antfu/eslint-config':
-    specifier: ^0.43.0
+    specifier: ^0.43.1
     version: 0.43.1(eslint@8.50.0)(typescript@5.2.2)
   '@nuxt/content':
     specifier: ^2.8.2
@@ -41,7 +41,7 @@ devDependencies:
     specifier: ^0.156.0
     version: 0.156.0
   '@unocss/nuxt':
-    specifier: ^0.56.0
+    specifier: ^0.56.2
     version: 0.56.2(postcss@8.4.30)(vite@4.4.9)(webpack@5.88.2)
   '@vueuse/nuxt':
     specifier: ^10.4.1
@@ -50,7 +50,7 @@ devDependencies:
     specifier: ^1.11.10
     version: 1.11.10
   eslint:
-    specifier: ^8.49.0
+    specifier: ^8.50.0
     version: 8.50.0
   nuxt-icon:
     specifier: ^0.5.0
