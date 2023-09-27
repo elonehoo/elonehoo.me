@@ -86,15 +86,15 @@ onKeyStroke(['F', 'f'], () => {
 }, { dedupe: true })
 
 const titleCenter = computed(() => {
-  return data.value?.layout === 'demos' || data.value?.layout === 'gallery' || data.value?.layout === 'list-projects'
+  return ['demos', 'gallery', 'list-projects'].includes(data.value?.layout)
 })
 
 const postsNavBar = computed(() => {
-  return data.value?.layout === 'list-posts' || data.value?.layout === 'list-notes' || data.value?.layout === 'list-talks'
+  return ['list-posts', 'list-notes', 'list-talks'].includes(data.value?.layout)
 })
 
 const dir = computed(() => {
-  return data.value?._dir === 'posts' || data.value?._dir === 'craft' || data.value?._dir === 'notes' || data.value?._dir === 'talks' || data.value?._dir === 'demos'
+  return ['posts', 'craft', 'notes', 'talks', 'demos'].includes(data.value?._dir)
 })
 </script>
 
