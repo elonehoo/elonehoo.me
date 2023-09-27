@@ -94,7 +94,7 @@ const postsNavBar = computed(() => {
 })
 
 const dir = computed(() => {
-  return data.value?._dir === 'posts' || data.value?._dir === 'craft' || data.value?._dir === 'notes' || data.value?._dir === 'talks'
+  return data.value?._dir === 'posts' || data.value?._dir === 'craft' || data.value?._dir === 'notes' || data.value?._dir === 'talks' || data.value?._dir === 'demos'
 })
 </script>
 
