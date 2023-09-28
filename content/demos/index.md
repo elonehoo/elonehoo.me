@@ -6,6 +6,12 @@ navigation.subtitle: Demonstrations for projects I am working on from Tweets.
 navigation.description: Demonstrations for projects I am working on from Tweets
 layout: 'demos'
 navigation.demos:
+  - link: 'demos/100-04'
+    desc: 'Connect'
+    date: '2023-09-27T13:46:00.000+08:00'
+    url: '2023-09-27T13-46'
+    type: 'video'
+    meta: 'View Prototype'
   - link: 'demos/100-03'
     desc: 'Wireframa'
     date: '2023-09-26T15:47:00.000+08:00'
