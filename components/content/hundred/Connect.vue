@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { timestamp, useRafFn } from '@vueuse/core'
-import { useRouteQuery } from '@vueuse/router'
 import { onMounted, ref } from 'vue'
 import { distance, initCanvas, random, toHex } from '~/utils'
 
-const shot = useRouteQuery('shot')
 const el = ref<HTMLCanvasElement | null>(null)
 
 const { round, max } = Math
