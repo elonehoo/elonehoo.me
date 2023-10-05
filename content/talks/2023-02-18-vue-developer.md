@@ -6,7 +6,7 @@ navigation.duration: 15min
 layout: 'default'
 ---
 
-> 这是我在2023在公司内部分享的一次关于 Vue 开发体验的分享
+> 这是我2023在公司内部分享的一次关于 Vue 开发体验的分享
 >
 > 幻灯片: [PDF](https://github.com/elonehoo/talks/blob/main/2023-03-18/2023-03-18-vue-developer-cn.pdf) | [SPA](https://2023-02-18-vue-developer.elonehoo.me)
 >
