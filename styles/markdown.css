@@ -1,3 +1,10 @@
+.dark .shiki {
+  background: #0e0e0e!important;
+}
+.shiki {
+  background: #f8f8f8!important;
+}
+
 .dark .prose pre:not(.shiki) {
   background: #0e0e0e!important;
   padding: .8571429em 1.1428571em;
@@ -32,14 +39,6 @@ pre {
 }
 .shiki-dark {
   background: #0e0e0e !important;
-}
-
-html.dark .vitesse-light {
-  display: none;
-}
-
-html:not(.dark) .vitesse-dark {
-  display: none;
 }
 
 .prose {
