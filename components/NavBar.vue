@@ -68,9 +68,6 @@ function toTop() {
         <NuxtLink class="lt-md:hidden" to="/notes" title="Notes">
           <div i-ri-sticky-note-line />
         </NuxtLink>
-        <!-- <NuxtLink to="/sponsors-list" title="Sponsors">
-          <div i-ri-heart-line />
-        </NuxtLink> -->
         <a href="https://twitter.com/elonehoo" target="_blank" title="Twitter" class="lt-md:hidden">
           <div i-feather-twitter />
         </a>
