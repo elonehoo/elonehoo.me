@@ -3,7 +3,6 @@ navigation.title: 项目中架构技术讲述和复制项目的条件
 navigation.date: 2023-10-06T23:00:00.000+08:00
 navigation.lang: zh
 navigation.duration: 15min
-navigation.upcoming: true
 layout: 'default'
 ---
 
@@ -13,7 +12,6 @@ layout: 'default'
 >
 > 使用 [**Slidev**](https://github.com/slidevjs/slidev) 制作 - 一个为开发者打造的演示文档工具
 
-<!--
 在接下来的时间，我们将来展示一下桐庐项目中的一些技术亮点和复制条件的初步思考。
 
 接下来我们会先查看大纲。我们会从四个部分来介绍桐庐项目。
@@ -93,5 +91,3 @@ layout: 'default'
 ---
 
 我的谈话就到此为止。 这些幻灯片可以在我的网站上找到。 谢谢！
-
--->
