@@ -12,7 +12,7 @@
     "generate": "nuxi generate"
   },
   "dependencies": {
-    "@iconify/json": "^2.2.125",
+    "@iconify/json": "^2.2.128",
     "@vueuse/core": "^10.5.0",
     "matter-js": "^0.19.0",
     "nuxt": "^3.7.4",
@@ -25,7 +25,7 @@
     "@nuxtjs/color-mode": "^3.3.0",
     "@types/lodash-es": "^4.17.9",
     "@types/matter-js": "^0.19.1",
-    "@types/three": "^0.156.0",
+    "@types/three": "^0.157.0",
     "@unocss/nuxt": "^0.56.5",
     "@vueuse/nuxt": "^10.5.0",
     "@vueuse/router": "^10.5.0",
