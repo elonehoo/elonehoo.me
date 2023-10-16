@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@iconify/json':
-    specifier: ^2.2.125
-    version: 2.2.125
+    specifier: ^2.2.128
+    version: 2.2.128
   '@vueuse/core':
     specifier: ^10.5.0
     version: 10.5.0(vue@3.3.4)
@@ -41,8 +41,8 @@ devDependencies:
     specifier: ^0.19.1
     version: 0.19.1
   '@types/three':
-    specifier: ^0.156.0
-    version: 0.156.0
+    specifier: ^0.157.0
+    version: 0.157.0
   '@unocss/nuxt':
     specifier: ^0.56.5
     version: 0.56.5(postcss@8.4.30)(vite@4.4.9)(webpack@5.88.2)
@@ -924,8 +924,8 @@ packages:
   /@humanwhocodes/object-schema@1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
 
-  /@iconify/json@2.2.125:
-    resolution: {integrity: sha512-FtazQikTTUrM4OvaLtzu+yi8htSf1nnjsHJ7SAR501i4o2b+OcvUmjaBJ1Z6DzfoAyHXuDkuF+mjEeLy64F3wg==}
+  /@iconify/json@2.2.128:
+    resolution: {integrity: sha512-jg6IXl7uZXCh6ISwTUReJNKW62AMh4D+/hdIz25htWqJnEztojsOkNMlHdV4MlSaDJcfXZGV59QgvceFGBNQqQ==}
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 1.1.1
@@ -1931,8 +1931,8 @@ packages:
     resolution: {integrity: sha512-OgfYE1x2w1jRUXzzKABX+kOdwz2y9PE0uSwnZabkWfJTWOzm7Pvfm4JI2xqRE0q2nwUe2jZLWcrcnhd9lQU63w==}
     dev: true
 
-  /@types/three@0.156.0:
-    resolution: {integrity: sha512-733bXDSRdlrxqOmQuOmfC1UBRuJ2pREPk8sWnx9MtIJEVDQMx8U0NQO5MVVaOrjzDPyLI+cFPim2X/ss9v0+LQ==}
+  /@types/three@0.157.0:
+    resolution: {integrity: sha512-+BG+wqEyH506w23tKpwXnCTJb/MeyeQ/wcFlSFQ26Z9hS5Qde2vc7o+aqd+z98b38PVGuHa5GYxg/3CY7qrxFw==}
     dependencies:
       '@types/stats.js': 0.17.1
       '@types/webxr': 0.5.5
