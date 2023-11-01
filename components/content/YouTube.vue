@@ -35,7 +35,6 @@ function initPlayer() {
     })
   }
   catch (error) {
-    console.log(error)
   }
 }
 
@@ -44,7 +43,6 @@ function loadPlayer() {
     player.loadVideoById(getVideoId())
   }
   catch (error) {
-    console.log(error)
   }
 }
 
@@ -73,7 +71,7 @@ watch(
   () => loadPlayer(),
 )
 
-defineExpose({ play, pause })
+defineExpose({ play, pause, removeStateChange })
 
 onMounted(() => {
   initPlayer()
