@@ -26,6 +26,7 @@
     "@types/lodash-es": "^4.17.10",
     "@types/matter-js": "^0.19.2",
     "@types/three": "^0.158.0",
+    "@types/youtube-player": "^5.5.9",
     "@unocss/nuxt": "^0.57.1",
     "@vueuse/nuxt": "^10.5.0",
     "@vueuse/router": "^10.5.0",
@@ -35,6 +36,7 @@
     "nuxt-icon": "^0.6.1",
     "nuxt-rss": "^0.0.3",
     "three": "^0.158.0",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "youtube-player": "^5.6.0"
   }
 }

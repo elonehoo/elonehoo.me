@@ -43,6 +43,9 @@ devDependencies:
   '@types/three':
     specifier: ^0.158.0
     version: 0.158.0
+  '@types/youtube-player':
+    specifier: ^5.5.9
+    version: 5.5.9
   '@unocss/nuxt':
     specifier: ^0.57.1
     version: 0.57.1(postcss@8.4.31)(vite@4.5.0)(webpack@5.88.2)
@@ -73,6 +76,9 @@ devDependencies:
   typescript:
     specifier: ^5.2.2
     version: 5.2.2
+  youtube-player:
+    specifier: ^5.6.0
+    version: 5.6.0
 
 packages:
 
@@ -2077,6 +2083,10 @@ packages:
 
   /@types/webxr@0.5.5:
     resolution: {integrity: sha512-HVOsSRTQYx3zpVl0c0FBmmmcY/60BkQLzVnpE9M1aG4f2Z0aKlBWfj4XZ2zr++XNBfkQWYcwhGlmuu44RJPDqg==}
+    dev: true
+
+  /@types/youtube-player@5.5.9:
+    resolution: {integrity: sha512-l2Q7ESxMv6HK2jc6I1qwMMGbh5bpHYQVCpXs0GsFmzaXoPibX50pHzs+PGfmegDY8TvmMGKWBgGI16ytqK6iIw==}
     dev: true
 
   /@typescript-eslint/eslint-plugin@6.7.3(@typescript-eslint/parser@6.7.3)(eslint@8.52.0)(typescript@5.2.2):
@@ -5488,6 +5498,10 @@ packages:
       untun: 0.1.2
       uqr: 0.1.2
 
+  /load-script@1.0.0:
+    resolution: {integrity: sha512-kPEjMFtZvwL9TaZo0uZ2ml+Ye9HUMmPwbYRJ324qF9tqMejwykJ5ggTyvzmrbBeapCAbk98BSbTeovHEEP1uCA==}
+    dev: true
+
   /loader-runner@4.3.0:
     resolution: {integrity: sha512-3R/1M+yS3j5ou80Me59j7F9IMs4PXs3VqRrm0TU3AbKPxlmpoY1TNscJV/oGJXo8qCatFGTfDbY6W6ipGOYXfg==}
     engines: {node: '>=6.11.5'}
@@ -8045,6 +8059,10 @@ packages:
       mrmime: 1.0.1
       totalist: 3.0.1
 
+  /sister@3.0.2:
+    resolution: {integrity: sha512-p19rtTs+NksBRKW9qn0UhZ8/TUI9BPw9lmtHny+Y3TinWlOa9jWh9xB0AtPSdmOy49NJJJSSe0Ey4C7h0TrcYA==}
+    dev: true
+
   /sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
@@ -9475,6 +9493,16 @@ packages:
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  /youtube-player@5.6.0:
+    resolution: {integrity: sha512-x95fBbxV7eZ1ZsFtMLMcSGX0Jb/GPPj69RsooyEDVa9bzvvNZ4d5VjnBVBYoY85008VefkLvtaV+b+l38R/LMQ==}
+    dependencies:
+      debug: 4.3.4
+      load-script: 1.0.0
+      sister: 3.0.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /zhead@2.1.1:
     resolution: {integrity: sha512-FRmjAFioi07R+bmL+fqbkXF/pCbC9PwcKQ8RDluC5xTaVbNBgYRQ4eKuS1C8c7Sil//UIxet/AGp7D6royoHhA==}
