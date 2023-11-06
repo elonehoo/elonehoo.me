@@ -41,7 +41,7 @@ const isSameYear = (a: Date | string | number, b: Date | string | number) => a &
         <span text-8em op10 absolute left--3rem top--2rem font-bold>{{ getYear(route.date) }}</span>
       </div>
       <div class="slide-enter" :style="`--enter-stage: ${idx}; --enter-step: 60ms;`">
-        <nuxt-link
+        <NuxtLink
           class="item block font-normal mb-6 mt-2 no-underline "
           :to="route.path"
         >
@@ -70,7 +70,7 @@ const isSameYear = (a: Date | string | number, b: Date | string | number) => a &
               <span v-if="route.duration" op80>· {{ route.duration }}</span>
             </div>
           </li>
-        </nuxt-link>
+        </NuxtLink>
       </div>
     </template>
   </ul>
