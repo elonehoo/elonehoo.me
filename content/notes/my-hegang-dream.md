@@ -3,6 +3,7 @@ navigation.title: 我的鹤岗梦
 navigation.date: 2023-10-08T10:53:00.000+08:00
 navigation.lang: zh
 navigation.duration: 1min
+navigation.recording: true
 layout: 'default'
 ---
 
