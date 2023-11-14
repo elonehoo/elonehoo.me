@@ -66,7 +66,7 @@ const x = ref<number>(dotX - parentX + dotWidth / 2 - lineWidth / 2)
     data-vertical-indicator
     absolute
     :style="{
-      'transform': `translateX(${x}px)`,
+      transform: `translateX(${x}px)`,
     }"
   />
 </template>
@@ -77,7 +77,7 @@ const x = ref<number>(dotX - parentX + dotWidth / 2 - lineWidth / 2)
 ```vue
 <script>
 import { ref } from 'vue'
-const clipPath = ref<string>(`inset(0 ${parentWidth - x - lineWidth * 2}px 0 0)`);
+const clipPath = ref<string>(`inset(0 ${parentWidth - x - lineWidth * 2}px 0 0)`)
 </script>
 
 <template>

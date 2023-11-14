@@ -407,7 +407,8 @@ export function createSpinContext(key: InjectionKey<SpinContext> = spinKey) {
   /** computed 总的遮罩状态 */
   const spinning = computed(() => !isHideSpin.value
     && spinOptionList.some(
-      ({ state, dependOn }) => dependOn.every(isNeedSpin => unref(isNeedSpin)) && unref(state)),
+      ({ state, dependOn }) => dependOn.every(isNeedSpin => unref(isNeedSpin)) && unref(state)
+    ),
   )
 
   /** 注入的 context 内容 */

@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "private": "true",
   "author": "Elone Hoo <hi@elonehoo.me>",
   "license": "MIT",
@@ -19,7 +20,7 @@
     "unocss": "^0.57.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.43.1",
+    "@antfu/eslint-config": "^1.1.1",
     "@nuxt/content": "^2.9.0",
     "@nuxt/devtools": "^1.0.2",
     "@nuxtjs/color-mode": "^3.3.0",
