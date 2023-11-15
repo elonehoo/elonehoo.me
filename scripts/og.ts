@@ -48,9 +48,8 @@ function getMarkdownFiles(dirPath: string): MDFiles[] {
           navigationImage,
         },
       })
-      // 在 --- 中间写入一行文本
       if (match && !navigationImage && path.basename(res, '.md') !== 'index') {
-        const newText = `navigation.image: https://elonehoo/og/${path.basename(res, '.md')}.png\n` // 替换为你想要写入的文本
+        const newText = `navigation.image: https://elonehoo.me/og/${path.basename(res, '.md')}.png\n`
         const newContent = fullContent.replace(/---\n([\s\S]*?)\n---/, `---\n${newText}${content}\n---`)
         fs.writeFileSync(res, newContent, 'utf-8')
       }
