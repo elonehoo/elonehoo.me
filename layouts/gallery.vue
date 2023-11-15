@@ -6,14 +6,14 @@ const gallery = useContent().navigation.value?.filter((i: any) => i._path.starts
 useHead({
   meta: [
     { property: 'og:title', content: 'Elone Hoo' },
-    { property: 'og:image', content: '/og.png' },
+    { property: 'og:image', content: gallery.value?.navigation.image === undefined ? '/og.png' : gallery.value?.navigation.image },
     { property: 'og:description', content: 'Elone Hoo\'s Gallery' },
     { name: 'description', content: 'Elone Hoo\'s Gallery' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:creator', content: '@elonehoo' },
     { name: 'twitter:title', content: 'Gallery' },
     { name: 'twitter:description', content: 'Elone Hoo\'s Gallery' },
-    { name: 'twitter:image', content: '/og.png' },
+    { name: 'twitter:image', content: gallery.value?.navigation.image === undefined ? '/og.png' : gallery.value?.navigation.image },
   ],
   link: [
     {

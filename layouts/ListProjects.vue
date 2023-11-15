@@ -6,14 +6,14 @@ const projects = useContent().navigation.value?.filter((i: any) => i._path.start
 useHead({
   meta: [
     { property: 'og:title', content: 'Elone Hoo' },
-    { property: 'og:image', content: '/og.png' },
+    { property: 'og:image', content: projects.value?.navigation.image === undefined ? '/og.png' : projects.value?.navigation.image },
     { property: 'og:description', content: 'Elone Hoo\'s Project' },
     { name: 'description', content: 'Elone Hoo\'s Project' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:creator', content: '@elonehoo' },
     { name: 'twitter:title', content: 'Project' },
     { name: 'twitter:description', content: 'Elone Hoo\'s Project' },
-    { name: 'twitter:image', content: '/og.png' },
+    { name: 'twitter:image', content: projects.value?.navigation.image === undefined ? '/og.png' : projects.value?.navigation.image },
   ],
   link: [
     {

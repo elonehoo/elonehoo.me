@@ -28,14 +28,14 @@ const parts = computed(() => {
 useHead({
   meta: [
     { property: 'og:title', content: 'Elone Hoo' },
-    { property: 'og:image', content: '/og.png' },
+    { property: 'og:image', content: demos.value?.navigation.image === undefined ? '/og.png' : demos.value?.navigation.image },
     { property: 'og:description', content: 'Elone Hoo\'s Demos' },
     { name: 'description', content: 'Demonstrations for projects I am working on from Tweets' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:creator', content: '@elonehoo' },
     { name: 'twitter:title', content: 'Demos' },
     { name: 'twitter:description', content: 'Demonstrations for projects I am working on from Tweets' },
-    { name: 'twitter:image', content: '/og.png' },
+    { name: 'twitter:image', content: demos.value?.navigation.image === undefined ? '/og.png' : demos.value?.navigation.image },
   ],
   link: [
     {

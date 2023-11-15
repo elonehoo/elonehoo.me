@@ -24,3 +24,4 @@ dist-ssr
 cache
 .nuxt
 .output
+public/og
