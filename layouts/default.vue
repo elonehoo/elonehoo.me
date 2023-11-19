@@ -86,7 +86,7 @@ onKeyStroke(['F', 'f'], () => {
 }, { dedupe: true })
 
 const titleCenter = computed(() => {
-  return ['demos', 'gallery', 'list-projects'].includes(data.value?.layout)
+  return ['demos', 'gallery', 'list-projects', 'friend'].includes(data.value?.layout)
 })
 
 const postsNavBar = computed(() => {

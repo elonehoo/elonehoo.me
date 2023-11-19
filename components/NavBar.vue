@@ -65,6 +65,9 @@ function toTop() {
         <NuxtLink to="/bookmarks" title="Bookmarks">
           <div i-ri-bookmark-line />
         </NuxtLink>
+        <NuxtLink to="/friend" title="Friend">
+          <div i-ri-group-line />
+        </NuxtLink>
         <NuxtLink class="lt-md:hidden" to="/notes" title="Notes">
           <div i-ri-sticky-note-line />
         </NuxtLink>
