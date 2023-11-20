@@ -6,6 +6,12 @@ navigation.subtitle: Demonstrations for projects I am working on from Tweets.
 navigation.description: Demonstrations for projects I am working on from Tweets
 layout: 'demos'
 navigation.demos:
+  - link: 'demos/100-07'
+    desc: 'Text Rotator'
+    date: '2023-11-20T17:47:00.000+08:00'
+    url: '2023-11-20T17-47'
+    type: 'video'
+    meta: 'View Prototype'
   - link: 'demos/100-06'
     desc: 'Box Picker'
     date: '2023-11-04T20:37:00.000+08:00'
