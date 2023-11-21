@@ -8,7 +8,7 @@ layout: 'demos'
 navigation.demos:
   - link: 'demos/100-08'
     desc: 'Rocket'
-    date: '2023-11-20T13:51:00.000+08:00'
+    date: '2023-11-21T13:51:00.000+08:00'
     url: '2023-11-21T13-51'
     type: 'video'
     meta: 'View Prototype'
