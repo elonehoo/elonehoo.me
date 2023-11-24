@@ -12,6 +12,10 @@ navigation.projects:
       desc: 'unstyle vue component.'
       icon: 'destyler'
   Upcoming:
+    - name: 'Livraison'
+      link: 'https://github.com/livraison-dev'
+      desc: 'Made a open source API development ecosystem'
+      icon: 'livraison'
     - name: 'nuxt-rss'
       link: 'https://github.com/wip-elonehoo/nuxt-rss'
       desc: 'Nuxt RSS module'

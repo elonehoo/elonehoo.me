@@ -54,6 +54,7 @@ useHead({
             <IconJumpIde v-if="item.icon === 'jump-ide'" class="text-4xl opacity-50" />
             <IconReactivityVue v-else-if="item.icon === 'reactivity-vue'" class="text-4xl opacity-50" />
             <IconDestyler v-else-if="item.icon === 'destyler'" class="text-4xl opacity-50" />
+            <IconLivraison v-else-if="item.icon === 'livraison'" class="text-4xl opacity-50" />
             <Icon v-else class="text-3xl opacity-50" :name="item.icon || 'carbon:unknown'" />
           </div>
           <div class="flex-auto">
