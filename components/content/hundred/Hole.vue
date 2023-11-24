@@ -3,9 +3,11 @@
 </script>
 
 <template>
-  <div class="hole color">
-    <i v-for="i in 10" :key="i" />
-  </div>
+  <CraftBox>
+    <div class="hole color">
+      <i v-for="i in 10" :key="i" />
+    </div>
+  </CraftBox>
 </template>
 
 <style scoped>

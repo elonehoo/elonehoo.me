@@ -3,71 +3,73 @@ const selected = ref<number>(1)
 </script>
 
 <template>
-  <div class="min-h-screen w-full flex justify-center items-center flex-col ">
-    <ul class="feedback m-0 p-0 flex [list-style:none]">
-      <li class="angry mr-20px" :class="{ active: selected === 1 }" @click="selected = 1">
-        <div class="w-40px h-40px relative [transform:perspective(240px)_translateZ(4px)]">
-          <svg class="eye left">
-            <use xlink:href="#eye" />
-          </svg>
-          <svg class="eye right">
-            <use xlink:href="#eye" />
-          </svg>
-          <svg class="mouth">
-            <use xlink:href="#mouth" />
-          </svg>
-        </div>
-      </li>
-      <li class="sad mr-20px" :class="{ active: selected === 2 }" @click="selected = 2">
-        <div class="w-40px h-40px relative [transform:perspective(240px)_translateZ(4px)]">
-          <svg class="eye left">
-            <use xlink:href="#eye" />
-          </svg>
-          <svg class="eye right">
-            <use xlink:href="#eye" />
-          </svg>
-          <svg class="mouth">
-            <use xlink:href="#mouth" />
-          </svg>
-        </div>
-      </li>
-      <li class="ok mr-20px" :class="{ active: selected === 3 }" @click="selected = 3">
-        <div class="w-40px h-40px relative [transform:perspective(240px)_translateZ(4px)]" />
-      </li>
-      <li class="good mr-20px" :class="{ active: selected === 4 }" @click="selected = 4">
-        <div class="w-40px h-40px relative [transform:perspective(240px)_translateZ(4px)]">
-          <svg class="eye left">
-            <use xlink:href="#eye" />
-          </svg>
-          <svg class="eye right">
-            <use xlink:href="#eye" />
-          </svg>
-          <svg class="mouth">
-            <use xlink:href="#mouth" />
-          </svg>
-        </div>
-      </li>
-      <li class="happy" :class="{ active: selected === 5 }" @click="selected = 5">
-        <div class="w-40px h-40px relative [transform:perspective(240px)_translateZ(4px)]">
-          <svg class="eye left">
-            <use xlink:href="#eye" />
-          </svg>
-          <svg class="eye right">
-            <use xlink:href="#eye" />
-          </svg>
-        </div>
-      </li>
-    </ul>
+  <CraftBox>
+    <div class="min-h-screen w-full flex justify-center items-center flex-col ">
+      <ul class="feedback m-0 p-0 flex [list-style:none]">
+        <li class="angry mr-20px" :class="{ active: selected === 1 }" @click="selected = 1">
+          <div class="w-40px h-40px relative [transform:perspective(240px)_translateZ(4px)]">
+            <svg class="eye left">
+              <use xlink:href="#eye" />
+            </svg>
+            <svg class="eye right">
+              <use xlink:href="#eye" />
+            </svg>
+            <svg class="mouth">
+              <use xlink:href="#mouth" />
+            </svg>
+          </div>
+        </li>
+        <li class="sad mr-20px" :class="{ active: selected === 2 }" @click="selected = 2">
+          <div class="w-40px h-40px relative [transform:perspective(240px)_translateZ(4px)]">
+            <svg class="eye left">
+              <use xlink:href="#eye" />
+            </svg>
+            <svg class="eye right">
+              <use xlink:href="#eye" />
+            </svg>
+            <svg class="mouth">
+              <use xlink:href="#mouth" />
+            </svg>
+          </div>
+        </li>
+        <li class="ok mr-20px" :class="{ active: selected === 3 }" @click="selected = 3">
+          <div class="w-40px h-40px relative [transform:perspective(240px)_translateZ(4px)]" />
+        </li>
+        <li class="good mr-20px" :class="{ active: selected === 4 }" @click="selected = 4">
+          <div class="w-40px h-40px relative [transform:perspective(240px)_translateZ(4px)]">
+            <svg class="eye left">
+              <use xlink:href="#eye" />
+            </svg>
+            <svg class="eye right">
+              <use xlink:href="#eye" />
+            </svg>
+            <svg class="mouth">
+              <use xlink:href="#mouth" />
+            </svg>
+          </div>
+        </li>
+        <li class="happy" :class="{ active: selected === 5 }" @click="selected = 5">
+          <div class="w-40px h-40px relative [transform:perspective(240px)_translateZ(4px)]">
+            <svg class="eye left">
+              <use xlink:href="#eye" />
+            </svg>
+            <svg class="eye right">
+              <use xlink:href="#eye" />
+            </svg>
+          </div>
+        </li>
+      </ul>
 
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-      <symbol id="eye" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 4">
-        <path d="M1,1 C1.83333333,2.16666667 2.66666667,2.75 3.5,2.75 C4.33333333,2.75 5.16666667,2.16666667 6,1" />
-      </symbol>
-      <symbol id="mouth" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 7">
-        <path d="M1,5.5 C3.66666667,2.5 6.33333333,1 9,1 C11.6666667,1 14.3333333,2.5 17,5.5" />
-      </symbol>
-    </svg>
-  </div>
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="eye" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7 4">
+          <path d="M1,1 C1.83333333,2.16666667 2.66666667,2.75 3.5,2.75 C4.33333333,2.75 5.16666667,2.16666667 6,1" />
+        </symbol>
+        <symbol id="mouth" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 7">
+          <path d="M1,5.5 C3.66666667,2.5 6.33333333,1 9,1 C11.6666667,1 14.3333333,2.5 17,5.5" />
+        </symbol>
+      </svg>
+    </div>
+  </CraftBox>
 </template>
 
 <style>

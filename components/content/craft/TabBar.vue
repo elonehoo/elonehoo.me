@@ -2,80 +2,82 @@
 </script>
 
 <template>
-  <div class="h-screen flex flex-col justify-center items-center">
-    <div class="tabs">
-      <!-- TAB 1 -->
-      <input id="tab-01" type="radio" name="tab" value="url(#path-icon-01)" checked>
-      <label for="tab-01">
-        <svg>
-          <use xlink:href="#icon-01" class="icon" />
-        </svg>
-        <div class="wave" />
-      </label>
-      <!-- TAB 2 -->
-      <input id="tab-02" type="radio" name="tab" value="url(#path-icon-02)">
-      <label for="tab-02">
-        <svg>
-          <use xlink:href="#icon-02" class="icon" />
-        </svg>
-        <div class="wave" />
-      </label>
-      <!-- TAB 3 -->
-      <input id="tab-03" type="radio" name="tab" value="url(#path-icon-03)">
-      <label for="tab-03">
-        <svg>
-          <use xlink:href="#icon-03" class="icon" />
-        </svg>
-        <div class="wave" />
-      </label>
-      <!-- TAB 4 -->
-      <input id="tab-04" type="radio" name="tab" value="url(#path-icon-04)">
-      <label for="tab-04">
-        <svg>
-          <use xlink:href="#icon-04" class="icon" />
-        </svg>
-        <div class="wave" />
-      </label>
+  <CraftBox>
+    <div class="h-screen flex flex-col justify-center items-center">
+      <div class="tabs">
+        <!-- TAB 1 -->
+        <input id="tab-01" type="radio" name="tab" value="url(#path-icon-01)" checked>
+        <label for="tab-01">
+          <svg>
+            <use xlink:href="#icon-01" class="icon" />
+          </svg>
+          <div class="wave" />
+        </label>
+        <!-- TAB 2 -->
+        <input id="tab-02" type="radio" name="tab" value="url(#path-icon-02)">
+        <label for="tab-02">
+          <svg>
+            <use xlink:href="#icon-02" class="icon" />
+          </svg>
+          <div class="wave" />
+        </label>
+        <!-- TAB 3 -->
+        <input id="tab-03" type="radio" name="tab" value="url(#path-icon-03)">
+        <label for="tab-03">
+          <svg>
+            <use xlink:href="#icon-03" class="icon" />
+          </svg>
+          <div class="wave" />
+        </label>
+        <!-- TAB 4 -->
+        <input id="tab-04" type="radio" name="tab" value="url(#path-icon-04)">
+        <label for="tab-04">
+          <svg>
+            <use xlink:href="#icon-04" class="icon" />
+          </svg>
+          <div class="wave" />
+        </label>
+      </div>
+
+      <!-- SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="icon-01" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
+          <path d="M13.93,1H20.8A4.21,4.21,0,0,1,25,5.2V20.8A4.21,4.21,0,0,1,20.8,25H5.2A4.21,4.21,0,0,1,1,20.8V5.2A4.21,4.21,0,0,1,5.2,1h.47" />
+          <line x1="16" y1="10" x2="18" y2="10" />
+          <line x1="8" y1="10" x2="12" y2="10" />
+          <line x1="8" y1="15" x2="18" y2="15" />
+        </symbol>
+        <symbol id="icon-02" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
+          <path d="M17,1a12.33,12.33,0,0,1,8,11.65A12.18,12.18,0,0,1,13,25,12.18,12.18,0,0,1,1,12.65,12.33,12.33,0,0,1,9,1" />
+          <polygon points="15 14.33 11 17 11 11.67 15 9 15 14.33" />
+        </symbol>
+        <symbol id="icon-03" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
+          <path d="M7.91,2.08a11.15,11.15,0,0,0-5.73,9.81v6a7.83,7.83,0,0,1-1,2.92A1.47,1.47,0,0,0,2.43,23H23.57a1.47,1.47,0,0,0,1.26-2.16,7.83,7.83,0,0,1-1-2.92v-6A11.06,11.06,0,0,0,15.18,1" />
+          <path d="M15,23a2,2,0,0,1-4,0" />
+          <path d="M16,5.51A6.53,6.53,0,0,1,19.65,9.4" />
+        </symbol>
+        <symbol id="icon-04" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
+          <path d="M17,1a12.33,12.33,0,0,1,8,11.65A12.18,12.18,0,0,1,13,25,12.18,12.18,0,0,1,1,12.65,12.33,12.33,0,0,1,9,1" />
+          <path d="M18,18.26a8,8,0,0,1-10.09-.1" />
+        </symbol>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" height="0" width="0">
+        <clipPath id="path-icon-01">
+          <path d="M13.93,1H20.8A4.21,4.21,0,0,1,25,5.2V20.8A4.21,4.21,0,0,1,20.8,25H5.2A4.21,4.21,0,0,1,1,20.8V5.2A4.21,4.21,0,0,1,5.2,1h.47" />
+        </clipPath>
+        <clipPath id="path-icon-02">
+          <path d="M17,1a12.33,12.33,0,0,1,8,11.65A12.18,12.18,0,0,1,13,25,12.18,12.18,0,0,1,1,12.65,12.33,12.33,0,0,1,9,1" />
+        </clipPath>
+        <clipPath id="path-icon-03">
+          <path d="M7.91,2.08a11.15,11.15,0,0,0-5.73,9.81v6a7.83,7.83,0,0,1-1,2.92A1.47,1.47,0,0,0,2.43,23H23.57a1.47,1.47,0,0,0,1.26-2.16,7.83,7.83,0,0,1-1-2.92v-6A11.06,11.06,0,0,0,15.18,1" />
+        </clipPath>
+        <clipPath id="path-icon-04">
+          <path d="M17,1a12.33,12.33,0,0,1,8,11.65A12.18,12.18,0,0,1,13,25,12.18,12.18,0,0,1,1,12.65,12.33,12.33,0,0,1,9,1" />
+        </clipPath>
+      </svg>
     </div>
-
-    <!-- SVG -->
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-      <symbol id="icon-01" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
-        <path d="M13.93,1H20.8A4.21,4.21,0,0,1,25,5.2V20.8A4.21,4.21,0,0,1,20.8,25H5.2A4.21,4.21,0,0,1,1,20.8V5.2A4.21,4.21,0,0,1,5.2,1h.47" />
-        <line x1="16" y1="10" x2="18" y2="10" />
-        <line x1="8" y1="10" x2="12" y2="10" />
-        <line x1="8" y1="15" x2="18" y2="15" />
-      </symbol>
-      <symbol id="icon-02" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
-        <path d="M17,1a12.33,12.33,0,0,1,8,11.65A12.18,12.18,0,0,1,13,25,12.18,12.18,0,0,1,1,12.65,12.33,12.33,0,0,1,9,1" />
-        <polygon points="15 14.33 11 17 11 11.67 15 9 15 14.33" />
-      </symbol>
-      <symbol id="icon-03" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
-        <path d="M7.91,2.08a11.15,11.15,0,0,0-5.73,9.81v6a7.83,7.83,0,0,1-1,2.92A1.47,1.47,0,0,0,2.43,23H23.57a1.47,1.47,0,0,0,1.26-2.16,7.83,7.83,0,0,1-1-2.92v-6A11.06,11.06,0,0,0,15.18,1" />
-        <path d="M15,23a2,2,0,0,1-4,0" />
-        <path d="M16,5.51A6.53,6.53,0,0,1,19.65,9.4" />
-      </symbol>
-      <symbol id="icon-04" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
-        <path d="M17,1a12.33,12.33,0,0,1,8,11.65A12.18,12.18,0,0,1,13,25,12.18,12.18,0,0,1,1,12.65,12.33,12.33,0,0,1,9,1" />
-        <path d="M18,18.26a8,8,0,0,1-10.09-.1" />
-      </symbol>
-    </svg>
-
-    <svg xmlns="http://www.w3.org/2000/svg" height="0" width="0">
-      <clipPath id="path-icon-01">
-        <path d="M13.93,1H20.8A4.21,4.21,0,0,1,25,5.2V20.8A4.21,4.21,0,0,1,20.8,25H5.2A4.21,4.21,0,0,1,1,20.8V5.2A4.21,4.21,0,0,1,5.2,1h.47" />
-      </clipPath>
-      <clipPath id="path-icon-02">
-        <path d="M17,1a12.33,12.33,0,0,1,8,11.65A12.18,12.18,0,0,1,13,25,12.18,12.18,0,0,1,1,12.65,12.33,12.33,0,0,1,9,1" />
-      </clipPath>
-      <clipPath id="path-icon-03">
-        <path d="M7.91,2.08a11.15,11.15,0,0,0-5.73,9.81v6a7.83,7.83,0,0,1-1,2.92A1.47,1.47,0,0,0,2.43,23H23.57a1.47,1.47,0,0,0,1.26-2.16,7.83,7.83,0,0,1-1-2.92v-6A11.06,11.06,0,0,0,15.18,1" />
-      </clipPath>
-      <clipPath id="path-icon-04">
-        <path d="M17,1a12.33,12.33,0,0,1,8,11.65A12.18,12.18,0,0,1,13,25,12.18,12.18,0,0,1,1,12.65,12.33,12.33,0,0,1,9,1" />
-      </clipPath>
-    </svg>
-  </div>
+  </CraftBox>
 </template>
 
 <style scoped>

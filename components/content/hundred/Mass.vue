@@ -48,7 +48,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <paper>
-    <div ref="canvas" class="overflow-hidden" @click="f.add" />
-  </paper>
+  <CraftBox>
+    <paper>
+      <div ref="canvas" class="overflow-hidden" @click="f.add" />
+    </paper>
+  </CraftBox>
 </template>

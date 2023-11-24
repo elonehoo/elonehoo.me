@@ -45,6 +45,13 @@ useHead({
     },
   ],
 })
+
+const router = useRouter()
+
+function go(type: string, url: string) {
+  if (type === 'component')
+    router.push({ path: url })
+}
 </script>
 
 <template>
@@ -52,11 +59,13 @@ useHead({
     <main class="md:p-2 p-0 flex flex-col relative min-h-screen overflow-hidden md:mx-auto mx-0 my-0 box-border">
       <div grid="~ cols-1 lg:cols-2 xl:cols-3 gap-4">
         <div v-for="items, idx of parts" :key="idx" flex="~ col gap-4">
-          <NuxtLink
+          <component
+            :is="demo.type === 'component' ? 'div' : 'a'"
             v-for="demo in items"
             :key="demo.link"
-            :to="demo.link"
-            class="[background:#ffffff] dark:[background:#000000] p-4px cursor-pointer block w-full [list-style:none] h-fit relative border overflow-hidden mb-1 rounded-xl border-solid border-#e8e8e8 hover:border-b-[#e8e8e8]! dark:border-[#2e2e2e] dark:hover:border-b-[#2e2e2e]! [transform:translateZ(0px)] text-inherit! no-underline! slide-enter transition-all duration-500"
+            :href="demo.link"
+            :class="demo.type === 'component' ? '' : 'cursor-pointer'"
+            class="[background:#ffffff] dark:[background:#000000] p-4px  block w-full [list-style:none] h-fit relative border overflow-hidden mb-1 rounded-xl border-solid border-#e8e8e8 hover:border-b-[#e8e8e8]! dark:border-[#2e2e2e] dark:hover:border-b-[#2e2e2e]! [transform:translateZ(0px)] text-inherit! no-underline! slide-enter transition-all duration-500"
             :style="`--enter-stage: ${idx + 1};`" style="content: none;"
           >
             <div
@@ -66,7 +75,8 @@ useHead({
                   bg-after
               "
             >
-              <video v-if="demo.type === 'video'" playsinline loop autoplay class="relative block w-full h-full object-cover box-border m-0 my-0! object-contain overflow-clip [overflow-clip-margin:content-box]" :src="`/demos/${demo.url}.mp4`" />
+              <component :is="demo.url" v-if="demo.type === 'component'" />
+              <video v-else-if="demo.type === 'video'" playsinline loop autoplay class="relative block w-full h-full object-cover box-border m-0 my-0! object-contain overflow-clip [overflow-clip-margin:content-box]" :src="`/demos/${demo.url}.mp4`" />
               <img
                 v-else
                 class="text-transparent aspect-[1.90476_/_1] block w-full h-full object-cover box-border m-0 my-0!"
@@ -81,10 +91,14 @@ useHead({
                 </p>
               </div>
             </div>
-            <div v-if="demo.meta" class="h-10 items-center justify-center text-sm font-medium text-#171717 dark:text-[#ededed] flex gap-1 mt-1 rounded-lg [background:#f3f3f3] hover:[background:#ededed] dark:[background:#232323] dark:hover:[background:#282828] [transition:background_150ms_ease_0s,_color_150ms_ease_0s]">
+            <div
+              v-if="demo.meta"
+              class="h-10 cursor-pointer items-center justify-center text-sm font-medium text-#171717 dark:text-[#ededed] flex gap-1 mt-1 rounded-lg [background:#f3f3f3] hover:[background:#ededed] dark:[background:#232323] dark:hover:[background:#282828] [transition:background_150ms_ease_0s,_color_150ms_ease_0s]"
+              @click="go(demo.type, demo.link)"
+            >
               {{ demo.meta }} <div i-ri-arrow-right-line />
             </div>
-          </NuxtLink>
+          </component>
         </div>
       </div>
     </main>

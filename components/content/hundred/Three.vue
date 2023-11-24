@@ -170,7 +170,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <paper>
-    <div ref="box" class="overflow-hidden" />
-  </paper>
+  <CraftBox>
+    <paper>
+      <div ref="box" class="overflow-hidden" />
+    </paper>
+  </CraftBox>
 </template>

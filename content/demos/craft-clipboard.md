@@ -6,8 +6,7 @@ navigation.duration: 5min
 layout: 'default'
 ---
 
-::CraftBox
-:Clipboard
+::Clipboard
 ::
 
 <br />
