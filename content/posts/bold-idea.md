@@ -3,6 +3,8 @@ navigation.title: 一个大胆的想法
 navigation.date: 2023-06-27T14:19:00.000+08:00
 navigation.lang: zh
 navigation.duration: 6min
+navigation.subtitle: 最近我产生了一个不错的产品创意
+navigation.description: 最近我产生了一个不错的产品创意
 layout: 'default'
 ---
 
