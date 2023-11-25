@@ -1,5 +1,6 @@
 ---
 title: Notes - Elone Hoo
+navigation.title: Notes - Elone Hoo
 navigation.display: Notes
 navigation.subtitle: Quick notes / tips
 navigation.description: Quick notes / tips

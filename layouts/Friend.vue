@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import defaultVue from './default.vue'
-
 const friend = useContent().navigation.value?.filter((i: any) => i._path.startsWith('/friend'))[0]
 
+useSeoMeta({
+  title: friend.title,
+  description: friend.subtitle === undefined ? 'Elone Hoo\'s Portfolio' : friend.subtitle,
+  ogTitle: friend.title,
+  ogImage: friend.image === undefined ? '/og.png' : friend.image,
+  ogDescription: friend.subtitle === undefined ? 'Elone Hoo\'s Portfolio' : friend.subtitle,
+  twitterTitle: friend.title,
+  twitterCard: 'summary_large_image',
+  twitterCreator: '@elonehoo',
+  twitterDescription: friend.subtitle === undefined ? 'Elone Hoo\'s Portfolio' : friend.subtitle,
+  twitterImage: friend.image === undefined ? '/og.png' : friend.image,
+})
+
 useHead({
-  meta: [
-    { property: 'og:title', content: 'Elone Hoo' },
-    { property: 'og:image', content: friend.value?.image === undefined ? '/og.png' : friend.value?.image },
-    { property: 'og:description', content: 'Elone Hoo\'s Project' },
-    { name: 'description', content: 'Elone Hoo\'s Project' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:creator', content: '@elonehoo' },
-    { name: 'twitter:title', content: 'Project' },
-    { name: 'twitter:description', content: 'Elone Hoo\'s Project' },
-    { name: 'twitter:image', content: friend.value?.image === undefined ? '/og.png' : friend.value?.image },
-  ],
   link: [
     {
       rel: 'icon',
@@ -26,7 +26,7 @@ useHead({
 </script>
 
 <template>
-  <defaultVue>
+  <DefaultLayout>
     <div
       class="slide-enter"
       :style="{ '--enter-stage': 0 + 1 }"
@@ -66,7 +66,7 @@ useHead({
         </em>
       </p>
     </div>
-  </defaultVue>
+  </DefaultLayout>
 </template>
 
 <style scoped>

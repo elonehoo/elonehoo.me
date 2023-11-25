@@ -1,20 +1,21 @@
 <script setup lang="ts">
-import defaultVue from './default.vue'
+const data = useContent().navigation.value?.filter((i: any) => i._path.startsWith('/gallery'))[0]
+const gallery = data.gallery.reverse()
 
-const gallery = useContent().navigation.value?.filter((i: any) => i._path.startsWith('/gallery'))[0].gallery.reverse()
+useSeoMeta({
+  title: data.title,
+  description: data.subtitle === undefined ? 'Elone Hoo\'s Portfolio' : data.subtitle,
+  ogTitle: data.title,
+  ogImage: data.image === undefined ? '/og.png' : data.image,
+  ogDescription: data.subtitle === undefined ? 'Elone Hoo\'s Portfolio' : data.subtitle,
+  twitterTitle: data.title,
+  twitterCard: 'summary_large_image',
+  twitterCreator: '@elonehoo',
+  twitterDescription: data.subtitle === undefined ? 'Elone Hoo\'s Portfolio' : data.subtitle,
+  twitterImage: data.image === undefined ? '/og.png' : data.image,
+})
 
 useHead({
-  meta: [
-    { property: 'og:title', content: 'Elone Hoo' },
-    { property: 'og:image', content: gallery.value?.navigation.image === undefined ? '/og.png' : gallery.value?.navigation.image },
-    { property: 'og:description', content: 'Elone Hoo\'s Gallery' },
-    { name: 'description', content: 'Elone Hoo\'s Gallery' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:creator', content: '@elonehoo' },
-    { name: 'twitter:title', content: 'Gallery' },
-    { name: 'twitter:description', content: 'Elone Hoo\'s Gallery' },
-    { name: 'twitter:image', content: gallery.value?.navigation.image === undefined ? '/og.png' : gallery.value?.navigation.image },
-  ],
   link: [
     {
       rel: 'icon',
@@ -26,7 +27,7 @@ useHead({
 </script>
 
 <template>
-  <defaultVue>
+  <DefaultLayout>
     <main class="p-0 md:p-2 flex flex-col relative min-h-screen overflow-hidden mx-0 md:mx-auto my-0 box-border">
       <div class="grid grid-cols-[repeat(auto-fit,minmax(440px,1fr))] gap-2 box-border">
         <div v-for="photo, idx in gallery" :key="photo.url" class="inline-block relative h-[700px] [outline:0px] slide-enter" :style="`--enter-stage: ${idx};`" style="content: none;">
@@ -38,5 +39,5 @@ useHead({
         </div>
       </div>
     </main>
-  </defaultVue>
+  </DefaultLayout>
 </template>

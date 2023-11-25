@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { breakpointsTailwind } from '@vueuse/core'
 import dayjs from 'dayjs'
-import defaultVue from './default.vue'
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
 
@@ -13,7 +12,9 @@ const cols = computed(() => {
   return 1
 })
 
-const demos = useContent().navigation.value?.filter((i: any) => i._path.startsWith('/demos'))[0].demos
+const data = useContent().navigation.value?.filter((i: any) => i._path.startsWith('/demos'))[0]
+
+const demos = data.demos
 
 const parts = computed(() => {
   const result = Array.from({ length: cols.value }, () => [] as typeof demos)
@@ -25,18 +26,20 @@ const parts = computed(() => {
   return result
 })
 
+useSeoMeta({
+  title: data.title,
+  description: data.subtitle === undefined ? 'Elone Hoo\'s Portfolio' : data.subtitle,
+  ogTitle: data.title,
+  ogImage: data.image === undefined ? '/og.png' : data.image,
+  ogDescription: data.subtitle === undefined ? 'Elone Hoo\'s Portfolio' : data.subtitle,
+  twitterTitle: data.title,
+  twitterCard: 'summary_large_image',
+  twitterCreator: '@elonehoo',
+  twitterDescription: data.subtitle === undefined ? 'Elone Hoo\'s Portfolio' : data.subtitle,
+  twitterImage: data.image === undefined ? '/og.png' : data.image,
+})
+
 useHead({
-  meta: [
-    { property: 'og:title', content: 'Elone Hoo' },
-    { property: 'og:image', content: demos.value?.navigation.image === undefined ? '/og.png' : demos.value?.navigation.image },
-    { property: 'og:description', content: 'Elone Hoo\'s Demos' },
-    { name: 'description', content: 'Demonstrations for projects I am working on from Tweets' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:creator', content: '@elonehoo' },
-    { name: 'twitter:title', content: 'Demos' },
-    { name: 'twitter:description', content: 'Demonstrations for projects I am working on from Tweets' },
-    { name: 'twitter:image', content: demos.value?.navigation.image === undefined ? '/og.png' : demos.value?.navigation.image },
-  ],
   link: [
     {
       rel: 'icon',
@@ -55,7 +58,7 @@ function go(type: string, url: string) {
 </script>
 
 <template>
-  <defaultVue>
+  <DefaultLayout>
     <main class="md:p-2 p-0 flex flex-col relative min-h-screen overflow-hidden md:mx-auto mx-0 my-0 box-border">
       <div grid="~ cols-1 lg:cols-2 xl:cols-3 gap-4">
         <div v-for="items, idx of parts" :key="idx" flex="~ col gap-4">
@@ -102,7 +105,7 @@ function go(type: string, url: string) {
         </div>
       </div>
     </main>
-  </defaultVue>
+  </DefaultLayout>
 </template>
 
 <style scoped>

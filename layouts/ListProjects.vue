@@ -1,20 +1,22 @@
 <script setup lang="ts">
-import defaultVue from './default.vue'
+const data = useContent().navigation.value?.filter((i: any) => i._path.startsWith('/projects'))[0]
 
-const projects = useContent().navigation.value?.filter((i: any) => i._path.startsWith('/projects'))[0].projects
+const projects = data.projects
+
+useSeoMeta({
+  title: data.title,
+  description: data.subtitle === undefined ? 'Elone Hoo\'s Portfolio' : data.subtitle,
+  ogTitle: data.title,
+  ogImage: data.image === undefined ? '/og.png' : data.image,
+  ogDescription: data.subtitle === undefined ? 'Elone Hoo\'s Portfolio' : data.subtitle,
+  twitterTitle: data.title,
+  twitterCard: 'summary_large_image',
+  twitterCreator: '@elonehoo',
+  twitterDescription: data.subtitle === undefined ? 'Elone Hoo\'s Portfolio' : data.subtitle,
+  twitterImage: data.image === undefined ? '/og.png' : data.image,
+})
 
 useHead({
-  meta: [
-    { property: 'og:title', content: 'Elone Hoo' },
-    { property: 'og:image', content: projects.value?.navigation.image === undefined ? '/og.png' : projects.value?.navigation.image },
-    { property: 'og:description', content: 'Elone Hoo\'s Project' },
-    { name: 'description', content: 'Elone Hoo\'s Project' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:creator', content: '@elonehoo' },
-    { name: 'twitter:title', content: 'Project' },
-    { name: 'twitter:description', content: 'Elone Hoo\'s Project' },
-    { name: 'twitter:image', content: projects.value?.navigation.image === undefined ? '/og.png' : projects.value?.navigation.image },
-  ],
   link: [
     {
       rel: 'icon',
@@ -26,7 +28,7 @@ useHead({
 </script>
 
 <template>
-  <defaultVue>
+  <DefaultLayout>
     <div
       v-for="key, cidx in Object.keys(projects)"
       :key="key"
@@ -77,7 +79,7 @@ useHead({
       </p>
       <a op="50" class="text-center" href="https://github.com/elonehoo?tab=repositories" target="_blank">All projects sort by Stars</a>
     </div>
-  </defaultVue>
+  </DefaultLayout>
 </template>
 
 <style scoped>

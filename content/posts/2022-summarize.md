@@ -3,6 +3,8 @@ navigation.title: 2022总结
 navigation.date: 2022-12-31T23:00:00.000+00:00
 navigation.lang: zh
 navigation.duration: 5min
+navigation.subtitle: 这是对于 2022 年的年度总结。他可能比较简短，但是这却是我的全部经历。
+navigation.description: 这是对于 2022 年的年度总结。他可能比较简短，但是这却是我的全部经历。
 layout: 'default'
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Projects - Elone Hoo
+navigation.title: Projects - Elone Hoo
 navigation.display: Projects
 layout: 'list-projects'
 navigation.subtitle: List of projects that I am proud of
