@@ -86,7 +86,7 @@ navigation.subtitle: Some of my favorite websites/tools with excellent design an
 
 - [RayCast](https://www.raycast.com/) - a blazingly fast, totally extendable launcher
 
-- [Fig](https://fig.io/) - The next-generation command line
+- ~~[Fig](https://fig.io/) - The next-generation command line~~ 「 **It's consuming too much memory.** 」
 
 ## Design / Social Media
 

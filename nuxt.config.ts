@@ -9,6 +9,13 @@ export default defineNuxtConfig({
     'nuxt-rss',
   ],
 
+  components: {
+    global: true,
+    dirs: [
+      '~/components',
+    ],
+  },
+
   css: [
     '@unocss/reset/tailwind.css',
     '~/styles/main.css',
