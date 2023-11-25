@@ -87,7 +87,7 @@ const dir = computed(() => {
       <p v-if="data?.navigation.date && dir" class="opacity-50 !-mt-2">
         {{ formatDate(data!.navigation.date) }} <span v-if="data?.navigation.duration">· {{ data?.navigation.duration }}</span>
       </p>
-      <p v-if="data?.navigation.subtitle" :class="[titleCenter ? 'text-center' : '']" class="opacity-50 !-mt-6 italic">
+      <p v-if="!(data?._dir === 'posts') && data?.navigation.subtitle" :class="[titleCenter ? 'text-center' : '']" class="opacity-50 !-mt-6 italic">
         {{ data?.navigation.subtitle }}
       </p>
     </div>
