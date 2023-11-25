@@ -1,5 +1,6 @@
 ---
 navigation.title: Demos - Elone Hoo
+navigation.image: '/demo.png'
 navigation.display: Demos
 navigation.date: 2023-08-21T012:00:00.000+08:00
 navigation.subtitle: Demonstrations for projects I am working on from Tweets.
