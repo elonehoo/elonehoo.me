@@ -3,7 +3,7 @@ navigation.title: WWDC23 Design for spatial user interfaces
 navigation.date: 2023-06-16T15:36:00.000+08:00
 navigation.lang: en
 navigation.duration: 16min
-navigation.image: '/wwdc-design/og.png'
+navigation.image: 'https://elonehoo.me/wwdc-design/og.png'
 layout: 'default'
 ---
 
