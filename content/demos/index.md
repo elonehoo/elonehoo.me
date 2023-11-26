@@ -7,6 +7,12 @@ navigation.subtitle: Demonstrations for projects I am working on from Tweets.
 navigation.description: Demonstrations for projects I am working on from Tweets
 layout: 'demos'
 navigation.demos:
+  - link: 'demos/100-13'
+    desc: 'God Rays'
+    date: '2023-11-26T13:49:00.000+08:00'
+    url: 'GodRays'
+    type: 'component'
+    meta: 'View Prototype'
   - link: 'demos/100-12'
     desc: 'Animated Number Counter'
     date: '2023-11-25T15:36:00.000+08:00'
