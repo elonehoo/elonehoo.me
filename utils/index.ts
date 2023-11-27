@@ -7,6 +7,8 @@ export * from './vector'
 export * from './canvas'
 export * from './shake'
 export * from './colors'
+export * from './calc'
+export * from './isBrowser'
 
 export function noop() {}
 
