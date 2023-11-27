@@ -7,6 +7,12 @@ navigation.subtitle: Demonstrations for projects I am working on from Tweets.
 navigation.description: Demonstrations for projects I am working on from Tweets
 layout: 'demos'
 navigation.demos:
+  - link: 'demos/100-14'
+    desc: 'Spinny Loader'
+    date: '2023-11-27T22:51:00.000+08:00'
+    url: 'SpinnyLoader'
+    type: 'component'
+    meta: 'View Prototype'
   - link: 'demos/100-13'
     desc: 'God Rays'
     date: '2023-11-26T13:49:00.000+08:00'
