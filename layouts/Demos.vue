@@ -40,6 +40,7 @@ useSeoMeta({
 })
 
 useHead({
+  title: data.title,
   link: [
     {
       rel: 'icon',

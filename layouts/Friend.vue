@@ -15,6 +15,7 @@ useSeoMeta({
 })
 
 useHead({
+  title: friend.title,
   link: [
     {
       rel: 'icon',

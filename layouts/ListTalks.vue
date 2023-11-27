@@ -17,6 +17,7 @@ useSeoMeta({
 })
 
 useHead({
+  title: data.value?.navigation.title,
   link: [
     {
       rel: 'icon',
