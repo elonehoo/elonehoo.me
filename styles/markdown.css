@@ -131,14 +131,6 @@ h6:focus .header-anchor {
   margin-bottom: 0;
 }
 
-.prose blockquote p:first-of-type::before {
-  content: none;
-}
-
-.prose blockquote p:first-of-type::after {
-  content: none;
-}
-
 .table-of-contents {
     position: fixed;
     top: 90px;
