@@ -64,7 +64,7 @@ export default {
       default: false,
     },
   },
-  emits: ['star-mouse-move', 'star-selected'],
+  emits: ['starMouseMove', 'starSelected'],
   data() {
     return {
       starPoints: [19.8, 2.2, 6.6, 43.56, 39.6, 17.16, 0, 17.16, 33, 43.56],
@@ -78,7 +78,7 @@ export default {
       return this.starPoints.join(',')
     },
     gradId() {
-      return `url(#${ this.grad })`
+      return `url(#${this.grad})`
     },
     starSize() {
       // Adjust star size when rounded corners are set with no border, to account for the 'hidden' border
@@ -86,7 +86,7 @@ export default {
       return Number.parseInt(size) + Number.parseInt(this.border)
     },
     starFill() {
-      return (this.rtl) ? `${100 - this.fill }%` : `${this.fill }%`
+      return (this.rtl) ? `${100 - this.fill}%` : `${this.fill}%`
     },
     border() {
       return (this.roundedCorners && this.borderWidth <= 0) ? 6 : this.borderWidth
@@ -105,7 +105,7 @@ export default {
       })
     },
     viewBox() {
-      return `0 0 ${ this.maxSize } ${ this.maxSize}`
+      return `0 0 ${this.maxSize} ${this.maxSize}`
     },
     shouldAnimate() {
       return this.animate && this.isStarActive
@@ -123,7 +123,7 @@ export default {
   methods: {
     mouseMoving($event) {
       if ($event.touchAction !== 'undefined') {
-        this.$emit('star-mouse-move', {
+        this.$emit('starMouseMove', {
           event: $event,
           position: this.getPosition($event),
           id: this.starId,
@@ -149,7 +149,7 @@ export default {
       return Math.min(position, 100)
     },
     selected($event) {
-      this.$emit('star-selected', {
+      this.$emit('starSelected', {
         id: this.starId,
         position: this.getPosition($event),
       })

@@ -132,7 +132,8 @@ export default {
       if (Array.isArray(this.activeColor))
         return this.padColors(this.activeColor, this.maxRating, this.activeColor.slice(-1)[0])
 
-      return new Array(this.maxRating).fill(this.activeColor)
+      // @eslint-disable-next-line
+      return Array.from({ length: this.maxRating }).fill(this.activeColor)
     },
     currentActiveColor() {
       if (!this.activeOnClick)
@@ -145,7 +146,8 @@ export default {
         return this.padColors(this.activeBorderColor, this.maxRating, this.activeBorderColor.slice(-1)[0])
 
       const borderColor = (this.activeBorderColor) ? this.activeBorderColor : this.borderColor
-      return new Array(this.maxRating).fill(borderColor)
+      // @eslint-disable-next-line
+      return Array.from({ length: this.maxRating }).fill(borderColor)
     },
     currentActiveBorderColor() {
       if (!this.activeOnClick)
@@ -207,7 +209,8 @@ export default {
       }
     },
     padColors(array, minLength, fillValue) {
-      return Object.assign(new Array(minLength).fill(fillValue), array)
+      // @eslint-disable-next-line
+      return Object.assign(Array.from({ length: minLength }).fill(fillValue), array)
     },
   },
 }
