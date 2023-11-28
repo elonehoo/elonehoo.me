@@ -16,7 +16,7 @@
   </CraftBox>
 </template>
 
-<style>
+<style scoped>
   :root {
     --box-size: 48px;
     --wrapper-scale: 2;
