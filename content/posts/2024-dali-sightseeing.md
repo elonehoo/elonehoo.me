@@ -10,7 +10,9 @@ navigation.description: 这是2024年对于大理旅游的计划，我会在这�
 layout: 'default'
 ---
 
-> 大理旅游计划 :Icon{name="ph:heart-straight-bold" size="1.2rem" style="color: rgba(248,113,113,0.5);"}在有风的地方
+::GlobalAlert{type="tip"}
+大理旅游计划 :Icon{name="ph:heart-straight-bold" size="1.2rem" style="color: rgba(248,113,113,0.5);"}在有风的地方
+::
 
 :BiliBili{aid="704606487"}
 
@@ -55,4 +57,6 @@ layout: 'default'
 
 ---
 
-> Not yet completed...
+::GlobalAlert{type="important"}
+Not yet completed...
+::
