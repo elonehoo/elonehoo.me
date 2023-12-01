@@ -16,14 +16,14 @@ const DEFAULT_GITHUB_ICONS = {
   <div class="markdown-alert" :class="`markdown-alert-${props.type}`">
     <p class="markdown-alert-title">
       <slot name="icon">
-        <template v-html="DEFAULT_GITHUB_ICONS[props.type]" />
+        <i v-html="DEFAULT_GITHUB_ICONS[props.type]" />
       </slot>
       {{ props.type.toLocaleUpperCase() }}
     </p>
     <p>
       <ContentSlot :use="$slots.default" unwrap="p" />
     </p>
-</div>
+  </div>
 </template>
 
 <style>
