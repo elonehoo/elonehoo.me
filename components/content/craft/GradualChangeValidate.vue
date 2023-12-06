@@ -34,7 +34,7 @@ function randomColor() {
   solutionColors.value.behind = color[Math.floor(Math.random() * color.length)].value
   // random 0 - 360
   solutionColors.value.angle = Math.floor(Math.random() * 360).toString()
-  console.info(solutionColors.value)
+  console.warn(solutionColors.value)
 }
 
 function handleValidate() {
