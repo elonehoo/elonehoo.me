@@ -7,11 +7,11 @@ navigation.subtitle: Demonstrations for projects I am working on from Tweets.
 navigation.description: Demonstrations for projects I am working on from Tweets
 layout: 'demos'
 navigation.demos:
-  - link: 'demos/gradual-change-validate'
-    desc: 'Gradual Change Validate'
-    date: '2023-12-06T17:07:00.000+08:00'
-    url: 'GradualChangeValidate'
-    type: 'component'
+  - link: 'demos/100-18'
+    desc: 'Glassmorphism'
+    date: '2023-12-14T10:04:00.000+08:00'
+    url: '2023-12-14T10-04'
+    type: 'video'
     meta: 'View Prototype'
   - link: 'demos/100-17'
     desc: 'Wiggle'

@@ -3,21 +3,21 @@
 
 <template>
   <CraftBox class="relative box-border">
-    <div class="box">
-      <input id="a" type="radio" name="box">
-      <label for="a">A</label>
+    <div class="box left-3% top-5%">
+      <input id="a" class="box-picker-input" type="radio" name="box">
+      <label class="box-picker-label" for="a">A</label>
 
-      <input id="b" type="radio" name="box" checked>
-      <label for="b">B</label>
+      <input id="b" class="box-picker-input" type="radio" name="box" checked>
+      <label class="box-picker-label" for="b">B</label>
 
-      <input id="c" type="radio" name="box">
-      <label for="c">C</label>
+      <input id="c" class="box-picker-input" type="radio" name="box">
+      <label class="box-picker-label" for="c">C</label>
     </div>
   </CraftBox>
 </template>
 
-<style scoped>
-  :root {
+<style>
+:root {
     --box-size: 48px;
     --wrapper-scale: 2;
     --box-bg: #444;
@@ -27,20 +27,23 @@
     --box-x: 0;
     --box-y: 0;
   }
+</style>
+
+<style scoped>
   .box {
     position: relative;
     width: calc(var(--box-size) * var(--wrapper-scale));
     height: calc(var(--box-size) * var(--wrapper-scale));
   }
-  input, label {
+  .box-picker-input, label {
     position: absolute;
     width: var(--box-size);
     height: var(--box-size);
   }
-  input {
+  .box-picker-input {
     opacity: 0;
   }
-  label {
+  .box-picker-label {
     cursor: pointer;
     padding: 4px;
     color: #fff;
@@ -53,39 +56,39 @@
     top: var(--box-y);
     transform: rotate(var(--box-rotate));
   }
-  input:not(:checked) + label {
+  .box-picker-input:not(:checked) + .box-picker-label {
     --box-rotate: -16deg;
     --box-x: calc(var(--box-size) * -0.48);
     --box-y: calc(var(--box-size) * -0.3);
   }
-  input:not(:checked) ~ input:not(:checked) + label {
+  .box-picker-input:not(:checked) ~ .box-picker-input:not(:checked) + .box-picker-label {
     --box-rotate: 16deg;
     --box-x: calc(var(--box-size) * 0.48);
     --box-y: calc(var(--box-size) * -0.3);
   }
-  input:checked + label {
+  .box-picker-input:checked + .box-picker-label {
     z-index: 1;
     --box-bg: #39f;
     --box-scale: 1.2;
   }
-  .box:hover label {
+  .box:hover .box-picker-label {
     --box-bg: #39f !important;
     --box-border: #39f !important;
   }
   .box:hover label:hover {
     --box-scale: 1.2 !important;
   }
-  .box:hover input:not(:checked) + label {
+  .box:hover .box-picker-input:not(:checked) + .box-picker-label {
     --box-rotate: 0deg;
     --box-x: calc(var(--box-size) * -1.3);
     --box-y: 0;
   }
-  .box:hover input:not(:checked) ~ input:not(:checked) + label {
+  .box:hover .box-picker-input:not(:checked) ~ .box-picker-input:not(:checked) + .box-picker-label {
     --box-rotate: 0deg;
     --box-x: calc(var(--box-size) * 1.3);
     --box-y: 0;
   }
-  .box:hover input:checked + label {
+  .box:hover .box-picker-input:checked + .box-picker-label {
     --box-scale: 1;
   }
 </style>
