@@ -72,7 +72,7 @@ function toTop() {
           <div i-ri-sticky-note-line />
         </NuxtLink>
         <a href="https://twitter.com/elonehoo" target="_blank" title="Twitter" class="lt-md:hidden">
-          <div i-feather-twitter />
+          <div i-ri-twitter-x-fill />
         </a>
         <a href="https://github.com/elonehoo" target="_blank" title="GitHub" class="lt-md:hidden">
           <div i-uil-github-alt />
