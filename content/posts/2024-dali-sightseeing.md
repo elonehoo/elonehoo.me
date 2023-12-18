@@ -39,17 +39,17 @@ layout: 'default'
 ## :Icon{name="ph:bowl-food-bold"} 美食
 
 - [黎锅清真火瓢牛肉](https://maps.app.goo.gl/AuwWRGggnvU78ZUJA)
-  - [评分： :StarRating{:rating="4.4" :read-only="true" :increment="0.1" :inline="true" :star-size="30"}]{style="display:inline-block;"}
+  - [评分： :Start{:value="4.4"}]{style="display:flex;align-items: center;justify-content: flex-start;"}
   - 人均：￥ 78
   - 必点菜单： :Top{value="清汤锅底" rank="2"}， :Top{value="肥牛" rank="9"}， :Top{value="毛肚" rank="8" money="40"}， :Top{value="铜瓢牛肉" rank="1" money="95"}， :Top{value="自制粑粑" rank="10" money="10"}
 
 - [银米](https://surl.amap.com/1WTN25an20Yx)
-  - [评分： :StarRating{:rating="4.4" :read-only="true" :increment="0.1" :inline="true" :star-size="30"}]{style="display:inline-block;"}
+  - [评分： :Start{:value="4.4"}]{style="display:flex;align-items: center;justify-content: flex-start;"}
 
 ## :Icon{name="ph:game-controller-bold"} 旅游景点
 
 - [大理古镇](https://maps.app.goo.gl/gtpvj1MHKUgV4Yyx9)
-  - [评分： :StarRating{:rating="4.4" :read-only="true" :increment="0.1" :inline="true" :star-size="30"}]{style="display:inline-block;"}
+  - [评分： :Start{:value="4.4"}]{style="display:flex;align-items: center;justify-content: flex-start;"}
   - 人均：¥ 0 :Icon{name="ph:arrow-up-right-bold" size="1.2rem"} 无上限
   - 服饰：可以购买民族服饰和纪念品
   - 特色美食：鲜花饼，霸王茶姬，烤乳扇
