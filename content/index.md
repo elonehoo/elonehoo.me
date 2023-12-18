@@ -17,7 +17,7 @@ Outside of programming, I enjoy doing play game and traveling. If you happen to 
 
 ***
 
-Find me on [:icon{name="mdi:github" size="1.2em"} GitHub](https://github.com/elonehoo), [:icon{name="ri:twitter-x-fill" size="1.2em"} Twitter](https://www.twitter.com/elonehoo), [:icon{name="mdi:mastodon" size="1.2em"} Mastodon](https://elk.zone/mstdn.social/@elonehoo), [:icon{name="mdi:instagram" size="1.2em"} Instagram](https://www.instagram.com/elonehoooo/).<br>
-Mail me at [:icon{name="mdi:email" size="1.2em"} hi@elonehoo.me](mailto:hi@elonehoo.me).<br>
+Find me on [:icon{name="ri:github-fill" size="1.2em"} GitHub](https://github.com/elonehoo), [:icon{name="ri:twitter-x-fill" size="1.2em"} Twitter](https://www.twitter.com/elonehoo), [:icon{name="ri:mastodon-fill" size="1.2em"} Mastodon](https://elk.zone/mstdn.social/@elonehoo), [:icon{name="ri:instagram-fill" size="1.2em"} Instagram](https://www.instagram.com/elonehoooo/).<br>
+Mail me at [:icon{name="ri:mail-fill" size="1.2em"} hi@elonehoo.me](mailto:hi@elonehoo.me).<br>
 
-If you like my works, consider follow me on [:icon{name="mdi:github" size="1.2em"}GitHub](https://github.com/elonehoo) to keep them sustainable.
+If you like my works, consider follow me on [:icon{name="ri:github-fill" size="1.2em"} GitHub](https://github.com/elonehoo) to keep them sustainable.
