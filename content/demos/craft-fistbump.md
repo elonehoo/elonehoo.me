@@ -6,7 +6,7 @@ navigation.duration: 5min
 layout: 'default'
 ---
 
-::Fistbump
+::fistbump
 ::
 
 <br />

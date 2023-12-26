@@ -6,5 +6,5 @@ navigation.duration: 5min
 layout: 'default'
 ---
 
-::GradualChangeValidate
+::gradual-change-validate
 ::
