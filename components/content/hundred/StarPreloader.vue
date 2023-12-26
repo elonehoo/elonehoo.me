@@ -49,42 +49,42 @@
 
 <style scoped>
 .star {
-	margin: auto;
-	width: 16em;
-	height: 16em;
+  margin: auto;
+  width: 16em;
+  height: 16em;
 }
 .star__stroke {
-	--dur: 2s;
-	animation: stroke1 var(--dur) linear infinite;
+  --dur: 2s;
+  animation: stroke1 var(--dur) linear infinite;
 }
 .star__stroke--2 {
-	animation-name: stroke2;
-	animation-delay: calc(var(--dur) / -2);
+  animation-name: stroke2;
+  animation-delay: calc(var(--dur) / -2);
 }
 .star__stroke--3 {
-	animation-name: stroke3;
-	animation-direction: reverse;
+  animation-name: stroke3;
+  animation-direction: reverse;
 }
 .star__stroke--4 {
-	animation-name: stroke4;
-	animation-delay: calc(var(--dur) / -2);
-	animation-direction: reverse;
+  animation-name: stroke4;
+  animation-delay: calc(var(--dur) / -2);
+  animation-direction: reverse;
 }
 
 @keyframes stroke1 {
-	from { stroke-dashoffset: 0; }
-	to { stroke-dashoffset: 124; }
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 124; }
 }
 @keyframes stroke2 {
-	from { stroke-dashoffset: 0; }
-	to { stroke-dashoffset: 248; }
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 248; }
 }
 @keyframes stroke3 {
-	from { stroke-dashoffset: 0; }
-	to { stroke-dashoffset: 372; }
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 372; }
 }
 @keyframes stroke4 {
-	from { stroke-dashoffset: 0; }
-	to { stroke-dashoffset: 496; }
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 496; }
 }
 </style>
