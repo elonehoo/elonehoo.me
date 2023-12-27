@@ -7,6 +7,12 @@ navigation.subtitle: Demonstrations for projects I am working on from Tweets.
 navigation.description: Demonstrations for projects I am working on from Tweets
 layout: 'demos'
 navigation.demos:
+  - link: 'demos/100-21'
+    desc: 'Font Breathing'
+    date: '2023-12-27T14:51:00.000+08:00'
+    url: 'font-breathing'
+    type: 'component'
+    meta: 'View Prototype'
   - link: 'demos/100-20'
     desc: 'Star Preloader'
     date: '2023-12-26T12:45:00.000+08:00'
