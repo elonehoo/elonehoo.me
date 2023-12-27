@@ -65,14 +65,14 @@ onMounted(async () => {
     }
   }
 
-  window.addEventListener('click', (e) => {
+  window.addEventListener('click', () => {
     updateMousePosition()
   })
-  window.addEventListener('mousemove', (e) => {
+  window.addEventListener('mousemove', () => {
     mouseMoved = true
     updateMousePosition()
   })
-  window.addEventListener('touchmove', (e) => {
+  window.addEventListener('touchmove', () => {
     mouseMoved = true
     updateMousePosition()
   })
@@ -104,7 +104,7 @@ onMounted(async () => {
     })
 
     ctx.lineCap = 'round'
-	  ctx.beginPath()
+    ctx.beginPath()
     ctx.strokeStyle = '#808080'
     ctx.moveTo(trail[0].x, trail[0].y)
 
