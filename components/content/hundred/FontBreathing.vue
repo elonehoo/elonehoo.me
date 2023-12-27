@@ -42,8 +42,6 @@ onMounted(() => {
   font-size: 128px;
   margin: 0;
 
-  background-color: white;
-  background-image: linear-gradient(0deg, #eee 70%, black);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
@@ -52,6 +50,16 @@ onMounted(() => {
 
   --wght-min: 32;
   --wght-max: 240;
+}
+
+.breathingBox{
+  background-color: black;
+  background-image: linear-gradient(0deg, #111 70%, white);
+}
+
+.dark .breathingBox{
+  background-color: white;
+  background-image: linear-gradient(0deg, #eee 70%, black);
 }
 
 .breathingBox > .breathingText {
