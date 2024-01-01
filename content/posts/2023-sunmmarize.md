@@ -28,7 +28,7 @@ layout: 'default'
 
 - 创建了 [WIP](https://github.com/wip-elonehoo) 的想法，将很多想法都有了一个记录的地方。也听取了很多朋友的想法。
 
-- 入坑了 MarkDown 看到托尼老师在 markdown-it 上的一些插件，想再 Nuxt 中实现，但是发现因为有了 [@nuxt/content](https://github.com/nuxt/content) 的存在，所有导致没有库实现了 markdown-it 的这个模块，于是我开始了我的 [NuxtPress](https://github.com/nuxtpress-dev) 的远航。
+- 入坑了 [MarkDown](https://daringfireball.net/projects/markdown/) 看到[托尼老师](https://github.com/antfu)在 [markdown-it](https://github.com/markdown-it) 上的一些插件，想再 [Nuxt](https://github.com/nuxt) 中实现，但是发现因为有了 [@nuxt/content](https://github.com/nuxt/content) 的存在，所有导致没有库实现了 [markdown-it](https://github.com/search?q=nuxt%20markdown-it&type=repositories) 的这个模块，于是开始了 [NuxtPress](https://github.com/nuxtpress-dev) 的远航。
 
 ## 未来
 
