@@ -7,6 +7,12 @@ navigation.subtitle: Demonstrations for projects I am working on from Tweets.
 navigation.description: Demonstrations for projects I am working on from Tweets
 layout: 'demos'
 navigation.demos:
+  - link: 'demos/100-22'
+    desc: 'Follow One'
+    date: '2024-01-05T14:36:00.000+08:00'
+    url: 'follow-one'
+    type: 'component'
+    meta: 'View Prototype'
   - link: 'https://elonehoo.me'
     desc: 'New background animation'
     date: '2024-01-02T12:00:00.000+08:00'
