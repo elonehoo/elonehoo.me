@@ -33,7 +33,7 @@ useHead({
       <div class="grid grid-cols-[repeat(auto-fit,minmax(440px,1fr))] gap-2 box-border">
         <div v-for="photo, idx in gallery" :key="photo.url" class="inline-block relative h-[700px] [outline:0px] slide-enter" :style="`--enter-stage: ${idx};`" style="content: none;">
           <img
-            class="absolute h-full w-full text-transparent inset-0 select-none object-cover my-0!"
+            class="absolute h-full w-full text-transparent inset-0 select-none object-cover my-0! rounded-2xl"
             :src="`/gallery${photo.url}`"
             :alt="photo.url"
           >
