@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import type { CSSProperties } from 'nuxt/dist/app/compat/capi'
-import { rootKey } from './keys'
 
 const props = withDefaults(defineProps<{
   duration?: number
@@ -26,6 +25,8 @@ onKeyStroke('Escape', (e) => {
 const computedStyle = ref<CSSProperties>({
   position: 'absolute',
   zIndex: '999',
+  width: '1000px',
+  height: '666px',
 })
 
 const initialScrollPosition = ref(0)
@@ -52,8 +53,8 @@ function applyStying() {
   const translateY = (-top + (windowHeight.value - height) / 2) / scale
   const transform = `scale(${scale}) translate3d(${translateX}px, ${translateY}px, 0)`
 
-  computedStyle.value.top = `0px`
-  computedStyle.value.left = `0px`
+  computedStyle.value.top = `${top + window.pageYOffset}px`
+  computedStyle.value.left = `${left}px`
   computedStyle.value.width = `${width}px`
   computedStyle.value.transform = transform
   computedStyle.value.cursor = 'zoom-out'
@@ -84,10 +85,6 @@ watch(isPreviewActive, (n) => {
 watch(windowWidth, () => {
   applyStying()
 })
-
-provide(rootKey, {
-  isPreviewActive,
-})
 </script>
 
 <script lang="ts">
@@ -109,16 +106,18 @@ export default {
     @click="isPreviewActive = !isPreviewActive"
     @keydown.enter="isPreviewActive = !isPreviewActive"
   >
-    <slot />
+    <slot name="default" />
   </div>
 
   <!-- Zoom element -->
-  <div
-    v-if="isPreviewActive || isTransitioning"
-    v-bind="$attrs"
-    :style="computedStyle"
-    @click="isPreviewActive = !isPreviewActive"
-  >
-    <slot />
-  </div>
+  <Teleport to="body">
+    <div
+      v-if="isPreviewActive || isTransitioning"
+      v-bind="$attrs"
+      :style="computedStyle"
+      @click="isPreviewActive = !isPreviewActive"
+    >
+      <slot name="preview" />
+    </div>
+  </Teleport>
 </template>
