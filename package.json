@@ -14,11 +14,11 @@
     "og:generate": "tsx scripts/og.ts"
   },
   "dependencies": {
-    "@iconify/json": "^2.2.163",
+    "@iconify/json": "^2.2.166",
     "@vueuse/core": "^10.7.1",
     "matter-js": "^0.19.0",
-    "nuxt": "^3.9.0",
-    "unocss": "^0.58.2"
+    "nuxt": "^3.9.1",
+    "unocss": "^0.58.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.6.1",
@@ -31,7 +31,7 @@
     "@types/matter-js": "^0.19.5",
     "@types/three": "^0.160.0",
     "@types/youtube-player": "^5.5.11",
-    "@unocss/nuxt": "^0.58.2",
+    "@unocss/nuxt": "^0.58.3",
     "@vueuse/nuxt": "^10.7.1",
     "@vueuse/router": "^10.7.1",
     "dayjs": "^1.11.10",
