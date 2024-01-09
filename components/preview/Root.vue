@@ -53,7 +53,7 @@ function applyStying() {
   const translateY = (-top + (windowHeight.value - height) / 2) / scale
   const transform = `scale(${scale}) translate3d(${translateX}px, ${translateY}px, 0)`
 
-  computedStyle.value.top = `${top + window.pageYOffset}px`
+  computedStyle.value.top = `${top + window.scrollY}px`
   computedStyle.value.left = `${left}px`
   computedStyle.value.width = `${width}px`
   computedStyle.value.transform = transform
@@ -110,6 +110,16 @@ export default {
   </div>
 
   <!-- Zoom element -->
+  <Teleport to="body">
+    <div
+      v-if="isPreviewActive || isTransitioning"
+      v-bind="$attrs"
+      class="fixed cursor-zoom-out top-0 left-0 min-w-screen min-h-screen bg-white bg-op-50 dark:bg-black dark:bg-op-50"
+      @click="isPreviewActive = !isPreviewActive"
+    >
+      <slot name="dialog" />
+    </div>
+  </Teleport>
   <Teleport to="body">
     <div
       v-if="isPreviewActive || isTransitioning"
