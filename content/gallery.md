@@ -8,10 +8,6 @@ navigation.description: Record my life with photos.
 navigation.gallery:
   - url: /01_ningbo.jpg
   - url: /02_library.jpg
-  - url: /03_fireworks.jpg
-  - url: /04_white_flowers.jpg
-  - url: /05_window.jpg
-  - url: /06_sunset_under_the_leaves.jpg
   - url: /07_coffee_cat.jpg
   - url: /08_tonglu_sun.jpg
   - url: /09_half_green_leaf.jpg
@@ -24,9 +20,10 @@ navigation.gallery:
   - url: /16_lotus.jpg
   - url: /17_lotus.jpg
   - url: /18_lotus.jpg
-  - url: /19_coffee_cat.jpg
+  - url: /19_coffees.jpg
   - url: /20_sun.jpg
   - url: /21_tree.jpg
   - url: /22_lotus.jpg
+  - url: /23_cat1.jpeg
 layout: 'gallery'
 ---
