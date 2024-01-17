@@ -7,6 +7,12 @@ navigation.subtitle: Demonstrations for projects I am working on from Tweets.
 navigation.description: Demonstrations for projects I am working on from Tweets
 layout: 'demos'
 navigation.demos:
+  - link: 'demos/100-24'
+    desc: 'Block push loading'
+    date: '2024-01-17T10:19:00.000+08:00'
+    url: 'block-push-loading'
+    type: 'component'
+    meta: 'View Prototype'
   - link: 'demos/100-23'
     desc: 'Line Interaction'
     date: '2024-01-15T17:52:00.000+08:00'
