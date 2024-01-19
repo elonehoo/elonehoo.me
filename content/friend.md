@@ -21,6 +21,7 @@ navigation.friend:
     icon: 'https://github.com/JasonSubMara.png'
   - name: 'Kylegl'
     githubLink: 'https://github.com/kylegl'
+    twitterLink: 'https://twitter.com/kylegl'
     icon: 'https://github.com/kylegl.png'
   - name: 'CaileanSong'
     githubLink: 'https://github.com/CaileanSong'
