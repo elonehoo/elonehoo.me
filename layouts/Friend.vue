@@ -35,25 +35,18 @@ useHead({
       <div
         class="project-grid py-2 max-w-500 w-max mx-auto"
         grid="~ cols-1 md:cols-2 gap-4"
-        :class="friend.friend.length === 1 ? 'flex' : friend.friend.length > 2 ? 'lg:grid-cols-3' : ''"
+        :class="friend.friend.length === 1 ? 'flex' : friend.friend.length > 2 ? 'lg:grid-cols-4' : ''"
       >
-        <a
+        <FriendItem
           v-for="item, idx in friend.friend"
           :key="idx"
-          class="item relative flex items-center"
-          :href="item.link"
-          target="_blank"
-          :class="!item.link ? 'opacity-0 pointer-events-none h-0 -mt-8 -mb-4' : ''"
-          :title="item.name"
-        >
-          <div v-if="item.icon" class="pt-2 pr-5">
-            <img :src="item.icon" class="w-1em h-1em">
-          </div>
-          <div class="flex-auto">
-            <div cla ss="text-normal">{{ item.name }}</div>
-            <div class="desc text-sm opacity-50 font-normal" v-html="item.desc" />
-          </div>
-        </a>
+          :name="item.name"
+          :desc="item.desc"
+          :avatar="item.icon"
+          :github="item.githubLink"
+          :twitter="item.twitterLink"
+          :blog="item.blogLink"
+        />
       </div>
     </div>
     <div class="markdown pb5 text-center mx-auto mt10 max-w-65ch">
