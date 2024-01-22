@@ -1,8 +1,4 @@
 export default defineNuxtConfig({
-  // @see https://github.com/unocss/unocss/issues/3468#issuecomment-1871049463
-  features: {
-    inlineStyles: false,
-  },
   modules: [
     '@vueuse/nuxt',
     '@unocss/nuxt',

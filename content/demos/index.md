@@ -157,7 +157,7 @@ navigation.demos:
     type: 'component'
     meta: 'View Prototype'
   - link: 'demos/100-01'
-    desc: 'hex'
+    desc: 'Hex'
     date: '2023-09-22T13:38:00.000+08:00'
     url: 'Hex'
     type: 'component'
