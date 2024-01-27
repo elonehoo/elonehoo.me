@@ -7,6 +7,12 @@ navigation.subtitle: Demonstrations for projects I am working on from Tweets.
 navigation.description: Demonstrations for projects I am working on from Tweets
 layout: 'demos'
 navigation.demos:
+  - link: 'demos/100-27'
+    desc: 'Delete Button'
+    date: '2024-01-27T15:13:00.000+08:00'
+    url: 'delete-buttom'
+    type: 'component'
+    meta: 'View Prototype'
   - link: 'demos/100-26'
     desc: 'tic-tac-toe loading'
     date: '2024-01-24T14:25:00.000+08:00'
