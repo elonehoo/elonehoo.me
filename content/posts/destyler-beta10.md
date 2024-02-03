@@ -65,7 +65,7 @@ import { DestylerAlert, DestylerIcon } from 'destyler'
 
 ```vue
 <script setup lang="ts">
-import {DestylerInfoRoot, DestylerIcon,DestylerClose } from 'destyler'
+import { DestylerInfoRoot, DestylerIcon,DestylerClose } from 'destyler'
 </script>
 
 <template>
@@ -195,6 +195,12 @@ import { Root, Close } from '@destyler/alert'
 import { Body } from '@destyler/alert/component'
 </script>
 ```
+
+### 组件文件的名字
+
+在 [#35](https://github.com/destyler/destyler/pull/35) 中，我将组件的文件名字进行了修改，之前的版本中，组件是以名字最开头的，例如 `alert` 他有三个组件组成，分别是 `root`, `body`, `close`，那么之前都是以 `alert` 为开头，皆是 `alertRoot`, `alertBody`, `alertClose`。
+
+但是这样子确实让维护的时候不是很方便，因为我们其实是以组件为单位的进行分类，其实已经用文件夹进行分类，无需在使用名字进行分类。所以在这个 PR 中，我将组件的名字进行了修改，例如 `alert` 的组件就是 `root`, `close`, `body` 进行命名。
 
 > 如果你也想搭建一个自己的组件库，那么可以参考一下上述的方法，避免进入跟我一样的坑 :)
 
