@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@iconify/json':
-    specifier: ^2.2.180
-    version: 2.2.180
+    specifier: ^2.2.181
+    version: 2.2.181
   '@vueuse/core':
     specifier: ^10.7.2
     version: 10.7.2(vue@3.4.15)
@@ -86,8 +86,8 @@ devDependencies:
     specifier: ^0.161.0
     version: 0.161.0
   tsx:
-    specifier: ^4.7.0
-    version: 4.7.0
+    specifier: ^4.7.1
+    version: 4.7.1
   typescript:
     specifier: ^5.3.3
     version: 5.3.3
@@ -1133,8 +1133,8 @@ packages:
       '@iconify/types': 2.0.0
     dev: true
 
-  /@iconify/json@2.2.180:
-    resolution: {integrity: sha512-Kww6uD6fi+9qSeXAUGo6bQgTm5vprMEvTENVaZXL3qfa9KHICWZaGsVETpjn3WiTwcUPgN6P2/GXLzhuFulm7w==}
+  /@iconify/json@2.2.181:
+    resolution: {integrity: sha512-G7fQeyYVgnSDzPAftOkBH/mFjVXEGVRLMV21L8ilNuc/9HCVmqH+Nh0QMa5hV2Jl8UjTLBJ/B1rKCH8V1LdADg==}
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 1.1.2
@@ -8513,8 +8513,8 @@ packages:
     requiresBuild: true
     dev: true
 
-  /tsx@4.7.0:
-    resolution: {integrity: sha512-I+t79RYPlEYlHn9a+KzwrvEwhJg35h/1zHsLC2JXvhC2mdynMv6Zxzvhv5EMV6VF5qJlLlkSnMVvdZV3PSIGcg==}
+  /tsx@4.7.1:
+    resolution: {integrity: sha512-8d6VuibXHtlN5E3zFkgY8u4DX7Y3Z27zvvPKVmLon/D4AjuKzarkUBTLDBgj9iTQ0hg5xM7c/mYiRVM+HETf0g==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     dependencies:
