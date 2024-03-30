@@ -49,7 +49,7 @@ const { frontmatter } = useData()
             </a>
           </div>
         </div>
-        <div :style="{ '--enter-stage': 18, '--enter-step': '120ms' }" class="slide-enter markdown pb5 text-center mx-auto mt10 max-w-65ch">
+        <div :style="{ '--enter-stage': Object.keys(frontmatter.projects).length, '--enter-step': '120ms' }" class="slide-enter markdown pb5 text-center mx-auto mt10 max-w-65ch">
           <p op75>
             <em>
               Thanks for getting intersted in my works! If like them or find them useful, consider
