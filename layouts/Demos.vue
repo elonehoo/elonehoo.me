@@ -18,8 +18,7 @@ const demos = data.demos
 
 const parts = computed(() => {
   const result = Array.from({ length: cols.value }, () => [] as typeof demos)
-  demos
-    .sort((a: any, b: any) => +new Date(b.date) - +new Date(a.date))
+  demos.sort((a: any, b: any) => +new Date(b.date) - +new Date(a.date))
     .forEach((item: any, i: any) => {
       result[i % cols.value].push(item)
     })

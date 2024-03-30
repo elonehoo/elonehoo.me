@@ -4,7 +4,7 @@
 
 <template>
   <CraftBox>
-    <div class="loader"/>
+    <div class="loader" />
   </CraftBox>
 </template>
 

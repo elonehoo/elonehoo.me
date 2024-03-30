@@ -34,8 +34,8 @@
             </g>
             <defs>
               <filter
-                color-interpolation-filters="sRGB"
                 id="filter0_d_15_556"
+                color-interpolation-filters="sRGB"
                 filterUnits="userSpaceOnUse"
                 height="3"
                 width="17"
