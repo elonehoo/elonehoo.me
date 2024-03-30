@@ -1,9 +1,0 @@
----
-navigation.title: My Depression
-navigation.date: 2023-07-06T12:00:00.000+08:00
-navigation.lang: en
-navigation.duration: 1min
-layout: 'default'
----
-
-We're all just suicidal kids telling other suicidal kids suicide ain't the answer.

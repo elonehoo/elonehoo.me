@@ -1,9 +1,0 @@
----
-navigation.title: My 21-year-old confusion
-navigation.date: 2023-04-28T12:00:00.000+08:00
-navigation.lang: en
-navigation.duration: 1min
-layout: 'default'
----
-
-I often wonder how I developed the ability to handle immense pressure and work tirelessly for six months without any complaints. It's as if I am like a resilient batch of chives.
