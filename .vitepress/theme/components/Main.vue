@@ -6,9 +6,10 @@ import Posts from '../pages/posts.vue'
 import Talks from '../pages/talks.vue'
 import Note from '../pages/notes.vue'
 import Card from '../pages/card.vue'
+import Projects from '../pages/projects.vue'
 import Pager from '../components/Pager.vue'
 
-const PageLayout = { Posts, Card, Talks, Note }
+const PageLayout = { Posts, Card, Talks, Note, Projects }
 
 const { page, frontmatter } = useData()
 const route = useRoute()
@@ -18,7 +19,12 @@ const hidePager = computed(() => frontmatter.value.layout === 'home' || route.pa
 </script>
 
 <template>
-  <main class="px8 md:px16 py6 md:py10 of-x-hidden max-w-main m-auto">
+  <main
+    class="px8 md:px16 py6 md:py10 of-x-hidden m-auto"
+    :class="[
+      frontmatter.full ? 'max-w-300' : 'max-w-65ch',
+    ]"
+  >
     <article class="article">
       <NotFound v-if="page.isNotFound" />
       <template v-else-if="Layout">

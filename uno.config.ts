@@ -65,5 +65,9 @@ export default defineConfig({
     'i-ri-group-line',
     'i-ri-sticky-note-line',
     'i-ri-twitter-x-line',
+    'i-ri-article-line',
+    'i-ri-lightbulb-line',
+    'i-ri-screenshot-line',
+    'i-ri-gallery-line',
   ],
 })

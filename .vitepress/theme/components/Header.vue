@@ -17,45 +17,30 @@ watch(isDark, (v) => {
 </script>
 
 <template>
-  <header class="header">
+  <header class="flex justify-between p8 <md:py6">
     <div class="flex items-center">
-      <a href="/">
-        <img v-if="themeIcon === 'sun'" class="logo" src="/logo/dark.svg" alt="logo">
-        <img v-else-if="themeIcon === 'moon'" class="logo" src="/logo/light.svg" alt="logo">
-        <img v-else class="logo" src="/logo/light.svg" alt="logo">
+      <a class="op-60 hover:op-100! transition-200 ease " href="/">
+        <img v-if="themeIcon === 'sun'" class="w10 h10 op-90!" src="/logo/dark.svg" alt="logo">
+        <img v-else-if="themeIcon === 'moon'" class="w10 h10 op-90!" src="/logo/light.svg" alt="logo">
+        <img v-else class="w10 h10 op-90!" src="/logo/light.svg" alt="logo">
       </a>
     </div>
-    <nav class="nav">
-      <a v-for="n in nav" :key="n.link" :href="n.link" :title="n.text">
-        <Icon v-if="n.icon" :icon="n.icon" />
-        <template v-else>
-          {{ n.text }}
-        </template>
-      </a>
-      <a cursor="pointer" @click="toggleDarkFunc">
-        <Icon :icon="{ name: themeIcon }" />
+    <nav class="grid grid-flow-col gap-3 flex justify-center items-center">
+      <template v-for="n in nav" :key="n.link">
+        <a
+          :href="n.link"
+          :title="n.text"
+          class="[align-self:center] text-inherit cursor-pointer opacity-60 hover:op-100 no-underline transition-opacity duration-[0.2s] ease-[ease] [outline:none]"
+          :class="[n.autoShow ? '' : 'lt-md:hidden']"
+        >
+          <div v-if="n.icon !== undefined && n.icon.show === true" :class="n.icon.name" />
+          <span v-else class="lt-md:hidden">{{ n.text }}</span>
+          <div v-if="n.icon !== undefined && n.icon.show === false" class="md:hidden" :class="n.icon.name" />
+        </a>
+      </template>
+      <a cursor="pointer" class="[align-self:center] text-inherit cursor-pointer opacity-60 hover:op-100 no-underline transition-opacity duration-[0.2s] ease-[ease] [outline:none]" @click="toggleDarkFunc">
+        <div class="w-[1.23rem] h-[1.23rem] i-ri-sun-line dark:i-ri-moon-line" />
       </a>
     </nav>
   </header>
 </template>
-
-<style scoped>
-.header {
-  @apply flex justify-between p8 <md:py6;
-}
-.header a {
-  @apply op-60 hover:op-100! transition-200 ease;
-}
-
-.logo {
-  @apply w10 h10 op-90!;
-}
-
-.nav {
-  @apply grid grid-flow-col gap-3 md:gap-5;
-}
-
-.nav a {
-  align-self: center;
-}
-</style>

@@ -58,6 +58,11 @@ const groupedList = computed(() => groupByTime(notes))
               />
               <span class="text-sm op50 ws-nowrap">{{ formatDate(item.frontmatter.date, true) }}</span>
               <span v-if="item.frontmatter.duration" text-sm op40 ws-nowrap>· {{ item.frontmatter.duration }}</span>
+              <span
+                v-if="item.frontmatter.lang === 'zh'"
+                align-middle flex-none
+                class="text-xs bg-zinc:15 text-zinc5 rounded px-1 py-0.5 my-auto md:hidden"
+              >中文</span>
             </div>
           </li>
           <div v-if="item.frontmatter.description" class="op50 text-sm hidden mt--1 md:block">
