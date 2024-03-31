@@ -6,6 +6,11 @@ import Component from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig({
+  optimizeDeps: {
+    // vitepress is aliased with replacement `join(DIST_CLIENT_PATH, '/index')`
+    // This needs to be excluded from optimization
+    exclude: ['@vueuse/core', 'vitepress', 'matter-js'],
+  },
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, '.vitepress')}/`,
