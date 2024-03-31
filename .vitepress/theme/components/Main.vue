@@ -6,9 +6,10 @@ import Posts from '../pages/posts.vue'
 import Talks from '../pages/talks.vue'
 import Note from '../pages/notes.vue'
 import Projects from '../pages/projects.vue'
+import Demos from '../pages/demos.vue'
 import Pager from '../components/Pager.vue'
 
-const PageLayout = { Posts, Talks, Note, Projects }
+const PageLayout = { Posts, Talks, Note, Projects, Demos }
 
 const { page, frontmatter } = useData()
 const route = useRoute()
@@ -24,7 +25,7 @@ const hidePager = computed(() => frontmatter.value.layout === 'home' || route.pa
     <article
       class="article prose m-auto"
       :class="[
-        frontmatter.full ? 'max-w-300' : 'max-w-65ch',
+        frontmatter.full ? frontmatter.allFull ? 'md:max-w-90%! max-w-full!' : 'max-w-300' : 'max-w-65ch',
       ]"
     >
       <NotFound v-if="page.isNotFound" />

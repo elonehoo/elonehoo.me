@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, watch } from 'vue'
 import YouTubePlayer from 'youtube-player'
 
 const props = withDefaults(defineProps<{

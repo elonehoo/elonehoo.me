@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { data as notes } from '../utils/note.data'
 import { formatDate, groupByTime } from '../utils'
 import Empty from '../components/Empty.vue'

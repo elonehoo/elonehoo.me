@@ -16,7 +16,7 @@ Dreaming up ideas and making them come true is where my passion lies. You can fi
 
 Outside of programming, I enjoy doing play game and traveling. If you happen to be in the same city I live (currently in hangzhou), maybe we can hang out or code together.
 
-***
+---
 
 Find me on [<Icon class="i-ri-github-fill" /> GitHub](https://github.com/elonehoo), [<Icon class="i-ri-twitter-x-fill" /> Twitter](https://www.twitter.com/elonehoo), [<Icon class="i-ri-mastodon-fill" /> Mastodon](https://elk.zone/mstdn.social/@elonehoo), [<Icon class="i-ri-instagram-fill" /> Instagram](https://www.instagram.com/elonehoooo/).<br>
 Mail me at [<Icon class="i-ri-mail-fill" /> hi@elonehoo.me](mailto:hi@elonehoo.me).<br>

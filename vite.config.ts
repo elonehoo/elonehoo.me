@@ -1,18 +1,34 @@
+import path from 'node:path'
 import { defineConfig } from 'vite'
 import Unocss from 'unocss/vite'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import Component from 'unplugin-vue-components/vite'
+import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      '~/': `${path.resolve(__dirname, '.vitepress')}/`,
+    },
+  },
   plugins: [
     Component({
       include: [/\.vue/, /\.md/],
       dirs: [
         '.vitepress/theme/components',
         '.vitepress/components',
+        '.vitepress/demos',
       ],
       dts: '.vitepress/components.d.ts',
       directoryAsNamespace: true,
+    }),
+    AutoImport({
+      imports: [
+        'vue',
+        'vitepress',
+        '@vueuse/core',
+      ],
+      dts: '.vitepress/auto-imports.d.ts',
     }),
     Unocss(),
     VueDevTools(),
