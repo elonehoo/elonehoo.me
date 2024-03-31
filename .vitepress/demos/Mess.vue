@@ -2,7 +2,9 @@
 <!-- prettier-ignore -->
 <!-- @ts-nocheck -->
 <script setup>
-import { isDark } from '~/theme/composables/useDark'
+import { useData } from 'vitepress'
+
+const { isDark } = useData()
 
 const bgColor = ref(isDark.value ? '#1c1c1c' : '#f8f8f8')
 

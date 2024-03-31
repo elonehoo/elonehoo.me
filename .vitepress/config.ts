@@ -14,6 +14,12 @@ export default defineConfigWithTheme({
   },
   head: [
     ['link', { rel: 'icon', href: '/logo/dark.svg' }],
+    ['script', {}, `(function() {
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      const setting = localStorage.getItem('color-schema') || 'auto'
+      if (setting === 'dark' || (prefersDark && setting !== 'light'))
+        document.documentElement.classList.toggle('dark', true)
+    })()`],
   ],
   themeConfig: {
     nav: [

@@ -38,7 +38,6 @@ declare module 'vue' {
     IconLivraison: typeof import('./theme/components/icon/Livraison.vue')['default']
     IconReactivityVue: typeof import('./theme/components/icon/ReactivityVue.vue')['default']
     IconTrends: typeof import('./theme/components/icon/Trends.vue')['default']
-    ImagePreview: typeof import('./demos/ImagePreview.vue')['default']
     LineInteraction: typeof import('./demos/LineInteraction.vue')['default']
     Main: typeof import('./theme/components/Main.vue')['default']
     Mass: typeof import('./demos/Mass.vue')['default']

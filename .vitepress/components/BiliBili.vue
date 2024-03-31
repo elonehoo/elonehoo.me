@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { calcHeight } from '../theme/utils/calc'
-import { isBrowser } from '../theme/utils/isBrowser'
+import { calcHeight } from '~/utils/calc'
+import { isBrowser } from '~/utils/isBrowser'
 
 const props = defineProps<{
   aid: string

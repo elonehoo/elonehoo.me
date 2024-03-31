@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { isDark } from '../theme/composables/useDark'
+import { useData } from 'vitepress'
 
 const props = defineProps<{
   id: boolean
 }>()
+
+const { isDark } = useData()
+
 </script>
 
 <template>
