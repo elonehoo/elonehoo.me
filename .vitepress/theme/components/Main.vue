@@ -20,19 +20,24 @@ const hidePager = computed(() => frontmatter.value.layout === 'home' || route.pa
 
 <template>
   <main
-    class="px8 md:px16 py6 md:py10 of-x-hidden m-auto"
-    :class="[
-      frontmatter.full ? 'max-w-300' : 'max-w-65ch',
-    ]"
+    class="px8 md:px16 py6 md:py10 of-x-hidden"
   >
-    <article class="article">
+    <article
+      class="article prose m-auto"
+      :class="[
+        frontmatter.full ? 'max-w-300' : 'max-w-65ch',
+      ]"
+    >
       <NotFound v-if="page.isNotFound" />
       <template v-else-if="Layout">
         <component :is="Layout" :key="route.path" />
       </template>
-      <Content v-else class="slide-enter-content prose" />
+      <Content
+        v-else
+        class="slide-enter-content prose m-auto"
+      />
       <Pager v-if="!hidePager" :key="route.path" />
+      <slot :key="route.path" />
     </article>
-    <slot :key="route.path" />
   </main>
 </template>

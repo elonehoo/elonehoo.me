@@ -151,9 +151,6 @@ html.dark .article {
 .article code::after {
   content: "`";
 }
-.article a code {
-  color: #111827;
-}
 
 /* code by shiki */
 .article pre {

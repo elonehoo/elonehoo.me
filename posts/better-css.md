@@ -7,6 +7,8 @@ image: 'https://elonehoo.me/better-css/better-css-1.webp'
 layout: 'default'
 ---
 
+<Title />
+
 ![what is right](/better-css/better-css-1.webp)
 
 In this article, I want to discuss the kinds of properties that make working with CSS hard and the kinds of properties developers want out of the system. We will then analyze common solutions and how they stack against these goals. Finally, I will propose a solution that checks off all the boxes.

@@ -6,6 +6,8 @@ duration: 20min
 layout: 'default'
 ---
 
+<Title />
+
 The following are my favorite things about [Arc](https://arc.net), listed in order of preference.
 
 ## Command-T

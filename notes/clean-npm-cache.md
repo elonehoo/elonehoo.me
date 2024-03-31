@@ -6,6 +6,8 @@ duration: 1min
 layout: 'default'
 ---
 
+<Title />
+
 Today my disk is full :( Super unhappy.
 
 ```bash

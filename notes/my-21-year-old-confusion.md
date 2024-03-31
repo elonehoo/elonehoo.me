@@ -6,4 +6,6 @@ duration: 1min
 layout: 'default'
 ---
 
+<Title />
+
 I often wonder how I developed the ability to handle immense pressure and work tirelessly for six months without any complaints. It's as if I am like a resilient batch of chives.

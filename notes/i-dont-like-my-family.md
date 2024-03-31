@@ -6,6 +6,8 @@ duration: 10min
 layout: 'default'
 ---
 
+<Title />
+
 I don't like my biological family because I grew up in a suppressive environment from a young age.
 
 I have a "cousin" who is my father's sister's son. It seems like he got hold of a script for someone else's child – excelling in academics, tall, and with good looks. Whenever I visit my grandmother's house, I can't escape being compared, whether it's about grades or work. It's as if he's a paragon of excellence in my father's eyes, having even secured a government job.

@@ -26,6 +26,7 @@ declare module 'vue' {
     Pager: typeof import('./theme/components/Pager.vue')['default']
     ReactivityVue: typeof import('./theme/components/icon/ReactivityVue.vue')['default']
     SubNavBar: typeof import('./theme/components/SubNavBar.vue')['default']
+    Title: typeof import('./theme/components/Title.vue')['default']
     Trends: typeof import('./theme/components/icon/Trends.vue')['default']
   }
 }

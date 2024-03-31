@@ -6,6 +6,8 @@ duration: 10min
 layout: 'default'
 ---
 
+<Title />
+
 > [Johnson Chu](https://github.com/johnsoncodehk) 的帖子一目了然地显示了所做的改进
 
 ::Tweet{id="1695383715906744449"}

@@ -6,4 +6,6 @@ duration: 1min
 layout: 'default'
 ---
 
+<Title />
+
 We're all just suicidal kids telling other suicidal kids suicide ain't the answer.

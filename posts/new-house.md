@@ -6,6 +6,8 @@ duration: 2min
 layout: 'default'
 ---
 
+<Title />
+
 I always feel that I need a beautiful blog but I never have one.
 
 So I took some time to rewrite my homepage and adding the blog section. and Hi, here I am :)

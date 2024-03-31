@@ -10,6 +10,8 @@ description: 这是2024年对于大理旅游的计划，我会在这里记录目
 layout: 'default'
 ---
 
+<Title />
+
 ::GlobalAlert{type="tip"}
 大理旅游计划 :Icon{name="ph:heart-straight-bold" size="1.2rem" style="color: rgba(248,113,113,0.5);"}在有风的地方
 ::

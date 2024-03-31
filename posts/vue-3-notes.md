@@ -6,6 +6,8 @@ duration: 10min
 layout: 'default'
 ---
 
+<Title />
+
 > 注意：这是我个人迁移到 Vue 3 的笔记/技巧，会及时更新。请参阅[官方文档](https://vuejs.org/)以获取完整的更新日志。
 
 按照我个人感觉的重要性排序。
