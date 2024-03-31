@@ -9,6 +9,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AnimatedUnocss: typeof import('./theme/components/icon/AnimatedUnocss.vue')['default']
     BackTop: typeof import('./theme/components/BackTop.vue')['default']
+    BiliBili: typeof import('./components/BiliBili.vue')['default']
     Destyler: typeof import('./theme/components/icon/Destyler.vue')['default']
     Empty: typeof import('./theme/components/Empty.vue')['default']
     Footer: typeof import('./theme/components/Footer.vue')['default']
@@ -28,5 +29,7 @@ declare module 'vue' {
     SubNavBar: typeof import('./theme/components/SubNavBar.vue')['default']
     Title: typeof import('./theme/components/Title.vue')['default']
     Trends: typeof import('./theme/components/icon/Trends.vue')['default']
+    Tweet: typeof import('./components/Tweet.vue')['default']
+    YouTube: typeof import('./components/YouTube.vue')['default']
   }
 }

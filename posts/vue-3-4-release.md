@@ -10,8 +10,7 @@ layout: 'default'
 
 > [Johnson Chu](https://github.com/johnsoncodehk) 的帖子一目了然地显示了所做的改进
 
-::Tweet{id="1695383715906744449"}
-::
+<Tweet id="1695383715906744449" />
 
 `hour` 这是一个计算属性，更新时按 `sec → min → hour` 的顺序更新
 

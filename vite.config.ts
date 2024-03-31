@@ -7,7 +7,10 @@ export default defineConfig({
   plugins: [
     Component({
       include: [/\.vue/, /\.md/],
-      dirs: '.vitepress/theme/components',
+      dirs: [
+        '.vitepress/theme/components',
+        '.vitepress/components',
+      ],
       dts: '.vitepress/components.d.ts',
       directoryAsNamespace: true,
     }),

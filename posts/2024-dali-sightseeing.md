@@ -16,7 +16,7 @@ layout: 'default'
 大理旅游计划 :Icon{name="ph:heart-straight-bold" size="1.2rem" style="color: rgba(248,113,113,0.5);"}在有风的地方
 ::
 
-:BiliBili{aid="704606487"}
+<BiliBili aid="704606487" />
 
 ---
 
