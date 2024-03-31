@@ -12,9 +12,8 @@ layout: 'default'
 
 <Title />
 
-::GlobalAlert{type="tip"}
-大理旅游计划 :Icon{name="ph:heart-straight-bold" size="1.2rem" style="color: rgba(248,113,113,0.5);"}在有风的地方
-::
+> [!TIP]
+> 大理旅游计划 :Icon{name="ph:heart-straight-bold" size="1.2rem" style="color: rgba(248,113,113,0.5);"}在有风的地方
 
 <BiliBili aid="704606487" />
 
@@ -59,6 +58,5 @@ layout: 'default'
 
 ---
 
-::GlobalAlert{type="important"}
-Not yet completed...
-::
+> [!IMPORTANT]
+> Not yet completed...

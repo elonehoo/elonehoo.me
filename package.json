@@ -22,6 +22,7 @@
     "@iconify/json": "^2.2.196",
     "@types/youtube-player": "^5.5.11",
     "@unocss/reset": "^0.58.8",
+    "markdown-it-github-alerts": "^0.3.0",
     "unplugin-vue-components": "^0.26.0",
     "vite": "^5.2.7",
     "vite-plugin-vue-devtools": "^7.0.25",

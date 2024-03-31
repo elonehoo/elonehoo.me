@@ -1,4 +1,5 @@
 import { defineConfigWithTheme } from 'vitepress'
+import MarkdownItGitHubAlerts from 'markdown-it-github-alerts'
 
 export default defineConfigWithTheme({
   title: 'Elone Hoo',
@@ -7,6 +8,9 @@ export default defineConfigWithTheme({
   cleanUrls: true,
   markdown: {
     theme: 'vitesse-dark',
+    config(md) {
+      md.use(MarkdownItGitHubAlerts)
+    },
   },
   head: [
     ['link', { rel: 'icon', href: '/logo/dark.svg' }],
