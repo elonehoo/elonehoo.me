@@ -1,3 +1,4 @@
+import type { Theme } from 'vitepress'
 import '@unocss/reset/tailwind-compat.css'
 import 'uno.css'
 import 'markdown-it-github-alerts/styles/github-colors-light.css'
@@ -10,16 +11,7 @@ import { install } from '~/demos'
 
 export default {
   Layout,
-  async enhanceApp({ app, router }) {
+  enhanceApp({ app }) {
     install(app)
-    if (!import.meta.env.SSR) {
-      const NProgress = await import('nprogress')
-      router.onBeforeRouteChange = () => {
-        NProgress.start()
-      }
-      router.onBeforePageLoad = () => {
-        NProgress.done()
-      }
-    }
   },
-}
+} satisfies Theme
