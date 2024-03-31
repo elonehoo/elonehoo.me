@@ -7,7 +7,10 @@ export default defineConfigWithTheme({
   lastUpdated: true,
   cleanUrls: true,
   markdown: {
-    theme: 'vitesse-dark',
+    theme: {
+      light: 'vitesse-light',
+      dark: 'vitesse-dark',
+    },
     config(md) {
       md.use(MarkdownItGitHubAlerts)
     },

@@ -5,11 +5,10 @@ import NotFound from '../pages/not-found.vue'
 import Posts from '../pages/posts.vue'
 import Talks from '../pages/talks.vue'
 import Note from '../pages/notes.vue'
-import Card from '../pages/card.vue'
 import Projects from '../pages/projects.vue'
 import Pager from '../components/Pager.vue'
 
-const PageLayout = { Posts, Card, Talks, Note, Projects }
+const PageLayout = { Posts, Talks, Note, Projects }
 
 const { page, frontmatter } = useData()
 const route = useRoute()

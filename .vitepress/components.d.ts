@@ -14,7 +14,7 @@ declare module 'vue' {
     Empty: typeof import('./theme/components/Empty.vue')['default']
     Footer: typeof import('./theme/components/Footer.vue')['default']
     Header: typeof import('./theme/components/Header.vue')['default']
-    Icon: typeof import('./theme/components/Icon.vue')['default']
+    Icon: typeof import('./components/Icon.vue')['default']
     IconAnimatedUnocss: typeof import('./theme/components/icon/AnimatedUnocss.vue')['default']
     IconDestyler: typeof import('./theme/components/icon/Destyler.vue')['default']
     IconJumpIde: typeof import('./theme/components/icon/JumpIde.vue')['default']
