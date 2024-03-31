@@ -8,6 +8,8 @@ meta: 'View Prototype'
 component: TabBar
 ---
 
+<Title />
+
 <TabBar />
 
 <br />

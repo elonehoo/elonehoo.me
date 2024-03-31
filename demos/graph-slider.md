@@ -8,6 +8,8 @@ meta: 'View Prototype'
 component: GraphSlider
 ---
 
+<Title />
+
 <GraphSlider />
 
 <br />

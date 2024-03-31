@@ -8,6 +8,8 @@ meta: 'View Prototype'
 component: Clipboard
 ---
 
+<Title />
+
 <Clipboard />
 
 <br />

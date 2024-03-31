@@ -8,6 +8,8 @@ meta: 'View Prototype'
 component: Motion
 ---
 
+<Title />
+
 <Motion />
 
 <br />

@@ -7,3 +7,5 @@ type: 'video'
 href: 'https://decolorization.elonehoo.me/'
 url: 2022-4-14T12-00
 ---
+
+<Title />

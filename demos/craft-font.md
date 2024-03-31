@@ -8,6 +8,8 @@ meta: 'View Prototype'
 component: FontHollow
 ---
 
+<Title />
+
 <FontHollow />
 
 <br />

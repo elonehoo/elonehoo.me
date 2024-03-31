@@ -8,6 +8,8 @@ meta: 'View Prototype'
 component: Feedback
 ---
 
+<Title />
+
 <Feedback />
 
 <br />

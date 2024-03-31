@@ -8,6 +8,8 @@ meta: 'View Prototype'
 component: Fistbump
 ---
 
+<Title />
+
 <Fistbump />
 
 <br />
