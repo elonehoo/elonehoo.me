@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { useData } from 'vitepress'
 import { isDark, toggleDark } from '../composables/useDark'
-import Icon from './Icon.vue'
 
 const { site } = useData()
 
