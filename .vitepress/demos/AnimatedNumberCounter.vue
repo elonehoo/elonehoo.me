@@ -8,7 +8,7 @@ const props = withDefaults(defineProps<{
 const counter = ref<any | null>(null)
 
 function startCounter() {
-  counter.value.animate([{ '--num': 0 }, { '--num': props.targetNumber }], {
+  document.getElementById('counter')?.animate([{ '--num': 0 }, { '--num': props.targetNumber }], {
     duration: 1000,
     easing: 'ease-out',
     fill: 'forwards',
@@ -24,7 +24,7 @@ onMounted(() => {
   <CraftBox>
     <div>
       <div class="p-4 flex flex-col justify-center items-center overflow-hidden">
-        <span ref="counter" class="flex tabular-nums text-slate-900 dark:text-white text-5xl font-extrabold mb-2 [counter-set:_num_var(--num)] before:content-[counter(num)] ">
+        <span id="counter" class="flex tabular-nums text-slate-900 dark:text-white text-5xl font-extrabold mb-2 [counter-set:_num_var(--num)] before:content-[counter(num)] ">
           <span class="sr-only">{{ targetNumber }}</span>+
         </span>
       </div>
