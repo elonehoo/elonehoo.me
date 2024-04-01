@@ -7,9 +7,10 @@ import Talks from '../pages/talks.vue'
 import Note from '../pages/notes.vue'
 import Projects from '../pages/projects.vue'
 import Demos from '../pages/demos.vue'
+import Gallery from '../pages/gallery.vue'
 import Pager from '../components/Pager.vue'
 
-const PageLayout = { Posts, Talks, Note, Projects, Demos }
+const PageLayout = { Posts, Talks, Note, Projects, Demos, Gallery }
 
 const { page, frontmatter } = useData()
 const route = useRoute()
