@@ -11,7 +11,16 @@ import { install } from '~/demos'
 
 export default {
   Layout,
-  enhanceApp({ app }) {
+  async enhanceApp({ app, router }) {
     install(app)
+    if (!import.meta.env.SSR) {
+      const NProgress = await import('nprogress')
+      router.onBeforeRouteChange = () => {
+        NProgress.start()
+      }
+      router.onBeforePageLoad = () => {
+        NProgress.done()
+      }
+    }
   },
 } satisfies Theme
