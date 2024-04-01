@@ -6,7 +6,6 @@ const props = defineProps<{
 }>()
 
 const { isDark } = useData()
-
 </script>
 
 <template>

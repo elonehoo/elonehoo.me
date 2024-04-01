@@ -5,8 +5,6 @@ const props = withDefaults(defineProps<{
   targetNumber: 4000,
 })
 
-const counter = ref<any | null>(null)
-
 function startCounter() {
   document.getElementById('counter')?.animate([{ '--num': 0 }, { '--num': props.targetNumber }], {
     duration: 1000,
