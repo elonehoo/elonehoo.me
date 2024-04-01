@@ -23,7 +23,6 @@
   },
   "devDependencies": {
     "@iconify/json": "^2.2.196",
-    "@types/matter-js": "^0.19.6",
     "@types/node": "^20.12.2",
     "@types/nprogress": "^0.2.3",
     "@types/three": "^0.163.0",
@@ -32,7 +31,6 @@
     "@vueuse/router": "^10.9.0",
     "@vueuse/shared": "^10.9.0",
     "markdown-it-github-alerts": "^0.3.0",
-    "matter-js": "^0.19.0",
     "three": "^0.163.0",
     "unplugin-auto-import": "^0.17.5",
     "unplugin-vue-components": "^0.26.0",
