@@ -7,11 +7,13 @@ const { nav = [] } = site.value?.themeConfig
 
 const theme = useStorage('theme', 'dark')
 
-watch(theme, (v) => {
-  document.documentElement.setAttribute('class', v)
-  isDark.value = v === 'dark'
-}, {
-  immediate: true,
+onMounted(() => {
+  watch(theme, (v) => {
+    document.documentElement.setAttribute('class', v)
+    isDark.value = v === 'dark'
+  }, {
+    immediate: true,
+  })
 })
 
 function toggleDark(e: MouseEvent) {

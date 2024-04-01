@@ -10,8 +10,6 @@ component: GraphSlider
 
 <Title />
 
-<GraphSlider />
-
 <br />
 
 该图形是一个 `SVG` 元素。圆角指示器本身具有使用与渲染图形描边相同的路径定义来定义的 [offset-path](https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path)。基本上，这个属性可以使元素沿着给定的路径移动。为了简洁起见，一些细节被省略了，但这是一个总体的概念。

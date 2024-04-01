@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { noop } from '@vueuse/shared'
-import Matter from 'matter-js'
+import * as Matter from 'matter-js'
 
 const { Bodies, Engine, Render, Runner, World } = Matter
 
