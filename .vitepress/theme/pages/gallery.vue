@@ -1,5 +1,24 @@
 <script setup lang="ts">
-const { frontmatter } = useData()
+import { breakpointsTailwind } from '@vueuse/core'
+import { data as gallery } from '~/theme/utils/gallery.data'
+
+const breakpoints = useBreakpoints(breakpointsTailwind)
+
+const cols = computed(() => {
+  if (breakpoints.xl.value)
+    return 3
+  if (breakpoints.lg.value)
+    return 2
+  return 1
+})
+
+const parts = computed(() => {
+  const result = Array.from({ length: cols.value }, () => [] as typeof gallery)
+  gallery.forEach((item, i) => {
+    result[i % cols.value].push(item)
+  })
+  return result
+})
 </script>
 
 <template>
@@ -12,16 +31,29 @@ const { frontmatter } = useData()
         Record my life with photos.
       </p>
     </div>
-    <main class="p-0 md:p-2 flex flex-col relative min-h-screen overflow-hidden mx-0 md:mx-auto my-0 box-border">
-      <div class="grid grid-cols-[repeat(auto-fit,minmax(440px,1fr))] gap-2 box-border">
-        <div v-for="photo, idx in frontmatter.gallery.reverse()" :key="photo.url" class="inline-block relative w-334px md:w-full md:h-350px h-200px [outline:0px] slide-enter" :style="`--enter-stage: ${idx};`" style="content: none;">
+    <div grid="~ cols-1 lg:cols-2 xl:cols-3 gap-4">
+      <div v-for="items, idx of parts" :key="idx" flex="~ col gap-4">
+        <div
+          v-for="item in items"
+          :key="item.img"
+          class="slide-enter"
+          :style="{
+            '--enter-stage': idx + 1,
+          }"
+        >
           <img
-            class="absolute h-200px md:h-350px md:w-full w-334px text-transparent inset-0 select-none object-cover my-0! rounded-2xl"
-            :src="`/gallery${photo.url}`"
-            :alt="photo.url"
+            :src="`/gallery/${item.img}`"
+            border="~ #8884 rounded-lg"
+            block of-hidden
+            class="group"
+            hover="scale-101 shadow-xl z-10"
+            transition-all
+            duration-500
+            bg-white dark:bg-black
+            relative
           >
         </div>
       </div>
-    </main>
+    </div>
   </div>
 </template>
