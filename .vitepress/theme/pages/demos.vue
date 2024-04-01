@@ -48,8 +48,7 @@ const parts = computed(() => {
           v-for="demo in items"
           :key="demo.url"
           :href="demo.frontmatter.link === false ? null : demo.frontmatter.href || demo.url"
-          :class="demo.frontmatter.type === 'component' ? '' : 'cursor-pointer'"
-          class="[background:#ffffff] dark:[background:#000000] p-4px  block w-full [list-style:none] h-fit relative border overflow-hidden mb-1 rounded-xl border-solid border-#e8e8e8 hover:border-b-[#e8e8e8]! dark:border-[#2e2e2e] dark:hover:border-b-[#2e2e2e]! [transform:translateZ(0px)] text-inherit! no-underline! slide-enter transition-all duration-500"
+          class="cursor-pointer [background:#ffffff] dark:[background:#000000] p-4px  block w-full [list-style:none] h-fit relative border overflow-hidden mb-1 rounded-xl border-solid border-#e8e8e8 hover:border-b-[#e8e8e8]! dark:border-[#2e2e2e] dark:hover:border-b-[#2e2e2e]! [transform:translateZ(0px)] text-inherit! no-underline! slide-enter transition-all duration-500"
           :style="`--enter-stage: ${idx + 1};`" style="content: none;"
         >
           <div
