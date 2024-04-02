@@ -63,7 +63,7 @@ function toggleDark(e: MouseEvent) {
 <template>
   <header class="flex justify-between p8 <md:py6">
     <div class="flex items-center">
-      <a class="op-60 hover:op-100! transition-200 ease " href="/">
+      <a class="op-60 hover:op-100! transition-200 ease xl:fixed" href="/">
         <img v-if="isDark" class="w10 h10 op-90!" src="/logo/dark.svg" alt="logo">
         <img v-else class="w10 h10 op-90!" src="/logo/light.svg" alt="logo">
       </a>
