@@ -78,12 +78,12 @@ export default defineConfigWithTheme({
         autoShow: false,
         icon: { show: true, name: 'i-ri-sticky-note-line' },
       },
-      {
-        text: '友链',
-        link: '/friend-links',
-        autoShow: true,
-        icon: { show: true, name: 'i-ri-group-line' },
-      },
+      // {
+      //   text: '友链',
+      //   link: '/friend-links',
+      //   autoShow: true,
+      //   icon: { show: true, name: 'i-ri-group-line' },
+      // },
       {
         text: 'X',
         link: 'https://x.com/elonehoo',
