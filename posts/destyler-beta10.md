@@ -4,6 +4,7 @@ date: 2024-02-01T13:35:00.000+08:00
 lang: zh
 duration: 25min
 layout: 'default'
+read: true
 ---
 
 <Title />

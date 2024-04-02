@@ -17,6 +17,13 @@ const route = useRoute()
 
 const Layout = computed(() => PageLayout[frontmatter.value.layout])
 const hidePager = computed(() => frontmatter.value.layout === 'home' || route.path === '/')
+
+const markdownAltClass = useStorage('markdown-alt-class', false)
+
+onKeyStroke(['F', 'f'], () => {
+  if (frontmatter.value.read)
+    markdownAltClass.value = !markdownAltClass.value
+}, { dedupe: true })
 </script>
 
 <template>
@@ -24,6 +31,7 @@ const hidePager = computed(() => frontmatter.value.layout === 'home' || route.pa
     class="Doc px8 md:px16 py6 md:py10 of-x-hidden"
   >
     <Contexts v-if="frontmatter.anime" />
+    {{ markdownAltClass }}
     <article
       class="article prose m-auto"
       :class="[
@@ -38,6 +46,7 @@ const hidePager = computed(() => frontmatter.value.layout === 'home' || route.pa
       <Content
         v-else
         class="slide-enter-content prose m-auto"
+        :class="{ alt: markdownAltClass }"
       />
       <Pager v-if="!hidePager" :key="route.path" />
       <slot :key="route.path" />

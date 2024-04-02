@@ -345,3 +345,16 @@ html.dark .shiki span {
 .article a.item {
   @apply font-normal op-60 hover:op-100 active:op-100 transition-opacity ease transition-300;
 }
+
+
+.alt :where(p,pre,li,img,div,h2,h1,h3,h4,h5,h6) {
+  opacity: .6;
+  filter: blur(2px);
+  transition: 240ms;
+  transition-property: opacity,filter;
+}
+
+.alt :where(p,pre,li,img,div,h2,h1,h3,h4,h5,h6):hover {
+  opacity: 1;
+  filter: blur(0);
+}
