@@ -28,6 +28,9 @@ export default defineConfig({
       directoryAsNamespace: true,
     }),
     AutoImport({
+      dirs: [
+        '.vitepress/composables',
+      ],
       imports: [
         'vue',
         'vitepress',

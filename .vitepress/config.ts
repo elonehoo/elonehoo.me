@@ -1,5 +1,6 @@
 import { defineConfigWithTheme } from 'vitepress'
 import MarkdownItGitHubAlerts from 'markdown-it-github-alerts'
+import { slugify } from './script/slugify'
 
 export default defineConfigWithTheme({
   title: 'Elone Hoo',
@@ -10,6 +11,10 @@ export default defineConfigWithTheme({
     theme: 'vitesse-dark',
     config(md) {
       md.use(MarkdownItGitHubAlerts)
+    },
+    toc: {
+      slugify,
+      level: [1, 2, 3, 4],
     },
   },
   head: [
