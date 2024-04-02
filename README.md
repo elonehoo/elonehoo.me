@@ -1,6 +1,6 @@
 **[elonehoo.me](https://elonehoo.me)**
 
-my personal website powered by [Nuxt](https://nuxt.com/)
+my personal website powered by [VitePress](https://vitepress.dev/)
 
 <br>
 
