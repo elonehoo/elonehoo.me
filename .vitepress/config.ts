@@ -7,6 +7,7 @@ export default defineConfigWithTheme({
   appearance: false,
   lastUpdated: true,
   cleanUrls: true,
+  outDir: './dist',
   markdown: {
     theme: 'vitesse-dark',
     config(md) {

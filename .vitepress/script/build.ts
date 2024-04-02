@@ -7,7 +7,7 @@ const docsDir = resolve(dirname(fileURLToPath(import.meta.url)), '../..')
 
 function copyMP4Files() {
   const sourceDir = resolve(docsDir, 'demos')
-  const targetDir = resolve(docsDir, '.vitepress/dist/demos')
+  const targetDir = resolve(docsDir, 'dist/demos')
 
   fs.readdir(sourceDir, (err, files) => {
     if (err) {
