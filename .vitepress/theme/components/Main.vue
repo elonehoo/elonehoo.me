@@ -31,7 +31,6 @@ onKeyStroke(['F', 'f'], () => {
     class="Doc px8 md:px16 py6 md:py10 of-x-hidden"
   >
     <Contexts v-if="frontmatter.anime" />
-    {{ markdownAltClass }}
     <article
       class="article prose m-auto"
       :class="[
