@@ -1,5 +1,6 @@
 ---
 layout: home
+anime: true
 ---
 
 # Elone Hoo

@@ -23,6 +23,7 @@ const hidePager = computed(() => frontmatter.value.layout === 'home' || route.pa
   <main
     class="Doc px8 md:px16 py6 md:py10 of-x-hidden"
   >
+    <Contexts v-if="frontmatter.anime" />
     <article
       class="article prose m-auto"
       :class="[

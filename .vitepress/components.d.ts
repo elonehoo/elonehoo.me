@@ -14,6 +14,7 @@ declare module 'vue' {
     BoxPicker: typeof import('./demos/BoxPicker.vue')['default']
     Clipboard: typeof import('./demos/Clipboard.vue')['default']
     Connect: typeof import('./demos/Connect.vue')['default']
+    Contexts: typeof import('./theme/components/Contexts.vue')['default']
     CraftBox: typeof import('./components/CraftBox.vue')['default']
     DeleteButtom: typeof import('./demos/DeleteButtom.vue')['default']
     Empty: typeof import('./theme/components/Empty.vue')['default']

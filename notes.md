@@ -1,5 +1,5 @@
 ---
 title: Notes
 layout: Note
-list: true
+anime: true
 ---

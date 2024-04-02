@@ -2,6 +2,7 @@
 title: Projects
 layout: Projects
 full: true
+anime: true
 projects:
   Current Focus:
     - name: 'destyler'

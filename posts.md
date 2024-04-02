@@ -1,5 +1,5 @@
 ---
 title: Blog
 layout: Posts
-list: true
+anime: true
 ---

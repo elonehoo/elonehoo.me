@@ -1,5 +1,5 @@
 ---
 title: Talk
 layout: Talks
-list: true
+anime: true
 ---
