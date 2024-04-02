@@ -1,5 +1,3 @@
-import type { DefaultTheme } from 'vitepress/theme'
-
 interface Header {
   /**
    * The level of the header

@@ -8,8 +8,6 @@ function handleShow() {
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 const size = reactive(useWindowSize())
 
-const { x: mouseX, y: mouseY } = useMouse()
-
 function initCanvas(canvas: HTMLCanvasElement, width = 400, height = 400, _dpi?: number) {
   const ctx = canvas.getContext('2d')!
 
