@@ -75,31 +75,38 @@ function serializeHeader(h: Element): string {
 export function resolveHeaders(
   headers: MenuItem[],
 ): MenuItem[] {
-  const [high, low]: [number, number]
-    = [2, 6]
+  const [high, low]: [number, number] = [2, 6]
 
   headers = headers.filter(h => h.level >= high && h.level <= low)
-  // clear previous caches
   resolvedHeaders.length = 0
-  // update global header list for active link rendering
+
   for (const { element, link } of headers)
     resolvedHeaders.push({ element, link })
 
   const ret: MenuItem[] = []
-  outer: for (let i = 0; i < headers.length; i++) {
+
+  for (let i = 0; i < headers.length; i++) {
     const cur = headers[i]
+
     if (i === 0) {
       ret.push(cur)
     }
     else {
-      for (let j = i - 1; j >= 0; j--) {
+      let j = i - 1
+
+      while (j >= 0) {
         const prev = headers[j]
+
         if (prev.level < cur.level) {
-          ;(prev.children || (prev.children = [])).push(cur)
-          continue outer
+          (prev.children || (prev.children = [])).push(cur)
+          break
         }
+
+        j--
       }
-      ret.push(cur)
+
+      if (j < 0)
+        ret.push(cur)
     }
   }
 

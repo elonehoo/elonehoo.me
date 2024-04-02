@@ -10,11 +10,13 @@ onContentUpdated(() => {
 </script>
 
 <template>
-  <div v-if="headers.length !== 0" class="table-of-contents">
-    <div class="table-of-contents-anchor">
-      <div class="i-ri-menu-2-fill" />
+  <div>
+    <div v-if="headers.length !== 0" class="table-of-contents">
+      <div class="table-of-contents-anchor">
+        <div class="i-ri-menu-2-fill" />
+      </div>
+      <TocItem :headers="headers" />
     </div>
-    <TocItem :headers="headers" />
   </div>
 </template>
 
