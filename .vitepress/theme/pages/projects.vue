@@ -29,7 +29,7 @@ function slug(name: string) {
               '--enter-step': '60ms',
             }"
           >
-            <span class="text-5em color-transparent absolute left--1rem top-0rem font-bold text-stroke-1.5 text-stroke-hex-aaa op20">{{ key }}</span>
+            <span class="text-5em color-transparent absolute left--1rem top-0rem font-bold text-stroke-1.5 text-stroke-hex-aaa op30">{{ key }}</span>
           </div>
           <div
             class="project-grid py-2 max-w-500 w-max mx-auto"
@@ -57,34 +57,6 @@ function slug(name: string) {
               </div>
             </a>
           </div>
-          <!-- <div
-            class="project-grid py-2 max-w-500 w-max mx-auto"
-            grid="~ cols-1 md:cols-2 gap-4"
-            :class="project.length === 1 ? 'flex' : project.length > 2 ? 'lg:grid-cols-3' : ''"
-          >
-            <a
-              v-for="item in project"
-              :key="item.link"
-              class="item relative flex items-center border-none!"
-              :class="!item.link ? 'opacity-0 pointer-events-none h-0 -mt-8 -mb-4' : ''"
-              :href="item.link"
-              target="_blank"
-              :aria-label="item.name"
-            >
-              <div v-if="item.icon" class="pt-2 pr-5">
-                <IconJumpIde v-if="item.icon === 'jump-ide'" class="text-4xl opacity-50" />
-                <IconReactivityVue v-else-if="item.icon === 'reactivity-vue'" class="text-4xl opacity-50" />
-                <IconDestyler v-else-if="item.icon === 'destyler'" class="text-4xl opacity-50" />
-                <IconLivraison v-else-if="item.icon === 'livraison'" class="text-4xl opacity-50" />
-                <IconAnimatedUnocss v-else-if="item.icon === 'animatedUnocss'" class="text-4xl opacity-50" />
-                <div v-else class="text-4xl opacity-50" :class="item.icon || 'i-carbon-unknown'" />
-              </div>
-              <div class="flex-auto">
-                <div class="text-normal">{{ item.name }}</div>
-                <div class="desc text-sm opacity-50 font-normal">{{ item.desc }}</div>
-              </div>
-            </a>
-          </div> -->
         </div>
         <div :style="{ '--enter-stage': Object.keys(frontmatter.projects).length, '--enter-step': '120ms' }" class="slide-enter markdown pb5 text-center mx-auto mt10 max-w-65ch">
           <p op75>
