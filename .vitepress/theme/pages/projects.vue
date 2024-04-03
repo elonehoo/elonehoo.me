@@ -29,7 +29,16 @@ function slug(name: string) {
               '--enter-step': '60ms',
             }"
           >
-            <span class="text-5em color-transparent absolute left--1rem top-0rem font-bold text-stroke-1.5 text-stroke-hex-aaa op30">{{ key }}</span>
+            <span
+              text-8xl
+              color="transparent hover:dark dark:hover:white"
+              transition="all"
+              duration="300"
+              ease="linear"
+              class="dark:[-webkit-text-stroke:1px_rgba(255,255,255,0.2)] [-webkit-text-stroke:1px_rgba(0,0,0,0.2)]"
+            >
+              {{ key }}
+            </span>
           </div>
           <div
             class="project-grid py-2 max-w-500 w-max mx-auto"

@@ -21,7 +21,18 @@ const groupedList = computed(() => groupByTime(notes))
         select-none
         h20
       >
-        <span class="text-8em color-transparent absolute left--1rem md:left--3rem top--2rem font-bold text-stroke-2 text-stroke-hex-aaa op15">{{ key }}</span>
+        <span
+          text-8em
+          absolute
+          left--1rem md:left--3rem top--2rem font-bold
+          color="transparent "
+          transition="all"
+          duration="300"
+          ease="linear"
+          class="dark:[-webkit-text-stroke:1px_rgba(255,255,255,0.15)] [-webkit-text-stroke:1px_rgba(0,0,0,0.15)]"
+        >
+          {{ key }}
+        </span>
       </div>
       <div
         v-for="item in records"
