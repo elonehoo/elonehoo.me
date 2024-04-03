@@ -101,7 +101,7 @@ import { DestylerInfoRoot, DestylerIcon,DestylerClose } from 'destyler'
 
 例如
 
-```ts
+```ts twoslash
 import type { PropType } from 'vue'
 import { defineComponent, h } from 'vue'
 
@@ -130,7 +130,7 @@ export const Component = defineComponent({
 
 例如
 
-```ts
+```ts twoslash
 import type { PropType } from 'vue'
 import { defineComponent, h } from 'vue'
 

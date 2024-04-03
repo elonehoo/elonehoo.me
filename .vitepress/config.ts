@@ -1,5 +1,7 @@
 import { defineConfigWithTheme } from 'vitepress'
 import MarkdownItGitHubAlerts from 'markdown-it-github-alerts'
+import { transformerMetaWordHighlight, transformerNotationWordHighlight } from '@shikijs/transformers'
+import { defaultHoverInfoProcessor, transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import { slugify } from './script/slugify'
 import { genFeed } from './script/rss'
 
@@ -14,6 +16,47 @@ export default defineConfigWithTheme({
     config(md) {
       md.use(MarkdownItGitHubAlerts)
     },
+    codeTransformers: [
+      transformerMetaWordHighlight(),
+      transformerNotationWordHighlight(),
+      {
+        // Render custom themes with codeblocks
+        name: 'shiki:inline-theme',
+        preprocess(code, options) {
+          // @ts-expect-error anyway
+          delete options.themes
+          // @ts-expect-error anyway
+          options.theme = 'vitesse-dark'
+          return code
+        },
+      },
+      {
+        name: 'shiki:inline-decorations',
+        preprocess(code, options) {
+          const reg = /^\/\/ @decorations:(.*?)\n/
+          code = code.replace(reg, (match, decorations) => {
+            options.decorations ||= []
+            options.decorations.push(...JSON.parse(decorations))
+            return ''
+          })
+          return code
+        },
+      },
+      transformerTwoslash({
+        // errorRendering: 'hover',
+        processHoverInfo(info) {
+          return defaultHoverInfoProcessor(info)
+            // Remove shiki_core namespace
+            .replace(/_shikijs_core[\w_]*\./g, '')
+        },
+      }),
+      {
+        name: 'shiki:remove-escape',
+        postprocess(code) {
+          return code.replace(/\[\\\!code/g, '[!code')
+        },
+      },
+    ],
     toc: {
       slugify,
       level: [1, 2, 3, 4],
