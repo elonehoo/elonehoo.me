@@ -1,6 +1,7 @@
 import { defineConfigWithTheme } from 'vitepress'
 import MarkdownItGitHubAlerts from 'markdown-it-github-alerts'
 import { slugify } from './script/slugify'
+import { genFeed } from './script/rss'
 
 export default defineConfigWithTheme({
   title: 'Elone Hoo',
@@ -100,6 +101,15 @@ export default defineConfigWithTheme({
           name: 'i-ri-github-line',
         },
       },
+      {
+        text: 'rss',
+        link: 'https://elonehoo.me/feed.rss',
+        icon: {
+          show: true,
+          name: 'i-la-rss-square',
+        },
+      },
     ],
   },
+  buildEnd: genFeed,
 })
