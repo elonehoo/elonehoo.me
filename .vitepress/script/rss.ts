@@ -12,7 +12,7 @@ export async function genFeed(config: SiteConfig) {
     id: baseUrl,
     link: baseUrl,
     language: 'en',
-    image: 'https://elonehoo.me/og.png',
+    image: 'https://elonehoo.me/avatar.png',
     favicon: `${baseUrl}/logo-dark.ico`,
     copyright:
       'CC BY-NC-SA 4.0 2022-PRESENT © Elone Hoo',
