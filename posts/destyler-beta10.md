@@ -20,7 +20,7 @@ Destyler 是一个无样式的 Vue 组件库，它受到了 [Radix-ui](https://g
 
 ## 在最开始的几个版本 Destyler 也经历了重构
 
-所属PR [#1](https://github.com/destyler/destyler/pull/1)
+<GitHubCard to="https://github.com/destyler/destyler/pull/1" type="pull" status="merged" title="refactor: SFC to Typescript" />
 
 在这个 PR 中将刚开始的几个组件进行了重构，当然站在上帝视角上这次的重构是失败的，因为我并没有考虑到组件的复用性，以及用户对于这些组件的自定义需求。
 
@@ -60,7 +60,7 @@ import { DestylerAlert, DestylerIcon } from 'destyler'
 
 ## 最终模式的 Destyler
 
-所属 PR [#13](https://github.com/destyler/destyler/pull/13)
+<GitHubCard to="https://github.com/destyler/destyler/pull/13" type="pull" status="merged" title="refactor!: because of the improper use of component slots and the poor reusability of the ui, it was necessary to redesign the api and write the." />
 
 在这个 PR 中，我开始学习 Radix-ui 的组件，同时也开始编写了 primitive 原型组件，让组件可以更好的被渲染和使用。
 
