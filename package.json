@@ -4,7 +4,7 @@
   "author": "Elone Hoo <hi@elonehoo.me>",
   "license": "MIT",
   "scripts": {
-    "dev": "vitepress dev",
+    "dev": "vitepress dev --port 3333",
     "build": "vitepress build && pnpm run copy:mp4",
     "copy:mp4": "tsx .vitepress/script/build.ts",
     "preview": "vitepress preview",

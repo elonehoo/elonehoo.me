@@ -2,6 +2,10 @@
 import { useData } from 'vitepress'
 
 const { frontmatter } = useData()
+
+function slug(name: string) {
+  return name.toLowerCase().replace(/[\s\\\/]+/g, '-')
+}
 </script>
 
 <template>
@@ -16,11 +20,44 @@ const { frontmatter } = useData()
     </div>
     <article class="m-0 md:m-auto max-w-full!">
       <div aria-label="slide-enter-content">
-        <div v-for="project, idx, index in frontmatter.projects" :key="idx" class="slide-enter" :style="{ '--enter-stage': index, '--enter-step': '120ms' }">
-          <h4 class="mt-15 mb-2 font-bold text-center op75">
-            {{ idx }}
-          </h4>
+        <div v-for="key, cidx in Object.keys(frontmatter.projects)" :key="key" class="slide-enter" :style="{ '--enter-stage': cidx + 1, '--enter-step': '120ms' }">
           <div
+            :id="slug(key)"
+            class="select-none relative h20 pointer-events-none slide-enter"
+            :style="{
+              '--enter-stage': cidx - 2,
+              '--enter-step': '60ms',
+            }"
+          >
+            <span class="text-5em color-transparent absolute left--1rem top-0rem font-bold text-stroke-1.5 text-stroke-hex-aaa op20">{{ key }}</span>
+          </div>
+          <div
+            class="project-grid py-2 max-w-500 w-max mx-auto"
+            grid="~ cols-1 md:cols-2 gap-4 lg:cols-3"
+          >
+            <a
+              v-for="item, idx in frontmatter.projects[key]"
+              :key="idx"
+              class="item relative flex items-center border-none!"
+              :href="item.link"
+              target="_blank"
+              :title="item.name"
+            >
+              <div v-if="item.icon" class="pt-2 pr-5">
+                <IconJumpIde v-if="item.icon === 'jump-ide'" class="text-4xl opacity-50" />
+                <IconReactivityVue v-else-if="item.icon === 'reactivity-vue'" class="text-4xl opacity-50" />
+                <IconDestyler v-else-if="item.icon === 'destyler'" class="text-4xl opacity-50" />
+                <IconLivraison v-else-if="item.icon === 'livraison'" class="text-4xl opacity-50" />
+                <IconAnimatedUnocss v-else-if="item.icon === 'animatedUnocss'" class="text-4xl opacity-50" />
+                <div v-else class="text-4xl opacity-50" :class="item.icon || 'i-carbon-unknown'" />
+              </div>
+              <div class="flex-auto">
+                <div class="text-normal">{{ item.name }}</div>
+                <div class="desc text-sm opacity-50 font-normal">{{ item.desc }}</div>
+              </div>
+            </a>
+          </div>
+          <!-- <div
             class="project-grid py-2 max-w-500 w-max mx-auto"
             grid="~ cols-1 md:cols-2 gap-4"
             :class="project.length === 1 ? 'flex' : project.length > 2 ? 'lg:grid-cols-3' : ''"
@@ -47,7 +84,7 @@ const { frontmatter } = useData()
                 <div class="desc text-sm opacity-50 font-normal">{{ item.desc }}</div>
               </div>
             </a>
-          </div>
+          </div> -->
         </div>
         <div :style="{ '--enter-stage': Object.keys(frontmatter.projects).length, '--enter-step': '120ms' }" class="slide-enter markdown pb5 text-center mx-auto mt10 max-w-65ch">
           <p op75>
