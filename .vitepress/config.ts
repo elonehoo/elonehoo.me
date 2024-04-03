@@ -63,7 +63,21 @@ export default defineConfigWithTheme({
     },
   },
   head: [
-    ['link', { rel: 'icon', href: '/logo/dark.svg' }],
+    ['meta', { name: 'theme-color', content: '#ffffff' }],
+    ['link', { rel: 'icon', href: '/logo/dark.svg', sizes: 'any', type: 'image/svg+xml' }],
+    ['link', { rel: 'icon', href: '/favicon.svg', sizes: '48x48' }],
+    ['meta', { name: 'author', content: 'Elone Hoo' }],
+    ['meta', { property: 'og:title', content: 'Elone Hoo Blog' }],
+    ['meta', { property: 'og:description', content: 'I hope every sunny afternoon can be wasted.' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:creator', content: '@elonehoo' }],
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, viewport-fit=cover' }],
+    ['link', { rel: 'apple-touch-icon', href: '/avatar.png', sizes: '180x180' }],
+
+    ['link', { rel: 'dns-prefetch', href: 'https://fonts.gstatic.com' }],
+    ['link', { rel: 'preconnect', crossorigin: 'anonymous', href: 'https://fonts.gstatic.com' }],
+    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap' }],
+    ['link', { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Fira+Code&display=swap' }],
     ['script', {}, `(function() {
       const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
       const setting = localStorage.getItem('color-schema') || 'auto'
