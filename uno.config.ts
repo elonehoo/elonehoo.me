@@ -69,5 +69,6 @@ export default defineConfig({
     'i-ri-lightbulb-line',
     'i-ri-screenshot-line',
     'i-ri-gallery-line',
+    'i-la-rss-square',
   ],
 })
