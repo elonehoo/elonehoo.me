@@ -49,6 +49,7 @@ declare module 'vue' {
     PullRequest: typeof import('./theme/components/PullRequest.vue')['default']
     RadioButton: typeof import('./demos/RadioButton.vue')['default']
     Rocket: typeof import('./demos/Rocket.vue')['default']
+    RotatingPyramid: typeof import('./demos/RotatingPyramid.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ShootingStarBorder: typeof import('./demos/ShootingStarBorder.vue')['default']
