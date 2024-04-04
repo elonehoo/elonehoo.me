@@ -5,7 +5,9 @@ anime: true
 
 # Elone Hoo
 
-Hello, I am Elone Hoo, a fanatical open sourceror.
+Hello, I am Elone Hoo.
+
+> i hope every sunny afternoon can be wasted.
 
 Working for [myself](https://github.com/wip-elonehoo).<br>
 
