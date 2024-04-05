@@ -35,7 +35,6 @@
 
 @keyframes effect-loader-animate {
   0% {
-
     stroke: dodgerblue;
     stroke: #00ff00;
     d: path("M0,25 C150,110 150, -60 300,25");
