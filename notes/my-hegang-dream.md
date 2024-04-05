@@ -1,6 +1,6 @@
 ---
 title: 我的鹤岗梦
-date: 2023-10-08T10:53:00.000+08:00
+date: 2023-10-08T10:53:00.000
 lang: zh
 duration: 1min
 recording: true

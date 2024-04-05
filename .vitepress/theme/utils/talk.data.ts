@@ -23,7 +23,7 @@ export default createContentLoader('talks/*.md', {
         title: frontmatter.title,
         lang: frontmatter.lang,
         url,
-        date: formatTime(frontmatter.date),
+        date: frontmatter.date,
         time: dayjs(frontmatter.date).format('YYYY/MM/DD'),
         duration: frontmatter.duration,
         frontmatter,

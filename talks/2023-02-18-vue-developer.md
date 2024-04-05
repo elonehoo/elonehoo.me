@@ -1,6 +1,6 @@
 ---
 title: 如何在公司内部增强 Vue 开发体验
-date: 2023-02-18T23:00:00.000+08:00
+date: 2023-02-18T23:00:00.000
 lang: zh
 duration: 15min
 layout: 'default'

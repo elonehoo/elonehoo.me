@@ -1,6 +1,6 @@
 ---
 title: 一只特立独行的猪
-date: 2023-12-14T09:31:00.000+08:00
+date: 2023-12-14T09:31:00.000
 lang: zh
 duration: 1min
 layout: 'default'

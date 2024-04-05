@@ -1,6 +1,6 @@
 ---
 title: A Better Way to Use CSS in Web Applications
-date: 2023-02-08T20:46:00.000+08:00
+date: 2023-02-08T20:46:00.000
 lang: en
 duration: 6min
 image: 'https://elonehoo.me/better-css/better-css-1.webp'

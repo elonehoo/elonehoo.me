@@ -1,6 +1,6 @@
 ---
 title: I made a fun toggle with UnoCss.
-date: 2023-07-19T12:00:00.000+08:00
+date: 2023-07-19T12:00:00.000
 lang: en
 duration: 5min
 meta: 'Read Twitter'

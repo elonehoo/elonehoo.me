@@ -1,6 +1,6 @@
 ---
 title: Switch JDK
-date: 2023-09-11T11:15:00.000+08:00
+date: 2023-09-11T11:15:00.000
 lang: en
 duration: 1min
 layout: 'default'

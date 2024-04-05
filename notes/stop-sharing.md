@@ -1,6 +1,6 @@
 ---
 title: Stop Your Sharing
-date: 2023-11-14T21:29:00.000+08:00
+date: 2023-11-14T21:29:00.000
 lang: en
 duration: 1min
 layout: 'default'

@@ -1,6 +1,6 @@
 ---
 title: Destyler Beta 10 发布
-date: 2024-02-01T13:35:00.000+08:00
+date: 2024-02-01T13:35:00.000
 lang: zh
 duration: 25min
 layout: 'default'

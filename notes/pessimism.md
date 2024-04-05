@@ -1,6 +1,6 @@
 ---
 title: 悲惨人生
-date: 2023-10-27T15:24:00.000+08:00
+date: 2023-10-27T15:24:00.000
 lang: zh
 duration: 1min
 layout: 'default'

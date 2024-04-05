@@ -1,6 +1,6 @@
 ---
 title: 在路上
-date: 2024-03-26T11:25:00.000+08:00
+date: 2024-03-26T11:25:00.000
 lang: zh
 duration: 1min
 layout: 'default'

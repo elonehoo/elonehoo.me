@@ -1,6 +1,6 @@
 ---
 title: 精神与爱欲
-date: 2024-01-08T15:02:00.000+08:00
+date: 2024-01-08T15:02:00.000
 lang: zh
 duration: 1min
 layout: 'default'

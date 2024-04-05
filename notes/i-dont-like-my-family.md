@@ -1,6 +1,6 @@
 ---
 title: I dot't like my family
-date: 2023-09-15T17:20:00.000+08:00
+date: 2023-09-15T17:20:00.000
 lang: en
 duration: 10min
 layout: 'default'

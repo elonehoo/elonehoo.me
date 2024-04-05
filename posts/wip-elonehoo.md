@@ -1,6 +1,6 @@
 ---
 title: WIP of Elone Hoo
-date: 2023-03-03T10:00:00.000+08:00
+date: 2023-03-03T10:00:00.000
 lang: en
 duration: 5min
 layout: 'default'

@@ -1,6 +1,6 @@
 ---
 title: Vue Composition Api
-date: 2023-02-07T13:12:00.000+08:00
+date: 2023-02-07T13:12:00.000
 lang: zh
 duration: 25min
 layout: 'default'

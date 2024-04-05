@@ -1,6 +1,6 @@
 ---
 title: WWDC23 Design for spatial user interfaces
-date: 2023-06-16T15:36:00.000+08:00
+date: 2023-06-16T15:36:00.000
 lang: en
 duration: 16min
 image: 'https://elonehoo.me/wwdc-design/og.png'

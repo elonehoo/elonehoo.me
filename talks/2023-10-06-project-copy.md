@@ -1,6 +1,6 @@
 ---
 title: 项目中架构技术讲述和复制项目的条件
-date: 2023-10-06T23:00:00.000+08:00
+date: 2023-10-06T23:00:00.000
 lang: zh
 duration: 15min
 layout: 'default'
