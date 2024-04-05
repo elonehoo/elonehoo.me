@@ -7,6 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    10030: typeof import('./demos/100-30.vue')['default']
     AnimatedNumberCounter: typeof import('./demos/AnimatedNumberCounter.vue')['default']
     BackTop: typeof import('./theme/components/BackTop.vue')['default']
     BiliBili: typeof import('./components/BiliBili.vue')['default']
@@ -43,6 +44,7 @@ declare module 'vue' {
     LineInteraction: typeof import('./demos/LineInteraction.vue')['default']
     Main: typeof import('./theme/components/Main.vue')['default']
     Mess: typeof import('./demos/Mess.vue')['default']
+    MobinkakeiLoader: typeof import('./demos/MobinkakeiLoader.vue')['default']
     Motion: typeof import('./demos/Motion.vue')['default']
     NawsomeLogin: typeof import('./demos/NawsomeLogin.vue')['default']
     Pager: typeof import('./theme/components/Pager.vue')['default']
