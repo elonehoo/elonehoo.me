@@ -1,6 +1,5 @@
 import { createContentLoader } from 'vitepress'
 import dayjs from 'dayjs'
-import { formatTime } from './index'
 
 interface Post {
   title: string
