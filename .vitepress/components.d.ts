@@ -18,6 +18,7 @@ declare module 'vue' {
     Contexts: typeof import('./theme/components/Contexts.vue')['default']
     CraftBox: typeof import('./components/CraftBox.vue')['default']
     DeleteButtom: typeof import('./demos/DeleteButtom.vue')['default']
+    DifferentKindSwitch: typeof import('./demos/DifferentKindSwitch.vue')['default']
     EffectLoader: typeof import('./demos/EffectLoader.vue')['default']
     Empty: typeof import('./theme/components/Empty.vue')['default']
     ErrorEmail: typeof import('./demos/ErrorEmail.vue')['default']
