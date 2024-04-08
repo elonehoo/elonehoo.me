@@ -69,6 +69,7 @@ export default defineConfigWithTheme({
     ['meta', { name: 'author', content: 'Elone Hoo' }],
     ['meta', { property: 'og:title', content: 'Elone Hoo Blog' }],
     ['meta', { property: 'og:description', content: 'I hope every sunny afternoon can be wasted.' }],
+    ['meta', { name: 'X:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:creator', content: '@elonehoo' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, viewport-fit=cover' }],
