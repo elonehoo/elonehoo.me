@@ -4,6 +4,7 @@ import { transformerMetaWordHighlight, transformerNotationWordHighlight } from '
 import { defaultHoverInfoProcessor, transformerTwoslash } from '@shikijs/vitepress-twoslash'
 import { slugify } from './script/slugify'
 import { genFeed } from './script/rss'
+import { transformHead } from './meta/head'
 
 export default defineConfigWithTheme({
   title: 'Elone Hoo',
@@ -86,6 +87,7 @@ export default defineConfigWithTheme({
         document.documentElement.classList.toggle('dark', true)
     })()`],
   ],
+  transformHead,
   themeConfig: {
     nav: [
       {
