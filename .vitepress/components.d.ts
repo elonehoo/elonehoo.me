@@ -12,6 +12,7 @@ declare module 'vue' {
     BiliBili: typeof import('./components/BiliBili.vue')['default']
     BlockPushLoading: typeof import('./demos/BlockPushLoading.vue')['default']
     BoxPicker: typeof import('./demos/BoxPicker.vue')['default']
+    ClimbSlope: typeof import('./demos/ClimbSlope.vue')['default']
     Clipboard: typeof import('./demos/Clipboard.vue')['default']
     Connect: typeof import('./demos/Connect.vue')['default']
     Contexts: typeof import('./theme/components/Contexts.vue')['default']
