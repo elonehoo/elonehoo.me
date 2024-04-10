@@ -7,7 +7,6 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    10030: typeof import('./demos/100-30.vue')['default']
     AnimatedNumberCounter: typeof import('./demos/AnimatedNumberCounter.vue')['default']
     BackTop: typeof import('./theme/components/BackTop.vue')['default']
     BiliBili: typeof import('./components/BiliBili.vue')['default']
@@ -50,7 +49,6 @@ declare module 'vue' {
     Motion: typeof import('./demos/Motion.vue')['default']
     NawsomeLogin: typeof import('./demos/NawsomeLogin.vue')['default']
     Pager: typeof import('./theme/components/Pager.vue')['default']
-    PullRequest: typeof import('./theme/components/PullRequest.vue')['default']
     RadioButton: typeof import('./demos/RadioButton.vue')['default']
     Rocket: typeof import('./demos/Rocket.vue')['default']
     RotatingPyramid: typeof import('./demos/RotatingPyramid.vue')['default']
@@ -71,7 +69,6 @@ declare module 'vue' {
     TocItem: typeof import('./theme/components/TocItem.vue')['default']
     Todo: typeof import('./demos/Todo.vue')['default']
     Toggle: typeof import('./components/Toggle.vue')['default']
-    ToggleTheme: typeof import('./demos/ToggleTheme.vue')['default']
     TooltipAnime: typeof import('./demos/TooltipAnime.vue')['default']
     Turns: typeof import('./components/Turns.vue')['default']
     Tweet: typeof import('./components/Tweet.vue')['default']
