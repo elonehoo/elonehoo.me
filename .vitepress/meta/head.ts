@@ -8,6 +8,8 @@ export async function transformHead({ pageData }: TransformContext) {
   const head: HeadConfig[] = []
   if (pageData.relativePath === 'index.md') {
     head.push(
+      ['meta', { property: 'twitter:title', content: 'Elone Hoo' }],
+      ['meta', { property: 'twitter:description', content: 'i hope every sunny afternoon can be wasted.' }],
       ['meta', { property: 'og:image', content: 'https://elonehoo.me/og.png' }],
       ['meta', { property: 'twitter:image', content: 'https://elonehoo.me/og.png' }],
     )
@@ -16,6 +18,8 @@ export async function transformHead({ pageData }: TransformContext) {
   const name = getFileName(pageData.filePath)
   await generateSVG(pageData, `dist/og-${name}.png`)
   head.push(
+    ['meta', { property: 'twitter:title', content: `${pageData.title}` }],
+    ['meta', { property: 'twitter:description', content: `${pageData.description || pageData.title}` }],
     ['meta', { property: 'og:image', content: `https://elonehoo.me/og-${name}.png` }],
     ['meta', { property: 'twitter:image', content: `https://elonehoo.me/og-${name}.png` }],
   )
