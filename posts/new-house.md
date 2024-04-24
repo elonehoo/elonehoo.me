@@ -1,6 +1,6 @@
 ---
 title: New House
-date: 2022-12-21T15:05:00Z
+date: 2024-04-24T13:16:00Z
 lang: en
 duration: 2min
 layout: 'default'
@@ -8,14 +8,11 @@ layout: 'default'
 
 <Title />
 
-I always feel that I need a beautiful blog but I never have one.
 
-So I took some time to rewrite my homepage and adding the blog section. and Hi, here I am :)
+I have migrated my blog from [nuxt](https://nuxt.com/) to [vitepress](https://vitepress.dev/).
 
-This time I gave a try on [vite-ssg](https://github.com/antfu/vite-ssg) and it works petty well.
+<GitHubCard to="https://github.com/elonehoo/elonehoo.me/pull/62" type="pull" status="merged" title="refactor: migrating nuxt to vitepress" />
 
-As for the blog, I am likely to do some bilingual stuff in the future. Some posts will be written in English, some might be in Chinese.
+This might seem like a step back, but because I used [remark](https://github.com/remarkjs/remark) in [nuxt content](https://content.nuxt.com/) and I'm not very good at writing plugins for it, I wanted to use [markdown-it](https://github.com/markdown-it/markdown-it).
 
-The site is still WIP, if you have any thoughts or suggestions, please tell me via [email](mailto:hi@elonehoo.me) or on [Twitter](https://twitter.com/elonehoo). Thanks!
-
-:)
+So I took some time to complete this migration, of course, the blog is not fully done yet.
