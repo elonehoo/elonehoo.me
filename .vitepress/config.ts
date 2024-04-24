@@ -8,6 +8,8 @@ import { transformHead } from './meta/head'
 
 export default defineConfigWithTheme({
   title: 'Elone Hoo',
+  description: 'i hope every sunny afternoon can be wasted.',
+  lang: 'en-US',
   appearance: false,
   lastUpdated: true,
   cleanUrls: true,
