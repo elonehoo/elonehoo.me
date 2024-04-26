@@ -53,6 +53,7 @@ declare module 'vue' {
     Pager: typeof import('./theme/components/Pager.vue')['default']
     RadioButton: typeof import('./demos/RadioButton.vue')['default']
     Rocket: typeof import('./demos/Rocket.vue')['default']
+    RotatingCube: typeof import('./demos/RotatingCube.vue')['default']
     RotatingPyramid: typeof import('./demos/RotatingPyramid.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
