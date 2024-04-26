@@ -58,7 +58,7 @@ const parts = computed(() => {
                   bg-after
               "
           >
-            <video playsinline loop autoplay class="relative block w-full h-full object-cover box-border m-0 my-0! object-contain overflow-clip [overflow-clip-margin:content-box]" :src="`${demo.url}.mp4`" />
+            <video playsinline loop autoplay muted="true" class="relative block w-full h-full object-cover box-border m-0 my-0! object-contain overflow-clip [overflow-clip-margin:content-box]" :src="`${demo.url}.mp4`" />
             <div class="w-full h-8 gap-3 absolute z-[1] [transition:opacity_200ms_ease_0s] whitespace-nowrap p-4 left-0 bottom-2 flex-nowrap justify-between items-center flex-row box-border flex">
               <p class="text-[rgb(237,237,237)] gap-1 overflow-hidden whitespace-nowrap text-ellipsis font-normal leading-7 text-sm block m-0">
                 {{ demo.frontmatter.title }}

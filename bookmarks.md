@@ -95,6 +95,8 @@ subtitle: Some of my favorite websites/tools with excellent design and UX that I
 
 - ~~[Fig](https://fig.io/) - The next-generation command line~~ 「 **It's consuming too much memory.** 」
 
+- [CodeWhisperer](https://aws.amazon.com/cn/blogs/devops/introducing-amazon-codewhisperer-for-command-line/) - Fig is sunsetting, migrate to Amazon CodeWhisperer
+
 ## Design / Social Media
 
 - [**broz**](https://github.com/antfu/broz) - Frameless browser for screenshots
