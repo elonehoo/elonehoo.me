@@ -37,7 +37,7 @@ async function generateSVG(pageData: PageData, output: string) {
     line2: pageData.description || '',
   }
   const ogSVg = await ogSVGPromise
-  const svg = ogSVg.replace(/\{\{([^}]+)}}/g, (_, name: keyof typeof data) => data[name])
+  const svg = ogSVg.replace(/\{\{([^}]+)\}\}/g, (_, name: keyof typeof data) => data[name])
 
   // eslint-disable-next-line no-console
   console.log(`Generating ${output}`)

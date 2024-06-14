@@ -36,7 +36,7 @@ export default defineConfigWithTheme({
       {
         name: 'shiki:inline-decorations',
         preprocess(code, options) {
-          const reg = /^\/\/ @decorations:(.*?)\n/
+          const reg = /^\/\/ @decorations:(.*)\n/
           code = code.replace(reg, (match, decorations) => {
             options.decorations ||= []
             options.decorations.push(...JSON.parse(decorations))
@@ -50,13 +50,13 @@ export default defineConfigWithTheme({
         processHoverInfo(info) {
           return defaultHoverInfoProcessor(info)
             // Remove shiki_core namespace
-            .replace(/_shikijs_core[\w_]*\./g, '')
+            .replace(/_shikijs_core\w*\./g, '')
         },
       }),
       {
         name: 'shiki:remove-escape',
         postprocess(code) {
-          return code.replace(/\[\\\!code/g, '[!code')
+          return code.replace(/\[\\!code/g, '[!code')
         },
       },
     ],

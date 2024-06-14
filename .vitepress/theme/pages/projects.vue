@@ -4,7 +4,7 @@ import { useData } from 'vitepress'
 const { frontmatter } = useData()
 
 function slug(name: string) {
-  return name.toLowerCase().replace(/[\s\\\/]+/g, '-')
+  return name.toLowerCase().replace(/[\s\\/]+/g, '-')
 }
 </script>
 

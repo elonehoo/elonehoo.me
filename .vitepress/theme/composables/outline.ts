@@ -60,8 +60,9 @@ function serializeHeader(h: Element): string {
         (node as Element).classList.contains('VPBadge')
         || (node as Element).classList.contains('header-anchor')
         || (node as Element).classList.contains('ignore-header')
-      )
+      ) {
         continue
+      }
 
       ret += node.textContent
     }
