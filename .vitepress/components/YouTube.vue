@@ -18,6 +18,7 @@ function getVideoId() {
   try {
     return new URL(props.src).searchParams.get('v') || ''
   }
+  // eslint-disable-next-line unused-imports/no-unused-vars
   catch (error) {
     return ''
   }
@@ -34,6 +35,7 @@ function initPlayer() {
       },
     })
   }
+  // eslint-disable-next-line unused-imports/no-unused-vars
   catch (error) {
   }
 }
@@ -42,6 +44,7 @@ function loadPlayer() {
   try {
     player.loadVideoById(getVideoId())
   }
+  // eslint-disable-next-line unused-imports/no-unused-vars
   catch (error) {
   }
 }
@@ -80,6 +83,7 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
+  // eslint-disable-next-line ts/no-unused-expressions
   player && player.destroy()
 })
 </script>
