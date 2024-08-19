@@ -73,8 +73,8 @@ importers:
         specifier: ^0.62.2
         version: 0.62.2
       '@vueuse/router':
-        specifier: ^10.11.1
-        version: 10.11.1(vue-router@4.4.0(vue@3.4.38(typescript@5.5.3)))(vue@3.4.38(typescript@5.5.3))
+        specifier: ^11.0.1
+        version: 11.0.1(vue-router@4.4.0(vue@3.4.38(typescript@5.5.3)))(vue@3.4.38(typescript@5.5.3))
       '@vueuse/shared':
         specifier: ^10.11.1
         version: 10.11.1(vue@3.4.38(typescript@5.5.3))
@@ -1497,8 +1497,8 @@ packages:
   '@vueuse/metadata@11.0.0':
     resolution: {integrity: sha512-0TKsAVT0iUOAPWyc9N79xWYfovJVPATiOPVKByG6jmAYdDiwvMVm9xXJ5hp4I8nZDxpCcYlLq/Rg9w1Z/jrGcg==}
 
-  '@vueuse/router@10.11.1':
-    resolution: {integrity: sha512-tXtDofDwgmADrnLY2mK2LtHKV9CBehaNfT2ar00HZTJ00QxmCOjYp626WdGtQsUi4E64vTScV/s+yKTXhZfl1w==}
+  '@vueuse/router@11.0.1':
+    resolution: {integrity: sha512-uMux1bGq9bkPbPuxUKT9PY2eTNbDCsWgbUxoTY53q502LCPLFGnYRYVPICOL5AcUZk6SfyAp3S2w4eJEWPux0w==}
     peerDependencies:
       vue-router: '>=4.0.0-rc.1'
 
@@ -1507,6 +1507,9 @@ packages:
 
   '@vueuse/shared@11.0.0':
     resolution: {integrity: sha512-i4ZmOrIEjSsL94uAEt3hz88UCz93fMyP/fba9S+vypX90fKg3uYX9cThqvWc9aXxuTzR0UGhOKOTQd//Goh1nQ==}
+
+  '@vueuse/shared@11.0.1':
+    resolution: {integrity: sha512-eAPf5CQB3HR0S76HqrhjBqFYstZfiHWZq8xF9EQmobGBkrhPfErJEhr8aMNQMqd6MkENIx2pblIEfJGlHpClug==}
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -4900,10 +4903,10 @@ snapshots:
 
   '@vueuse/metadata@11.0.0': {}
 
-  '@vueuse/router@10.11.1(vue-router@4.4.0(vue@3.4.38(typescript@5.5.3)))(vue@3.4.38(typescript@5.5.3))':
+  '@vueuse/router@11.0.1(vue-router@4.4.0(vue@3.4.38(typescript@5.5.3)))(vue@3.4.38(typescript@5.5.3))':
     dependencies:
-      '@vueuse/shared': 10.11.1(vue@3.4.38(typescript@5.5.3))
-      vue-demi: 0.14.8(vue@3.4.38(typescript@5.5.3))
+      '@vueuse/shared': 11.0.1(vue@3.4.38(typescript@5.5.3))
+      vue-demi: 0.14.10(vue@3.4.38(typescript@5.5.3))
       vue-router: 4.4.0(vue@3.4.38(typescript@5.5.3))
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -4917,6 +4920,13 @@ snapshots:
       - vue
 
   '@vueuse/shared@11.0.0(vue@3.4.38(typescript@5.5.3))':
+    dependencies:
+      vue-demi: 0.14.10(vue@3.4.38(typescript@5.5.3))
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+
+  '@vueuse/shared@11.0.1(vue@3.4.38(typescript@5.5.3))':
     dependencies:
       vue-demi: 0.14.10(vue@3.4.38(typescript@5.5.3))
     transitivePeerDependencies:
