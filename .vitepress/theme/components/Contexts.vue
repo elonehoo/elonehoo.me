@@ -8,7 +8,7 @@ function handleShow() {
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 const size = reactive(useWindowSize())
 
-function initCanvas(canvas: HTMLCanvasElement, width = 400, height = 400, _dpi?: number) {
+function initCanvas(canvas: HTMLCanvasElement, width = 800, height = 800, _dpi?: number) {
   const ctx = canvas.getContext('2d')!
 
   const dpr = window.devicePixelRatio || 1
