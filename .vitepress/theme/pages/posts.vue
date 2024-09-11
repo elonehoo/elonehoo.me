@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { data as posts } from '../utils/post.data'
-import { formatDate, groupByTime } from '../utils'
 import Empty from '../components/Empty.vue'
 import SubNavBar from '../components/SubNavBar.vue'
+import { formatDate, groupByTime } from '../utils'
+import { data as posts } from '../utils/post.data'
 
 const groupedList = computed(() => groupByTime(posts))
 </script>

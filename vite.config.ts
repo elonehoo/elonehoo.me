@@ -1,9 +1,9 @@
 import path from 'node:path'
-import { defineConfig } from 'vite'
 import Unocss from 'unocss/vite'
-import VueDevTools from 'vite-plugin-vue-devtools'
-import Component from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
+import Component from 'unplugin-vue-components/vite'
+import { defineConfig } from 'vite'
+import VueDevTools from 'vite-plugin-vue-devtools'
 
 export default defineConfig({
   optimizeDeps: {

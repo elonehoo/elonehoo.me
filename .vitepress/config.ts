@@ -1,10 +1,10 @@
-import { defineConfigWithTheme } from 'vitepress'
-import MarkdownItGitHubAlerts from 'markdown-it-github-alerts'
 import { transformerMetaWordHighlight, transformerNotationWordHighlight } from '@shikijs/transformers'
 import { defaultHoverInfoProcessor, transformerTwoslash } from '@shikijs/vitepress-twoslash'
-import { slugify } from './script/slugify'
-import { genFeed } from './script/rss'
+import MarkdownItGitHubAlerts from 'markdown-it-github-alerts'
+import { defineConfigWithTheme } from 'vitepress'
 import { transformHead } from './meta/head'
+import { genFeed } from './script/rss'
+import { slugify } from './script/slugify'
 
 export default defineConfigWithTheme({
   title: 'Elone Hoo',

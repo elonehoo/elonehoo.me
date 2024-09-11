@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { data as notes } from '../utils/note.data'
-import { formatDate, groupByTime } from '../utils'
 import Empty from '../components/Empty.vue'
 import SubNavBar from '../components/SubNavBar.vue'
+import { formatDate, groupByTime } from '../utils'
+import { data as notes } from '../utils/note.data'
 
 const groupedList = computed(() => groupByTime(notes))
 </script>

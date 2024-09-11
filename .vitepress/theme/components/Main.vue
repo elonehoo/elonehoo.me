@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { useData, useRoute } from 'vitepress'
 import { computed } from 'vue'
-import NotFound from '../pages/not-found.vue'
-import Posts from '../pages/posts.vue'
-import Talks from '../pages/talks.vue'
-import Note from '../pages/notes.vue'
-import Projects from '../pages/projects.vue'
+import Pager from '../components/Pager.vue'
 import Demos from '../pages/demos.vue'
 import Gallery from '../pages/gallery.vue'
-import Pager from '../components/Pager.vue'
+import NotFound from '../pages/not-found.vue'
+import Note from '../pages/notes.vue'
+import Posts from '../pages/posts.vue'
+import Projects from '../pages/projects.vue'
+import Talks from '../pages/talks.vue'
 
 const PageLayout = { Posts, Talks, Note, Projects, Demos, Gallery }
 

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { data as talks } from '../utils/talk.data'
-import { formatDate, groupByTime } from '../utils'
 import Empty from '../components/Empty.vue'
 import SubNavBar from '../components/SubNavBar.vue'
+import { formatDate, groupByTime } from '../utils'
+import { data as talks } from '../utils/talk.data'
 
 const groupedList = computed(() => groupByTime(talks))
 </script>

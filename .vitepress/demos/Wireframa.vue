@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { timestamp } from '@vueuse/shared'
-import { SQRT_3, initCanvas, pick, r30, r60, r90, range, shuffle } from '~/utils'
+import { initCanvas, pick, r30, r60, r90, range, shuffle, SQRT_3 } from '~/utils'
 import type { Vector } from '~/utils'
 
 const el = ref<HTMLCanvasElement | null>(null)

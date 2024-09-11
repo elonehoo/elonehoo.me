@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { breakpointsTailwind } from '@vueuse/core'
-import { data as demos } from '~/theme/utils/demo.data'
 import { formatDate } from '~/theme/utils'
+import { data as demos } from '~/theme/utils/demo.data'
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
 

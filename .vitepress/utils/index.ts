@@ -1,14 +1,14 @@
-import { ref } from 'vue'
 import { useRafFn } from '@vueuse/core'
+import { ref } from 'vue'
 
+export * from './calc'
+export * from './canvas'
+export * from './colors'
+export * from './isBrowser'
 export * from './load'
+export * from './shake'
 export * from './stringify'
 export * from './vector'
-export * from './canvas'
-export * from './shake'
-export * from './colors'
-export * from './calc'
-export * from './isBrowser'
 
 export function noop() {}
 
