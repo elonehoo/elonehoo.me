@@ -36,8 +36,10 @@ subtitle: Some of my favorite websites/tools with excellent design and UX that I
 - [Perflink](https://perf.link/) - JS Benchmarks
 - [Regex 101](https://regex101.com/)
 - [RegExper](https://regexper.com/) - Regex Visualizer
+- [Cyrilex](https://extendsclass.com/regex-tester.html) - Regex tester and visualizer
 - [Bundle Phobia](https://bundlephobia.com/) - Check your npm package size
 - [transform](https://transform.tools/) - Collection of code transformers
+- [JSONing](https://jsoning.com/api/) - Mock API for prototyping and testing
 
 #### CSS
 
