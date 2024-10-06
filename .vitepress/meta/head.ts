@@ -1,6 +1,6 @@
+import type { HeadConfig, PageData, TransformContext } from 'vitepress'
 import fs from 'node:fs/promises'
 import sharp from 'sharp'
-import type { HeadConfig, PageData, TransformContext } from 'vitepress'
 
 const ogSVGPromise = fs.readFile('./public/og-template.svg', 'utf-8')
 

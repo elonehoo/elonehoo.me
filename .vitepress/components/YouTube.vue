@@ -83,7 +83,6 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  // eslint-disable-next-line ts/no-unused-expressions
   player && player.destroy()
 })
 </script>

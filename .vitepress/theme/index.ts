@@ -1,5 +1,5 @@
-import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 import type { EnhanceAppContext } from 'vitepress'
+import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 import { install } from '~/demos'
 import Layout from './layout/index.vue'
 import '@shikijs/twoslash/style-rich.css'
