@@ -12,6 +12,7 @@ export default defineConfigWithTheme({
   vite: ViteConfig,
 
   srcDir: 'content',
+  appearance: false,
   lastUpdated: true,
   cleanUrls: true,
   outDir: './dist',

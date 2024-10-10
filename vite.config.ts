@@ -1,7 +1,6 @@
 import path from 'node:path'
 import {
   presetAttributify,
-  presetIcons,
   presetUno,
   transformerDirectives,
   transformerVariantGroup,
@@ -47,62 +46,59 @@ export default defineConfig({
       dts: '.vitepress/auto-imports.d.ts',
     }),
     Unocss({
-      rules: [
-        [/^slide-enter-(\d+)$/, ([_, n]) => ({
-          '--enter-stage': n,
-        })],
-      ],
       theme: {
-        maxWidth: {
-          main: '750px',
+        colors: {
+          main: 'hsl(var(--main))',
+          border: 'hsl(var(--border))',
+          input: 'hsl(var(--input))',
+          ring: 'hsl(var(--ring))',
+          background: 'hsl(var(--background))',
+          foreground: 'hsl(var(--foreground))',
+          primary: {
+            DEFAULT: 'hsl(var(--primary))',
+            foreground: 'hsl(var(--primary-foreground))',
+          },
+          secondary: {
+            DEFAULT: 'hsl(var(--secondary))',
+            foreground: 'hsl(var(--secondary-foreground))',
+          },
+          destructive: {
+            DEFAULT: 'hsl(var(--destructive))',
+            foreground: 'hsl(var(--destructive-foreground))',
+          },
+          muted: {
+            DEFAULT: 'hsl(var(--muted))',
+            foreground: 'hsl(var(--muted-foreground))',
+          },
+          accent: {
+            DEFAULT: 'hsl(var(--accent))',
+            foreground: 'hsl(var(--accent-foreground))',
+          },
+          popover: {
+            DEFAULT: 'hsl(var(--popover))',
+            foreground: 'hsl(var(--popover-foreground))',
+          },
+          card: {
+            DEFAULT: 'hsl(var(--card))',
+            foreground: 'hsl(var(--card-foreground))',
+          },
         },
-        height: {
-          header: '64px',
-          footer: '50px',
+        borderRadius: {
+          xl: 'calc(var(--radius) + 4px)',
+          lg: 'var(--radius)',
+          md: 'calc(var(--radius) - 2px)',
+          sm: 'calc(var(--radius) - 4px)',
         },
       },
       presets: [
         presetUno(),
         presetAttributify(),
-        presetIcons({
-          warn: true,
-          extraProperties: {
-            'width': '1.23rem',
-            'height': '1.23rem',
-            'display': 'inline-block',
-            'vertical-align': 'text-bottom',
-          },
-        }),
       ],
       transformers: [
         transformerVariantGroup(),
         transformerDirectives(),
       ],
       blocklist: ['me'],
-      safelist: [
-        'i-ri-sun-line',
-        'i-ri-moon-line',
-        'i-ri-github-line',
-        'i-ri-discord-line',
-        'i-ri-facebook-line',
-        'i-ri-instagram-line',
-        'i-ri-linkedin-line',
-        'i-ri-mastodon-line',
-        'i-ri-slack-line',
-        'i-ri-twitter-line',
-        'i-ri-youtube-line',
-        'i-ri-zhihu-line',
-        'i-ri-bilibili-line',
-        'i-ri-bookmark-line',
-        'i-ri-group-line',
-        'i-ri-sticky-note-line',
-        'i-ri-twitter-x-line',
-        'i-ri-article-line',
-        'i-ri-lightbulb-line',
-        'i-ri-screenshot-line',
-        'i-ri-gallery-line',
-        'i-la-rss-square',
-      ],
     }),
     VueDevTools(),
   ],
