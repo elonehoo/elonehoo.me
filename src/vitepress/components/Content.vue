@@ -1,0 +1,23 @@
+<script setup lang="ts">
+import { useData } from 'vitepress'
+import ContentDoc from './ContentDoc.vue'
+import ContentPage from './ContentPage.vue'
+import NotFound from './NotFound.vue'
+
+const { page, frontmatter } = useData()
+</script>
+
+<template>
+  <div class="content">
+    <NotFound v-if="page.isNotFound" />
+    <ContentPage v-else-if="!!frontmatter.page" />
+    <ContentDoc v-else />
+  </div>
+</template>
+
+<style scoped>
+.content {
+  --at-apply: flex flex-wrap items-stretch pr-0 pt-0 min-h-[calc(100vh-6em)] ml-[--nav-width] ;
+  padding: var(--h-margin) calc(var(--h-margin)* 1.5) 0 calc(var(--h-margin)* 2);
+}
+</style>

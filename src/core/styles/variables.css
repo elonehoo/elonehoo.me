@@ -1,5 +1,6 @@
 :root {
-  --nav-width: 178px;
+  --h-margin: 1.4vw;
+  --nav-width: 200px;
   --radius: 0.5rem;
   --duration: .3s;
   --duration-out: .17s;

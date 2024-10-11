@@ -1,7 +1,6 @@
 import type {
   LocaleLinkItem,
   MenuBadgeItem,
-  MenuItemChildWithChildren,
   MenuItemWithLink,
   SocialLink,
 } from '../core'
@@ -165,7 +164,7 @@ export interface NavItemWithChildren {
   text?: string
   activeMatch?: string
   badge?: MenuBadgeItem
-  items: (NavItemWithLink | MenuItemChildWithChildren)[]
+  items: (NavItemWithLink)[]
 }
 
 export type SidebarConfig = SidebarGroup[] | MultiSidebarConfig
