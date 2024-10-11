@@ -8,11 +8,11 @@ const { page, frontmatter } = useData()
 </script>
 
 <template>
-  <div class="content">
+  <main class="content">
     <NotFound v-if="page.isNotFound" />
     <ContentPage v-else-if="!!frontmatter.page" />
     <ContentDoc v-else />
-  </div>
+  </main>
 </template>
 
 <style scoped>

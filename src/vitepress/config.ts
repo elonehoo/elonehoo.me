@@ -1,6 +1,5 @@
 import type {
   LocaleLinkItem,
-  MenuBadgeItem,
   MenuItemWithLink,
   SocialLink,
 } from '../core'
@@ -163,7 +162,6 @@ export type NavItemWithLink = MenuItemWithLink & {
 export interface NavItemWithChildren {
   text?: string
   activeMatch?: string
-  badge?: MenuBadgeItem
   items: (NavItemWithLink)[]
 }
 
@@ -175,7 +173,6 @@ export interface MultiSidebarConfig {
 
 export interface SidebarGroup {
   text: string
-  badge?: MenuBadgeItem
   icon?: string
   items: MenuItemWithLink[]
 }
