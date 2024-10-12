@@ -22,6 +22,6 @@ import PageProjectItem from './PageProjectItem.vue'
         <PageProjectItem v-for="i in 4" :key="i" />
       </ul>
     </div>
-    <PageMore title="看看更多我的开源项目" desc="咻咪～" />
+    <PageMore title="看看更多的开源项目" desc="咻咪～" />
   </div>
 </template>
