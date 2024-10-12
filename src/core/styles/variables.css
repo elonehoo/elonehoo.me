@@ -8,6 +8,10 @@
   --curve-out: cubic-bezier(.95,.05,.8,.04);
   --transition: all var(--duration) var(--curve);
   --transition-out: all var(--duration-out) var(--curve-out);
+
+  --pattern-radius: 0.5px;
+  --pattern-size: calc(var(--pattern-radius) / 0.25) calc(var(--pattern-radius)* 4);
+  --pattern-bg: radial-gradient(#e9e9e9 .5px, #fff .5px);
 }
 
 body {

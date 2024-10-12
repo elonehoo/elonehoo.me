@@ -54,7 +54,7 @@ const { config } = useConfig()
 }
 
 .home-page::before {
-  --at-apply: text-foreground text-[10vw] absolute bottom-[-0.25em] font-bold opacity-[0.06] leading-none left-[1em];
+  --at-apply: text-foreground text-[10vw] absolute bottom-[-0.20em] font-bold opacity-[0.06] leading-none left-[1em];
   content: "elonehoo.me";
   animation: footer-show 1s ease-in-out;
   animation-timeline: scroll(root);
