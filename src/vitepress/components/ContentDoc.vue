@@ -3,7 +3,5 @@
 </script>
 
 <template>
-  <div>
-    <slot />
-  </div>
+  1
 </template>

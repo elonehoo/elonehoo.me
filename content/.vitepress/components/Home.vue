@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { HomePage } from '../../../src'
 </script>
 
 <template>
-  <Content class="w-full" />
+  <HomePage />
 </template>

@@ -2,4 +2,4 @@
 page: true
 ---
 
-# hello
+<Home />
