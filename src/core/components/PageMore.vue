@@ -1,0 +1,62 @@
+<script setup lang="ts">
+import { Link } from 'destyler'
+
+const props = defineProps<{
+  title: string
+  desc: string
+}>()
+</script>
+
+<template>
+  <div class="h-auto overflow-hidden pt-[--h-margin] text-sm text-left">
+    <Link class="page-blog-footer-more">
+      {{ props.title }}
+      <em class="page-blog-footer-more-desc">
+        {{ props.desc }}
+      </em>
+    </Link>
+  </div>
+</template>
+
+<style scoped>
+.page-blog-footer-more {
+  --at-apply:
+  relative origin-[0_50%] bg-dark text-light
+  no-underline inline-block font-bold px-[0.7em] py-[0.4em]
+  border border-2px border-solid border-border rounded-md
+  cursor-pointer leading-[1.2] touch-manipulation;
+  backface-visibility: hidden;
+  font-family: inherit;
+  outline: none;
+  scale: 1.008;
+  transition: var(--transition-out);
+}
+
+.page-blog-footer-more::after {
+  --at-apply: ml-0.3em;
+  content: "→";
+}
+
+.page-blog-footer-more:hover{
+  --at-apply: text-light bg-main border border-2px border-solid border-main ;
+  transition: var(--transition);
+  text-decoration: none;
+  scale: 1.04;
+  outline: none;
+  filter: brightness(1.1);
+}
+
+.page-blog-footer-more-desc{
+  --at-apply:
+  absolute text-foreground/60 op-0 top-25% overflow-visible
+  w-auto block w-15em text-xs font-normal text-left left-110%;
+  transition: var(--transition-out);
+  translate: -3em 0;
+
+  .page-blog-footer-more:hover & {
+    opacity: 1;
+    translate: 0 0;
+    transition: var(--transition);
+  }
+}
+</style>

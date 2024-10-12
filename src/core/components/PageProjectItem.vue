@@ -1,0 +1,44 @@
+<script setup lang="ts">
+import { Link } from 'destyler'
+</script>
+
+<template>
+  <li class="block [list-style:none] py-[--h-margin] relative text-left border-b border-b-dotted border-b-border">
+    <!-- title -->
+    <Link
+      class="
+      underline decoration-dotted underline-offset-[0.17em]
+      font-bold text-foreground z-2 relative leading-[1.3]
+      cursor-pointer hover:decoration-solid
+      hover:decoration-main hover:text-main!"
+    >
+      destyler
+    </Link>
+    <!-- img -->
+    <img src="https://github.com/destyler.png" class="max-w-[calc(2em_+_1.2vmax)] float-right ml-[0.8em]">
+    <!-- desc -->
+    <div class="page-project-item-desc">
+      Vue的无样式组件库。
+    </div>
+    <!-- meta -->
+    <div class="text-3 font-bold text-main">
+      <Link class="underline cursor-pointer decoration-main decoration-dotted underline-offset-[0.17em] hover:decoration-solid">
+        MIT
+      </Link>
+      License
+    </div>
+  </li>
+</template>
+
+<style scoped>
+.page-project-item-link {
+  --at-apply: cursor-pointer;
+  font-size: calc(.8rem + .1vh + .1vw);
+  transition: var(--transition-out);
+}
+
+.page-project-item-desc {
+  --at-apply: text-sm leading-[1.35] text-foreground/60 mt-0.3em mb-0.5em;
+  transition: var(--transition-out);
+}
+</style>

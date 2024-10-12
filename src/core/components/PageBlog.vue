@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import PageBlogItem from './PageBlogItem.vue'
+import PageMore from './PageMore.vue'
 </script>
 
 <template>
@@ -8,8 +9,9 @@ import PageBlogItem from './PageBlogItem.vue'
   >
     <div class="flex flex-wrap relative left-[calc(var(--h-margin)_*_-1.5)] w-[calc(100%_+_var(--h-margin)_*_3_+_2px)]">
       <!-- item -->
-      <PageBlogItem v-for="i in 6" :key="i" />
+      <PageBlogItem v-for="i in 5" :key="i" />
     </div>
+    <PageMore title="看看更多" desc="侧边栏导航也能进入哦~" />
   </section>
 </template>
 

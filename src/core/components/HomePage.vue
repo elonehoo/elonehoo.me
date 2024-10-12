@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import PageBlog from './PageBlog.vue'
+import PageBookmarks from './PageBookmarks.vue'
 </script>
 
 <template>
   <div class="flex">
     <PageBlog />
-    <section class="flex-[1_0_15%] order-3">
-      bookmarks
-    </section>
+    <PageBookmarks />
     <section class="flex-[1_0_20%] order-4">
       notes
     </section>
