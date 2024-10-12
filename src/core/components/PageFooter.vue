@@ -1,30 +1,45 @@
 <script setup lang="ts">
-import { Link } from 'destyler'
+import { useConfig } from '~/vitepress/composables/config'
+import PageFooterSocialItem from './PageFooterSocialItem.vue'
+import PageFooterSubscribeItem from './PageFooterSubscribeItem.vue'
+
+const { config } = useConfig()
 </script>
 
 <template>
   <div class="home-page">
-    <div class="section flex-auto flex items-center p-0">
+    <div class="section flex-auto! flex! items-center! p-0!">
       <div class="home-page-title font-bold text-2xl relative text-foreground">
-        一个热爱开源，但是工作效率很低的码农
+        {{ config.footer?.page?.briefly }}
       </div>
     </div>
+    <!-- social -->
     <div class="section">
-      <!-- follow -->
+      <div class="font-bold text-foreground leading-[1.1] text-right mr-[1em] mt-[0.2em]">
+        关注
+      </div>
+      <div class=" mt-[0.2em] leading-[1.5]">
+        <ul class="list-outside list-none ml-0 m-0 p-0 [counter-reset:item]">
+          <PageFooterSocialItem v-for="item in config.socialLinks" :key="item.link" :item="item" />
+        </ul>
+      </div>
+    </div>
+    <!-- follow -->
+    <div class="section">
       <div class="font-bold text-foreground leading-[1.1] text-right mr-[1em] mt-[0.2em]">
         订阅
       </div>
-      <div class="leading-none">
+      <div class=" mt-[0.2em] leading-[1.5]">
         <ul class="list-outside list-none ml-0 m-0 p-0 [counter-reset:item]">
-          <li>
-            <Link
-              class="
-              flex items-center border-b border-b-dotted border-b-border mb-0.5em cursor-pointer text-foreground/60"
-            >
-              RSS
-            </Link>
-          </li>
+          <PageFooterSubscribeItem v-for="item in config.subscribeLinks" :key="item.link" :item="item" />
         </ul>
+      </div>
+    </div>
+    <!-- desc -->
+    <div class="section">
+      <div class="max-w-21em font-bold relative">
+        {{ config.footer?.page?.slogan?.content }}
+        <em class="float-right font-normal mt-[1em] not-italic text-foreground/60">—— {{ config.footer?.page?.slogan?.author }}</em>
       </div>
     </div>
   </div>
@@ -58,7 +73,7 @@ import { Link } from 'destyler'
 }
 
 .home-page-title::before {
-  --at-apply: absolute top-[-0.55em] left-[-0.2em] text-foreground op-0.1 font-normal text-[4.5em] z-[-1];
+  --at-apply: absolute top-[0.1em] left-[-0.2em] text-foreground op-10 font-normal text-[4.5em];
   content: "“";
   font-family: Georgia, 'Times New Roman', Times, serif;
 }

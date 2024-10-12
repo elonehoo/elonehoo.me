@@ -26,5 +26,49 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   themeConfig: {
     nav,
+
+    socialLinks: [
+      {
+        icon: 'GitHub',
+        link: 'https://github.com/elonehoo',
+      },
+      {
+        icon: 'Twitter',
+        link: 'https://x.com/elonehoo',
+      },
+      {
+        icon: 'Instagram',
+        link: 'https://www.instagram.com/elonehoooo/',
+      },
+      {
+        icon: 'Mastodon',
+        link: 'https://elk.zone/mstdn.social/@elonehoo',
+      },
+    ],
+    subscribeLinks: [
+      {
+        icon: 'Follow',
+        link: 'https://app.follow.is/profile/@elonehoo',
+      },
+      {
+        icon: 'RSS',
+        link: '/rss.xml',
+      },
+    ],
+
+    footer: {
+      license: {
+        text: 'CC BY-NC-SA 4.0',
+        link: 'https://creativecommons.org/licenses/by-nc-sa/4.0/',
+      },
+      copyright: '2022-PRESENT © Elone Hoo',
+      page: {
+        slogan: {
+          content: '我希望每一个有阳光的下午都允许被浪费',
+          author: 'Elone Hoo',
+        },
+        briefly: '一个热爱开源，但是工作效率很低的码农',
+      },
+    },
   },
 })

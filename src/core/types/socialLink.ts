@@ -4,13 +4,9 @@ export interface SocialLink {
 }
 
 export type SocialLinkIcon =
-  | 'discord'
-  | 'facebook'
-  | 'github'
-  | 'linkedin'
-  | 'slack'
-  | 'twitter'
-  | 'x'
-  | 'languages'
+  | 'GitHub'
+  | 'Twitter'
+  | 'Instagram'
+  | 'Mastodon'
 
 export type SocialLinkSize = 'small' | 'medium'

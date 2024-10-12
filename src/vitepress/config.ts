@@ -1,7 +1,7 @@
 import type {
-  LocaleLinkItem,
   MenuItemWithLink,
   SocialLink,
+  SubscribeLink,
 } from '../core'
 
 export interface Config {
@@ -13,11 +13,9 @@ export interface Config {
    */
   appearance?: boolean
 
-  /**
-   * The social links to be displayed at the end of the nav bar. Perfect for
-   * placing links to social services such as GitHub, Twitter, Facebook, etc.
-   */
   socialLinks?: SocialLink[]
+
+  subscribeLinks?: SubscribeLink[]
 
   /**
    * The nav items.
@@ -28,11 +26,6 @@ export interface Config {
    * The sidebar items.
    */
   sidebar?: SidebarConfig
-
-  /**
-   * The i18n messages.
-   */
-  i18n?: i18nConfig
 
   /**
    * Info for the edit link
@@ -61,29 +54,15 @@ export interface Config {
 
     copyright?: string
 
-    links?: {
-      text: string
-      link: string
-    }[]
+    page?: {
+      briefly?: string
+      slogan?: {
+        content: string
+        author: string
+      }
+    }
   }
 
-  /**
-   * Algolia configuration for the site search.
-   */
-  algolia?: AlgoliaSearchOptions
-
-  /**
-   * CarbonAds configuration
-   */
-  carbonAds?: {
-    code: string
-    placement: string
-  }
-
-  /**
-   * Translation/Locales links
-   */
-  localeLinks?: LocaleLinkItem[]
 }
 
 /**
