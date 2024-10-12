@@ -63,8 +63,7 @@ const { config } = useConfig()
 }
 
 .home-page .section {
-    display: flex;
-    padding: 0;
+  --at-apply: flex p-0;
     flex: 0 0 auto;
 }
 
