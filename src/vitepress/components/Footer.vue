@@ -14,7 +14,13 @@ const { config } = useConfig()
     [background-size:var(--pattern-size)] [background-image:var(--pattern-bg)]"
   >
     <div>
-      <Link :to="config.footer?.license?.link" class="mr-1">
+      <Link
+        :to="config.footer?.license?.link"
+        class="
+        mr-1 cursor-pointer underline decoration-dotted
+        hover:text-main!
+        "
+      >
         {{ config.footer?.license?.text }}
       </Link>
       <span>{{ config.footer?.copyright }}</span>

@@ -24,7 +24,7 @@ const icones = {
       page-footer-item
       flex items-center mb-0.5em cursor-pointer text-foreground/60
       underline decoration-dotted hover:decoration-solid
-      decoration-border hover:decoration-main
+      hover:decoration-main
       "
     >
       <component :is="icones[props.item.icon]" class="w-[1.2em] h-[1.2em] mr-[0.3em]" />
