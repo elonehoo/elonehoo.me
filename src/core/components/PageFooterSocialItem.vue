@@ -2,6 +2,7 @@
 import type { SocialLink } from '../types/socialLink'
 import { Link } from 'destyler'
 
+import Email from './icones/Email.vue'
 import GitHub from './icones/GitHub.vue'
 import Instagram from './icones/Instagram.vue'
 import Mastodon from './icones/Mastodon.vue'
@@ -16,6 +17,7 @@ const icones = {
   Twitter,
   Instagram,
   Mastodon,
+  Email,
 }
 </script>
 

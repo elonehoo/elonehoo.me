@@ -1,17 +1,26 @@
 <script setup lang="ts">
+import type { BookmarkItem } from '../data/bookmark.data'
 import { Link } from 'destyler'
+
+const props = defineProps<{
+  item: BookmarkItem
+}>()
 </script>
 
 <template>
   <li class="page-bookmark-item flex text-left relative [list-style:none] py-[--h-margin] border-b border-b-dotted border-b-border">
-    <Link class="cursor-pointer page-bookmark-item-link">
+    <Link
+      target="_blank"
+      :to="props.item.link"
+      class="cursor-pointer page-bookmark-item-link"
+    >
       <!-- title -->
       <div class="page-bookmark-item-title">
-        Adobe Color
+        {{ props.item.name }}
       </div>
       <!-- desc -->
       <div class="page-bookmark-item-desc">
-        <span>使用Adobe Color创建美丽的调色板</span>
+        <span>{{ props.item.desc }}</span>
       </div>
     </Link>
   </li>

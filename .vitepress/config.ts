@@ -29,6 +29,10 @@ export default defineConfigWithTheme<ThemeConfig>({
 
     socialLinks: [
       {
+        icon: 'Email',
+        link: 'mailto:hi@elonehoo.me',
+      },
+      {
         icon: 'GitHub',
         link: 'https://github.com/elonehoo',
       },
