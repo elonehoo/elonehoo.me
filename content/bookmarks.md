@@ -4,7 +4,7 @@ bookmarks:
   Current Focus:
     - name: 'Zeabur'
       link: 'https://zeabur.com'
-      desc: '让部署服务，变得从未如此简单'
+      desc: '让部署服务，从未变得如此简单'
     - name: 'Adobe Color'
       link: 'https://color.adobe.com/zh/'
       desc: '使用 Adobe Color 创建美丽的调色板'

@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vitepress dev --port 3333",
-    "build": "vitepress build && pnpm run copy:mp4",
+    "build": "vitepress build",
     "copy:mp4": "tsx .vitepress/script/build.ts",
     "preview": "vitepress preview",
     "lint": "eslint .",

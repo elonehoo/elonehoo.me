@@ -11,7 +11,7 @@ import PageMore from './PageMore.vue'
       <!-- item -->
       <PageBlogItem v-for="i in 6" :key="i" />
     </div>
-    <PageMore title="看看更多" desc="侧边栏导航也能进入哦~" class="pb-[--h-margin]" />
+    <PageMore title="看看更多" desc="侧边栏导航也能进入哦~" class="pb-[calc(var(--h-margin)_*_2)]" />
   </section>
 </template>
 

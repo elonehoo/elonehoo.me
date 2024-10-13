@@ -9,7 +9,7 @@ import { Link } from 'destyler'
       <div class="img blog-image">
         <div class="w-[var(--h-n-w)] relative h-[calc(var(--h-n-w)_/_16_*_9)]">
           <img
-            src="	https://destyler.org/blog/release-0.0.4.png"
+            src="https://destyler.org/blog/release-0.0.4.png"
             alt="image"
             class="border border-border rounded-lg"
           >
