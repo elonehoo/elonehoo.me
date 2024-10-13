@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { data as posts } from '../data/posts.data'
 import PageBlogItem from './PageBlogItem.vue'
 import PageMore from './PageMore.vue'
 </script>
@@ -9,7 +10,7 @@ import PageMore from './PageMore.vue'
   >
     <div class="flex flex-wrap relative left-[calc(var(--h-margin)_*_-1.5)] w-[calc(100%_+_var(--h-margin)_*_3_+_2px)]">
       <!-- item -->
-      <PageBlogItem v-for="i in 6" :key="i" />
+      <PageBlogItem v-for="i in posts" :key="i.url" :items="i" />
     </div>
     <PageMore title="看看更多" desc="侧边栏导航也能进入哦~" class="pb-[calc(var(--h-margin)_*_2)]" />
   </section>

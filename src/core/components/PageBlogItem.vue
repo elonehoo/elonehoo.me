@@ -1,12 +1,17 @@
 <script setup lang="ts">
+import type { Posts } from '../data/posts.data'
 import { Link } from 'destyler'
+
+const props = defineProps<{
+  items: Posts
+}>()
 </script>
 
 <template>
   <div class="flex-[1_0_90%] relative border-b border-b-dotted border-border flex blog-item">
     <div class="inner">
       <!-- image -->
-      <div class="img blog-image">
+      <div v-if="props.items.img" class="img blog-image">
         <div class="w-[var(--h-n-w)] relative h-[calc(var(--h-n-w)_/_16_*_9)]">
           <img
             src="https://destyler.org/blog/release-0.0.4.png"
@@ -18,22 +23,24 @@ import { Link } from 'destyler'
       <!-- tag -->
       <div class="text-xs h-4 flex justify-between items-center mb-[0.3em] text-foreground/60 ">
         <div class="blog-tag">
-          Release · Destyler
+          阅读时间 · {{ props.items.duration }}
         </div>
       </div>
       <!-- title -->
       <div class="blog-item-title">
-        <Link class="blog-item-title-link">
-          Destyler 正式版 0.0.4 发布
+        <Link
+          target="_self"
+          :to="props.items.url"
+          class="blog-item-title-link"
+        >
+          {{ props.items.title }}
         </Link>
       </div>
       <!-- desc -->
-      <div class="blog-item-desc">
-        全新推出的Destyler，提供了更多样化的高级用户体验。全新推出的Destyler，提供了更多样化的高级用户体验。全新推出的Destyler，提供了更多样化的高级用户体验。
-      </div>
+      <div class="blog-item-desc" v-html="props.items.excerpt" />
       <!-- time -->
       <div class="blog-item-time">
-        <span class="text-main font-bold text-xs">2024年8月22日</span>
+        <span class="text-main font-bold text-xs">{{ props.items.time }}</span>
       </div>
     </div>
   </div>

@@ -6,11 +6,11 @@ duration: 5min
 layout: 'default'
 ---
 
-<Title />
-
 记录如何让 GitHub 中的PR在特定的条件之下触发CI
 
 可以在 ci 中增加 if 来指定触发的条件，同时将触发的类型设置为 `labeled`。
+
+---
 
 可以查看一下我在 destyler 中增加的 `pr.yml`。
 

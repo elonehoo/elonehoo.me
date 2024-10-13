@@ -6,11 +6,13 @@ duration: 10min
 layout: 'default'
 ---
 
-<Title />
+在 Vue.js 中，您可以使用 Computed 属性根据反应值获取反应值（没有任何副作用）。
+
+---
 
 > [Johnson Chu](https://github.com/johnsoncodehk) 的帖子一目了然地显示了所做的改进
 
-<Tweet id="1695383715906744449" />
+<!-- <Tweet id="1695383715906744449" /> -->
 
 `hour` 这是一个计算属性，更新时按 `sec → min → hour` 的顺序更新
 
@@ -18,7 +20,7 @@ layout: 'default'
 
 ## 什么是 Computed ？
 
-在 Vue.js 中，您可以使用 Computed 属性根据反应值获取反应值（没有任何副作用）。
+
 
 最简单的例子如下：
 

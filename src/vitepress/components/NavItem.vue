@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { NavItemWithLink } from '../config'
 import { Link } from 'destyler'
-import { About, Blog, Bookmarks, Gallery, Note, Project, Talk,Video } from '../../core'
+import { About, Blog, Bookmarks, Gallery, Note, Project, Talk, Video } from '../../core'
 
 const props = defineProps<{
   item: NavItemWithLink
@@ -49,7 +49,7 @@ const icones = ref(
 }
 
 .nav-item::after {
-  --at-apply: grow inline-block h-px ml-[0.2em] border-b border-solid;
+  --at-apply: grow inline-block h-px ml-[0.2em] border-b border-b-dotted;
   border-color: var(--c-border) !important;
   content: "";
   transition: var(--transition);

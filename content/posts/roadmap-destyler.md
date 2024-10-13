@@ -7,6 +7,10 @@ layout: 'default'
 read: true
 ---
 
+在这里我们已经重新修改了很多次 Destyler 的一些代码，让我们在使用和开发 Destyler 的时候体验感更好。
+
+---
+
 <script setup>
   import { ref } from 'vue'
   const news = ref([
@@ -50,7 +54,6 @@ read: true
 
 > 前景提要 > [Destyler Beta 10 发布](./destyler-beta10.md)
 
-在这里我们已经重新修改了很多次 Destyler 的一些代码，让我们在使用和开发 Destyler 的时候体验感更好。
 
 具体可以查看这些 「 Pull Requests / Issues 」
 

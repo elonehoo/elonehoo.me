@@ -6,10 +6,9 @@ duration: 2min
 layout: 'default'
 ---
 
-<Title />
-
-
 I have migrated my blog from [nuxt](https://nuxt.com/) to [vitepress](https://vitepress.dev/).
+
+---
 
 <GitHubCard to="https://github.com/elonehoo/elonehoo.me/pull/62" type="pull" status="merged" title="refactor: migrating nuxt to vitepress" />
 
