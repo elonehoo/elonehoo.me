@@ -3,11 +3,10 @@
 </script>
 
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-    <g fill="none" class="stroke-foreground/60" stroke-width="1.5">
-      <path class="stroke-foreground/60" stroke-linecap="round" d="M22 13.438c0 3.77 0 5.656-1.172 6.828S17.771 21.438 14 21.438h-4c-3.771 0-5.657 0-6.828-1.172S2 17.209 2 13.438S2 7.78 3.172 6.609S6.229 5.438 10 5.438h4c3.771 0 5.657 0 6.828 1.171c.664.664.952 1.556 1.076 2.891" />
-      <path class="stroke-foreground/60" d="M3.988 6c.112-.931.347-1.574.837-2.063C5.765 3 7.279 3 10.307 3h3.211c3.028 0 4.541 0 5.482.937c.49.489.725 1.132.837 2.063" />
-      <circle class="stroke-[--c-border]" cx="17.5" cy="9.938" r="1.5" />
-      <path class="stroke-[--c-border]" stroke-linecap="round" d="m2 13.938l1.752-1.533a2.3 2.3 0 0 1 3.14.105l4.29 4.29a2 2 0 0 0 2.564.221l.299-.21a3 3 0 0 1 3.731.226l3.224 2.9" />
-    </g></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="currentColor" fill="none">
+    <circle class="stroke-foreground/60" cx="7" cy="8" r="1.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    <path class="stroke-foreground/60" d="M20.9977 11C21 11.4701 21 11.9693 21 12.5C21 16.9783 21 19.2175 19.6088 20.6088C18.2175 22 15.9783 22 11.5 22C7.02166 22 4.78249 22 3.39124 20.6088C2 19.2175 2 16.9783 2 12.5C2 8.02166 2 5.78249 3.39124 4.39124C4.78249 3 7.02166 3 11.5 3C12.0307 3 12.5299 3 13 3.00231" stroke-width="1.5" stroke-linecap="round" />
+    <path class="stroke-[--c-border]" d="M18.5 2L18.7579 2.69703C19.0961 3.61102 19.2652 4.06802 19.5986 4.40139C19.932 4.73477 20.389 4.90387 21.303 5.24208L22 5.5L21.303 5.75792C20.389 6.09613 19.932 6.26524 19.5986 6.59861C19.2652 6.93198 19.0961 7.38898 18.7579 8.30297L18.5 9L18.2421 8.30297C17.9039 7.38898 17.7348 6.93198 17.4014 6.59861C17.068 6.26524 16.611 6.09613 15.697 5.75792L15 5.5L15.697 5.24208C16.611 4.90387 17.068 4.73477 17.4014 4.40139C17.7348 4.06802 17.9039 3.61102 18.2421 2.69703L18.5 2Z" stroke-width="1.5" stroke-linejoin="round" />
+    <path class="stroke-foreground/60" d="M4.5 21.5C8.87246 16.275 13.7741 9.38406 20.9975 14.0424" stroke-width="1.5" />
+  </svg>
 </template>

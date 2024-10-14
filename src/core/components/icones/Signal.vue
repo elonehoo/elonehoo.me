@@ -3,10 +3,9 @@
 </script>
 
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-    <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5">
-      <path class="stroke-[--c-border]" stroke-linejoin="round" d="m6.5 4l7.378 8V7.5m3.5 12.378l-7.5-7.879v4.5" />
-      <path class="stroke-foreground/60" d="M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10c0-1.821-.487-3.53-1.338-5" />
-    </g>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="currentColor" fill="none">
+    <path class="stroke-foreground/60" d="M12.9915 20.5C13.7121 20.5 13.9925 20.4956 13.9925 20.4956C17.4088 20.471 19.2922 20.3099 20.5342 19.2552C22 18.0104 22 16.0069 22 12C22 7.99306 22 5.98959 20.5342 4.7448C19.0683 3.5 16.7091 3.5 11.9906 3.5C7.27213 3.5 4.91289 3.5 3.44705 4.7448C2.32426 5.69827 2.0615 7.09687 2 9.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    <path class="stroke-[--c-border]" d="M2.98242 19.5H2.9914" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path class="stroke-[--c-border]" d="M2 15.7349C4.49328 15.7349 6.77053 18 6.77053 20.4996M10 20.4996C10 16 5.99511 12.5 2.04522 12.5" stroke-width="1.5" stroke-linecap="round" />
   </svg>
 </template>
