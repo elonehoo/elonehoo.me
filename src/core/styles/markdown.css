@@ -1,0 +1,242 @@
+.prose-doc {
+  --at-apply: text-base leading-[1.7];
+}
+
+.prose-doc h1,
+.prose-doc h2,
+.prose-doc h3,
+.prose-doc h4,
+.prose-doc h5,
+.prose-doc h6 {
+  --at-apply: relative font-semibold leading-normal;
+  outline: none;
+}
+
+.prose-doc h1 {
+  --at-apply: text-[38px] leading-[1.4] tracking-[-0.02em] mb-12;
+}
+
+.prose-doc h2 {
+  --at-apply:
+    border-t border-t-border
+    text-2xl tracking-[-0.02em]
+    mt-16 mb-[1.8rem] mx-0
+    pt-[1.8rem];
+}
+
+@media (max-width: 768px) {
+  .prose-doc h1 {
+    --at-apply: text-[32px] mb-[1.8rem];
+  }
+  .prose-doc h1 + h2 {
+    --at-apply: mt-9;
+  }
+}
+
+.prose-doc h3 {
+  --at-apply:
+    text-[19px] tracking-[-0.01em]
+    mt-12 mb-5;
+}
+
+.prose-doc h2 + h3 {
+  --at-apply: mt-0;
+}
+
+.prose-doc h4 {
+  --at-apply: text-[17px] mt-[1.8rem] mb-4 mx-0;
+}
+
+.prose-doc .header-anchor {
+  --at-apply:
+    border-none float-left
+    ml-[-0.87em] font-medium
+    op-0 pr-[0.23em];
+  transition: var(--transition-out);
+}
+
+.prose-doc .header-anchor:before {
+  --at-apply: border-none text-main;
+  content: '#';
+}
+
+.prose-doc h1:hover .header-anchor,
+.prose-doc h1 .header-anchor:focus,
+.prose-doc h2:hover .header-anchor,
+.prose-doc h2 .header-anchor:focus,
+.prose-doc h3:hover .header-anchor,
+.prose-doc h3 .header-anchor:focus,
+.prose-doc h4:hover .header-anchor,
+.prose-doc h4 .header-anchor:focus,
+.prose-doc h5:hover .header-anchor,
+.prose-doc h5 .header-anchor:focus,
+.prose-doc h6:hover .header-anchor,
+.prose-doc h6 .header-anchor:focus {
+  --at-apply: border-none op-100 ml-0;
+  transition: var(--transition);
+}
+
+.prose-doc hr {
+  --at-apply: border-t border-t-border my-[1.8rem];
+}
+
+.prose-doc p,
+.prose-doc ul,
+.prose-doc ol,
+.prose-doc summary {
+  --at-apply: mb-4.8;
+}
+
+.prose-doc a {
+  --at-apply:
+    text-primary/90 border-b border-b-dashed border-b-primary;
+  font-weight: 500;
+  transition: color 0.25s;
+  text-decoration-style: dotted;
+  transition: var(--transition-out);
+}
+
+.prose-doc a:hover {
+  --at-apply: text-main border-b-solid border-b-main;
+  transition: var(--transition);
+}
+
+.prose-doc strong {
+  --at-apply: font-semibold;
+}
+
+.prose-doc table {
+  --at-apply: block overflow-x-auto mx-0 my-4 border-collapse;;
+}
+
+.prose-doc tr {
+  --at-apply: border-t border-t-border;
+  transition: background-color 0.5s;
+}
+
+.prose-doc tr:nth-child(2n) {
+  --at-apply: bg-card;
+}
+
+.prose-doc th,
+.prose-doc td {
+  --at-apply: border border-border px-4 py-2.4;
+}
+
+.prose-doc blockquote {
+  --at-apply:
+    border-l border-l-[0.2rem]
+    border-l-main pl-4 my-4;
+  transition: border-color 0.5s;
+}
+
+.prose-doc blockquote > p {
+  --at-apply: m-0 text-4 text-muted-foreground;
+  transition: color 0.5s;
+}
+
+.prose-doc figure {
+  --at-apply: m-0;
+}
+
+.prose-doc img {
+  --at-apply: w-full;
+}
+
+.prose-doc p > img {
+  --at-apply: mx-auto my-7;
+}
+
+.prose-doc ol {
+  counter-reset: item;
+}
+.prose-doc ol[start='2'] {
+  counter-reset: item 1;
+}
+.prose-doc ol[start='3'] {
+  counter-reset: item 2;
+}
+.prose-doc ol[start='4'] {
+  counter-reset: item 3;
+}
+.prose-doc ol[start='5'] {
+  counter-reset: item 4;
+}
+.prose-doc ol[start='6'] {
+  counter-reset: item 5;
+}
+.prose-doc ol[start='7'] {
+  counter-reset: item 6;
+}
+.prose-doc ol[start='8'] {
+  counter-reset: item 7;
+}
+.prose-doc ol[start='9'] {
+  counter-reset: item 8;
+}
+.prose-doc ol[start='10'] {
+  counter-reset: item 9;
+}
+
+.prose-doc ol > li {
+  --at-apply: relative pl-6;
+  counter-increment: item;
+}
+
+.prose-doc ol > li:before {
+  --at-apply:
+    text-muted-foreground absolute
+    left-2px top-px font-[bold] text-sm;
+
+  content: counter(item) '.';
+}
+
+@media (min-width: 768px) {
+  .prose-doc ol > li:before {
+    --at-apply: top-2px;
+  }
+}
+
+.prose-doc li {
+  --at-apply: relative my-px;
+}
+
+.prose-doc ul {
+  --at-apply: pl-5;
+}
+
+.prose-doc ul > li:before {
+  --at-apply:
+    text-muted-foreground absolute w-[5px]
+    h-[5px] rounded-[50%] left-[-1.25rem]
+    top-3;
+  content: '';
+  transition: background-color 0.5s;
+}
+
+.prose-doc .video::before {
+  --at-apply: block pt-[56.25%];
+  content: '';
+}
+
+.prose-doc .video {
+  --at-apply: overflow-hidden min-w-[415px] relative mt-0 mb-[18px] -mx-6;
+  width: calc(100% + 48px);
+}
+
+.prose-doc .video-content {
+  --at-apply: absolute w-full h-full border-0 left-0 inset-y-0;
+}
+
+@media (min-width: 640px) {
+  .prose-doc .video {
+    --at-apply: rounded-md;
+  }
+}
+
+@media (max-width: 463px) {
+  .prose-doc .video {
+    --at-apply: w-full;
+    margin: 0 calc((100vw - 463px) / 2) 18px;
+  }
+}

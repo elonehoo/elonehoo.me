@@ -26,6 +26,10 @@ export default defineConfigWithTheme<ThemeConfig>({
   outDir: './dist',
 
   markdown: {
+    theme: {
+      light: 'vitesse-light',
+      dark: 'vitesse-dark',
+    },
     headers: {
       level: [2, 3],
     },
