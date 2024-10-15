@@ -25,6 +25,12 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   outDir: './dist',
 
+  markdown: {
+    headers: {
+      level: [2, 3],
+    },
+  },
+
   themeConfig: {
     nav,
 

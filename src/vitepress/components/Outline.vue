@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { PageTitleTag } from '../../core'
 import { useActiveAnchor, useOutlineHeaders } from '../composables/outline'
+import OutlineItem from './OutlineItem.vue'
 
 const headers = useOutlineHeaders()
 
@@ -14,6 +15,12 @@ useActiveAnchor(container, marker)
   <div>
     <PageTitleTag title="本页目录" />
 
-    {{ headers }}
+    <div ref="container" class="mt-4">
+      <div ref="marker">
+        <nav>
+          <OutlineItem :headers="headers" />
+        </nav>
+      </div>
+    </div>
   </div>
 </template>

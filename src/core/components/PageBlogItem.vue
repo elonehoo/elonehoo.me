@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { Posts } from '../data/posts.data'
+import type { Post } from '../data/post.data'
 import { Link } from 'destyler'
 
 const props = defineProps<{
-  items: Posts
+  item: Post
 }>()
 </script>
 
@@ -11,7 +11,7 @@ const props = defineProps<{
   <div class="flex-[1_0_90%] relative border-b border-b-dotted border-border flex blog-item">
     <div class="inner">
       <!-- image -->
-      <div v-if="props.items.img" class="img blog-image">
+      <div v-if="props.item.img" class="img blog-image">
         <div class="w-[var(--h-n-w)] relative h-[calc(var(--h-n-w)_/_16_*_9)]">
           <img
             src="https://destyler.org/blog/release-0.0.4.png"
@@ -23,24 +23,24 @@ const props = defineProps<{
       <!-- tag -->
       <div class="text-xs h-4 flex justify-between items-center mb-[0.3em] text-foreground/60 ">
         <div class="blog-tag">
-          阅读时间 · {{ props.items.duration }}
+          阅读时间 · {{ props.item.duration }}
         </div>
       </div>
       <!-- title -->
       <div class="blog-item-title">
         <Link
           target="_self"
-          :to="props.items.url"
+          :to="props.item.url"
           class="blog-item-title-link"
         >
-          {{ props.items.title }}
+          {{ props.item.title }}
         </Link>
       </div>
       <!-- desc -->
-      <div class="blog-item-desc" v-html="props.items.excerpt" />
+      <div class="blog-item-desc" v-html="props.item.excerpt" />
       <!-- time -->
       <div class="blog-item-time">
-        <span class="text-main font-bold text-xs">{{ props.items.time }}</span>
+        <span class="text-main font-bold text-xs">{{ props.item.time }}</span>
       </div>
     </div>
   </div>

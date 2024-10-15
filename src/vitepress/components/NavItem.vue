@@ -7,18 +7,16 @@ const props = defineProps<{
   item: NavItemWithLink
 }>()
 
-const icones = ref(
-  {
-    about: About,
-    bookmarks: Bookmarks,
-    gallery: Gallery,
-    blog: Blog,
-    project: Project,
-    video: Video,
-    note: Note,
-    talk: Talk,
-  },
-)
+const icones = {
+  about: About,
+  bookmarks: Bookmarks,
+  gallery: Gallery,
+  blog: Blog,
+  project: Project,
+  video: Video,
+  note: Note,
+  talk: Talk,
+}
 </script>
 
 <template>

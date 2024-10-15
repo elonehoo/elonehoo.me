@@ -10,8 +10,6 @@ description:
 
 ---
 
-<Title />
-
 > [English Version](https://alan.norbauer.com/articles/browser-debugging-tricks)
 
 ## 高级条件断点
@@ -105,7 +103,7 @@ description:
 
 只在执行该行代码时随机样本中断，例如，每执行该行代码10次只中断1次：`Math.random() < 0.1`
 
-### Never Pause Here <Icon class="i-logos-chrome" />
+### Never Pause Here
 
 当我们右键点击边距并选择“Never Pause Here”，Chrome 会创建一个条件断点，该断点为假且永远不会通过。这样设置后，调试器就永远不会在这一行暂停。
 
@@ -145,7 +143,7 @@ window.enableBreakpoints = true
 setTimeout(() => (window.enableBreakpoints = true), 5000)
 ```
 
-## monitor() class 的使用 <Icon class="i-logos-chrome" />
+## monitor() class 的使用
 
 我们可以使用Chrome的监控命令行方法轻松追踪所有对类方法的调用。例如，给定一个类 `Dog` 。
 
@@ -234,7 +232,7 @@ debug(window.location.assign);
 
 当我们向某个东西传递一些配置选项，并且想要了解它们是如何被使用的时候，这会很有用。
 
-## 使用 copy() <Icon class="i-logos-chrome" /> <Icon class="i-logos-firefox" />
+## 使用 copy()
 
 我们可以使用 `copy()` 控制台 API 直接从浏览器复制有趣的信息到我们的剪贴板，而不会出现任何字符串截断。一些我们可能会想要复制的有趣事物：
 
@@ -330,17 +328,17 @@ Array.from($0.querySelectorAll("*")).filter(isBold);
 
 在控制台中，`$0` 是当前在元素检查器中选定元素的自动引用。
 
-#### Previous 元素 <Icon class="i-logos-chrome" /> <Icon class="i-logos-internetexplorer" />
+#### Previous 元素
 
 在 Chrome 和 Edge 浏览器中，我们可以通过 `$1` 访问我们最后检查的元素，通过 `$2` 访问之前检查的元素，以此类推。
 
-#### 获取事件监听器 <Icon class="i-logos-chrome" />
+#### 获取事件监听器
 
 在 Chrome 浏览器中，我们可以检查当前选中元素的事件监听器：`getEventListeners($0)`，例如：
 
 ![getEventListeners](/browser-debugging-tricks/getEventListeners.png)
 
-### 监控元素的事件 <Icon class="i-logos-chrome" />
+### 监控元素的事件
 
 为选定元素调试所有事件：`monitorEvents($0)`
 

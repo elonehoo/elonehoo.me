@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { PageDivider, PageDuration, PageTime } from '../../core'
 import Outline from './Outline.vue'
+import TurnPage from './TurnPage.vue'
 </script>
 
 <template>
@@ -12,6 +14,10 @@ import Outline from './Outline.vue'
   >
     <div class="fixed">
       <Outline />
+      <PageDivider />
+      <PageTime />
+      <PageDuration />
+      <TurnPage />
     </div>
   </section>
 </template>
