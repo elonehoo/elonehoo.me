@@ -4,6 +4,7 @@ import { Link } from 'destyler'
 
 const props = defineProps<{
   item: Post
+  slider?: boolean
 }>()
 </script>
 
@@ -11,7 +12,7 @@ const props = defineProps<{
   <div class="flex-[1_0_90%] relative border-b border-b-dotted border-border flex blog-item">
     <div class="inner">
       <!-- image -->
-      <div v-if="props.item.img" class="img blog-image">
+      <div v-if="props.item.img && !props.slider" class="img blog-image">
         <div class="w-[var(--h-n-w)] relative h-[calc(var(--h-n-w)_/_16_*_9)]">
           <img
             src="https://destyler.org/blog/release-0.0.4.png"
