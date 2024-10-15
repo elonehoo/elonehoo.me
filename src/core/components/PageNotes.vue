@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { data as notes } from '../data/notes.data'
+import { data as notes } from '../data/note.data'
 import PageMore from './PageMore.vue'
 import PageNoteItem from './PageNoteItem.vue'
 import PageTitleTag from './PageTitleTag.vue'

@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import type { Note } from '../data/note.data'
 import type { Post } from '../data/post.data'
 import { useRouter } from 'vitepress'
 
 const props = defineProps<{
-  post: Post
+  item: Post | Note
   title: string
 }>()
 
@@ -16,11 +17,11 @@ function goTo(url: string) {
 
 <template>
   <div class="box text-sm text-foreground/55 cursor-default cursor-pointer my-1.5 hover:text-main">
-    <span class="link" @click="goTo(props.post.url)">
+    <span class="link" @click="goTo(props.item.url)">
       <span class="title">
         {{ props.title }}
       </span>
-      {{ props.post.title }}
+      {{ props.item.title }}
     </span>
   </div>
 </template>

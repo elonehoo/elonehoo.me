@@ -1,6 +1,16 @@
-import type { Note } from './note.data'
 import dayjs from 'dayjs'
 import { createContentLoader } from 'vitepress'
+
+export interface Note {
+  title: string
+  lang: string
+  url: string
+  date: string
+  time: string
+  duration: string
+  frontmatter: any
+  excerpt: string | undefined
+}
 
 declare const data: Note[]
 export { data }
@@ -21,5 +31,6 @@ export default createContentLoader('notes/*.md', {
       }))
       .sort((a, b) => +new Date(b.date) - +new Date(a.date))
       .filter(i => !i.url.endsWith('.html'))
+      .slice(0, 6)
   },
 })

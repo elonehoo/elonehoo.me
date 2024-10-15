@@ -9,8 +9,8 @@ export interface Post {
   time: string
   duration: string
   frontmatter: any
-  img: string | undefined
-  excerpt: string | undefined
+  img?: string
+  excerpt?: string
 }
 
 declare const data: Post[]
