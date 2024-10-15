@@ -18,6 +18,7 @@ export { default as Video } from './components/icones/Video.vue'
 
 export { default as Logo } from './components/logo/Logo.vue'
 
+export { default as PageBack } from './components/PageBack.vue'
 export { default as PageBlog } from './components/PageBlog.vue'
 export { default as PageBlogItem } from './components/PageBlogItem.vue'
 export { default as PageBookmarkItem } from './components/PageBookmarkItem.vue'

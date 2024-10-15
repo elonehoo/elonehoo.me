@@ -16,8 +16,8 @@ const prevPost = computed(() => posts[findCurrentIndex() + 1])
 <template>
   <div class="mt-2 flex flex-col">
     <!-- prev -->
-    <PagePagination title="上一篇" :post="prevPost" />
+    <PagePagination v-if="prevPost" title="上一篇" :post="prevPost" />
     <!-- next -->
-    <PagePagination title="下一篇" :post="nextPost" />
+    <PagePagination v-if="nextPost" title="下一篇" :post="nextPost" />
   </div>
 </template>

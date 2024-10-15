@@ -7,6 +7,8 @@
     class="order-4 flex-[1_1_20%] h-auto relative
     [padding:calc(var(--h-margin)_*_2)_calc(var(--h-margin)_*_1.5)]"
   >
-    more
+    <div class="fixed">
+      more
+    </div>
   </section>
 </template>
