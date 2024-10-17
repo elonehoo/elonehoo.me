@@ -25,7 +25,7 @@
           <!-- desc -->
           <div
             class="
-            w-full pr-[2rem_*_2vw] border-r border-r-dotted border-r-border h-full
+            w-full pr-[calc(2rem_+_2vw)] border-r border-r-dotted border-r-border h-full
             mb-2 text-foreground/60 leading-7"
           >
             <slot name="title" />
