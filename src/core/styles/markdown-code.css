@@ -5,7 +5,7 @@
 
 /* inline code */
 .prose-doc :not(pre) > code {
-  --at-apply:  px-[0.5em] py-[0.15em] after:content-['`'] before:content-['`'] font-600;
+  --at-apply:  px-[0.5em] py-[0.15em] after:content-['」'] before:content-['「'] font-600;
   transition: color 0.5s, background-color 0.5s;
 }
 
