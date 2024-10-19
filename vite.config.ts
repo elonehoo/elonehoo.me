@@ -27,23 +27,23 @@ export default defineConfig({
     Component({
       include: [/\.vue/, /\.md/],
       dirs: [
-        '.vitepress/theme/components',
-        '.vitepress/components',
-        '.vitepress/demos',
+        '../.vitepress/theme/components',
+        '../.vitepress/components',
+        '../.vitepress/demos',
       ],
-      dts: '.vitepress/components.d.ts',
+      dts: '../.vitepress/components.d.ts',
       directoryAsNamespace: true,
     }),
     AutoImport({
       dirs: [
-        '.vitepress/composables',
+        '../.vitepress/composables',
       ],
       imports: [
         'vue',
         'vitepress',
         '@vueuse/core',
       ],
-      dts: '.vitepress/auto-imports.d.ts',
+      dts: '../.vitepress/auto-imports.d.ts',
     }),
     Unocss({
       theme: {
