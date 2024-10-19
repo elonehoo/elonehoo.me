@@ -1,8 +1,12 @@
 ---
 page: true
+title: 关于我
+images:
+  - /gallery/07_coffee_cat.jpg
+  - /gallery/07_coffee_cat.jpg
 ---
 
-<AboutPage >
+<AboutPage :title="$frontmatter.title" :images="$frontmatter.images">
 
 <template #desc>
 

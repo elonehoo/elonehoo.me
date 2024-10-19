@@ -18,7 +18,7 @@ const { page, frontmatter } = useData()
 <style scoped>
 .content {
   --at-apply: flex flex-wrap items-stretch pr-0 pt-0 min-h-[calc(100vh-6em)] ml-[--nav-width];
-  padding: var(--h-margin) calc(var(--h-margin)* 1.5) 0 calc(var(--h-margin)* 2);
+  padding: var(--h-margin) calc(var(--h-margin)* 1.5) 0 0;
   padding-top: 0;
   padding-right: 0;
 }

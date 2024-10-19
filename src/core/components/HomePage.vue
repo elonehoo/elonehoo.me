@@ -5,7 +5,7 @@ import PageNotes from './PageNotes.vue'
 </script>
 
 <template>
-  <div class="flex">
+  <div class="flex pl-[calc(var(--h-margin)*2)]">
     <PageBlog />
     <PageBookmarks />
     <PageNotes />

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HomePage } from '../../../src'
+import { HomePage } from '~/index'
 </script>
 
 <template>
