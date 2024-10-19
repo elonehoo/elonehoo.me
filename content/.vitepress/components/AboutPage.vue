@@ -15,20 +15,19 @@
         mt-[calc(var(--h-margin)_*_2)]
         pt-[--h-margin]"
       >
-        <!-- title -->
+        <!-- desc -->
         <div
           class="
           basis-69% pt-0 pb-6 border-none m-0 shrink-2 grow
           font-400 text-left flex items-center flex-col
           "
         >
-          <!-- desc -->
           <div
             class="
             w-full pr-[calc(2rem_+_2vw)] border-r border-r-dotted border-r-border h-full
             mb-2 text-foreground/60 leading-7 prose-doc"
           >
-            <slot name="title" />
+            <slot name="desc" />
           </div>
         </div>
         <!-- action -->
@@ -37,8 +36,16 @@
           basis-22% pt-0 pb-6 border-none m-0 shrink-2 grow
           font-400 text-left flex items-center flex-col"
         >
-          <!--  -->
-          活动
+          <div class="pl-[calc(2rem_+_2vw)] w-full">
+            <!-- desc -->
+            <div class="text-foreground/55 mb-2 text-center font-400">
+              目前已经发布的博客中共有：
+            </div>
+            <!-- data -->
+            <div class="w-full">
+              <AboutData />
+            </div>
+          </div>
         </div>
       </div>
     </section>

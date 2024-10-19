@@ -4,7 +4,7 @@ page: true
 
 <AboutPage >
 
-<template #title>
+<template #desc>
 
   你好，欢迎光临我的个人博客，我是一名码农，目前生活在[浙江 - 杭州](https://maps.app.goo.gl/f6Y6fkGApoAYYMm9A)。想通过文字抒发自己的热情、输出吐槽并把有用没用的见解分享给更多人。非常荣幸，你准备在这里看到我的一些技术文章、设计小样、生活随笔等等。
 
