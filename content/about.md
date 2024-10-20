@@ -22,7 +22,7 @@ title: 关于我
 <template #equipment>
 
   MacBook Air 2023、Mac Mini 2020、iPhone 14、Apple Watch Series 9、iPad air 3、Logitech G
-  304、Nuphy Air60、AirPods 1、Redmi A27U、Nintendo Switch
+  304、Nuphy Air60、AirPods 2、Redmi A27U、Nintendo Switch
 
 </template>
 
