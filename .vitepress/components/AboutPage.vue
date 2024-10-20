@@ -1,7 +1,6 @@
 <script setup lang="ts">
 const props = defineProps<{
   title: string
-  images: any[]
 }>()
 </script>
 
@@ -50,14 +49,62 @@ const props = defineProps<{
             </div>
           </div>
         </div>
-        <!-- photos -->
-        <div class="font-3 border-y border-y-dotted border-y-border p-0 block m-0 basis-1/3 font-400 text-left shrink-2 grow-1">
-          <!-- lists -->
-          <div class="py-[calc(2vmax_+_2vmin)] px-[--h-margin]">
-            <!-- <img :src="props.images[0]"> -->
+        <!-- slash -->
+        <div class="single-host font-3 border-y border-y-dotted border-y-border p-0 block m-0 basis-full font-400 text-left shrink-2 grow-1">
+          <div
+            class="
+            pt-9.6 pb-4.8 pl-[calc(var(--h-margin)*2)] pr-[--h-margin]
+            [background-image:var(--pattern-bg)] prose-doc text-foreground/60 leading-7"
+          >
+            <div class="font-bold text-4.8 leading-[1.1] text-foreground inline-block mb-2">
+              斜杠属性
+            </div>
+            <!-- desc -->
+            <slot name="slash" />
+          </div>
+        </div>
+        <!-- equipment -->
+        <div class="single-host-2 single-host font-3 border-y border-y-dotted border-y-border p-0 block m-0 basis-1/3 font-400 text-left shrink-2 grow-1">
+          <div
+            class="
+            pt-9.6 pb-4.8 pl-[calc(var(--h-margin)*2)] pr-[--h-margin]
+            [background-image:var(--pattern-bg)] prose-doc text-foreground/60 leading-7"
+          >
+            <div class="font-bold text-4.8 leading-[1.1] text-foreground inline-block mb-2">
+              设备
+            </div>
+            <!-- desc -->
+            <slot name="equipment" />
           </div>
         </div>
       </div>
     </section>
   </div>
 </template>
+
+<style scoped>
+.single-host {
+  transition: var(--transition);
+  animation: right-in calc(2 * var(--duration)) var(--curve) both;
+}
+
+.single-host-2 {
+  animation-delay: calc(0.5 * var(--duration));
+}
+
+.single-host-3 {
+  animation-delay: calc(1 * var(--duration));
+}
+
+@keyframes right-in {
+    0% {
+        translate: 3vw 0;
+        opacity: 0
+    }
+
+    100% {
+        translate: none;
+        opacity: 1
+    }
+}
+</style>
