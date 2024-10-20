@@ -25,7 +25,7 @@ export const nav: ThemeConfig['nav'] = [
         icon: 'blog',
       },
       {
-        text: 'Talks',
+        text: '分享',
         link: '/talks/',
         icon: 'talk',
       },
@@ -45,7 +45,7 @@ export const nav: ThemeConfig['nav'] = [
         icon: 'project',
       },
       {
-        text: 'Demos',
+        text: '小样',
         link: '/demos/',
         icon: 'video',
       },
