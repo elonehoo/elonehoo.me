@@ -50,10 +50,10 @@ const props = defineProps<{
           </div>
         </div>
         <!-- slash -->
-        <div class="single-host font-3 border-y border-y-dotted border-y-border p-0 block m-0 basis-full font-400 text-left shrink-2 grow-1">
+        <div class="slash-box single-host font-3 border-y border-y-dotted border-y-border p-0 block m-0 basis-full font-400 text-left shrink-2 grow-1">
           <div
             class="
-            pt-9.6 pb-4.8 pl-[calc(var(--h-margin)*2)] pr-[--h-margin]
+            pt-9.6 pb-4.8 pl-[calc(var(--h-margin)*2)] pr-[calc(var(--h-margin)*1.5)]
             [background-image:var(--pattern-bg)] prose-doc text-foreground/60 leading-8"
           >
             <div class="font-bold text-4.8 leading-[1.1] text-foreground inline-block mb-2">
@@ -85,12 +85,14 @@ const props = defineProps<{
 </template>
 
 <style scoped>
-.slash{
-  --hover-op: 0;
+.slash-box:hover :is(.phonetic)::before {
+  translate: none;
+  opacity: 1;
+  scale: 1;
+  transition-timing-function: var(--curve);
+  transition-duration: var(--duration)
 }
-.slash:hover{
-  --hover-op: 100;
-}
+
 .single-host {
   transition: var(--transition);
   animation: right-in calc(2 * var(--duration)) var(--curve) both;

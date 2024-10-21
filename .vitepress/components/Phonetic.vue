@@ -1,36 +1,24 @@
 <script setup lang="ts">
+import { useIndex } from '../composables/index'
+
 const props = defineProps<{
   phonetic?: string
-
+  index?: number
 }>()
+
+const moIndex = useIndex()
+
+const index = computed(() => props.index ?? moIndex)
 </script>
 
 <template>
-  <span class="phonetic" :style="{ '--phonetic': `'${props.phonetic}'` }">
+  <span class="phonetic pho" :style="{ '--phonetic': `'${props.phonetic}'`, '--index': index }">
     <slot />
   </span>
 </template>
 
 <style scoped>
-.phonetic{
-  position: relative;
-}
-
-.phonetic::before {
-    content: var(--phonetic);
-    display: flex;
-    font-weight: 300;
-    font-size: .75em;
-    color: hsl(var(--main));
-    opacity: var(--hover-op);
-    position: absolute;
-    left: 0;
-    top: -1.7rem;
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    transition: var(--transition-out);
-    translate: 0 .5em;
-    scale: .8;
+.pho::before {
+  transition-delay: calc(var(--duration) * .3 * var(--index));
 }
 </style>
