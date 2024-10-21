@@ -54,13 +54,15 @@ const props = defineProps<{
           <div
             class="
             pt-9.6 pb-4.8 pl-[calc(var(--h-margin)*2)] pr-[--h-margin]
-            [background-image:var(--pattern-bg)] prose-doc text-foreground/60 leading-7"
+            [background-image:var(--pattern-bg)] prose-doc text-foreground/60 leading-8"
           >
             <div class="font-bold text-4.8 leading-[1.1] text-foreground inline-block mb-2">
               斜杠属性
             </div>
             <!-- desc -->
-            <slot name="slash" />
+            <div class="slash">
+              <slot name="slash" />
+            </div>
           </div>
         </div>
         <!-- equipment -->
@@ -83,6 +85,12 @@ const props = defineProps<{
 </template>
 
 <style scoped>
+.slash{
+  --hover-op: 0;
+}
+.slash:hover{
+  --hover-op: 100;
+}
 .single-host {
   transition: var(--transition);
   animation: right-in calc(2 * var(--duration)) var(--curve) both;

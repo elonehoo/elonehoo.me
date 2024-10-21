@@ -42,6 +42,7 @@ export default defineConfig({
         'vue',
         'vitepress',
         '@vueuse/core',
+        'vitest',
       ],
       dts: '../.vitepress/auto-imports.d.ts',
     }),

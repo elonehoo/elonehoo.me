@@ -33,6 +33,8 @@ export default defineConfigWithTheme<ThemeConfig>({
     headers: {
       level: [2, 3],
     },
+    config: (md) => {
+    },
   },
 
   themeConfig: {
