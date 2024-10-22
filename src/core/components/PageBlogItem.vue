@@ -49,6 +49,11 @@ const props = defineProps<{
 
 <style scoped>
 .blog-item {
+  animation-delay: calc(calc(var(--blog-index) * 0.15) * var(--duration)) !important;
+  animation: slowShow calc(2* var(--duration)) var(--curve) calc(.65* var(--duration)) both;
+}
+
+.blog-item {
   &>.inner {
     --at-apply: flex-auto;
     padding: calc(var(--h-margin)* .5 - 1rem) calc(var(--h-margin)* 1.5) calc(var(--h-margin)* .5);

@@ -76,20 +76,4 @@ const { config } = useConfig()
   content: "“";
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
-
-@keyframes footer-show {
-  0% {
-    opacity: 0
-  }
-  67% {
-    opacity: 0;
-    translate: .5em 0;
-    letter-spacing: .1em
-  }
-  100% {
-    opacity: .06;
-    translate: none;
-    letter-spacing: 0
-  }
-}
 </style>

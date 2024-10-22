@@ -32,13 +32,4 @@ const { config } = useConfig()
 .footer {
   animation: slowShow calc(3* var(--duration)) var(--curve) calc(.8* var(--duration)) both;
 }
-@keyframes slowShow {
-    0% {
-        opacity: 0
-    }
-
-    100% {
-        opacity: 1
-    }
-}
 </style>

@@ -7,7 +7,7 @@ import PageTitleTag from './PageTitleTag.vue'
 
 <template>
   <section
-    class="order-4 flex-[1_1_20%] h-auto relative
+    class="order-4 flex-[1_1_20%] h-auto relative page-notes
     [padding:calc(var(--h-margin)_*_2)_calc(var(--h-margin)_*_1.5)]"
   >
     <!-- title -->
@@ -17,3 +17,9 @@ import PageTitleTag from './PageTitleTag.vue'
     <PageMore title="看看更多的随笔" desc="咕噜～" />
   </section>
 </template>
+
+<style scoped>
+.page-notes {
+  animation: right-in calc(2* var(--duration)) var(--curve) calc(.75* var(--duration)) both;
+}
+</style>

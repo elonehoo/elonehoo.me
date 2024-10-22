@@ -128,15 +128,4 @@ const props = defineProps<{
 .single-host-4 {
   animation-delay: calc(1.5 * var(--duration));
 }
-
-@keyframes right-in {
-  0% {
-    translate: 3vw 0;
-    opacity: 0
-  }
-  100% {
-    translate: none;
-    opacity: 1
-  }
-}
 </style>
