@@ -80,7 +80,7 @@ const props = defineProps<{
           </div>
         </div>
         <!-- stack -->
-        <div class="single-host-3 single-host font-3 border-y border-y-dotted border-y-border border-r border-r-dotted border-r-border p-0 block m-0 basis-1/2 font-400 text-left shrink-2 grow-1">
+        <div class="single-host-3 single-host font-3 border-y border-y-dotted border-y-border p-0 block m-0 basis-full font-400 text-left shrink-2 grow-1">
           <div
             class="
             pt-9.6 pb-4.8 pl-[calc(var(--h-margin)*2)] pr-[--h-margin] prose-doc
@@ -93,18 +93,9 @@ const props = defineProps<{
             <slot name="stack" />
           </div>
         </div>
-        <!-- subscribe -->
-        <div class="single-host-3 single-host font-3 border-y border-y-dotted border-y-border p-0 block m-0 basis-1/2 font-400 text-left shrink-2 grow-1">
-          <div
-            class="
-            pt-9.6 pb-4.8 pl-[calc(var(--h-margin)*2)] pr-[--h-margin]
-            [background-image:var(--pattern-bg)] text-foreground/60 leading-7"
-          >
-            <div class="font-bold text-4.8 leading-[1.1] text-foreground inline-block mb-4">
-              订阅账单
-            </div>
-            <!-- desc -->
-            <AboutSubscribe />
+        <div class="single-host-4 single-host font-3 p-0 py-16 block m-0 basis-full font-400 text-left shrink-2 grow-1 flex justify-center items-center">
+          <div class=" text-foreground font-bold">
+            我们会成为朋友的，对吧？
           </div>
         </div>
       </div>
@@ -134,15 +125,18 @@ const props = defineProps<{
   animation-delay: calc(1 * var(--duration));
 }
 
-@keyframes right-in {
-    0% {
-        translate: 3vw 0;
-        opacity: 0
-    }
+.single-host-4 {
+  animation-delay: calc(1.5 * var(--duration));
+}
 
-    100% {
-        translate: none;
-        opacity: 1
-    }
+@keyframes right-in {
+  0% {
+    translate: 3vw 0;
+    opacity: 0
+  }
+  100% {
+    translate: none;
+    opacity: 1
+  }
 }
 </style>

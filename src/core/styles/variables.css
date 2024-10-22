@@ -22,7 +22,7 @@
 }
 
 body {
-  --main: 347 92.9% 50.6%;
+  --main: 0 72.2% 50.6%;
   --background: 0 0% 100%;
   --foreground: 240 10% 3.9%;
   --card: 0 0% 100%;
@@ -45,7 +45,7 @@ body {
 }
 
 .dark body {
-  --main: 347 92.9% 50.6%;
+  --main: 0 72.2% 50.6%;
   --background: 240 10% 3.9%;
   --foreground: 0 0% 98%;
   --card: 240 10% 3.9%;
