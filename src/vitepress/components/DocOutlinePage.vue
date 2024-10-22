@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PageBack, PageDivider, PageDuration, PageTime } from '../../core'
+import { PageBack, PageDuration, PageTime } from '../../core'
 import Outline from './Outline.vue'
 import TurnPage from './TurnPage.vue'
 </script>
@@ -14,7 +14,6 @@ import TurnPage from './TurnPage.vue'
   >
     <div class="fixed">
       <Outline />
-      <PageDivider />
       <PageTime />
       <PageDuration />
       <TurnPage />

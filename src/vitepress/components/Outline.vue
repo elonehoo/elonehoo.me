@@ -15,7 +15,7 @@ useActiveAnchor(container, marker)
   <div>
     <PageTitleTag title="本页目录" />
 
-    <div ref="container" class="mt-4">
+    <div ref="container" class="my-4">
       <div ref="marker">
         <nav>
           <OutlineItem :headers="headers" />
