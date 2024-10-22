@@ -80,17 +80,31 @@ const props = defineProps<{
           </div>
         </div>
         <!-- stack -->
-        <div class="single-host-2 single-host font-3 border-y border-y-dotted border-y-border p-0 block m-0 basis-full font-400 text-left shrink-2 grow-1">
+        <div class="single-host-3 single-host font-3 border-y border-y-dotted border-y-border border-r border-r-dotted border-r-border p-0 block m-0 basis-1/2 font-400 text-left shrink-2 grow-1">
           <div
             class="
-            pt-9.6 pb-4.8 pl-[calc(var(--h-margin)*2)] pr-[--h-margin]
-            [background-image:var(--pattern-bg)] prose-doc text-foreground/60 leading-7"
+            pt-9.6 pb-4.8 pl-[calc(var(--h-margin)*2)] pr-[--h-margin] prose-doc
+            [background-image:var(--pattern-bg)] text-foreground/60 leading-7"
           >
-            <div class="font-bold text-4.8 leading-[1.1] text-foreground inline-block mb-2">
+            <div class="font-bold text-4.8 leading-[1.1] text-foreground inline-block mb-4">
               技术栈
             </div>
             <!-- desc -->
             <slot name="stack" />
+          </div>
+        </div>
+        <!-- subscribe -->
+        <div class="single-host-3 single-host font-3 border-y border-y-dotted border-y-border p-0 block m-0 basis-1/2 font-400 text-left shrink-2 grow-1">
+          <div
+            class="
+            pt-9.6 pb-4.8 pl-[calc(var(--h-margin)*2)] pr-[--h-margin]
+            [background-image:var(--pattern-bg)] text-foreground/60 leading-7"
+          >
+            <div class="font-bold text-4.8 leading-[1.1] text-foreground inline-block mb-4">
+              订阅账单
+            </div>
+            <!-- desc -->
+            <AboutSubscribe />
           </div>
         </div>
       </div>

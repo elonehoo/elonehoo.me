@@ -9,6 +9,8 @@ declare module 'vue' {
   export interface GlobalComponents {
     AboutData: typeof import('./components/about/Data.vue')['default']
     AboutPage: typeof import('./components/AboutPage.vue')['default']
+    AboutSubscribe: typeof import('./components/about/Subscribe.vue')['default']
+    AboutTitle: typeof import('./components/about/Title.vue')['default']
     Home: typeof import('./components/Home.vue')['default']
     Phonetic: typeof import('./components/Phonetic.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

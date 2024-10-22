@@ -27,8 +27,41 @@ title: 关于我
 
 <template #stack>
 
-  MacBook Air 2023、Mac Mini 2020、iPhone 14、Apple Watch Series 9、iPad air 3、Logitech G
-  304、Nuphy Air60、AirPods 2、Redmi A27U、Nintendo Switch
+  <AboutTitle>语言</AboutTitle>
+
+  [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)、
+  [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)、
+  [Markdown](https://daringfireball.net/projects/markdown/)、
+  [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)、
+  [TypeScript](https://github.com/microsoft/TypeScript)、
+  [Java](https://github.com/openjdk)、
+  [Go](https://github.com/golang)、
+  [Python](https://www.python.org/)、
+  [Swift](https://www.swift.org/)、
+  [Kotlin](https://github.com/JetBrains/kotlin)、
+  [Dart](https://github.com/dart-lang)、
+  [Rust](https://github.com/rust-lang) 。
+
+  <AboutTitle>框架</AboutTitle>
+
+  [Vue.js](https://github.com/vuejs)、
+  [Nuxt](https://github.com/nuxt)、
+  [NextJS](https://github.com/vercel/next.js)、
+  [React](https://github.com/facebook/react)、
+  [Flutter](https://github.com/flutter)、
+  [Spring](https://github.com/spring-projects)、
+  [SwiftUI](https://developer.apple.com/xcode/swiftui/)、
+  [Hono](https://github.com/honojs)、
+  [Tauri](https://github.com/tauri-apps)、
+  [Electron](https://github.com/electron)
+
+  <AboutTitle>软技能</AboutTitle>
+
+  Google Search、GitHub、Stack Overflow、OpenAI Chat GPT
+
+  <AboutTitle>自然语言</AboutTitle>
+
+  中文、英文<sup>学习中</sup>
 
 </template>
 
