@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import type { NavItemWithLink } from '../config'
 import { Link } from 'destyler'
+import { useData } from 'vitepress'
 import { About, Blog, Bookmarks, Gallery, Note, Project, Talk, Video } from '../../core'
+import { isActive } from '../support/utils'
 
 const props = defineProps<{
   item: NavItemWithLink
@@ -17,10 +19,14 @@ const icones = {
   note: Note,
   talk: Talk,
 }
+
+const { page } = useData()
 </script>
 
 <template>
-  <li class="order-2">
+  <li
+    class="order-2"
+  >
     <Link
       :to="props.item.link"
       class="
@@ -28,6 +34,13 @@ const icones = {
       hover:text-main cursor-pointer touch-manipulation
       px-0 py-[0.8rem] border-0
       "
+      :class="{
+        action: isActive(
+          page.relativePath,
+          props.item.activeMatch || props.item.link,
+          !!props.item.activeMatch,
+        ),
+      }"
     >
       <component :is="icones[props.item.icon]" v-if="props.item.icon" class="w-[1.25em] h-[1.25em] relative" />
       <span class="leading-[1.5em] h-[1.5em] pl-[0.4em] pr-[0.5em] py-0">{{ props.item.text }}</span>
@@ -51,5 +64,11 @@ const icones = {
   border-color: var(--c-border) !important;
   content: "";
   transition: var(--transition);
+}
+
+.action {
+  font-weight: 700;
+  pointer-events: none;
+  --c-border: hsl(var(--main));
 }
 </style>

@@ -45,7 +45,7 @@ export function isActive(
   if (asRegex) {
     return new RegExp(matchPath).test(currentPath)
   }
- else {
+  else {
     if (normalize(matchPath) !== currentPath) {
       return false
     }
