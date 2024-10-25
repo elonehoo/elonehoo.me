@@ -11,7 +11,7 @@ import PageProjectList from './PageProjectList.vue'
     h-auto relative [padding:calc(var(--h-margin)_*_2)_calc(var(--h-margin)_*_1.5)]
     "
   >
-    <div class="pre">
+    <div class="pre sticky top-[calc(1.5_*_var(--h-margin)_+_0.6rem)]">
       <!-- bookmark -->
       <PageBookmarksList />
       <!-- project -->

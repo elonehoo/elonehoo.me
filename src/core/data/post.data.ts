@@ -33,6 +33,6 @@ export default createContentLoader('posts/*.md', {
       }))
       .sort((a, b) => +new Date(b.date) - +new Date(a.date))
       .filter(i => !i.url.endsWith('.html'))
-      .slice(0, 6)
+      .slice(0, 15)
   },
 })

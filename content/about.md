@@ -15,7 +15,7 @@ title: 关于我
 
 <template #slash>
 
-  专职做前端开发，偶尔会写写 [Java](https://www.oracle.com/cn/java/) / 男的 / 00后 / 养<Phonetic phonetic="coffee" :index="1">猫</Phonetic> / 学拍照 / 学画画和设计 / 野路子程序员 / 声音不好听 / 效率有点慢 / 有很多没实现的[奇思妙想](https://github.com/wip-elonehoo) / 喜欢看书 / <Phonetic phonetic="yè" :index="2">夜</Phonetic>猫子 / 喜欢一些没人关注的细节 / [Vue.js](https://cn.vuejs.org/) / [苹果](https://www.apple.com.cn/)死忠粉 / 喜欢听播客 / 做咖啡 / 调酒 / 好吃 / 开源爱好者 / <Phonetic phonetic="wō" :index="3">窝</Phonetic>里横 / <Phonetic phonetic="gē" :index="4">鸽</Phonetic>王 / 购物欲强烈 / 洁<Phonetic phonetic="pì" :index="5">癖</Phonetic> / [Markdown](https://www.markdownguide.org/) / [VsCode](https://code.visualstudio.com/) / 没别的能力 / 斜<Phonetic phonetic="gàng" :index="6">杠</Phonetic>不出来了 / 就酱
+  专职做前端开发，偶尔会写写 [Java](https://www.oracle.com/cn/java/) / 男的 / 00后 / 养<Phonetic phonetic="coffee" :index="1">猫</Phonetic> / 学拍照 / 学画画和设计 / 野路子程序员 / 声音不好听 / 效率有点慢 / 有很多没实现的[奇思妙想](https://github.com/wip-elonehoo) / 喜欢看书 / <Phonetic phonetic="yè" :index="2">夜</Phonetic>猫子 / 喜欢一些没人关注的细节 / [Vue.js](https://cn.vuejs.org/) / [苹果](https://www.apple.com.cn/)死忠粉 / 喜欢听播客 / 做咖啡 / 调酒 / <Phonetic phonetic="hào" :index="3">好</Phonetic>吃 / 开源爱好者 / <Phonetic phonetic="wō" :index="4">窝</Phonetic>里横 / <Phonetic phonetic="gē" :index="5">鸽</Phonetic>王 / 购物欲强烈 / 洁<Phonetic phonetic="pì" :index="6">癖</Phonetic> / [Markdown](https://www.markdownguide.org/) / [VsCode](https://code.visualstudio.com/) / 没别的能力 / 斜<Phonetic phonetic="gàng" :index="7">杠</Phonetic>不出来了 / 就酱
 
 </template>
 

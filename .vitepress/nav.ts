@@ -3,19 +3,19 @@ import type { Config as ThemeConfig } from '../src/index'
 export const nav: ThemeConfig['nav'] = [
   {
     text: '关于我',
-    link: '/about/',
+    link: '/about',
     activeMatch: `^/(about)`,
     icon: 'about',
   },
   {
     text: '照片墙',
-    link: '/gallery/',
+    link: '/gallery',
     icon: 'gallery',
     activeMatch: `^/(gallery)`,
   },
   {
     text: '书签',
-    link: '/bookmarks/',
+    link: '/bookmarks',
     icon: 'bookmarks',
     activeMatch: `^/(bookmarks)`,
   },
@@ -24,19 +24,19 @@ export const nav: ThemeConfig['nav'] = [
     items: [
       {
         text: '博客',
-        link: '/blog/',
+        link: '/blog',
         activeMatch: `^/(blog)`,
         icon: 'blog',
       },
       {
         text: '分享',
-        link: '/talks/',
+        link: '/talks',
         icon: 'talk',
         activeMatch: `^/(talks)`,
       },
       {
         text: '随笔',
-        link: '/notes/',
+        link: '/notes',
         icon: 'note',
         activeMatch: `^/(notes)`,
       },
@@ -47,13 +47,13 @@ export const nav: ThemeConfig['nav'] = [
     items: [
       {
         text: '项目',
-        link: '/projects/',
+        link: '/projects',
         activeMatch: `^/(projects)`,
         icon: 'project',
       },
       {
         text: '小样',
-        link: '/demos/',
+        link: '/demos',
         icon: 'video',
         activeMatch: `^/(demos)`,
       },
