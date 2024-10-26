@@ -23,6 +23,19 @@ projects:
       license:
         - type: 'MIT'
           link: 'https://github.com/elonehoo/elonehoo.me/blob/main/LICENSE'
+  Upcoming:
+    - name: 'Naive-css'
+      link: 'https://github.com/wip-elonehoo/.github/blob/main/profile/README.md'
+      desc: 'Only Scoped Atomic CSS Engine.'
+      icon: 'i-carbon-ibm-cloud-pak-netezza'
+    - name: 'Livraison'
+      link: 'https://github.com/livraison-dev'
+      desc: 'Made a open source API development ecosystem'
+      icon: 'livraison'
+    - name: 'nuxt-rss'
+      link: 'https://github.com/wip-elonehoo/.github/blob/main/profile/README.md'
+      desc: 'Nuxt RSS module'
+      icon: 'i-carbon-rss'
 ---
 
-{{ $frontmatter }}
+<ProjectsPage :items="$frontmatter.projects" />
