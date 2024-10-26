@@ -2,4 +2,4 @@
 page: true
 ---
 
-<Home />
+<HomePage />

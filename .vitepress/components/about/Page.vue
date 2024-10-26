@@ -7,10 +7,7 @@ const props = defineProps<{
 <template>
   <div class="mt-[--h-margin] pt-[--h-margin] ">
     <section class="page-about">
-      <h1 class="text-[calc(.3vmax_+_.3vmin_+_1.5rem)] font-bold text-foreground leading-1.26 pl-[calc(var(--h-margin)*2)]">
-        <span class="after:content-['~'] after:mx-2 after:text-main">elonehoo.me</span>
-        <span>{{ props.title }}</span>
-      </h1>
+      <Title :title="props.title" />
       <div
         class="
         w-full flex flex-wrap border-t border-t-dotted border-t-border
