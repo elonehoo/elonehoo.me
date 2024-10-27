@@ -30,7 +30,6 @@ export default createContentLoader('notes/*.md', {
         frontmatter,
       }))
       .sort((a, b) => +new Date(b.date) - +new Date(a.date))
-      .filter(i => !i.url.endsWith('.html'))
       .slice(0, 6)
   },
 })

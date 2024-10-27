@@ -21,6 +21,5 @@ export default createContentLoader('posts/*.md', {
         frontmatter,
       }))
       .sort((a, b) => +new Date(b.date) - +new Date(a.date))
-      .filter(i => !i.url.endsWith('.html'))
   },
 })
