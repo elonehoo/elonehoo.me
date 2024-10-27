@@ -1,9 +1,8 @@
 <script setup lang="ts">
+import { Button } from 'destyler'
 import { useRouter } from 'vitepress'
-import { useConfig } from '../composables/config'
 
 const router = useRouter()
-const { config } = useConfig()
 
 function handleGoHome() {
   router.go('/')
@@ -20,7 +19,7 @@ function handleGoHome() {
         Error
       </h1>
       <p class="mt-6 text-base/7 text-gray-500 dark:text-gray-400 text-center">
-        {{ config.i18n?.pageNotFound ?? 'Page Not Found' }}
+        Page Not Found
       </p>
       <div class="mt-10 flex items-center justify-center gap-x-6">
         <Button
