@@ -28,6 +28,11 @@ export interface Config {
   sidebar?: SidebarConfig
 
   /**
+   * The i18n messages.
+   */
+  i18n?: i18nConfig
+
+  /**
    * Info for the edit link
    */
   editLink?: {
@@ -160,7 +165,6 @@ export interface i18nConfig {
   search?: string
   menu?: string
   toc?: string
-  community?: string
   returnToTop?: string
   appearance?: string
   previous?: string

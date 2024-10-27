@@ -6,18 +6,20 @@ import PageTitleTag from './PageTitleTag.vue'
 </script>
 
 <template>
-  <section
-    class="order-4 flex-[1_1_20%] h-auto relative page-notes
+  <ClientOnly>
+    <section
+      class="order-4 flex-[1_1_20%] h-auto relative page-notes
     [padding:calc(var(--h-margin)_*_2)_calc(var(--h-margin)_*_1.5)]"
-  >
-    <div class="sticky top-[calc(1.5_*_var(--h-margin)_+_0.6rem)]">
-      <!-- title -->
-      <PageTitleTag title="随笔" />
-      <!-- item -->
-      <PageNoteItem v-for="i in notes" :key="i.url" :item="i" />
-      <PageMore title="看看更多的随笔" desc="咕噜～" />
-    </div>
-</section>
+    >
+      <div class="sticky top-[calc(1.5_*_var(--h-margin)_+_0.6rem)]">
+        <!-- title -->
+        <PageTitleTag title="随笔" />
+        <!-- item -->
+        <PageNoteItem v-for="i in notes" :key="i.url" :item="i" />
+        <PageMore title="看看更多的随笔" desc="咕噜～" />
+      </div>
+    </section>
+  </ClientOnly>
 </template>
 
 <style scoped>
