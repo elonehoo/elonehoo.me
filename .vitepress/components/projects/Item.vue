@@ -1,8 +1,28 @@
 <script setup lang="ts">
 import { Link } from 'destyler'
 
+export interface ProjectItem {
+  name: string
+  link: string
+  desc: string
+  icon?: string
+  license?: {
+    type: string
+    link: string
+  }
+}
+/**
+- name: 'Destyler'
+  link: 'https://github.com/destyler/destyler'
+  desc: 'Vue.js 的无样式组件库'
+  icon: '/projects/destyler-packages.png'
+  license:
+    - type: 'MIT'
+      link: 'https://github.com/destyler/destyler/blob/main/LICENSE'
+ */
+
 const props = defineProps<{
-  item: any
+  item: ProjectItem
 }>()
 </script>
 
@@ -28,7 +48,7 @@ const props = defineProps<{
         target="_bank"
       >
         <span>{{ props.item.name }}</span>
-        <sub class="ml-4">{{ props.item.desc }}</sub>
+        <sub class="ml-4 text-foreground/60">{{ props.item.desc }}</sub>
       </Link>
     </span>
   </div>

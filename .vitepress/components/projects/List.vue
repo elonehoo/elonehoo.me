@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import type { ProjectItem } from './Item.vue'
+
 const props = defineProps<{
   title: string
-  items: any[]
+  items: ProjectItem[]
 }>()
 </script>
 
@@ -12,7 +14,8 @@ const props = defineProps<{
       class="title
       mb-0.8em pt-0.3em leading-[1.2] op-100
       text-5 font-400 text-main text-left
-      sticky top-3 w-full flex-[1_0_100%]"
+      sticky top-3 w-full flex-[1_0_100%]
+      bg-white z-20"
     >
       <div>
         {{ props.title }}
@@ -20,7 +23,7 @@ const props = defineProps<{
       </div>
     </h2>
     <div class="flex flex-wrap flex-row">
-      <ProjectsItem v-for="item in props.items" :key="item.title" :item="item" />
+      <ProjectsItem v-for="item in props.items" :key="item.name" :item="item" />
     </div>
   </div>
 </template>
@@ -28,6 +31,7 @@ const props = defineProps<{
 <style scoped>
 .title{
   transition: var(--transition);
+  box-shadow: 0 .1em .4em .2em white;
 }
 .count {
   color: #989898;
