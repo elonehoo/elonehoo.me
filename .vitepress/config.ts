@@ -79,7 +79,7 @@ export default defineConfigWithTheme<ThemeConfig>({
       copyright: '2022-PRESENT © Elone Hoo',
       page: {
         slogan: {
-          content: '我希望每一个有阳光的下午都允许被浪费',
+          content: '我希望每一个有阳光的下午都允许被浪费，用来晒晒枕头下的梦想',
           author: 'Elone Hoo',
         },
         briefly: '一个热爱开源，但是工作效率很低、水平很差的码农',

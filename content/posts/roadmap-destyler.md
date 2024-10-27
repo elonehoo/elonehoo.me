@@ -51,10 +51,7 @@ read: true
 
 </script>
 
-<Title />
-
 > 前景提要 > [Destyler Beta 10 发布](./destyler-beta10.md)
-
 
 具体可以查看这些 「 Pull Requests / Issues 」
 

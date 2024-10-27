@@ -28,17 +28,11 @@ export interface Config {
   sidebar?: SidebarConfig
 
   /**
-   * The i18n messages.
-   */
-  i18n?: i18nConfig
-
-  /**
    * Info for the edit link
    */
   editLink?: {
     /**
      * Repo of the site.
-     * e.g. `vuejs/docs#next`
      *
      * If a branch isn't specified, it defaults to `main`.
      */
@@ -159,36 +153,4 @@ export interface SidebarGroup {
   text: string
   icon?: string
   items: MenuItemWithLink[]
-}
-
-export interface i18nConfig {
-  search?: string
-  menu?: string
-  toc?: string
-  returnToTop?: string
-  appearance?: string
-  previous?: string
-  next?: string
-  pageNotFound?: string
-  locales?: string
-  joinTranslation?: string
-  deadLink?: MessageWithLink
-  deadLinkReport?: MessageWithLink
-  footerLicense?: MessageWithLink
-
-  ariaAnnouncer?: MessageWithLink
-  ariaDarkMode?: string
-  ariaSkipToContent?: string
-  ariaToC?: string
-  ariaMainNav?: string
-  ariaMobileNav?: string
-  ariaSidebarNav?: string
-  ariaLanguage?: string
-  ariaRepo?: MessageWithLink
-}
-
-export interface MessageWithLink {
-  before?: string
-  link?: string
-  after?: string
 }

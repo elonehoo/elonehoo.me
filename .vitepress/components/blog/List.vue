@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import type { BookmarkItem } from './Item.vue'
-
 const props = defineProps<{
-  title: string
-  items: BookmarkItem[]
+  title?: string | number
+  items: any[]
 }>()
 </script>
 
@@ -19,11 +17,11 @@ const props = defineProps<{
     >
       <div>
         {{ props.title }}
-        <span class="count">{{ props.items.length }} 个书签</span>
+        <span class="count">{{ props.items.length }} 篇博客</span>
       </div>
     </h2>
     <div class="flex flex-wrap flex-row">
-      <BookmarksItem v-for="item in props.items" :key="item.name" :item="item" />
+      <BlogItem v-for="item in props.items" :key="item.name" :item="item" />
     </div>
   </div>
 </template>
