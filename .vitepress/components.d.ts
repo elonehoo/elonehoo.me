@@ -9,16 +9,15 @@ declare module 'vue' {
   export interface GlobalComponents {
     AboutData: typeof import('./components/about/Data.vue')['default']
     AboutPage: typeof import('./components/about/Page.vue')['default']
-    AboutSubscribe: typeof import('./components/about/Subscribe.vue')['default']
     AboutTitle: typeof import('./components/about/Title.vue')['default']
-    Home: typeof import('./components/Home.vue')['default']
+    BookmarksItem: typeof import('./components/bookmarks/Item.vue')['default']
+    BookmarksList: typeof import('./components/bookmarks/List.vue')['default']
+    BookmarksPage: typeof import('./components/bookmarks/Page.vue')['default']
     HomePage: typeof import('./components/home/Page.vue')['default']
     Phonetic: typeof import('./components/Phonetic.vue')['default']
     ProjectsItem: typeof import('./components/projects/Item.vue')['default']
     ProjectsList: typeof import('./components/projects/List.vue')['default']
     ProjectsPage: typeof import('./components/projects/Page.vue')['default']
-    RouterLink: typeof import('vue-router')['RouterLink']
-    RouterView: typeof import('vue-router')['RouterView']
     Title: typeof import('./components/Title.vue')['default']
   }
 }

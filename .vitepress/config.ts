@@ -20,7 +20,6 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   appearance: false,
   lastUpdated: true,
-  cleanUrls: true,
   ignoreDeadLinks: true,
 
   outDir: './dist',
