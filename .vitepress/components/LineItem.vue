@@ -1,31 +1,36 @@
 <script setup lang="ts">
 import { Link } from 'destyler'
 
-export interface BookmarkItem {
+export interface LineItem {
   name: string
   link: string
   desc: string
+  icon?: string
+  license?: {
+    type: string
+    link: string
+  }
 }
 
 const props = defineProps<{
-  item: BookmarkItem
+  item: LineItem
 }>()
 </script>
 
 <template>
   <div
     class="
-    bookmark-item
+    line-item
     text-1.14em leading-[1.2]
     overflow-hidden flex-[0_0_50%]
     flex pl-0 pr-[1.5em] py-0
     lg:basis-1/3
     "
   >
-    <span class="bookmark-item-main">
+    <span class="line-item-main">
       <Link
         class="
-        cursor-pointer font-400 border-none bookmark-item-title
+        cursor-pointer font-400 border-none line-item-title
         pt-4 pb-3 flex-[0_0_auto] items-center
         transition-none text-foreground touch-manipulation
         decoration-none underline underline-offset-[0.17em]
@@ -41,22 +46,22 @@ const props = defineProps<{
 </template>
 
 <style scoped>
-.bookmark-item {
+.line-item {
   transition: margin var(--duration) var(--curve);
 }
 
-.bookmark-item-main {
+.line-item-main {
   --at-apply: flex flex-col basis-full;
   border-bottom: 1px dotted #ddd;
   transition: var(--transition-out);
 }
 
-.bookmark-item:hover .bookmark-item-main {
+.line-item:hover .line-item-main {
   border-color: hsl(var(--main));
   transition: var(--transition);
 }
 
-.bookmark-item:hover .bookmark-item-title{
+.line-item:hover .line-item-title{
   color: hsl(var(--main));
   transition: var(--transition);
 }

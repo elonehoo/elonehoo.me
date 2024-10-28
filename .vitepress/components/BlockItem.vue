@@ -1,8 +1,20 @@
 <script setup lang="ts">
 import { Link } from 'destyler'
 
+export interface BlockItem {
+  title: string
+  lang: string
+  url: string
+  date: string
+  excerpt: string
+  time: string
+  duration: string
+  frontmatter: any
+  _idx: number
+}
+
 const props = defineProps<{
-  item: any
+  item: BlockItem
 }>()
 </script>
 

@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import type { ProjectItem } from './Item.vue'
+import type { BlockItem } from './BlockItem.vue'
+import type { LineItem } from './LineItem.vue'
 
 const props = defineProps<{
-  title: string
-  items: ProjectItem[]
+  title: string | number
+  meta: string
+  type: 'block' | 'line'
+  items: (BlockItem | LineItem)[]
 }>()
 </script>
 
@@ -19,11 +22,16 @@ const props = defineProps<{
     >
       <div>
         {{ props.title }}
-        <span class="count">{{ props.items.length }} 个项目</span>
+        <span class="count">{{ props.items.length }} {{ props.meta }}</span>
       </div>
     </h2>
     <div class="flex flex-wrap flex-row">
-      <ProjectsItem v-for="item in props.items" :key="item.name" :item="item" />
+      <template v-if="props.type === 'block'">
+        <BlockItem v-for="item in (props.items as BlockItem[])" :key="item.title" :item="item" />
+      </template>
+      <template v-else>
+        <LineItem v-for="item in (props.items as LineItem[])" :key="item.name" :item="item" />
+      </template>
     </div>
   </div>
 </template>
