@@ -33,9 +33,6 @@ export default defineConfigWithTheme<ThemeConfig>({
     headers: {
       level: [2, 3],
     },
-    shikiSetup(shiki) {
-      shiki.dispose()
-    },
   },
 
   themeConfig: {
