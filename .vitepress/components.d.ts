@@ -27,6 +27,7 @@ declare module 'vue' {
     ProjectsItem: typeof import('./components/projects/Item.vue')['default']
     ProjectsList: typeof import('./components/projects/List.vue')['default']
     ProjectsPage: typeof import('./components/projects/Page.vue')['default']
+    TalkPage: typeof import('./components/talk/Page.vue')['default']
     Title: typeof import('./components/Title.vue')['default']
   }
 }

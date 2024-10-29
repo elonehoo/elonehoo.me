@@ -19,7 +19,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="mb-1em text-[1.14em] leading-[1.2] flex-[0_0_50%] flex pr-[1.5em]">
+  <div class="mb-1em text-[1.14em] leading-[1.2] flex-[0_0_50%] flex pr-[1.5em] lg:basis-1/3">
     <div class="mr-[0.5em] flex pt-4 justify-start items-start">
       <div class="item-tag text-3.5 w-[2.65em] flex justify-center items-center text-center font-700 bg-main text-white py-0.25em rounded-md">
         {{ props.item._idx }}
