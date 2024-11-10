@@ -2,6 +2,7 @@ import { createContentLoader } from 'vitepress'
 
 export interface Gallery {
   url: string
+  images: { url: string }[]
 }
 
 declare const data: Gallery[]
@@ -11,8 +12,9 @@ export default createContentLoader('gallery/*.md', {
   excerpt: true,
   transform(raw): Gallery[] {
     return raw
-      .map(({ url }) => ({
+      .map(({ url, frontmatter }) => ({
         url,
+        images: frontmatter.images,
       }))
   },
 })
