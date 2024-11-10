@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Post } from '../data/post.data'
+import type { Post } from '@/post.data'
 import { Link } from 'destyler'
 
 const props = defineProps<{

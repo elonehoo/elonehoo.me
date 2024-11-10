@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Note } from '../data/note.data'
+import type { Note } from '@/note.data'
 import { useRouter } from 'vitepress'
 
 const props = defineProps<{

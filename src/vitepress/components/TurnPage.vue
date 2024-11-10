@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { PagePagination } from '../../core'
-import { data as notes } from '../../core/data/note.data'
-import { data as posts } from '../../core/data/posts.data'
+import { data as notes } from '@/note.data'
+import { data as posts } from '@/posts.data'
 import { usePageType } from '../composables/pageType'
 
 const { isNotes, isPost } = usePageType()

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { BookmarkItem } from '../data/bookmark.data'
+import type { BookmarkItem } from '@/bookmark.data'
 import { Link } from 'destyler'
 
 const props = defineProps<{

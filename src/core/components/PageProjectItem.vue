@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ProjectItem } from '../data/project.data'
+import type { ProjectItem } from '@/project.data'
 import { Link } from 'destyler'
 
 const props = defineProps<{

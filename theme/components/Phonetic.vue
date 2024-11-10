@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useIndex } from '../composables/index'
-
 const props = defineProps<{
   phonetic?: string
   index?: number

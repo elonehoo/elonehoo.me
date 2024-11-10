@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { data } from '~/core/data/talks.data'
-import { groupByTime } from '../../shared/groupByTime'
+import { data } from '@/talks.data'
+import { groupByTime } from '~~/shared/groupByTime'
 
 const talks = groupByTime(data)
 </script>

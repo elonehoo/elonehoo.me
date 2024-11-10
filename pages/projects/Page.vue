@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { LineItem } from '../LineItem.vue'
+import type { LineItem } from '~~/components/LineItem.vue'
 
 const props = defineProps<{
   items: Record<string, LineItem[]>

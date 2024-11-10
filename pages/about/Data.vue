@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { data as DemoDataList } from '~/core/data/demos.data'
-import { data as GalleryDataList } from '~/core/data/gallerys.data'
-import { data as NoteDataList } from '~/core/data/notes.data'
-import { data as PostDataList } from '~/core/data/posts.data'
-import { data as TalkDataList } from '~/core/data/talks.data'
+import { data as DemoDataList } from '@/demos.data'
+import { data as GalleryDataList } from '@/gallerys.data'
+import { data as NoteDataList } from '@/notes.data'
+import { data as PostDataList } from '@/posts.data'
+import { data as TalkDataList } from '@/talks.data'
 </script>
 
 <template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { data as project } from '../data/project.data'
+import { data as project } from '@/project.data'
 import PageMore from './PageMore.vue'
 import PageProjectItem from './PageProjectItem.vue'
 import PageTitleTag from './PageTitleTag.vue'

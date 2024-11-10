@@ -7,7 +7,9 @@
     "module": "esnext",
     "moduleResolution": "node",
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["src/*"],
+      "~~/*": ["theme/*"],
+      "@/*": ["data/*"]
     },
     "resolveJsonModule": true,
     "types": [
@@ -25,6 +27,10 @@
     "./*.ts",
     "./.vitepress/**/*.ts",
     "./.vitepress/**/*.vue",
+    "./pages/**/*.ts",
+    "./pages/**/*.vue",
+    "./theme/**/*.ts",
+    "./theme/**/*.vue",
     "./src/**/*.ts",
     "./src/**/*.vue"
   ],

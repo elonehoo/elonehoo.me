@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { data as posts } from '../data/post.data'
+import { data as posts } from '@/post.data'
 import PageBlogItem from './PageBlogItem.vue'
 import PageMore from './PageMore.vue'
 </script>

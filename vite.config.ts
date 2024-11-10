@@ -20,7 +20,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
-      '@/': `${path.resolve(__dirname, 'theme')}/`,
+      '~~/': `${path.resolve(__dirname, 'theme')}/`,
+      '@/': `${path.resolve(__dirname, 'data')}/`,
     },
   },
   plugins: [
@@ -33,7 +34,7 @@ export default defineConfig({
         '../theme/components',
         '../pages',
       ],
-      dts: '../.vitepress/components.d.ts',
+      dts: '../components.d.ts',
       directoryAsNamespace: true,
     }),
     AutoImport({
@@ -47,7 +48,7 @@ export default defineConfig({
         '@vueuse/core',
         'vitest',
       ],
-      dts: '../.vitepress/auto-imports.d.ts',
+      dts: '../auto-imports.d.ts',
     }),
     Unocss(),
     VueDevTools(),
