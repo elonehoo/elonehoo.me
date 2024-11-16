@@ -13,6 +13,7 @@ declare module 'vue' {
     BlockItem: typeof import('./theme/components/BlockItem.vue')['default']
     BlogPage: typeof import('./pages/blog/Page.vue')['default']
     BookmarksPage: typeof import('./pages/bookmarks/Page.vue')['default']
+    DemosPage: typeof import('./pages/demos/Page.vue')['default']
     GalleryPage: typeof import('./pages/gallery/Page.vue')['default']
     HomePage: typeof import('./pages/home/Page.vue')['default']
     LayoutDefault: typeof import('./theme/components/layout/Default.vue')['default']
