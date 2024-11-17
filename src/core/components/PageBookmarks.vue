@@ -27,4 +27,15 @@ import PageProjectList from './PageProjectList.vue'
   animation-delay: calc(.4 * var(--duration)) !important;
   animation: right-in calc(2 * var(--duration)) var(--curve) calc(.75* var(--duration)) both;
 }
+
+@media (max-width: 900px) {
+  .page-bookmarks {
+        padding: var(--h-margin) calc(var(--h-margin)* 1.2) 0;
+        margin: 0;
+        width: 100%;
+        font-size: 1rem;
+        border: none;
+        border-top: var(--standard-border);
+    }
+}
 </style>

@@ -16,7 +16,7 @@ import PageTitleTag from './PageTitleTag.vue'
         <PageTitleTag title="随笔" />
         <!-- item -->
         <PageNoteItem v-for="i in notes" :key="i.url" :item="i" />
-        <PageMore title="看看更多的随笔" desc="咕噜～" />
+        <PageMore title="看看更多的随笔" desc="咕噜～" to="/notes" />
       </div>
     </section>
   </ClientOnly>
@@ -25,5 +25,13 @@ import PageTitleTag from './PageTitleTag.vue'
 <style scoped>
 .page-notes {
   animation: right-in calc(2* var(--duration)) var(--curve) calc(.75* var(--duration)) both;
+}
+@media (max-width: 1250px) {
+  .page-notes {
+    flex: 1 0 90%;
+    border-left: none;
+    border-top: var(--standard-border);
+    padding: var(--h-margin) calc(1.5* var(--h-margin)) var(--h-margin) 0;
+  }
 }
 </style>

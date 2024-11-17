@@ -29,11 +29,75 @@ const { config } = useConfig()
       </nav>
     </div>
   </aside>
+  <div class="hidden mobile-header">
+    <Link to="/" class="mobile-title">
+      <em>elonehoo.me</em>
+    </Link>
+  </div>
 </template>
 
 <style scoped>
 .nav-aside {
   scrollbar-width: none;
   transition: background-color var(--duration) var(--curve), border-color var(--duration) var(--curve), filter var(--duration) var(--curve);
+}
+
+@media (max-width: 900px) {
+  .mobile-header {
+    background: hsl(var(--main));
+    width: 100%;
+    height: 2.5rem;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: -1px;
+    transition: var(--transition);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (max-width: 1070px) {
+  .nav-aside {
+    font-size: .75rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-aside {
+    transition: var(--transition-out);
+    --at-apply: select-none block w-[101vw] h-screen z-[199] text-base p-0 left-0 top-0;
+    translate: 35%;
+    scale: 0.8;
+  }
+}
+@media (max-width: 900px) {
+  .nav-aside {
+    --at-apply: fixed pointer-events-none opacity-0;
+    contain: layout;
+  }
+}
+
+@media (max-width: 900px) {
+  .mobile-title {
+      flex: 1 1 auto;
+      height: 100%;
+      text-align: left;
+      margin-right: 3rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      text-decoration: none;
+  }
+}
+
+@media (max-width: 900px) {
+    .mobile-title em {
+        font-weight: 700;
+        color:hsl(var(--primary-foreground));
+        font-size: 1.1rem;
+        position: relative;
+    }
 }
 </style>

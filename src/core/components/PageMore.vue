@@ -4,12 +4,13 @@ import { Link } from 'destyler'
 const props = defineProps<{
   title: string
   desc: string
+  to?: string
 }>()
 </script>
 
 <template>
   <div class="h-auto overflow-hidden pt-[--h-margin] text-sm text-left">
-    <Link class="page-blog-footer-more">
+    <Link class="page-blog-footer-more" :to="props.to">
       {{ props.title }}
       <em class="page-blog-footer-more-desc">
         {{ props.desc }}

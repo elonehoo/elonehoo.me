@@ -22,4 +22,12 @@ const { page, frontmatter } = useData()
   padding-top: 0;
   padding-right: 0;
 }
+
+@media (max-width: 900px) {
+  .content {
+    margin: 2rem 0 0 0;
+    padding: 0;
+    display: block;
+  }
+}
 </style>

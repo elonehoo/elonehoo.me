@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { data as project } from '@/project.data'
+import { computed } from 'vue'
 import PageMore from './PageMore.vue'
 import PageProjectItem from './PageProjectItem.vue'
 import PageTitleTag from './PageTitleTag.vue'
@@ -18,6 +18,6 @@ const items = computed(() => project[0].projects['Current Focus'])
         <PageProjectItem v-for="i in items" :key="i.link" :item="i" />
       </ul>
     </div>
-    <PageMore title="看看更多的开源项目" desc="咻咪～" />
+    <PageMore title="看看更多的开源项目" desc="咻咪～" to="/projects" />
   </div>
 </template>
