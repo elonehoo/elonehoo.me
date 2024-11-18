@@ -9,10 +9,10 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div class="h-auto overflow-hidden pt-[--h-margin] text-sm text-left">
-    <Link class="page-blog-footer-more" :to="props.to">
+  <div class="page-item">
+    <Link class="page-item-footer-more" :to="props.to">
       {{ props.title }}
-      <em class="page-blog-footer-more-desc">
+      <em class="page-item-footer-more-desc">
         {{ props.desc }}
       </em>
     </Link>
@@ -20,7 +20,18 @@ const props = defineProps<{
 </template>
 
 <style scoped>
-.page-blog-footer-more {
+.page-item{
+  --at-apply: h-auto overflow-hidden pt-[--h-margin] text-sm text-left;
+}
+
+@media (max-width: 900px) {
+    .page-item {
+        padding: 2.5rem 0 3rem;
+        text-align: center;
+    }
+}
+
+.page-item-footer-more {
   --at-apply:
   relative origin-[0_50%] bg-dark text-light
   no-underline inline-block font-bold px-[0.7em] py-[0.4em]
@@ -33,12 +44,12 @@ const props = defineProps<{
   transition: var(--transition-out);
 }
 
-.page-blog-footer-more::after {
+.page-item-footer-more::after {
   --at-apply: ml-0.3em;
   content: "→";
 }
 
-.page-blog-footer-more:hover{
+.page-item-footer-more:hover{
   --at-apply: text-light bg-main border border-2px border-solid border-main ;
   transition: var(--transition);
   text-decoration: none;
@@ -47,14 +58,14 @@ const props = defineProps<{
   filter: brightness(1.1);
 }
 
-.page-blog-footer-more-desc{
+.page-item-footer-more-desc{
   --at-apply:
   absolute text-foreground/60 op-0 top-25% overflow-visible
   w-auto block w-15em text-xs font-normal text-left left-110%;
   transition: var(--transition-out);
   translate: -3em 0;
 
-  .page-blog-footer-more:hover & {
+  .page-item-footer-more:hover & {
     opacity: 1;
     translate: 0 0;
     transition: var(--transition);

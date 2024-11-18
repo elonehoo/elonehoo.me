@@ -26,6 +26,14 @@ import PageTitleTag from './PageTitleTag.vue'
 .page-notes {
   animation: right-in calc(2* var(--duration)) var(--curve) calc(.75* var(--duration)) both;
 }
+
+@media (max-width: 900px) {
+  .page-notes {
+    padding: var(--h-margin) calc(var(--h-margin)* 1.2) 0 !important;
+    margin: 0;
+  }
+}
+
 @media (max-width: 1250px) {
   .page-notes {
     flex: 1 0 90%;
