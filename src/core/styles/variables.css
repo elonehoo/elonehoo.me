@@ -16,6 +16,12 @@
   font-family: ANWE, ANWT, PingFang SC, Microsoft YaHei, Arial, sans-serif;
 }
 
+@media (max-width: 900px) {
+  :root {
+    --nav-width: 0px;
+  }
+}
+
 @font-face{
   font-family: ANWE;
   src: url("./font/anwt.woff2");

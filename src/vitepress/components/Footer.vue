@@ -32,4 +32,10 @@ const { config } = useConfig()
 .footer {
   animation: slowShow calc(3* var(--duration)) var(--curve) calc(.8* var(--duration)) both;
 }
+@media (max-width: 900px) {
+    .footer {
+        display: block;
+        margin: 1rem 0 0;
+    }
+}
 </style>

@@ -51,4 +51,10 @@ const icones = {
   transition: var(--transition);
   --c-border: hsl(var(--main));
 }
+@media (max-width: 1070px) {
+  .page-footer-item  {
+      display: inline-flex;
+      margin-right: 1em;
+  }
+}
 </style>
