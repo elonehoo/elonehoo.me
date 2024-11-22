@@ -15,9 +15,7 @@ import PageNotes from './PageNotes.vue'
 <style scoped>
 @media (max-width: 900px) {
     .content {
-        margin: 2rem 0 0 0;
-        padding: 0;
-        display: block;
+      --at-apply: block mt-8 mb-0 mx-0 p-0;
     }
 }
 </style>
