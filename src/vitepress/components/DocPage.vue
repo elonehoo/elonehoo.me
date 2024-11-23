@@ -6,7 +6,7 @@ const { page } = useData()
 
 <template>
   <section
-    class="order-1 flex-[1_1_40%] pt-[calc(1.5_*_var(--h-margin))] overflow-hidden relative mr-[calc(1.5*_var(--h-margin))] px-0 pl-[calc(var(--h-margin)*2)]"
+    class="page-doc"
   >
     <h1 class="doc-page-h1">
       {{ page.title }}
@@ -23,5 +23,20 @@ const { page } = useData()
     touch-manipulation;
   font-size: calc(.3vmax + .3vmin + 1.5rem);
   transition: color var(--duration) var(--curve), background-color var(--duration) var(--curve);
+}
+
+.page-doc{
+  --at-apply:
+  order-1 flex-[1_1_40%] px-0
+  overflow-hidden relative
+  pt-[calc(1*_var(--h-margin))]
+  mr-[calc(1.5*_var(--h-margin))];
+}
+
+@media (max-width: 900px) {
+  .page-doc {
+    --at-apply: m-0;
+    padding: var(--h-margin) calc(var(--h-margin)* 1.2) 0;
+  }
 }
 </style>

@@ -8,7 +8,7 @@ const { isNotes, isPost } = usePageType()
 
 <template>
   <section
-    class="order-4 flex-[1_1_20%] h-100% relative overflow-hidden
+    class="page-doc-more order-4 flex-[1_1_20%] h-auto relative overflow-hidden
     pt-[calc(var(--h-margin)_*_1)]! pb-[calc(var(--h-margin)_*_2)]!
     "
   >
@@ -24,3 +24,20 @@ const { isNotes, isPost } = usePageType()
     </div>
   </section>
 </template>
+
+<style scoped>
+@media (max-width: 900px) {
+  .page-doc-more {
+    --at-apply: m-0;
+    padding: var(--h-margin) calc(var(--h-margin)* 1.2) 0 !important;
+  }
+}
+
+@media (max-width: 1250px) {
+  .page-doc-more {
+    --at-apply:
+      flex-[1_0_90%] [border-top:var(--standard-border)] [border-left:none];
+    padding: var(--h-margin) calc(1.5* var(--h-margin)) var(--h-margin) 0;
+  }
+}
+</style>
