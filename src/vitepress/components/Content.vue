@@ -17,17 +17,15 @@ const { page, frontmatter } = useData()
 
 <style scoped>
 .content {
-  --at-apply: flex flex-wrap items-stretch pr-0 pt-0 min-h-[calc(100vh-6em)] ml-[--nav-width];
+  --at-apply:
+    flex flex-wrap items-stretch pr-0 pt-0
+    min-h-[calc(100vh-6em)] ml-[--nav-width];
   padding: var(--h-margin) calc(var(--h-margin)* 1.5) 0 0;
-  padding-top: 0;
-  padding-right: 0;
 }
 
 @media (max-width: 900px) {
   .content {
-    margin: 2rem 0 0 0;
-    padding: 0;
-    display: block;
+    --at-apply: block mt-8 mb-0 mx-0 p-0;
   }
 }
 </style>

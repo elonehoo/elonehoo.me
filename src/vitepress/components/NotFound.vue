@@ -42,9 +42,6 @@ function handleGoHome() {
 
 <style scoped>
 .vt-doc {
-  padding: 32px 48px;
-  margin: 32px;
-  width: 100%;
-  height: 100%;
+  --at-apply: w-full h-full m-8 px-12 py-8;
 }
 </style>

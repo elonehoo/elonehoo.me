@@ -27,13 +27,7 @@
 }
 
 .vp-code-group .tabs label:after {
-  position: absolute;
-  right: 8px;
-  bottom: -1px;
-  left: 8px;
-  z-index: 1;
-  height: 2px;
-  border-radius: 2px;
+  --at-apply: absolute z-[1] h-0.5 rounded-sm -bottom-px inset-x-2;
   content: "";
   background-color: transparent;
   transition: background-color .25s;
@@ -52,12 +46,9 @@
 }
 
 .vp-code-group div[class*=language-],.vp-block {
-  display: none;
-  margin-top: 0!important;
-  border-top-left-radius: 0!important;
-  border-top-right-radius: 0!important;
+  --at-apply: hidden mt-0! rounded-t-none!;
 }
 
 .vp-code-group div[class*=language-].active,.vp-block.active {
-  display: block;
+  --at-apply: block;
 }

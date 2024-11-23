@@ -52,8 +52,7 @@ const props = defineProps<{
 }
 
 .page-bookmark-item-link:hover {
-  border: none;
-  scale: 1.03;
+  --at-apply:  border-[none] [scale:1.03];
   transition: var(--transition);
 }
 

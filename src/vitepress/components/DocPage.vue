@@ -17,9 +17,11 @@ const { page } = useData()
 
 <style scoped>
 .doc-page-h1 {
-  --at-apply: font-bold leading-[1.4] relative text-foreground border-none;
+  --at-apply:
+    font-bold leading-[1.4] relative
+    text-foreground border-none
+    touch-manipulation;
   font-size: calc(.3vmax + .3vmin + 1.5rem);
   transition: color var(--duration) var(--curve), background-color var(--duration) var(--curve);
-  touch-action: manipulation;
 }
 </style>

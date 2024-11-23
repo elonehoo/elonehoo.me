@@ -54,17 +54,18 @@ const { config } = useConfig()
 }
 
 .home-page::before {
-  --at-apply: text-foreground text-[10vw] absolute bottom-[-0.20em] font-bold opacity-[0.06] leading-none left-[1em];
+  --at-apply:
+    text-foreground text-[10vw] absolute bottom-[-0.20em]
+    font-bold opacity-[0.06] leading-none left-[1em]
+    select-none pointer-events-none;
+
   content: "elonehoo.me";
   animation: footer-show 1s ease-in-out;
   animation-timeline: scroll(root);
-  user-select: none;
-  pointer-events: none;
 }
 
 .home-page .section {
-  --at-apply: flex p-0;
-    flex: 0 0 auto;
+  --at-apply: flex p-0 flex-[0_0_auto];
 }
 
 .section.quote {
@@ -83,66 +84,62 @@ const { config } = useConfig()
 
 @media (max-width: 1070px) {
   .home-page {
-      flex-wrap: wrap;
-      justify-content: stretch;
+    --at-apply: flex-wrap justify-stretch;
   }
   .home-page .section~.section {
-      margin-left: 0;
+    --at-apply: ml-0;
   }
   .home-page .section {
-    flex: 1 0 auto;
+    --at-apply: flex-[1_0_aut];
   }
   .section.quote {
-    flex-basis: 100%;
+    --at-apply: basis-full;
     padding: var(--h-margin) 0;
     margin-bottom: calc(var(--h-margin)* 1);
     border-bottom: var(--standard-border);
   }
   .section.sub, .section.follow {
-    flex-basis: 70%;
-    flex-direction: column;
+    --at-apply: basis-7/10 flex-col;
     & li {
-      display: inline;
+      --at-apply: inline;
     }
     & .title {
-        text-align: left;
-        margin: .2em 0 1em;
+      --at-apply: text-left mt-[0.2em] mr-[1em];
     }
   }
   .section.follow {
-    flex-basis: 30%;
-    flex-direction: column;
+    --at-apply: basis-3/10 flex-col;
     & li {
-      display: inline;
+      --at-apply: inline;
     }
     & .title {
-        text-align: left;
-        margin: .2em 0 1em;
+      --at-apply: text-left mt-[0.2em] mr-[1em];
     }
   }
   .section.extra {
-    flex-basis: 100%;
-    padding-top: var(--h-margin);
-    margin-top: var(--h-margin);
-    border-top: var(--standard-border);
+    --at-apply:
+      basis-full
+      pt-[var(--h-margin)] mt-[var(--h-margin)]
+      [border-top:var(--standard-border)];
     &>.inner {
-      max-width: unset;
+      --at-apply: max-w-[unset];
     }
   }
 }
 
 @media (max-width: 1200px) {
   .section.extra {
-    flex-direction: column;
+    --at-apply: flex-col;
   }
   .extra>.inner {
-    max-width: 13em;
+    --at-apply: max-w-[13em];
+
   }
 }
 
 @media (max-width: 1300px) {
   .extra>.inner {
-    max-width: 16em;
+    --at-apply: max-w-[16em];
   }
 }
 
@@ -154,11 +151,10 @@ const { config } = useConfig()
       content: "";
     }
     .section.sub, .section.follow {
-        display: none;
+      --at-apply: hidden;
     }
     .section.extra {
-      margin-top: 0;
-      border: none;
+      --at-apply: mt-0 border-none;
     }
 }
 </style>

@@ -1,21 +1,13 @@
 .phonetic{
-  position: relative;
+  --at-apply: relative;
 }
 
 .phonetic::before {
   content: var(--phonetic);
-  display: flex;
-  font-weight: 300;
-  font-size: .75em;
-  color: hsl(var(--main));
-  opacity: 0;
-  position: absolute;
-  left: 0;
-  top: -1.5rem;
-  width: 100%;
-  text-align: center;
-  justify-content: center;
   transition: var(--transition-out);
-  translate: 0 .5em;
-  scale: .8;
+  --at-apply:
+    flex font-light text-[0.75em] opacity-0
+    absolute top-[-1.5rem] w-full text-center
+    justify-center left-0 [translate:0_.5em]
+    [scale:0.8] text-main;
 }

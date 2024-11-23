@@ -29,16 +29,15 @@ import PageTitleTag from './PageTitleTag.vue'
 
 @media (max-width: 900px) {
   .page-notes {
+    --at-apply: m-0;
     padding: var(--h-margin) calc(var(--h-margin)* 1.2) 0 !important;
-    margin: 0;
   }
 }
 
 @media (max-width: 1250px) {
   .page-notes {
-    flex: 1 0 90%;
-    border-left: none;
-    border-top: var(--standard-border);
+    --at-apply:
+      flex-[1_0_90%] [border-top:var(--standard-border)] [border-left:none];
     padding: var(--h-margin) calc(1.5* var(--h-margin)) var(--h-margin) 0;
   }
 }

@@ -44,32 +44,26 @@ const { config } = useConfig()
 
 @media (max-width: 900px) {
   .mobile-header {
+    --at-apply:
+      w-full h-10 fixed z-[9999] [transition:var(--transition)]
+      flex justify-between items-center left-0 -top-px;
     background: hsl(var(--main));
-    width: 100%;
-    height: 2.5rem;
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: -1px;
-    transition: var(--transition);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 }
 
 @media (max-width: 1070px) {
   .nav-aside {
-    font-size: .75rem;
+    --at-apply: text-xs;
   }
 }
 
 @media (max-width: 900px) {
   .nav-aside {
     transition: var(--transition-out);
-    --at-apply: select-none block w-[101vw] h-screen z-[199] text-base p-0 left-0 top-0;
-    translate: 35%;
-    scale: 0.8;
+    --at-apply:
+      select-none block w-[101vw] h-screen
+      z-[199] text-base p-0 left-0 top-0
+      [translate:35%] [scale:0.8];
   }
 }
 @media (max-width: 900px) {
@@ -81,23 +75,16 @@ const { config } = useConfig()
 
 @media (max-width: 900px) {
   .mobile-title {
-      flex: 1 1 auto;
-      height: 100%;
-      text-align: left;
-      margin-right: 3rem;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      text-decoration: none;
+    --at-apply:
+      flex-auto h-full text-left flex justify-start
+      items-center no-underline mr-12;
   }
 }
 
 @media (max-width: 900px) {
     .mobile-title em {
-        font-weight: 700;
-        color:hsl(var(--primary-foreground));
-        font-size: 1.1rem;
-        position: relative;
+      --at-apply:
+        font-bold text-primary-foreground text-[1.1rem] relative;
     }
 }
 </style>

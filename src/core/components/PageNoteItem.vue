@@ -60,8 +60,8 @@ function goDetail(url: string) {
 .title {
   transition: var(--transition-out);
   .box:hover & {
-    --at-apply: underline decoration-dotted decoration-border;
-    transition: var(--transition);
+    --at-apply:
+      underline decoration-dotted decoration-border [transition:var(--transition)];
   }
 }
 </style>

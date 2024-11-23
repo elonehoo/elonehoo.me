@@ -47,8 +47,7 @@ const icones = {
 }
 @media (max-width: 1070px) {
   .page-footer-item  {
-      display: inline-flex;
-      margin-right: 1em;
+    --at-apply: inline-flex mr-[1em];
   }
 }
 </style>

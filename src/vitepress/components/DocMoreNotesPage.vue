@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { PageNoteItem } from '../../core'
 import { data as notes } from '@/notes.data'
+import { PageNoteItem } from '../../core'
 </script>
 
 <template>

@@ -30,12 +30,9 @@ import PageProjectList from './PageProjectList.vue'
 
 @media (max-width: 900px) {
   .page-bookmarks {
-        padding: var(--h-margin) calc(var(--h-margin)* 1.2) 0;
-        margin: 0;
-        width: 100%;
-        font-size: 1rem;
-        border: none;
-        border-top: var(--standard-border);
-    }
+    --at-apply: w-full text-base m-0 border-[none];
+    padding: var(--h-margin) calc(var(--h-margin)* 1.2) 0;
+    border-top: var(--standard-border);
+  }
 }
 </style>

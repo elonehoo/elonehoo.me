@@ -7,11 +7,7 @@ const { config } = useConfig()
 
 <template>
   <footer
-    class="
-    footer text-center ml-[var(--nav-width)] text-sm
-    leading-[1.7] h-24 relative mt-auto pt-[2em] pb-[3em] px-0
-    text-foreground/60 border-t border-t-dotted border-t-border
-    [background-size:var(--pattern-size)] [background-image:var(--pattern-bg)]"
+    class="footer"
   >
     <div>
       <Link
@@ -30,12 +26,16 @@ const { config } = useConfig()
 
 <style scoped>
 .footer {
+  --at-apply:
+    text-center ml-[var(--nav-width)] text-sm
+    leading-[1.7] h-24 relative mt-auto pt-[2em] pb-[3em] px-0
+    text-foreground/60 border-t border-t-dotted border-t-border
+    [background-size:var(--pattern-size)] [background-image:var(--pattern-bg)];
   animation: slowShow calc(3* var(--duration)) var(--curve) calc(.8* var(--duration)) both;
 }
 @media (max-width: 900px) {
     .footer {
-        display: block;
-        margin: 1rem 0 0;
+      --at-apply: block mt-4;
     }
 }
 </style>

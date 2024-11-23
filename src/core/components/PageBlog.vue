@@ -34,8 +34,8 @@ import PageMore from './PageMore.vue'
 
 @media (max-width: 900px) {
   .page-blog {
+    --at-aply: m-0;
     padding: var(--h-margin) calc(var(--h-margin)* 1.2) 0;
-    margin: 0;
   }
 }
 </style>

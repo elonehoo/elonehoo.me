@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import { data as bookmark } from '@/bookmark.data'
+import { computed } from 'vue'
 import PageBookmarkItem from './PageBookmarkItem.vue'
 import PageTitleTag from './PageTitleTag.vue'
 
