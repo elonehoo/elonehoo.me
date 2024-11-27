@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
-import { PageFooter } from '../../core'
-import Content from './Content.vue'
-import Footer from './Footer.vue'
-import Mask from './Mask.vue'
-import Nav from './Nav.vue'
+import { Background, CustomAside, CustomContent } from '../../core'
+import Outline from './Outline.vue'
+import Toc from './Toc.vue'
 
 const { frontmatter } = useData()
 </script>
 
 <template>
-  <div class="h-screen bg-background mx-12px">
-    <Mask />
-    <Nav />
-    <Content />
-    <PageFooter v-if="!!frontmatter.page" />
-    <Footer />
-  </div>
+  <Background>
+    <CustomContent>
+      <Content />
+    </CustomContent>
+    <CustomAside>
+      <Outline v-if="frontmatter.page" />
+      <Toc v-else />
+    </CustomAside>
+  </Background>
 </template>

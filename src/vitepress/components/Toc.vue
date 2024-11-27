@@ -2,5 +2,7 @@
 </script>
 
 <template>
-  <Content class="w-full" />
+  <div>
+    <slot />
+  </div>
 </template>

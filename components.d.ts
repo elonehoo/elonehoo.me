@@ -7,22 +7,5 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    AboutData: typeof import('./pages/about/Data.vue')['default']
-    AboutPage: typeof import('./pages/about/Page.vue')['default']
-    AboutTitle: typeof import('./pages/about/Title.vue')['default']
-    BlockItem: typeof import('./theme/components/BlockItem.vue')['default']
-    BlogPage: typeof import('./pages/blog/Page.vue')['default']
-    BookmarksPage: typeof import('./pages/bookmarks/Page.vue')['default']
-    DemosPage: typeof import('./pages/demos/Page.vue')['default']
-    GalleryPage: typeof import('./pages/gallery/Page.vue')['default']
-    HomePage: typeof import('./pages/home/Page.vue')['default']
-    LayoutDefault: typeof import('./theme/components/layout/Default.vue')['default']
-    LineItem: typeof import('./theme/components/LineItem.vue')['default']
-    NotePage: typeof import('./pages/note/Page.vue')['default']
-    PageList: typeof import('./theme/components/PageList.vue')['default']
-    Phonetic: typeof import('./theme/components/Phonetic.vue')['default']
-    ProjectsPage: typeof import('./pages/projects/Page.vue')['default']
-    TalkPage: typeof import('./pages/talk/Page.vue')['default']
-    Title: typeof import('./theme/components/Title.vue')['default']
   }
 }

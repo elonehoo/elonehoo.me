@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="block text-foreground/55 font-500 text-3.6 leading-[1.1] mb-2">
+  <div class="md:max-w-[450px] flex flex-col md:gap-y-0 gap-y-6">
     <slot />
   </div>
 </template>

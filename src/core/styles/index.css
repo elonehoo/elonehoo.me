@@ -1,6 +1,2 @@
-@import './keyframes.css';
 @import './variables.css';
-@import './markdown.css';
-@import './markdown-code.css';
-@import './markdown-code-group.css';
-@import './markdown-custom-blocks.css';
+@import './bootstrap.css'
