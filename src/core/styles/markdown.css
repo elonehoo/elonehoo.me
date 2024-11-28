@@ -14,5 +14,5 @@
 
 .prose-md p {
   --at-apply:
-    my-2;
+    my-2 leading-loose;
 }

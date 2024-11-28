@@ -2,7 +2,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: geometricPrecision;
-  font-family: Monument Grotesk, sans-serif;
+  font-family: ANWE, ANWT, PingFang SC, Microsoft YaHei, Arial, sans-serif;
   font-size: 14px;
   color: rgb(var(--foreground-rgb));
 }
