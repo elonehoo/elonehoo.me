@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="p-4 py-10 md:p-12 background h-screen w-screen">
+  <div class="p-4 py-10 md:p-12 background">
     <div class="justify-between md:flex animate-in fade-in duration-500">
       <slot />
     </div>

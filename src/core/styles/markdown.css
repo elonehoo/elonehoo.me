@@ -7,7 +7,7 @@
 
 .prose-md hr {
   --at-apply:
-    flex select-none my-2 w-[calc(100%-6px)] mx-auto rounded-md
+    flex select-none my-8 w-[calc(100%-6px)] mx-auto rounded-md
     touch-none border-none transition-colors duration-100 ease-out
     flex-col h-0.5 bg-gray-12;
 }
@@ -15,4 +15,16 @@
 .prose-md p {
   --at-apply:
     my-2 leading-loose;
+}
+
+.prose-md h1 {
+  --at-apply: font-medium flex items-center gap-x-1.5 text-18px pt-2;
+}
+
+.prose-md h2 {
+  --at-apply: font-medium flex items-center gap-x-1.5 text-16px pt-2;
+}
+
+.prose-md h3 {
+  --at-apply: font-medium flex items-center gap-x-1.5 text-14px pt-2;
 }

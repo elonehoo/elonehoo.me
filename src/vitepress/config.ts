@@ -49,14 +49,6 @@ export interface Config {
     }
 
     copyright?: string
-
-    page?: {
-      briefly?: string
-      slogan?: {
-        content: string
-        author: string
-      }
-    }
   }
 
 }

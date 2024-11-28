@@ -2,7 +2,5 @@
 </script>
 
 <template>
-  <div>
-    <Content class="prose-md" />
-  </div>
+  <Content class="prose-md" />
 </template>

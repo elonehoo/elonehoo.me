@@ -28,18 +28,15 @@ export default defineConfig({
     Component({
       include: [/\.vue/, /\.md/],
       dirs: [
-        '../.vitepress/theme/components',
-        '../.vitepress/components',
         '../.vitepress/demos',
         '../theme/components',
-        '../pages',
+        '../theme/pages',
       ],
       dts: '../components.d.ts',
       directoryAsNamespace: true,
     }),
     AutoImport({
       dirs: [
-        '../.vitepress/composables',
         '../theme/composables',
       ],
       imports: [
