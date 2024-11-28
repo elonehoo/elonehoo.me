@@ -9,5 +9,7 @@ export type SocialLinkIcon =
   | 'Instagram'
   | 'Mastodon'
   | 'Email'
+  | 'Follow'
+  | 'RSS'
 
 export type SocialLinkSize = 'small' | 'medium'

@@ -1,7 +1,6 @@
 import type {
   MenuItemWithLink,
   SocialLink,
-  SubscribeLink,
 } from '../core'
 
 export interface Config {
@@ -14,8 +13,6 @@ export interface Config {
   appearance?: boolean
 
   socialLinks?: SocialLink[]
-
-  subscribeLinks?: SubscribeLink[]
 
   /**
    * The nav items.

@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { Link } from 'destyler'
+import Icones from './icones/Icones.vue'
 
 const props = defineProps<{
   link?: string
+  icon?: string
 }>()
 </script>
 
@@ -11,8 +13,8 @@ const props = defineProps<{
     <Link :to="props.link" target="_blank">
       <slot />
     </Link>
-    <div class="group-hover:opacity-100 opacity-0 absolute -right-4 bottom-[5px] rounded-sm bg-accent shrink-0 block w-3 h-3 text-white">
-      icon
+    <div v-if="props.icon !== undefined" class="group-hover:opacity-100 opacity-0 absolute -right-4 bottom-[5px] rounded-sm bg-green8 shrink-0 block w-3 h-3 text-white">
+      <Icones :name="props.icon" />
     </div>
   </div>
 </template>

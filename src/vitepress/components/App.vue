@@ -10,7 +10,7 @@ const { frontmatter } = useData()
 <template>
   <Background>
     <CustomContent>
-      <Content />
+      <slot />
     </CustomContent>
     <CustomAside>
       <Outline v-if="frontmatter.page" />

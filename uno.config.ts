@@ -16,6 +16,7 @@ export default defineConfig({
     presetRadix({
       safelist: [
         'gray',
+        'green',
       ],
     }),
   ],

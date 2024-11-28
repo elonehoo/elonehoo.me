@@ -1,0 +1,18 @@
+.prose-md a{
+  --at-apply:
+    items-center gap-x-0.5 w-fit hover:bg-green8 hover:text-gray-12
+    after:content-[''] after:absolute after:bottom-px after:left-0
+    after:w-full after:h-px after:bg-green8 relative inline-flex;
+}
+
+.prose-md hr {
+  --at-apply:
+    flex select-none my-2 w-[calc(100%-6px)] mx-auto rounded-md
+    touch-none border-none transition-colors duration-100 ease-out
+    flex-col h-0.5 bg-gray-12;
+}
+
+.prose-md p {
+  --at-apply:
+    my-2;
+}

@@ -60,8 +60,6 @@ export default defineConfigWithTheme<ThemeConfig>({
         icon: 'Mastodon',
         link: 'https://elk.zone/mstdn.social/@elonehoo',
       },
-    ],
-    subscribeLinks: [
       {
         icon: 'Follow',
         link: 'https://app.follow.is/profile/@elonehoo',
