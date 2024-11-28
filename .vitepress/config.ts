@@ -1,4 +1,5 @@
 import type { Config as ThemeConfig } from '../src'
+import { mergeConfig } from 'vite'
 import { defineConfigWithTheme } from 'vitepress'
 import baseConfig from '../src/vitepress/config/baseConfig'
 
@@ -14,7 +15,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   lang: 'en-US',
 
-  vite: ViteConfig,
+  vite: mergeConfig(ViteConfig, {}),
 
   srcDir: 'content',
 

@@ -6,7 +6,7 @@ import {
   transformerVariantGroup,
 } from 'unocss'
 import { presetAnimations } from 'unocss-preset-animations'
-import { presetRadix, radixColors } from 'unocss-preset-radix'
+import { presetRadix } from './plugins/unocss'
 
 export default defineConfig({
   presets: [
@@ -14,7 +14,9 @@ export default defineConfig({
     presetAttributify(),
     presetAnimations(),
     presetRadix({
-      palette: radixColors,
+      safelist: [
+        'gray',
+      ],
     }),
   ],
   transformers: [
