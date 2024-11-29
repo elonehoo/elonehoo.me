@@ -10,9 +10,9 @@ const { config } = useConfig()
       :href="config.footer?.license?.link"
       target="_blank"
       class="
-        items-center gap-x-0.5 w-fit hover:bg-green8 hover:text-gray-12
+        items-center gap-x-0.5 w-fit hover:bg-action hover:text-gray-12
         after:content-[''] after:absolute after:bottom-px after:left-0
-        after:w-full after:h-px after:bg-green8 relative inline-flex"
+        after:w-full after:h-px after:bg-action relative inline-flex"
     >
       {{ config.footer?.license?.text }}
     </a>
