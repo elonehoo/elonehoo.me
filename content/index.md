@@ -9,11 +9,41 @@ home: true
 
 目前我居住在良渚，这是一个非常美丽的小镇，我有一只猫，她叫做 `咖啡` 。如果你想见到我/想跟我说话，可以给我[发邮件](mailto:hi@elonehoo.me)！我们可以一起喝杯咖啡，聊聊天。如果你愿意和我一起写代码，那就更好了 :)。
 
+<List />
+
+<!-- <div class="flex gap-x-3 mt-6 items-center">
+  <LinkButton link="/blog">
+    博客
+  </LinkButton>
+  <LinkButton link="/talks">
+    分享
+  </LinkButton>
+  <LinkButton link="/notes">
+    随笔
+  </LinkButton>
+
+</div>
+
+<div class="flex gap-x-3 mt-6 items-center">
+  <LinkButton link="/projects">
+    项目
+  </LinkButton>
+  <LinkButton link="/demos">
+    设计
+  </LinkButton>
+  <LinkButton link="/gallery">
+    照片墙
+  </LinkButton>
+  <LinkButton link="/bookmarks">
+    书签
+  </LinkButton>
+</div> -->
+
 ---
 
 ## 斜杠属性
 
-专职做前端开发，偶尔会写写 [Java](https://www.oracle.com/cn/java/) / 男的 / 00后 / 养猫 / 学拍照 / 学画画和设计 / 野路子程序员 / 声音不好听 / 效率有点慢 / 有很多没实现的[奇思妙想](https://github.com/wip-elonehoo) / 喜欢看书 / 夜猫子
+专职做前端开发，偶尔会写写 [Rust](https://www.rust-lang.org/) / 男的 / 00后 / 养猫 / 学拍照 / 学画画和设计 / 野路子程序员 / 声音不好听 / 效率有点慢 / 有很多没实现的[奇思妙想](https://github.com/wip-elonehoo) / 喜欢看书 / 夜猫子
 
 喜欢一些没人关注的细节 / [Vue.js](https://cn.vuejs.org/) / [苹果](https://www.apple.com.cn/)死忠粉 / 喜欢听播客 / 做咖啡 / 调酒 / 好吃 / 开源爱好者 / 窝里横 / 鸽王 / 购物欲强烈 / 洁癖 / [Markdown](https://www.markdownguide.org/) / [VsCode](https://code.visualstudio.com/) / 没别的能力 / 斜杠不出来了 / 就酱
 
@@ -29,11 +59,31 @@ MacBook Air 2023、Mac Mini 2020、iPhone 14、Apple Watch Series 9、iPad air 3
 
 ### 语言
 
-[HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)、 [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)、 [Markdown](https://daringfireball.net/projects/markdown/)、 [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)、 [TypeScript](https://github.com/microsoft/TypeScript)、 [Java](https://github.com/openjdk)、 [Go](https://github.com/golang)、 [Python](https://www.python.org/)、 [Swift](https://www.swift.org/)、 [Kotlin](https://github.com/JetBrains/kotlin)、 [Dart](https://github.com/dart-lang)、 [Rust](https://github.com/rust-lang)
+[HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)、
+[CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)、
+[Markdown](https://daringfireball.net/projects/markdown/)、
+[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)、
+[TypeScript](https://github.com/microsoft/TypeScript)、
+[Java](https://github.com/openjdk)、
+[Go](https://github.com/golang)、
+[Python](https://www.python.org/)、
+[Swift](https://www.swift.org/)、
+[Kotlin](https://github.com/JetBrains/kotlin)、
+[Dart](https://github.com/dart-lang)、
+[Rust](https://github.com/rust-lang)
 
 ### 框架
 
-[Vue.js](https://github.com/vuejs)、 [Nuxt](https://github.com/nuxt)、 [NextJS](https://github.com/vercel/next.js)、 [React](https://github.com/facebook/react)、 [Flutter](https://github.com/flutter)、 [Spring](https://github.com/spring-projects)、 [SwiftUI](https://developer.apple.com/xcode/swiftui/)、 [Hono](https://github.com/honojs)、 [Tauri](https://github.com/tauri-apps)、 [Electron](https://github.com/electron)
+[Vue.js](https://github.com/vuejs)、
+[Nuxt](https://github.com/nuxt)、
+[NextJS](https://github.com/vercel/next.js)、
+[React](https://github.com/facebook/react)、
+[Flutter](https://github.com/flutter)、
+[Spring](https://github.com/spring-projects)、
+[SwiftUI](https://developer.apple.com/xcode/swiftui/)、
+[Hono](https://github.com/honojs)、
+[Tauri](https://github.com/tauri-apps)、
+[Electron](https://github.com/electron)
 
 ### 软技能
 

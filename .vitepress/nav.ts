@@ -2,24 +2,6 @@ import type { Config as ThemeConfig } from '../src/index'
 
 export const nav: ThemeConfig['nav'] = [
   {
-    text: '关于我',
-    link: '/about',
-    activeMatch: `^/(about)`,
-    icon: 'about',
-  },
-  {
-    text: '照片墙',
-    link: '/gallery',
-    icon: 'gallery',
-    activeMatch: `^/(gallery)`,
-  },
-  {
-    text: '书签',
-    link: '/bookmarks',
-    icon: 'bookmarks',
-    activeMatch: `^/(bookmarks)`,
-  },
-  {
     text: '存下我的心得与体会',
     items: [
       {
@@ -42,6 +24,7 @@ export const nav: ThemeConfig['nav'] = [
       },
     ],
   },
+
   {
     text: '记录我的开源和尝试',
     items: [
@@ -56,6 +39,18 @@ export const nav: ThemeConfig['nav'] = [
         link: '/demos',
         icon: 'video',
         activeMatch: `^/(demos)`,
+      },
+      {
+        text: '照片墙',
+        link: '/gallery',
+        icon: 'gallery',
+        activeMatch: `^/(gallery)`,
+      },
+      {
+        text: '书签',
+        link: '/bookmarks',
+        icon: 'bookmarks',
+        activeMatch: `^/(bookmarks)`,
       },
     ],
   },

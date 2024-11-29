@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import EmailIcon from './Email.vue'
 import FollowIcon from './Follow.vue'
-import GitHubIcon from './GitHub.vue'
+import GitHubIcon from './Github.vue'
 import InstagramIcon from './Instagram.vue'
 import MastodonIcon from './Mastodon.vue'
+import RightIcon from './Right.vue'
 import RSSIcon from './RSS.vue'
 import XIcon from './X.vue'
 
@@ -19,6 +20,7 @@ const icons: Record<string, any> = {
   Mastodon: MastodonIcon,
   Follow: FollowIcon,
   RSS: RSSIcon,
+  Right: RightIcon,
 }
 </script>
 

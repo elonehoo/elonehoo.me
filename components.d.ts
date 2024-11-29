@@ -7,5 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    LinkButton: typeof import('./theme/components/LinkButton.vue')['default']
+    List: typeof import('./theme/pages/List.vue')['default']
   }
 }

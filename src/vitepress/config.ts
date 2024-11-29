@@ -116,7 +116,7 @@ export interface ScreenStateTranslations {
   }
 }
 
-export type NavItem = NavItemWithLink | NavItemWithChildren
+export type NavItem = NavItemWithChildren
 
 export type NavItemWithLink = MenuItemWithLink & {
   /**
