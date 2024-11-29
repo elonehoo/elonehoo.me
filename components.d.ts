@@ -7,7 +7,10 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    BackButton: typeof import('./theme/components/BackButton.vue')['default']
+    Items: typeof import('./theme/components/Items.vue')['default']
     LinkButton: typeof import('./theme/components/LinkButton.vue')['default']
     List: typeof import('./theme/pages/List.vue')['default']
+    PostList: typeof import('./theme/pages/PostList.vue')['default']
   }
 }

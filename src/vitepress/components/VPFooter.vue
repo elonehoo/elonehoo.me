@@ -5,7 +5,7 @@ const { config } = useConfig()
 </script>
 
 <template>
-  <div class="mt-8">
+  <div class="mt-10 mb-6">
     <a
       :href="config.footer?.license?.link"
       target="_blank"

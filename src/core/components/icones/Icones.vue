@@ -3,6 +3,7 @@ import EmailIcon from './Email.vue'
 import FollowIcon from './Follow.vue'
 import GitHubIcon from './GitHub.vue'
 import InstagramIcon from './Instagram.vue'
+import LeftIcon from './Left.vue'
 import MastodonIcon from './Mastodon.vue'
 import RightIcon from './Right.vue'
 import RSSIcon from './RSS.vue'
@@ -21,6 +22,7 @@ const icons: Record<string, any> = {
   Follow: FollowIcon,
   RSS: RSSIcon,
   Right: RightIcon,
+  Left: LeftIcon,
 }
 </script>
 

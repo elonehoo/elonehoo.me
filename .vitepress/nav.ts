@@ -6,9 +6,9 @@ export const nav: ThemeConfig['nav'] = [
     items: [
       {
         text: '博客',
-        link: '/blog',
-        activeMatch: `^/(blog)`,
-        icon: 'blog',
+        link: '/posts',
+        activeMatch: `^/(posts)`,
+        icon: 'posts',
       },
       {
         text: '分享',

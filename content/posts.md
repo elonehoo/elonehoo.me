@@ -3,4 +3,6 @@ page: true
 title: 博客存档
 ---
 
-<BlogPage />
+> 博客文章
+
+<PostList />

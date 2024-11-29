@@ -19,7 +19,7 @@ export default defineConfigWithTheme<ThemeConfig>({
 
   srcDir: 'content',
 
-  appearance: false,
+  appearance: true,
   cleanUrls: true,
   lastUpdated: true,
   ignoreDeadLinks: true,
