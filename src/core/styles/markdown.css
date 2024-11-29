@@ -1,3 +1,7 @@
+.prose-md {
+  --at-apply: prose mt-4;
+}
+
 .prose-md a{
   --at-apply:
     items-center gap-x-0.5 w-fit hover:bg-action hover:text-gray-12
@@ -28,4 +32,8 @@
 
 .prose-md h3 {
   --at-apply: font-medium flex items-center gap-x-1.5 text-14px pt-2;
+}
+
+.prose-md blockquote {
+  --at-apply: mt-1 text-gray-9;
 }

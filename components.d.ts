@@ -8,9 +8,18 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     BackButton: typeof import('./theme/components/BackButton.vue')['default']
+    BookmarkItem: typeof import('./theme/components/BookmarkItem.vue')['default']
+    BookmarkList: typeof import('./theme/pages/BookmarkList.vue')['default']
+    BookmarksList: typeof import('./theme/pages/BookmarkList.vue')['default']
     Items: typeof import('./theme/components/Items.vue')['default']
     LinkButton: typeof import('./theme/components/LinkButton.vue')['default']
     List: typeof import('./theme/pages/List.vue')['default']
+    NoteList: typeof import('./theme/pages/NoteList.vue')['default']
+    OnlyTime: typeof import('./theme/components/OnlyTime.vue')['default']
     PostList: typeof import('./theme/pages/PostList.vue')['default']
+    TalkList: typeof import('./theme/pages/TalkList.vue')['default']
+    TimeTitle: typeof import('./theme/components/TimeTitle.vue')['default']
+    TimeTItle: typeof import('./theme/components/TimeTitle.vue')['default']
+    Title: typeof import('./theme/components/Title.vue')['default']
   }
 }

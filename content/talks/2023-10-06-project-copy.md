@@ -6,8 +6,6 @@ duration: 15min
 layout: 'default'
 ---
 
-<Title />
-
 > 这是我2023在公司内部分享的一次关于 项目中架构技术讲述和复制项目的条件
 >
 > 幻灯片: [PDF](https://github.com/elonehoo/talks/blob/main/2023-10-06/2023-10-06-project-copy-cn.pdf) | [SPA](http://2023-10-06-project-copy-cn.elonehoo.me)

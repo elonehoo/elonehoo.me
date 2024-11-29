@@ -1,4 +1,5 @@
 body {
+  --at-apply: scrollbar-hide;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: geometricPrecision;

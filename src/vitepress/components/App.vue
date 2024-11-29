@@ -15,7 +15,7 @@ const { frontmatter } = useData()
       <VPFooter />
     </CustomContent>
     <CustomAside>
-      <Outline v-if="frontmatter.page" />
+      <Outline v-if="frontmatter.page || frontmatter.home" />
       <Toc v-else />
     </CustomAside>
   </Background>

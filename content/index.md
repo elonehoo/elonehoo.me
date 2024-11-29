@@ -1,5 +1,4 @@
 ---
-page: true
 home: true
 ---
 
@@ -10,34 +9,6 @@ home: true
 目前我居住在良渚，这是一个非常美丽的小镇，我有一只猫，她叫做 `咖啡` 。如果你想见到我/想跟我说话，可以给我[发邮件](mailto:hi@elonehoo.me)！我们可以一起喝杯咖啡，聊聊天。如果你愿意和我一起写代码，那就更好了 :)。
 
 <List />
-
-<!-- <div class="flex gap-x-3 mt-6 items-center">
-  <LinkButton link="/blog">
-    博客
-  </LinkButton>
-  <LinkButton link="/talks">
-    分享
-  </LinkButton>
-  <LinkButton link="/notes">
-    随笔
-  </LinkButton>
-
-</div>
-
-<div class="flex gap-x-3 mt-6 items-center">
-  <LinkButton link="/projects">
-    项目
-  </LinkButton>
-  <LinkButton link="/demos">
-    设计
-  </LinkButton>
-  <LinkButton link="/gallery">
-    照片墙
-  </LinkButton>
-  <LinkButton link="/bookmarks">
-    书签
-  </LinkButton>
-</div> -->
 
 ---
 

@@ -131,4 +131,8 @@ bookmarks:
       desc: '代码检查器与格式化工具'
 ---
 
-<BookmarksPage :items="$frontmatter.bookmarks" />
+> 书签
+>
+> 我最喜欢的一些网站/工具，具有出色的设计和用户体验。
+
+<BookmarkList :items="$frontmatter.bookmarks" />
