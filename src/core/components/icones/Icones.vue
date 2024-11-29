@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import EmailIcon from './Email.vue'
 import FollowIcon from './Follow.vue'
-import GitHubIcon from './Github.vue'
+import GitHubIcon from './GitHub.vue'
 import InstagramIcon from './Instagram.vue'
 import MastodonIcon from './Mastodon.vue'
 import RightIcon from './Right.vue'
