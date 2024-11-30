@@ -7,9 +7,9 @@ const props = defineProps<{
 <template>
   <div v-for="bookmark in Object.keys(props.items)" :key="bookmark" class="mt-4">
     <OnlyTitle :value="bookmark" size="sm" />
-    <BookmarkItem
+    <ProjectItem
       v-for="record in props.items[bookmark]"
-      :key="record.link"
+      :key="record.url"
       :record="record"
     />
   </div>

@@ -216,4 +216,4 @@ projects:
       desc: 'Make your Github history back to 1900.'
 ---
 
-<ProjectsPage :items="$frontmatter.projects" />
+<ProjectList :items="$frontmatter.projects" />

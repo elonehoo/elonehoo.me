@@ -18,6 +18,8 @@ declare module 'vue' {
     OnlyTime: typeof import('./theme/components/OnlyTime.vue')['default']
     OnlyTitle: typeof import('./theme/components/OnlyTitle.vue')['default']
     PostList: typeof import('./theme/pages/PostList.vue')['default']
+    ProjectItem: typeof import('./theme/components/ProjectItem.vue')['default']
+    ProjectList: typeof import('./theme/pages/ProjectList.vue')['default']
     TalkList: typeof import('./theme/pages/TalkList.vue')['default']
     TimeTitle: typeof import('./theme/components/TimeTitle.vue')['default']
     TimeTItle: typeof import('./theme/components/TimeTitle.vue')['default']
