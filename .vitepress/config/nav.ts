@@ -1,4 +1,4 @@
-import type { Config as ThemeConfig } from '../src/index'
+import type { Config as ThemeConfig } from '../../src/index'
 
 export const nav: ThemeConfig['nav'] = [
   {

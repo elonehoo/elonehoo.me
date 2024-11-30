@@ -1,5 +1,5 @@
 body {
-  --at-apply: scrollbar-hide;
+  --at-apply: scrollbar-hide bg-light dark:bg-black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: geometricPrecision;

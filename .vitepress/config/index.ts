@@ -1,9 +1,9 @@
-import type { Config as ThemeConfig } from '../src'
+import type { Config as ThemeConfig } from '../../src'
 import { mergeConfig } from 'vite'
 import { defineConfigWithTheme } from 'vitepress'
-import baseConfig from '../src/vitepress/config/baseConfig'
+import baseConfig from '../../src/vitepress/config/baseConfig'
 
-import ViteConfig from '../vite.config'
+import ViteConfig from '../../vite.config'
 import { nav } from './nav'
 
 export default defineConfigWithTheme<ThemeConfig>({
