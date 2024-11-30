@@ -6,8 +6,6 @@ duration: 5min
 layout: 'default'
 ---
 
-<Title />
-
 # 嗨 👋🏼
 
 > [English Version](./wip-elonehoo)

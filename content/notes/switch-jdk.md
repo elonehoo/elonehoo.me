@@ -6,8 +6,6 @@ duration: 1min
 layout: 'default'
 ---
 
-<Title />
-
 Check the java version installed on your computer
 
 ```bash

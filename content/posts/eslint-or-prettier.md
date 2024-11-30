@@ -6,8 +6,6 @@ duration: 12min
 layout: 'default'
 ---
 
-<Title />
-
 [[toc]]
 
 在公司的项目中，很多同事会自己配置 Prettier 。而不去使用所定义的 Eslint 规则。

@@ -10,8 +10,6 @@ description: 这是2024年对于大理旅游的计划，我会在这里记录目
 layout: 'default'
 ---
 
-<Title />
-
 > [!TIP]
 > 大理旅游计划<Icon class="i-ph-heart-straight-bold text-#F87171 mx-1" />在有风的地方
 

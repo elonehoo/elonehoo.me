@@ -6,8 +6,6 @@ duration: 5min
 layout: 'default'
 ---
 
-<Title />
-
 # Hi 👋🏼
 
 > [中文 Chinese Version](./wip-elonehoo-zh)

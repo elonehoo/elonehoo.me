@@ -7,8 +7,6 @@ image: 'https://elonehoo.me/wwdc-design/og.png'
 layout: 'default'
 ---
 
-<Title />
-
 ![wwdc design](/wwdc-design/og.png)
 
 1. When designing App icons in visionOS, the icon can be divided into a maximum of three layers (one background layer + two foreground layers), each layer with a size of 1024*1024px. When used, the system will automatically add a glass layer to give the icon depth, highlights and shadow effects, creating subtle depth perception as seen in official videos.

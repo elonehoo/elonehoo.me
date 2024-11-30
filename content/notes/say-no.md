@@ -6,6 +6,4 @@ duration: 1min
 layout: 'default'
 ---
 
-<Title />
-
 Ability is a good thing, especially when you are wronged, you have the right to **say no**.

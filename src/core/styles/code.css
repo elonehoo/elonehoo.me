@@ -1,0 +1,161 @@
+.prose-md {
+  --vt-md-code-font-size: 14px;
+  --vt-md-code-line-height: 1.5;
+}
+
+/* inline code */
+.prose-md :not(pre) > code {
+  --at-apply:  px-[0.5em] py-[0.15em] after:content-['_」'] before:content-['「_'] font-600;
+  transition: color 0.5s, background-color 0.5s;
+}
+
+.prose-md :not(pre, h1, h2, h3, h4, h5, h6) > code {
+  font-size: var(--vt-md-code-font-size);
+}
+
+@media (min-width: 768px) {
+  .prose-md :not(pre) > code {
+    white-space: nowrap;
+  }
+}
+
+.prose-md div[class*='language-'] {
+  --at-apply:
+    bg-light dark:bg-dark border rounded-md border-gray-12
+    relative overflow-x-auto my-7;
+  transition: background-color 0.5s;
+}
+
+@media (min-width: 640px) {
+  .prose-md div[class*='language-'] {
+    --at-apply: my-7 rounded-lg;
+  }
+}
+
+@media (max-width: 639px) {
+  .prose-md li div[class*='language-'] {
+    --at-apply: rounded-[8px_0_0_8px];
+  }
+}
+
+.prose-md div[class*='language-'] + div[class*='language-'],
+.prose-md div[class$='-api'] + div[class*='language-'],
+.prose-md div[class*='language-'] + div[class$='-api'] > div[class*='language-']:first-child {
+  --at-apply: mt-[-16px];
+}
+
+.prose-md [class*='language-'] pre,
+.prose-md [class*='language-'] code {
+  scrollbar-width: none;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+.prose-md [class*='language-'] pre::-webkit-scrollbar,
+.prose-md [class*='language-'] code::-webkit-scrollbar {
+  display: none;
+}
+
+.prose-md [class*='language-'] pre {
+  --at-apply: relative z-1 overflow-x-auto m-0 px-0 py-3.5;
+  background: transparent;
+}
+
+.prose-md [class*='language-'] code {
+  --at-apply: block w-fit min-w-full px-6 py-0;
+  line-height: var(--vt-md-code-line-height);
+  font-size: var(--vt-md-code-font-size);
+  transition: color 0.5s;
+}
+
+.prose-md [class*='language-'] code .line span {
+  color: var(--shiki-light);
+}
+
+.dark .prose-md [class*='language-'] code .line span {
+  color: var(--shiki-dark);
+}
+
+.prose-md [class*='language-'] code .highlighted {
+  --at-apply:
+    bg-[rgba(0,0,0,0.3)]
+    transition-[background-color]
+    duration-[0.5s] -mx-6 px-6
+    inline-block;
+  width: calc(100% + 2 * 24px);
+}
+
+.dark .prose-md [class*='language-'] code .highlighted {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.prose-md div[class*='language-'].line-numbers-mode {
+  --at-apply: pl-32px;
+}
+
+.prose-md .line-numbers-wrapper {
+  --at-apply:
+  border-r border-r-border text-muted-foreground/50
+  absolute top-0 bottom-0 left-0 z-3 w-8 text-center
+  pt-[13px] pb-[11px];
+  line-height: var(--vt-md-code-line-height);
+  font-size: var(--vt-md-code-font-size);
+  transition: border-color 0.5s, color 0.5s;
+}
+
+
+@media (max-width: 480px) {
+  .prose-md [class*='language-'] pre {
+    --at-apply: pt-[18px] pb-3;
+  }
+}
+
+/* hidden */
+
+.prose-md [class*='language-'] > span.lang {
+  --at-apply: hidden;
+}
+
+@media (max-width: 480px) {
+  .prose-md [class*='language-'] > span.lang {
+    --at-apply: hidden;
+  }
+}
+
+.prose-md [class*='language-'] > button.copy {
+  --at-apply: hidden;
+}
+
+.prose-md [class*='language-']:hover > button.copy,
+.prose-md [class*='language-'] > button.copy:focus {
+  --at-apply: hidden;
+}
+
+.prose-md [class*='language-'] > button.copy:hover,
+.prose-md [class*='language-'] > button.copy.copied,
+.prose-md [class*='language-'] > button.copy:hover.copied,
+.prose-md [class*='language-'] > button.copy.copied::before,
+.prose-md [class*='language-'] > button.copy:hover.copied::before {
+  --at-apply: hidden;
+}
+
+
+.prose-md [class*='language-'] > button.copy.copied::before,
+.prose-md [class*='language-'] > button.copy:hover.copied::before {
+  --at-apply: hidden;
+}
+
+.prose-md [class*='language-']:hover > button.copy + span.lang,
+.prose-md [class*='language-'] > button.copy:focus + span.lang {
+  --at-apply: hidden;
+}

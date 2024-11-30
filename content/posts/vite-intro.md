@@ -6,8 +6,6 @@ duration: 10min
 layout: 'default'
 ---
 
-<Title />
-
 Vite 由 Vue 的作者尤雨溪设计并开发，目前在"bundless 界"处于领先地位，试图替代 Webpack dev server，提升开发效率。
 
 受惠于 ESM 与 esbuild，Vite 给人的第一印象是快。但“快”不是 Vite 所有的特征。

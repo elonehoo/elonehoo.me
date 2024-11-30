@@ -6,6 +6,4 @@ duration: 1min
 layout: 'default'
 ---
 
-<Title />
-
 Guise i’m still alive ok.

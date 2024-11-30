@@ -7,8 +7,6 @@ recording: true
 layout: 'default'
 ---
 
-<Title />
-
 今天看到了一部很简短的纪录片，[《在鹤岗安家》](https://www.youtube.com/watch?v=QTNKOkR69jQ&t=1s)。
 
 <YouTube src="https://www.youtube.com/watch?v=QTNKOkR69jQ&t=1s" />

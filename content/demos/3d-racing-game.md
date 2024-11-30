@@ -5,5 +5,3 @@ lang: en
 duration: 5min
 href: 'https://jumper.elonehoo.me/'
 ---
-
-<Title />

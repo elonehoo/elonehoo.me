@@ -6,4 +6,4 @@ duration: 5min
 href: 'https://decolorization.elonehoo.me/'
 ---
 
-<Title />
+

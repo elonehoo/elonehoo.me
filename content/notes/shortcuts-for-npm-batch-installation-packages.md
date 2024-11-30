@@ -6,8 +6,6 @@ duration: 1min
 layout: 'default'
 ---
 
-<Title />
-
 I only know now
 
 Shortcuts for npm batch installation packages

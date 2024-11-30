@@ -6,7 +6,7 @@ duration: 5min
 meta: 'View Prototype'
 ---
 
-<Title />
+
 
 <FontHollow />
 
