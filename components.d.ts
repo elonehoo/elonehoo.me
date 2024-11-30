@@ -16,6 +16,7 @@ declare module 'vue' {
     List: typeof import('./theme/pages/List.vue')['default']
     NoteList: typeof import('./theme/pages/NoteList.vue')['default']
     OnlyTime: typeof import('./theme/components/OnlyTime.vue')['default']
+    OnlyTitle: typeof import('./theme/components/OnlyTitle.vue')['default']
     PostList: typeof import('./theme/pages/PostList.vue')['default']
     TalkList: typeof import('./theme/pages/TalkList.vue')['default']
     TimeTitle: typeof import('./theme/components/TimeTitle.vue')['default']

@@ -12,6 +12,9 @@ const props = defineProps<{
       <Link :to="props.record.url" target="_self">
         {{ props.record.name }}
       </Link>
+      <span>
+        {{ props.record.desc }}
+      </span>
     </div>
   </div>
 </template>

@@ -1,15 +1,24 @@
 <script setup lang="ts">
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   value: string | number
-  // todo size and address
-}>()
+  size?: 'sm' | 'lg'
+}>(), {
+  size: 'lg',
+})
+
+const size = computed<string>(() => {
+  return props.size === 'sm'
+    ? 'text-3em top-0'
+    : 'text-8em top--3rem'
+})
 </script>
 
 <template>
   <div class="relative select-none h-10">
     <span
+      :class="size"
       class="
-        text-8em absolute top--3rem font-bold
+        absolute font-bold
         color-transparent transition-all
         duration-200 ease-linear pointer-events-none
         dark:[-webkit-text-stroke:1px_rgba(255,255,255,0.2)]

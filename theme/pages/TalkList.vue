@@ -7,7 +7,7 @@ const talks = computed(() => groupByTime(data))
 
 <template>
   <div v-for="post in talks" :key="post.key" class="mt-4">
-    <OnlyTime :value="post.key" />
+    <OnlyTitle :value="post.key" />
     <Items
       v-for="record in post.records"
       :key="record.url"
