@@ -41,12 +41,6 @@ export const nav: ThemeConfig['nav'] = [
         activeMatch: `^/(demos)`,
       },
       {
-        text: '照片墙',
-        link: '/gallery',
-        icon: 'gallery',
-        activeMatch: `^/(gallery)`,
-      },
-      {
         text: '书签',
         link: '/bookmarks',
         icon: 'bookmarks',

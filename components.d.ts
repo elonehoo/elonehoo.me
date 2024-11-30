@@ -11,6 +11,7 @@ declare module 'vue' {
     BookmarkItem: typeof import('./theme/components/BookmarkItem.vue')['default']
     BookmarkList: typeof import('./theme/pages/BookmarkList.vue')['default']
     BookmarksList: typeof import('./theme/pages/BookmarkList.vue')['default']
+    DemoList: typeof import('./theme/pages/DemoList.vue')['default']
     Items: typeof import('./theme/components/Items.vue')['default']
     LinkButton: typeof import('./theme/components/LinkButton.vue')['default']
     List: typeof import('./theme/pages/List.vue')['default']

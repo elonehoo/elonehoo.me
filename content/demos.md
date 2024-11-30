@@ -3,4 +3,8 @@ page: true
 title: 小样存档
 ---
 
-<DemosPage />
+> 小样
+>
+> 一些简单的、有趣的小样例，用于展示一些特定的功能或者特性。
+
+<DemoList />
