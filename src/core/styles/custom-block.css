@@ -6,22 +6,13 @@
 
 /* info */
 
-.custom-block.info {
-  --at-apply:
-    border-l border-#4493f8 border-l-4;
-}
-
-.custom-block.info .custom-block-title {
-  --at-apply: text-#4493f8 font-bold text-base
-  before:mr-2 before:content-[url("/doc/note.svg")];
-}
-
-/* note */
+.custom-block.info,
 .custom-block.note {
   --at-apply:
     border-l border-#4493f8 border-l-4;
 }
 
+.custom-block.info .custom-block-title,
 .custom-block.note .custom-block-title {
   --at-apply: text-#4493f8 font-bold text-base
   before:mr-2 before:content-[url("/doc/note.svg")];
@@ -65,23 +56,13 @@
 
 /* danger */
 
-.custom-block.danger {
-  --at-apply:
-    border-l border-#f85149 border-l-4;
-}
-
-.custom-block.danger .custom-block-title {
-  --at-apply: text-#f85149 font-bold text-base
-  before:mr-2 before:content-[url("/doc/danger.svg")];
-}
-
-/* caution */
-
+.custom-block.danger,
 .custom-block.caution {
   --at-apply:
     border-l border-#f85149 border-l-4;
 }
 
+.custom-block.danger .custom-block-title,
 .custom-block.caution .custom-block-title {
   --at-apply: text-#f85149 font-bold text-base
   before:mr-2 before:content-[url("/doc/danger.svg")];

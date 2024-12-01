@@ -35,6 +35,9 @@ export default defineConfigWithTheme<ThemeConfig>({
     headers: {
       level: [2, 3],
     },
+    image: {
+      lazyLoading: true,
+    },
   },
 
   head,

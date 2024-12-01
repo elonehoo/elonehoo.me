@@ -84,6 +84,13 @@
   color: var(--shiki-dark);
 }
 
+.prose-md [class*='language-'] .line-numbers-wrapper {
+  --at-apply:
+    absolute top-0 bottom-0 left-0 z-3 border-r border-r-gray-11
+    pt-3.25 pb-2.75 w-8 text-center text-gray-1 text-14px leading-[1.5];
+  transition: border-color 0.5s, color 0.5s;
+}
+
 .prose-md [class*='language-'] code .highlighted {
   --at-apply:
     bg-[rgba(0,0,0,0.3)]

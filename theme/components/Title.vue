@@ -11,6 +11,8 @@ const { frontmatter } = useData()
     "
   >
     <span class="inline-block w-2 h-2 rounded-full bg-action" />
-    {{ frontmatter.title }}
+    <slot>
+      {{ frontmatter.title }}
+    </slot>
   </h1>
 </template>

@@ -3,4 +3,5 @@
 @import './markdown.css';
 @import './code.css';
 @import './custom-block.css';
+@import './code-group.css';
 @import "@radix-ui/colors/gray.css";

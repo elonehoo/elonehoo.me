@@ -5,7 +5,7 @@ import Outline from './Outline.vue'
 import Toc from './Toc.vue'
 import VPFooter from './VPFooter.vue'
 
-const { frontmatter } = useData()
+const { frontmatter, page } = useData()
 </script>
 
 <template>
@@ -15,7 +15,7 @@ const { frontmatter } = useData()
       <VPFooter />
     </CustomContent>
     <CustomAside>
-      <Outline v-if="frontmatter.page || frontmatter.home" />
+      <Outline v-if="frontmatter.page || frontmatter.home || page.isNotFound" />
       <Toc v-else />
     </CustomAside>
   </Background>
