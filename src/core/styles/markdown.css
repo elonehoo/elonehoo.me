@@ -4,10 +4,14 @@
 
 .prose-md a{
   --at-apply:
-    items-center gap-x-0.5 w-fit hover:bg-action hover:text-gray-12
+    items-center gap-x-0.5 w-fit cursor-pointer relative inline-flex
+    hover:bg-action hover:text-gray-12
     after:content-[''] after:absolute after:bottom-px after:left-0
-    after:w-full after:h-px after:bg-action relative inline-flex
-    cursor-pointer;
+    after:w-full after:h-px after:bg-action;
+}
+
+.prose-md a:hover code{
+  --at-apply: text-gray-12;
 }
 
 .prose-md hr {
@@ -34,6 +38,79 @@
   --at-apply: font-medium flex items-center gap-x-1.5 text-14px pt-2;
 }
 
+/* blockquote */
 .prose-md blockquote {
-  --at-apply: mt-1 text-gray-9;
+  --at-apply:
+    my-1.6em text-gray-9 font-medium italic text-inherit
+    border-l-4 border-gray-6 pl-1em;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+.prose-md blockquote p:first-of-type::before {
+  content: open-quote;
+}
+.prose-md blockquote p:last-of-type::after {
+  content: close-quote;
+}
+
+/* ol */
+.prose-md ol > li {
+  --at-apply: relative pl-1.75em;
+}
+.prose-md ol > li::before {
+  --at-apply: absolute font-400 text-action left-0;
+  content: counter(list-item, var(--list-counter-style, decimal)) ".";
+}
+
+/* ul */
+.prose-md ul > li {
+  --at-apply: pl-5 relative mt-1.5;
+}
+.prose-md ul > li::before {
+  --at-apply: absolute content-[""] bg-action rounded-full w-2 h-2;
+  top: 0.455em;
+  left: 0.455em;
+}
+
+/* img */
+.prose-md img {
+  --at-apply: w-full;
+}
+.prose-md p > img {
+  --at-apply: w-full shadow rounded-lg my-[2.6em];
+  transform: scale(1.05);
+}
+
+/* Table */
+.prose-md table {
+  --at-apply:
+    w-full table-auto text-left text-[0.875em] leading-[1.7142857] my-[2em];
+}
+
+table {
+  --at-apply: indent-[0] border-inherit border-collapse;
+}
+
+.prose-md thead {
+  --at-apply: font-600 border-b-gray-12 border-b;
+}
+
+.prose-md thead th:first-child {
+  --at-apply: pl-0;
+}
+
+.prose-md thead th {
+  --at-apply: align-bottom pb-[0.5714286em] px-[0.5714286em];
+}
+
+.prose-md tbody tr {
+  --at-apply: border-b-gray-12 border-b;
+}
+
+.prose-md tbody td:first-child {
+  --at-apply: pl-0;
+}
+
+.prose-md tbody td {
+  --at-apply: align-top p-[0.5714286em];
 }

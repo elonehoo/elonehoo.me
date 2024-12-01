@@ -4,6 +4,7 @@ import { defineConfigWithTheme } from 'vitepress'
 import baseConfig from '../../src/vitepress/config/baseConfig'
 
 import ViteConfig from '../../vite.config'
+import { head } from './head'
 import { nav } from './nav'
 
 export default defineConfigWithTheme<ThemeConfig>({
@@ -35,6 +36,8 @@ export default defineConfigWithTheme<ThemeConfig>({
       level: [2, 3],
     },
   },
+
+  head,
 
   themeConfig: {
     nav,

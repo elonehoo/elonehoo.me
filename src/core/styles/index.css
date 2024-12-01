@@ -2,4 +2,5 @@
 @import './bootstrap.css';
 @import './markdown.css';
 @import './code.css';
+@import './custom-block.css';
 @import "@radix-ui/colors/gray.css";

@@ -1,0 +1,113 @@
+.custom-block {
+  --at-apply:
+    leading-6 text-sm
+    mx-0 my-4 py-1 px-4;
+}
+
+/* info */
+
+.custom-block.info {
+  --at-apply:
+    border-l border-#4493f8 border-l-4;
+}
+
+.custom-block.info .custom-block-title {
+  --at-apply: text-#4493f8 font-bold text-base
+  before:mr-2 before:content-[url("/doc/note.svg")];
+}
+
+/* note */
+.custom-block.note {
+  --at-apply:
+    border-l border-#4493f8 border-l-4;
+}
+
+.custom-block.note .custom-block-title {
+  --at-apply: text-#4493f8 font-bold text-base
+  before:mr-2 before:content-[url("/doc/note.svg")];
+}
+
+/* tip */
+
+.custom-block.tip {
+  --at-apply:
+    border-l border-#3fb950 border-l-4;
+}
+
+.custom-block.tip .custom-block-title {
+  --at-apply: text-#3fb950 font-bold text-base
+  before:mr-2 before:content-[url("/doc/tip.svg")];
+}
+
+/* warning */
+
+.custom-block.warning {
+  --at-apply:
+    border-l border-#d29922 border-l-4;
+}
+
+.custom-block.warning .custom-block-title {
+  --at-apply: text-#d29922 font-bold text-base
+  before:mr-2 before:content-[url("/doc/warning.svg")];
+}
+
+/* important */
+
+.custom-block.important {
+  --at-apply:
+    border-l border-#ab7df8 border-l-4;
+}
+
+.custom-block.important .custom-block-title {
+  --at-apply: text-#ab7df8 font-bold text-base
+  before:mr-2 before:content-[url("/doc/important.svg")];
+}
+
+/* danger */
+
+.custom-block.danger {
+  --at-apply:
+    border-l border-#f85149 border-l-4;
+}
+
+.custom-block.danger .custom-block-title {
+  --at-apply: text-#f85149 font-bold text-base
+  before:mr-2 before:content-[url("/doc/danger.svg")];
+}
+
+/* caution */
+
+.custom-block.caution {
+  --at-apply:
+    border-l border-#f85149 border-l-4;
+}
+
+.custom-block.caution .custom-block-title {
+  --at-apply: text-#f85149 font-bold text-base
+  before:mr-2 before:content-[url("/doc/danger.svg")];
+}
+
+/* details */
+
+.custom-block.details {
+  --at-apply:
+    border-l border-#c6b190 border-l-4;
+}
+
+.custom-block.details summary {
+  --at-apply: text-#c6b190 font-bold text-base
+  before:hidden cursor-pointer
+  after:content-[url("/doc/right.svg")]
+  after:float-left after:mr-2
+  after:cursor-pointer;
+  list-style: none;
+}
+
+.custom-block.details[open] summary::after {
+  content: url("/doc/right.svg");
+  transform: rotate(90deg);
+}
+
+.custom-block.details summary::-webkit-details-marker {
+  display: none;
+}
