@@ -3,7 +3,6 @@ title: Todo
 date: 2023-08-27T10:56:00.000
 lang: en
 duration: 5min
-meta: 'View Prototype'
 ---
 
 <Todo />

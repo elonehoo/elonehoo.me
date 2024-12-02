@@ -3,7 +3,6 @@ title: Graph Slider
 date: 2023-08-23T19:00:00.000+00:00
 lang: zh
 duration: 5min
-meta: 'View Prototype'
 ---
 
 <ClientOnly>

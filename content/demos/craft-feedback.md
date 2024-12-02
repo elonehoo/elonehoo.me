@@ -3,7 +3,6 @@ title: Feedback Reactions
 date: 2023-08-28T15:51:00.000
 lang: en
 duration: 5min
-meta: 'View Prototype'
 ---
 
 <Feedback />
