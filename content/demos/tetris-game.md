@@ -6,4 +6,8 @@ duration: 5min
 href: 'https://tetris.elonehoo.me/'
 ---
 
+play game here: [tetris game](https://tetris.elonehoo.me/)
+
+<video src="./tetris-game.mp4" loop muted autoplay />
+
 
