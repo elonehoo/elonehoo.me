@@ -3,7 +3,7 @@
 
 <template>
   <CraftBox>
-    <label v-for="i in 40" :key="i" class="line">
+    <label v-for="i in 15" :key="i" class="line">
       <input type="radio" name="line">
       <div />
     </label>

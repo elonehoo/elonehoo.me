@@ -10,12 +10,12 @@
         :key="i"
         class="absolute block rotate-[-10deg] rounded-1/20"
         :style="{
-          width: `${i * 20}px`,
-          height: `${i * 20}px`,
-          left: `-${i * 10}px`,
-          top: `-${i * 10}px`,
-          filter: `blur(${i * 0.3}px)`,
-          boxShadow: `0 0 ${i * 2}px var(--color-wiggle)`,
+          width: `${i * 10}px`,
+          height: `${i * 10}px`,
+          left: `-${i * 5}px`,
+          top: `-${i * 5}px`,
+          filter: `blur(${i * 0.15}px)`,
+          boxShadow: `0 0 ${i * 1}px var(--color-wiggle)`,
           animation: `wiggle 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95) ${50 * i}ms infinite alternate`,
         }"
       />

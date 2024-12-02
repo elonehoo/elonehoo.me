@@ -50,8 +50,8 @@
 <style scoped>
 .star {
   margin: auto;
-  width: 16em;
-  height: 16em;
+  width: 12em;
+  height: 12em;
 }
 .star__stroke {
   --dur: 2s;

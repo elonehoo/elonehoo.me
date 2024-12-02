@@ -1,10 +1,10 @@
 <template>
   <CraftBox>
-    <div class=" overflow-hidden">
+    <div class=" overflow-hidden prose">
       <div class="px-4 py-8 flex items-center justify-center">
         <div class="font-extrabold text-lg [text-wrap:balance] text-gray-700 dark:text-gray-200">
           We can work to develop the best
-          <span class="inline-flex flex-col h-1.40625rem items-center overflow-hidden">
+          <span class="inline-flex flex-col h-6 items-center overflow-hidden">
             <ul class="block text-left leading-tight [&_li]:block animate-text-slide">
               <li class="text-indigo-500">Mobile apps</li>
               <li class="text-rose-500">Websites</li>

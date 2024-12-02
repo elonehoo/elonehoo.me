@@ -4,12 +4,12 @@
 <template>
   <CraftBox>
     <div
-      class="group relative flex justify-center items-center text-zinc-600 text-sm font-bold"
+      class="group relative flex justify-center items-center text-zinc-600 font-bold"
     >
       <div
         class="absolute opacity-0 group-hover:opacity-100 group-hover:-translate-y-[150%] -translate-y-[300%] duration-500 group-hover:delay-500 skew-y-[20deg] group-hover:skew-y-0 shadow-md"
       >
-        <div class="bg-lime-200 flex items-center gap-1 p-2 rounded-md">
+        <div class="bg-lime-200 flex items-center gap-1 p-2 rounded-full">
           <svg
             fill="none"
             viewBox="0 0 24 24"

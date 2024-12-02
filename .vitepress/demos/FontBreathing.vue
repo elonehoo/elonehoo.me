@@ -39,7 +39,7 @@ onMounted(() => {
 
 .breathingBox {
   font-family: "Geist";
-  font-size: 128px;
+  font-size: 58px;
   margin: 0;
 
   -webkit-background-clip: text;

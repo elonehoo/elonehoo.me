@@ -12,13 +12,13 @@
 
 <style scoped>
 .mobinkakei-loader {
-  @apply absolute w-full h-full rounded-[30px];
+  --at-apply: absolute w-full h-full rounded-[30px];
 }
 .mobinkakei-loader-glowing {
-  @apply z-[2] bg-[rgba(255,255,255,0.2)] border-2 border-solid border-[rgba(0,0,0,0.3)] dark:border-[rgba(255,255,255,0.3)];
+  --at-apply: z-[2] bg-[rgba(255,255,255,0.2)] border-2 border-solid border-[rgba(0,0,0,0.3)] dark:border-[rgba(255,255,255,0.3)];
 }
 .mobinkakei-loader-color {
-  @apply z-[1] blur-[2px] animate-[mobinkakei-loader-animation_2.5s_ease-in-out_infinite];
+  --at-apply: z-[1] blur-[2px] animate-[mobinkakei-loader-animation_2.5s_ease-in-out_infinite];
   background: linear-gradient(135deg, #1afbf0, #da00ff);
 }
 

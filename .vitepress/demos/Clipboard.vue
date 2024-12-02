@@ -19,8 +19,6 @@ function switchClass() {
       >
         <svg
           class="op-90 [transition:opacity_0.2s_ease] hover:op-100"
-          width="16"
-          height="32"
           viewBox="0 0 16 32"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

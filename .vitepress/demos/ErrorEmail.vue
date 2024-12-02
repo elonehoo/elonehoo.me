@@ -78,6 +78,7 @@ label > [aria-hidden] {
 }
 
 input {
+  --at-apply: dark:text-dark text-light;
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 0.2rem solid var(--color);

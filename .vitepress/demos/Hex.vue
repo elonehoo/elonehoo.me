@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { get, initCanvas, noop, pick, r30, r60, range, shuffle } from '~/utils'
-import type { Vector } from '~/utils'
+import type { Vector } from './utils/vector'
+import HexToggle from './components/HexToggle.vue'
+import HexTurns from './components/HexTurns.vue'
+import { noop, range, shuffle } from './utils'
+import { initCanvas } from './utils/canvas'
+import { get, pick, r30, r60 } from './utils/vector'
 
 const el = ref<HTMLCanvasElement | null>(null)
 
@@ -135,10 +139,10 @@ onMounted(() => {
 
 <template>
   <div class="py-1 flex justify-end">
-    <Turns v-model="mode" class="inline-block mr-2" :options="patterns" />
-    <Toggle v-model="showHexagon" class="inline-block mr-2">
+    <HexTurns v-model="mode" class="inline-block mr-2" :options="patterns" />
+    <HexToggle v-model="showHexagon" class="inline-block mr-2">
       hex
-    </Toggle>
+    </HexToggle>
   </div>
   <CraftBox>
     <paper>

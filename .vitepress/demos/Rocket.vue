@@ -12,7 +12,7 @@ const streakSpeed = computed(() => (fast.value ? '0.5s' : '2s'))
       @mouseleave="fast = false"
     >
       <span class="rocket" :class="{ shake: fast, move: !fast }">
-        <div class="h-12 w-12 -rotate-90 i-ph-rocket-duotone" />
+        <div class="h-6 w-6 -rotate-90 i-ph-rocket-duotone" />
       </span>
       <span
         v-for="n in 5"

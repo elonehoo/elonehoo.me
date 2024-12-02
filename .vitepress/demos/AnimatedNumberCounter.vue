@@ -33,9 +33,6 @@ onMounted(() => {
         >
           Start Counter
         </button>
-        <p class="text-xs mt-2 text-gray-900 dark:text-white">
-          or start the counter when this component is in the viewport
-        </p>
       </div>
     </div>
   </CraftBox>

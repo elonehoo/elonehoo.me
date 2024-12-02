@@ -3,72 +3,48 @@ import {
   presetAttributify,
   presetIcons,
   presetUno,
-  presetWebFonts,
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
+import { presetAnimations } from 'unocss-preset-animations'
+
+function generateScale(name: string) {
+  const scale = Array.from({ length: 12 }, (_, i) => {
+    const id = i + 1
+    return [
+      [id, `var(--${name}-${id})`],
+      [`a${id}`, `var(--${name}A-${id})`],
+    ]
+  }).flat()
+
+  return Object.fromEntries(scale)
+}
 
 export default defineConfig({
   rules: [
-    [/^slide-enter-(\d+)$/, ([_, n]) => ({
-      '--enter-stage': n,
-    })],
+    [/^scrollbar-hide$/, ([_]) => {
+      return `.scrollbar-hide{scrollbar-width:none}
+.scrollbar-hide::-webkit-scrollbar{display:none}`
+    }],
+    [/^scrollbar-default$/, ([_]) => {
+      return `.scrollbar-default{scrollbar-width:auto}
+.scrollbar-default::-webkit-scrollbar{display:block}`
+    }],
   ],
   theme: {
-    maxWidth: {
-      main: '750px',
-    },
-    height: {
-      header: '64px',
-      footer: '50px',
+    colors: {
+      gray: generateScale('gray'),
+      action: '#B3FC03',
     },
   },
   presets: [
     presetUno(),
     presetAttributify(),
-    presetWebFonts({
-      fonts: {
-        sans: 'Inter:400,600,800',
-        mono: 'DM Mono:400,600',
-      },
-    }),
-    presetIcons({
-      warn: true,
-      extraProperties: {
-        'width': '1.23rem',
-        'height': '1.23rem',
-        'display': 'inline-block',
-        'vertical-align': 'text-bottom',
-      },
-    }),
+    presetAnimations(),
+    presetIcons(),
   ],
   transformers: [
     transformerVariantGroup(),
     transformerDirectives(),
-  ],
-  blocklist: ['me'],
-  safelist: [
-    'i-ri-sun-line',
-    'i-ri-moon-line',
-    'i-ri-github-line',
-    'i-ri-discord-line',
-    'i-ri-facebook-line',
-    'i-ri-instagram-line',
-    'i-ri-linkedin-line',
-    'i-ri-mastodon-line',
-    'i-ri-slack-line',
-    'i-ri-twitter-line',
-    'i-ri-youtube-line',
-    'i-ri-zhihu-line',
-    'i-ri-bilibili-line',
-    'i-ri-bookmark-line',
-    'i-ri-group-line',
-    'i-ri-sticky-note-line',
-    'i-ri-twitter-x-line',
-    'i-ri-article-line',
-    'i-ri-lightbulb-line',
-    'i-ri-screenshot-line',
-    'i-ri-gallery-line',
-    'i-la-rss-square',
   ],
 })

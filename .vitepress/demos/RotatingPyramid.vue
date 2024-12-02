@@ -18,13 +18,13 @@
 
 <style scoped>
 .rotating-pyramid-loader {
-  @apply relative w-[300px] h-[300px] block;
+  --at-apply: relative w-[300px] h-[300px] block;
   transform-style: preserve-3d;
   transform: rotateX(-20deg);
 }
 
 .rotating-pyramid-wrapper {
-  @apply relative w-full h-full animate-[rotating-pyramid-spin_4s_linear_infinite];
+  --at-apply: relative w-full h-full animate-[rotating-pyramid-spin_4s_linear_infinite];
   transform-style: preserve-3d;
 }
 @keyframes rotating-pyramid-spin {
@@ -33,7 +33,7 @@
   }
 }
 .rotating-pyramid-loader .rotating-pyramid-wrapper .rotating-pyramid-side {
-  @apply w-[70px] h-[70px] absolute origin-[center_top] m-auto inset-0;
+  --at-apply: w-[70px] h-[70px] absolute origin-[center_top] m-auto inset-0;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 .rotating-pyramid-loader .rotating-pyramid-wrapper .rotating-pyramid-side1 {
@@ -53,7 +53,7 @@
   background: conic-gradient(#2bdeac, #f028fd, #d8cce6, #2f2585);
 }
 .rotating-pyramid-loader .rotating-pyramid-wrapper .rotating-pyramid-shadow {
-  @apply w-[60px] h-[60px] absolute blur-md m-auto inset-0;
+  --at-apply: w-[60px] h-[60px] absolute blur-md m-auto inset-0;
   background: #8b5ad5;
   transform: rotateX(90deg) translateZ(-40px);
 }

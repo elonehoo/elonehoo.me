@@ -5,7 +5,7 @@
   <CraftBox>
     <div>
       <span
-        text-8xl
+        text-5xl
         color="transparent hover:dark dark:hover:white"
         transition="all"
         duration="300"

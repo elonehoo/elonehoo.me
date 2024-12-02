@@ -26,10 +26,10 @@
 i {
   display: block;
   position: absolute;
-  width: 140px;
-  height: 140px;
-  left: -70px;
-  top: -70px;
+  width: 100px;
+  height: 100px;
+  left: -40px;
+  top: -40px;
   border-radius: 140px;
   opacity: 0;
   animation-name: scale;

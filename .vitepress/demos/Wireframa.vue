@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import type { Vector } from './utils/vector'
 import { timestamp } from '@vueuse/shared'
-import { initCanvas, pick, r30, r60, r90, range, shuffle, SQRT_3 } from '~/utils'
-import type { Vector } from '~/utils'
+import HexTurns from './components/HexTurns.vue'
+import { range, shuffle } from './utils'
+import { initCanvas } from './utils/canvas'
+import { pick, r30, r60, r90, SQRT_3 } from './utils/vector'
 
 const el = ref<HTMLCanvasElement | null>(null)
 
@@ -166,7 +169,7 @@ onMounted(() => {
 
 <template>
   <div class="flex justify-end">
-    <Turns v-model="speedLevel" class="inline-block mr-2" :options="speeds" />
+    <HexTurns v-model="speedLevel" class="inline-block mr-2" :options="speeds" />
   </div>
   <CraftBox>
     <paper>

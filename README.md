@@ -8,3 +8,6 @@ my personal website powered by [VitePress](https://vitepress.dev/)
 
 Credits
 - [antfu/antfu.me](https://github.com/antfu/antfu.me)
+- [moeyua/astro-theme-typography](https://blog.moeyua.com/)
+- [emilkowal.ski](https://emilkowal.ski/)
+- [anyway.fm](https://anyway.fm/)

@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { timestamp, useRafFn } from '@vueuse/core'
 import { onMounted, ref } from 'vue'
-import { distance, initCanvas, random, toHex } from '~/utils'
+import { random } from './utils'
+import { initCanvas } from './utils/canvas'
+import { toHex } from './utils/colors'
+import { distance } from './utils/vector'
 
 const el = ref<HTMLCanvasElement | null>(null)
 
@@ -64,7 +67,7 @@ onMounted(async () => {
   <CraftBox>
     <paper>
       <div class="overflow-hidden">
-        <canvas ref="el" width="400" height="400" />
+        <canvas ref="el" width="450" height="400" />
       </div>
     </paper>
   </CraftBox>
