@@ -31,6 +31,7 @@ export default defineConfig({
         '../.vitepress/demos',
         '../theme/components',
         '../theme/pages',
+        '../theme/global',
       ],
       dts: '../components.d.ts',
       directoryAsNamespace: true,

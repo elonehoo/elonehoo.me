@@ -6,10 +6,8 @@ duration: 5min
 meta: 'View Prototype'
 ---
 
-
-
 <ClientOnly>
-  <GraphSlider />
+  <!-- <GraphSlider /> -->
 </ClientOnly>
 
 <br />

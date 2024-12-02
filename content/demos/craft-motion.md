@@ -6,12 +6,9 @@ duration: 5min
 meta: 'View Prototype'
 ---
 
-
-
 <Motion />
 
 <br />
-
 
 **Acknowledgements**
 

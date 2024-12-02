@@ -74,11 +74,10 @@
 
 /* img */
 .prose-md img {
-  --at-apply: w-full;
+  --at-apply: w-full rounded-md;
 }
 .prose-md p > img {
-  --at-apply: w-full shadow rounded-lg my-[2.6em];
-  transform: scale(1.05);
+  --at-apply: w-full shadow rounded-md my-1;
 }
 
 /* Table */

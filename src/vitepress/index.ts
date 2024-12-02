@@ -1,6 +1,6 @@
 import type { Theme } from 'vitepress'
-import App from './components/App.vue'
 import { withConfigProvider } from './composables/config'
+import App from './layout/App.vue'
 
 import '../core/styles/index.css'
 

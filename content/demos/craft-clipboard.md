@@ -6,8 +6,4 @@ duration: 5min
 meta: 'View Prototype'
 ---
 
-
-
 <Clipboard />
-
-<br />
