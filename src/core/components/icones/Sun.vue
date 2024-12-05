@@ -3,8 +3,7 @@
 </script>
 
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="injected-svg" data-src="https://cdn.hugeicons.com/icons/sun-01-stroke-rounded.svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" color="#000000">
-    <path d="M17 12C17 14.7614 14.7614 17 12 17C9.23858 17 7 14.7614 7 12C7 9.23858 9.23858 7 12 7C14.7614 7 17 9.23858 17 12Z" stroke="#000000" stroke-width="1.5" />
-    <path d="M11.9955 3H12.0045M11.9961 21H12.0051M18.3588 5.63599H18.3678M5.63409 18.364H5.64307M5.63409 5.63647H5.64307M18.3582 18.3645H18.3672M20.991 12.0006H21M3 12.0006H3.00898" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="injected-svg" data-src="https://cdn.hugeicons.com/icons/uv-01-stroke-standard.svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" color="#ffffff">
+    <path d="M3.56961 11.5931L6.5 9.5L5.80987 6.40474C5.73013 6.0471 6.04947 5.72799 6.40706 5.808L9.5 6.5L11.5953 3.56943C11.7949 3.29034 12.2098 3.29053 12.409 3.5698L14.5 6.5L17.597 5.80797C17.9548 5.72801 18.2741 6.04758 18.1939 6.40533L17.5 9.5L20.4304 11.5931C20.7096 11.7926 20.7096 12.2075 20.4304 12.4069L17.5 14.5L18.1939 17.5947C18.2741 17.9524 17.9548 18.272 17.597 18.192L14.5 17.5L12.409 20.4302C12.2098 20.7095 11.7949 20.7097 11.5953 20.4306L9.5 17.5L6.40706 18.192C6.04947 18.272 5.73013 17.9529 5.80987 17.5953L6.5 14.5L3.56961 12.4069C3.29044 12.2075 3.29044 11.7926 3.56961 11.5931Z" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round" />
   </svg>
 </template>
