@@ -13,7 +13,10 @@ const props = defineProps<{
     <Link :to="props.link" target="_blank">
       <slot />
     </Link>
-    <div v-if="props.icon !== undefined" class="group-hover:opacity-100 opacity-0 absolute -right-4 bottom-[5px] rounded-sm bg-action shrink-0 block w-3 h-3 text-white">
+    <div
+      v-if="props.icon !== undefined"
+      class="group-hover:opacity-100 opacity-0 absolute -right-5.5 bottom-[5px] rounded-sm bg-action shrink-0 block p-px w-4 h-4 text-white"
+    >
       <Icones :name="props.icon" />
     </div>
   </div>
