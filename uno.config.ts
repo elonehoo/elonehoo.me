@@ -34,7 +34,7 @@ export default defineConfig({
   theme: {
     colors: {
       gray: generateScale('gray'),
-      action: '#B3FC03',
+      action: 'hsl(var(--theme-action))',
     },
   },
   presets: [
