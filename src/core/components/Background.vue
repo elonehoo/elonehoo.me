@@ -12,7 +12,7 @@
 
 <style scoped>
 .background {
-  background-image: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, .83)), url(/noise.svg), linear-gradient(hsl(var(--theme-action)) 1px, transparent 0), linear-gradient(90deg, hsl(var(--theme-action)) 1px, #fff 0);
+  background-image: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, .63)), url(/noise.svg), linear-gradient(hsl(var(--theme-action)) 1px, transparent 0), linear-gradient(90deg, hsl(var(--theme-action)) 1px, #fff 0);
   background-size: auto, auto, 20px 20px, 20px 20px;
 }
 

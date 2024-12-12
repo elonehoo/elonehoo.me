@@ -18,7 +18,7 @@
   --at-apply:
     flex select-none my-8 w-[calc(100%-6px)] mx-auto rounded-md
     border-none transition-colors duration-100 ease-out flex-col
-    h-0.5 bg-gray-12;
+    h-0.5 bg-gray-4 dark:bg-gray-12;
 }
 
 .prose-md p {
