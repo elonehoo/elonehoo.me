@@ -5,7 +5,7 @@
 .prose-md a{
   --at-apply:
     items-center gap-x-0.5 w-fit cursor-pointer relative inline-flex
-    rounded-sm hover:bg-action hover:text-gray-12
+    rounded-sm hover:bg-action hover:text-gray-1 dark:hover:text-gray-12
     after:content-[''] after:absolute after:bottom-px after:left-0
     after:w-full after:h-px after:bg-action;
 }
