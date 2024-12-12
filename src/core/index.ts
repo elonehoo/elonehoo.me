@@ -5,5 +5,7 @@ export { default as CustomContent } from './components/CustomContent.vue'
 
 export { default as Icones } from './components/icones/Icones.vue'
 
+export * from './composables/appearance'
+
 export * from './types/menu'
 export * from './types/socialLink'

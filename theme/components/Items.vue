@@ -13,7 +13,7 @@ const props = defineProps<{
       <Link :to="props.record.url" target="_self">
         {{ props.record.title }}
       </Link>
-      <time class="text-gray-9 group-hover:text-gray-1">
+      <time class="text-gray-9 group-hover:text-gray-12 dark:group-hover:text-gray-1">
         {{ dayjs(props.record.date).format('M月D日') }}
       </time>
     </div>

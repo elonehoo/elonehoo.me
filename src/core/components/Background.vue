@@ -11,15 +11,13 @@
 </template>
 
 <style scoped>
-  .background {
-    background-image: linear-gradient(90deg, #fefefe, rgba(255, 255, 255, .83)), url(/noise.svg), linear-gradient(#b3fc03 1px, transparent 0), linear-gradient(90deg, #b3fc03 1px, #fff 0);
-    background-size: auto, auto, 20px 20px, 20px 20px;
-  }
+.background {
+  background-image: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, .63)), url(/noise.svg), linear-gradient(hsl(var(--theme-action)) 1px, transparent 0), linear-gradient(90deg, hsl(var(--theme-action)) 1px, #fff 0);
+  background-size: auto, auto, 20px 20px, 20px 20px;
+}
 
-  @media (prefers-color-scheme: dark) {
-    .background {
-      background-image: linear-gradient(90deg, #101010, rgba(0, 0, 0, .83)), url(/noise.svg), linear-gradient(#b3fc03 1px, transparent 0), linear-gradient(90deg, #b3fc03 1px, #000 0);
-      background-size: auto, auto, 20px 20px, 20px 20px;
-    }
-  }
+.dark .background {
+  background-image: linear-gradient(90deg, #101010, rgba(0, 0, 0, .83)), url(/noise.svg), linear-gradient(hsl(var(--theme-action)) 1px, transparent 0), linear-gradient(90deg, hsl(var(--theme-action)) 1px, #000 0);
+  background-size: auto, auto, 20px 20px, 20px 20px;
+}
 </style>

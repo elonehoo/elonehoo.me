@@ -5,8 +5,10 @@ import GitHubIcon from './GitHub.vue'
 import InstagramIcon from './Instagram.vue'
 import LeftIcon from './Left.vue'
 import MastodonIcon from './Mastodon.vue'
+import MoonIcon from './Moon.vue'
 import RightIcon from './Right.vue'
 import RSSIcon from './RSS.vue'
+import SunIcon from './Sun.vue'
 import XIcon from './X.vue'
 
 const props = defineProps<{
@@ -23,6 +25,8 @@ const icons: Record<string, any> = {
   RSS: RSSIcon,
   Right: RightIcon,
   Left: LeftIcon,
+  moon: MoonIcon,
+  sun: SunIcon,
 }
 </script>
 
