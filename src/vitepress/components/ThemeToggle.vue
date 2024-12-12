@@ -6,12 +6,12 @@ const { toggleDark, isDark } = useAppearance()
 const iconName = computed(() => {
   return isDark.value
     ? {
-        text: '亮色模式',
-        value: 'sun',
-      }
-    : {
         text: '暗色模式',
         value: 'moon',
+      }
+    : {
+        text: '亮色模式',
+        value: 'sun',
       }
 })
 </script>
