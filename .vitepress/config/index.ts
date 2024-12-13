@@ -4,6 +4,7 @@ import { defineConfigWithTheme } from 'vitepress'
 import baseConfig from '../../src/vitepress/config/baseConfig'
 
 import ViteConfig from '../../vite.config'
+import { genFeed } from '../plugins/rss'
 import { head } from './head'
 import { nav } from './nav'
 
@@ -26,6 +27,7 @@ export default defineConfigWithTheme<ThemeConfig>({
   ignoreDeadLinks: true,
 
   outDir: './dist',
+  buildEnd: genFeed,
 
   markdown: {
     theme: {

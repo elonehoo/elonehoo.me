@@ -31,6 +31,7 @@
     "@unocss/reset": "^0.65.1",
     "dayjs": "^1.11.13",
     "eslint": "^9.16.0",
+    "feed": "^4.2.2",
     "markdown-it": "^14.1.0",
     "three": "^0.171.0",
     "unocss-preset-animations": "^1.1.0",
