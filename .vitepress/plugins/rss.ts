@@ -7,23 +7,37 @@ const baseUrl = `https://elonehoo.me`
 
 export async function genFeed(config: SiteConfig) {
   const feed = new Feed({
-    title: 'The Vue Point',
-    description: 'The official blog for the Vue.js project',
+    title: 'elonehoo.me',
+    description: '我们会成为朋友的，对吧 ？',
     id: baseUrl,
     link: baseUrl,
-    language: 'en',
+    language: 'zh-cn',
     image: 'https://elonehoo.me/me/avatar.png',
     favicon: `${baseUrl}/me/favicon.png`,
     copyright:
-      'Copyright (c) 2022-present, Elone Hoo',
+      'CC BY-NC-SA 4.0 2022-present, Elone Hoo',
   })
 
   const posts = await createContentLoader('posts/*.md', {
     excerpt: true,
     render: true,
   }).load()
+  const demos = await createContentLoader('demos/*.md', {
+    excerpt: true,
+    render: true,
+  }).load()
+  const notes = await createContentLoader('notes/*.md', {
+    excerpt: true,
+    render: true,
+  }).load()
+  const talks = await createContentLoader('talks/*.md', {
+    excerpt: true,
+    render: true,
+  }).load()
 
-  posts.sort(
+  const allPosts = [...posts, ...demos, ...notes, ...talks]
+
+  allPosts.sort(
     (a, b) =>
       +new Date(b.frontmatter.date as string)
       - +new Date(a.frontmatter.date as string),
