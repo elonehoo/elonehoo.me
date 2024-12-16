@@ -3,7 +3,6 @@ title: GitHub Skip CI
 date: 2024-08-19T22:14:00.000+00:00
 lang: zh
 duration: 5min
-layout: 'default'
 ---
 
 记录如何让 GitHub 中的PR在特定的条件之下触发CI
