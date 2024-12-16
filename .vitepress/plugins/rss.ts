@@ -59,5 +59,5 @@ export async function genFeed(config: SiteConfig) {
     })
   }
 
-  writeFileSync(path.join(config.outDir, 'feed.rss'), feed.rss2())
+  writeFileSync(path.join(config.outDir, 'feed.rss'), feed.rss2(), 'utf-8')
 }
