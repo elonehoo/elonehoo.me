@@ -14,8 +14,7 @@ export async function genFeed(config: SiteConfig) {
     language: 'zh-cn',
     image: 'https://elonehoo.me/me/avatar.png',
     favicon: `${baseUrl}/me/favicon.png`,
-    copyright:
-      'CC BY-NC-SA 4.0 2022-present, Elone Hoo',
+    copyright: 'CC BY-NC-SA 4.0 2022-present, Elone Hoo',
   })
 
   const posts = await createContentLoader('posts/*.md', {

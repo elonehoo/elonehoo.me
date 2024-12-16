@@ -74,7 +74,7 @@ export default defineConfigWithTheme<ThemeConfig>({
       },
       {
         icon: 'RSS',
-        link: '/rss.xml',
+        link: '/feed.rss',
       },
     ],
 
