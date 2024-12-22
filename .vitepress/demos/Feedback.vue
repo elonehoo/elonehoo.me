@@ -3,10 +3,10 @@ const selected = ref<number>(1)
 </script>
 
 <template>
-  <CraftBox>
+  <CraftBox class="h-60!">
     <div class="min-h-screen w-full flex justify-center items-center flex-col ">
       <ul class="feedback m-0 p-0 flex [list-style:none]">
-        <li class="angry mr-20px" :class="{ active: selected === 1 }" @click="selected = 1">
+        <li class="angry mr-20px before:content-none! mt-0! pl-0!" :class="{ active: selected === 1 }" @click="selected = 1">
           <div class="w-40px h-40px relative [transform:perspective(240px)_translateZ(4px)]">
             <svg class="eye left">
               <use xlink:href="#eye" />
@@ -19,7 +19,7 @@ const selected = ref<number>(1)
             </svg>
           </div>
         </li>
-        <li class="sad mr-20px" :class="{ active: selected === 2 }" @click="selected = 2">
+        <li class="sad mr-20px before:content-none! mt-0! pl-0!" :class="{ active: selected === 2 }" @click="selected = 2">
           <div class="w-40px h-40px relative [transform:perspective(240px)_translateZ(4px)]">
             <svg class="eye left">
               <use xlink:href="#eye" />
@@ -32,10 +32,10 @@ const selected = ref<number>(1)
             </svg>
           </div>
         </li>
-        <li class="ok mr-20px" :class="{ active: selected === 3 }" @click="selected = 3">
+        <li class="ok mr-20px before:content-none! mt-0! pl-0!" :class="{ active: selected === 3 }" @click="selected = 3">
           <div class="w-40px h-40px relative [transform:perspective(240px)_translateZ(4px)]" />
         </li>
-        <li class="good mr-20px" :class="{ active: selected === 4 }" @click="selected = 4">
+        <li class="good mr-20px before:content-none! mt-0! pl-0!" :class="{ active: selected === 4 }" @click="selected = 4">
           <div class="w-40px h-40px relative [transform:perspective(240px)_translateZ(4px)]">
             <svg class="eye left">
               <use xlink:href="#eye" />
@@ -48,7 +48,7 @@ const selected = ref<number>(1)
             </svg>
           </div>
         </li>
-        <li class="happy" :class="{ active: selected === 5 }" @click="selected = 5">
+        <li class="happy before:content-none! mt-0! pl-0!" :class="{ active: selected === 5 }" @click="selected = 5">
           <div class="w-40px h-40px relative [transform:perspective(240px)_translateZ(4px)]">
             <svg class="eye left">
               <use xlink:href="#eye" />

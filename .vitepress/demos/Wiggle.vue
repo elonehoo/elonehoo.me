@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <CraftBox>
+  <CraftBox class="h-60!">
     <div class="absolute left-1/2 top-1/2">
       <b
         v-for="i in 15"

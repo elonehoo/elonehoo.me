@@ -307,7 +307,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <CraftBox>
+  <CraftBox class="h-60!">
     <canvas id="canvas" />
   </CraftBox>
 </template>

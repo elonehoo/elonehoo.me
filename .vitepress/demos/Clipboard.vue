@@ -64,7 +64,7 @@ function switchClass() {
 }
 </style>
 
-<style scoped>
+<style>
 .clipboard.copied svg path.check {
   stroke-dasharray: 16;
 }

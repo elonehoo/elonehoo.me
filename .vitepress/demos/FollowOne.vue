@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <CraftBox>
+  <CraftBox class="h-80!">
     <div class="assembly follow_one" style="--n: 12">
       <div
         v-for="i in 12"

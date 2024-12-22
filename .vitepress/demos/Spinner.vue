@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <CraftBox>
+  <CraftBox class="h-60!">
     <div class="absolute top-1/2 left-1/2 z-2 perspective-200 spinner color">
       <i
         v-for="i in 100"

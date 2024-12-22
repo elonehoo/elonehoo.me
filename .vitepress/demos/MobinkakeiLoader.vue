@@ -10,9 +10,9 @@
   </CraftBox>
 </template>
 
-<style scoped>
+<style>
 .mobinkakei-loader {
-  --at-apply: absolute w-full h-full rounded-[30px];
+  --at-apply: absolute w-8/10 h-8/10 rounded-[30px];
 }
 .mobinkakei-loader-glowing {
   --at-apply: z-[2] bg-[rgba(255,255,255,0.2)] border-2 border-solid border-[rgba(0,0,0,0.3)] dark:border-[rgba(255,255,255,0.3)];

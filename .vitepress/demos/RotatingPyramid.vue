@@ -16,7 +16,7 @@
   </CraftBox>
 </template>
 
-<style scoped>
+<style>
 .rotating-pyramid-loader {
   --at-apply: relative w-[300px] h-[300px] block;
   transform-style: preserve-3d;

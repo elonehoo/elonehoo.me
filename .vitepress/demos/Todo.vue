@@ -65,7 +65,7 @@ const selected = ref<string[]>(['1'])
   </CraftBox>
 </template>
 
-<style scoped>
+<style>
 .box{
   --firework-color: #000;
 }

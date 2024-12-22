@@ -8,9 +8,15 @@
   </CraftBox>
 </template>
 
-<style scoped>
+<style>
 .climb-slope {
-  --at-apply: relative text-base w-[5.5em] h-[5.5em] before:content-[''] before:absolute before:-translate-x-2/4 before:-translate-y-2/4 before:rotate-45 before:h-full before:w-1 before:left-2/4 before:top-2/4 after:content-[''] after:absolute after:w-[1em] after:h-[1em] after:bg-[orange] after:animate-[rollingRock_2.5s_cubic-bezier(.79,0,0.47,0.97)_infinite] after:rounded-[15%] after:left-[0.2em] after:bottom-[0.18em];
+  --at-apply:
+  relative text-base w-[5.5em] h-[5.5em] before:content-['']
+  before:absolute before:-translate-x-2/4 before:-translate-y-2/4
+  before:rotate-45 before:h-full before:w-1 before:left-2/4 before:top-2/4
+  after:content-[''] after:absolute after:w-[1em] after:h-[1em] after:bg-[orange]
+  after:animate-[rollingRock_2.5s_cubic-bezier(.79,0,0.47,0.97)_infinite] after:rounded-[15%]
+  after:left-[0.2em] after:bottom-[0.18em];
 }
 .climb-slope:before {
   background: #000;

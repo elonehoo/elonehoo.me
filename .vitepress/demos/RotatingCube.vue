@@ -8,7 +8,7 @@
   </CraftBox>
 </template>
 
-<style scoped>
+<style>
 .rotating-cube {
   --at-apply: w-12 h-12 relative m-auto before:content-[''] before:w-12 before:h-[5px] before:absolute before:animate-[rotating-cube-shadow_0.5s_linear_infinite] before:rounded-[50%] before:left-0 before:top-[60px] after:content-[''] after:w-full after:h-full after:absolute after:rounded after:animate-[rotating-cube-jump_0.5s_linear_infinite] after:left-0 after:top-0;
 }

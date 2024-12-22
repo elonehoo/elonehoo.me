@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <CraftBox>
+  <CraftBox class="h-60!">
     <div class="system">
       <div class="glass" />
     </div>
