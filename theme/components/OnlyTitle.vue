@@ -9,7 +9,7 @@ const props = withDefaults(defineProps<{
 const size = computed<string>(() => {
   return props.size === 'sm'
     ? 'text-3em top-0'
-    : 'text-8em top--3rem'
+    : 'text-8em top-1rem'
 })
 </script>
 

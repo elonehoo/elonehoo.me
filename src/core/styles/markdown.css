@@ -1,5 +1,5 @@
 .prose-md {
-  --at-apply: prose mt-4;
+  --at-apply: prose mt-4 text-base;
 }
 
 .prose-md a{

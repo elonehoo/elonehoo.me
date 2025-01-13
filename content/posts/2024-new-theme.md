@@ -28,7 +28,7 @@ duration: 5min
 
 ## 代码目录的变化
 
-之前的仓库中对于目录的分类其实是非常不正确的，太过于杂乱了。而在设计新主题之前，我给 [Destyler](https://github.com/destyler) 完成了一个较为满意 [Vitepress](https://github.com/destyler/vitepress-theme) 主题，让我对于 [Vitepress](https://vitepress.dev/) 自定义主题有了更胜层次的理解。
+之前的仓库中对于目录的分类其实是非常不正确的，太过于杂乱了。而在设计新主题之前，我给 [Destyler](https://github.com/destyler) 完成了一个较为满意 [Vitepress](https://github.com/destyler/vitepress-theme) 主题，让我对于 [Vitepress](https://vitepress.dev/) 自定义主题有了更深层次的理解。
 
 所以如果你想知道现在的目录层级是怎么样的，可以查看 [elonehoo/elonehoo.me](https://github.com/elonehoo/elonehoo.me) 仓库，可以发现与上一个版本之前的差异就是，在根目录中不再有过多的内容文件，而是分类的清清楚楚。
 
