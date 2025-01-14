@@ -1,4 +1,4 @@
-import type { Post } from './post.data'
+import type { Post } from './posts.data'
 import dayjs from 'dayjs'
 import { createContentLoader } from 'vitepress'
 

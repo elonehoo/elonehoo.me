@@ -1,6 +1,17 @@
-import type { Post } from './post.data'
 import dayjs from 'dayjs'
 import { createContentLoader } from 'vitepress'
+
+export interface Post {
+  title: string
+  lang: string
+  url: string
+  date: string
+  img: string
+  excerpt: any
+  time: string
+  duration: string
+  frontmatter: any
+}
 
 declare const data: Post[]
 export { data }

@@ -1,6 +1,16 @@
-import type { Note } from './note.data'
 import dayjs from 'dayjs'
 import { createContentLoader } from 'vitepress'
+
+export interface Note {
+  title: string
+  lang: string
+  url: string
+  date: string
+  excerpt: any
+  time: string
+  duration: string
+  frontmatter: any
+}
 
 declare const data: Note[]
 export { data }
