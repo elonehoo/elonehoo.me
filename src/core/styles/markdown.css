@@ -27,15 +27,27 @@
 }
 
 .prose-md h1 {
-  --at-apply: font-medium flex items-center gap-x-1.5 text-18px pt-2;
+  --at-apply: font-medium flex items-center gap-x-1.5 text-20px pt-2 relative;
+}
+.prose-md h1::before {
+  --at-apply: text-gray-400 text-sm mr-2;
+  content: "#";
 }
 
 .prose-md h2 {
-  --at-apply: font-medium flex items-center gap-x-1.5 text-16px pt-2;
+  --at-apply: font-medium flex items-center gap-x-1.5 text-18px pt-2 relative;
+}
+.prose-md h2::before {
+  --at-apply: text-gray-400 text-sm mr-2;
+  content: "##";
 }
 
 .prose-md h3 {
-  --at-apply: font-medium flex items-center gap-x-1.5 text-14px pt-2;
+  --at-apply: font-medium flex items-center gap-x-1.5 text-16px pt-2 relative;
+}
+.prose-md h3::before {
+  --at-apply: text-gray-400 text-sm mr-2;
+  content: "###";
 }
 
 /* blockquote */
