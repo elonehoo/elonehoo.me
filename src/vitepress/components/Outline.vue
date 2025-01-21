@@ -15,7 +15,7 @@ watch(copied, (newValue) => {
     showToast.value = true
     setTimeout(() => {
       showToast.value = false
-    }, 1000)
+    }, 1500)
   }
 })
 
@@ -40,15 +40,3 @@ const { config } = useConfig()
   </AsideItem>
   <Toast :show="showToast" text="已复制到剪贴板!" />
 </template>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>

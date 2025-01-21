@@ -19,7 +19,7 @@ const props = defineProps<{
 <style scoped>
 .toast-enter-active,
 .toast-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .toast-enter-from,
