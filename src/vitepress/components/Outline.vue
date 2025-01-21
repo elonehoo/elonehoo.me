@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { AsideItem, Toast } from '../../core'
 import { useConfig } from '../composables/config'
-import CopyToast from './CopyToast.vue'
 
 const clipboard = ref(`${window.location.href}feed.rss`)
 const showToast = ref(false)
