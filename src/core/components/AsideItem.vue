@@ -6,11 +6,15 @@ const props = defineProps<{
   link?: string
   icon?: string
 }>()
+
+const isExternalLink = computed(() => {
+  return props.link?.startsWith('http://') || props.link?.startsWith('https://')
+})
 </script>
 
 <template>
   <div class="group relative text-gray-9 hover:text-gray-12 dark:hover:text-gray-1">
-    <Link :to="props.link" target="_blank">
+    <Link :to="props.link" :target="isExternalLink ? '_blank' : undefined">
       <slot />
     </Link>
     <div
