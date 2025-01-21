@@ -72,10 +72,6 @@ export default defineConfigWithTheme<ThemeConfig>({
         icon: 'Follow',
         link: 'https://app.follow.is/profile/@elonehoo',
       },
-      {
-        icon: 'RSS',
-        link: '/feed.rss',
-      },
     ],
 
     footer: {
