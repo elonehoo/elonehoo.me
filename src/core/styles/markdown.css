@@ -26,7 +26,6 @@
     my-2 leading-loose;
 }
 
-/* 统一标题样式 */
 .prose-md :is(h1, h2, h3, h4, h5, h6) {
   --at-apply: font-medium flex items-center gap-x-1.5 relative pt-2 text-18px;
 }
