@@ -63,7 +63,11 @@ duration: 5min
 
 ## RSS
 
-之前的 RSS 文件，在明星产品 [Follow](https://app.follow.is) 上访问是有问题的，在新博客的 [RSS](/feed.rss) 文件中，将会更加的完善，让用户可以更好的订阅。
+之前的 RSS 文件，在明星产品 [Follow](https://app.follow.is) 上访问是有问题的，在新博客的 RSS 文件中，将会更加的完善，让用户可以更好的订阅。
+
+## 感谢
+
+除了上面感谢的人，还要感谢 [Libon](https://github.com/libondev)，他以非常熟练的见解解决了很多我无法发现的问题，[#106](https://github.com/elonehoo/elonehoo.me/issues/106), [#105](https://github.com/elonehoo/elonehoo.me/issues/105)。十分感谢他的细心让我可以更好的完成这次的更新。
 
 ## 后续的更新
 
