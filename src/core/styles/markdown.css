@@ -26,29 +26,21 @@
     my-2 leading-loose;
 }
 
-.prose-md h1 {
-  --at-apply: font-medium flex items-center gap-x-1.5 text-20px pt-2 relative;
-}
-.prose-md h1::before {
-  --at-apply: text-gray-400 text-sm mr-2;
-  content: "#";
+/* 统一标题样式 */
+.prose-md :is(h1, h2, h3, h4, h5, h6) {
+  --at-apply: font-medium flex items-center gap-x-1.5 relative pt-2 text-18px;
 }
 
-.prose-md h2 {
-  --at-apply: font-medium flex items-center gap-x-1.5 text-18px pt-2 relative;
-}
-.prose-md h2::before {
+.prose-md :is(h1, h2, h3, h4, h5, h6)::before {
   --at-apply: text-gray-400 text-sm mr-2;
-  content: "##";
 }
 
-.prose-md h3 {
-  --at-apply: font-medium flex items-center gap-x-1.5 text-16px pt-2 relative;
-}
-.prose-md h3::before {
-  --at-apply: text-gray-400 text-sm mr-2;
-  content: "###";
-}
+.prose-md h1::before { content: "#"; }
+.prose-md h2::before { content: "##"; }
+.prose-md h3::before { content: "###"; }
+.prose-md h4::before { content: "####"; }
+.prose-md h5::before { content: "#####"; }
+.prose-md h6::before { content: "######"; }
 
 /* blockquote */
 .prose-md blockquote {
