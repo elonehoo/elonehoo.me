@@ -1,7 +1,8 @@
+import type { SiteConfig } from 'vitepress'
 import { writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { Feed } from 'feed'
-import { createContentLoader, type SiteConfig } from 'vitepress'
+import { createContentLoader } from 'vitepress'
 
 const baseUrl = `https://elonehoo.me`
 
