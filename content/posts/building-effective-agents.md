@@ -8,7 +8,7 @@ description:
 
 > 最近《Building effective agents》这篇文章高频的出现在我的feed流中，因此我决定翻译一下这篇文章。
 >
-> 原文地址：https://www.anthropic.com/research/building-effective-agents
+> 原文地址：[anthropic/building-effective-agents](https://www.anthropic.com/research/building-effective-agents)
 
 在过去的一年中，我们和多个团队合作，一起构建了跨行业的 LLMs 的 Agents 。
 我们发现那些最成功的智能体的实现，并没使用了复杂的架构或者专用的代码库。
