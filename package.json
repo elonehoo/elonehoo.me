@@ -16,7 +16,7 @@
     "@vueuse/core": "^12.7.0",
     "destyler": "^0.0.6",
     "tiny-decode": "^0.1.3",
-    "unocss": "^65.5.0",
+    "unocss": "^66.0.0",
     "vitepress": "^1.6.3",
     "vue": "^3.5.13"
   },
@@ -28,7 +28,7 @@
     "@types/node": "^22.13.5",
     "@types/three": "^0.173.0",
     "@types/youtube-player": "^5.5.11",
-    "@unocss/reset": "^65.5.0",
+    "@unocss/reset": "^66.0.0",
     "dayjs": "^1.11.13",
     "eslint": "^9.21.0",
     "feed": "^4.2.2",
