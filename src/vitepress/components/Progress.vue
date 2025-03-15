@@ -8,28 +8,18 @@ onMounted(() => {
     const scrollEl = document.documentElement
     const scrollTop = window.pageYOffset || scrollEl.scrollTop || document.body.scrollTop
     const curScrollPer = scrollTop / (scrollEl.getBoundingClientRect().height - scrollEl.clientHeight) * 100
-    percent.value = Number(curScrollPer.toFixed(0))
+    percent.value = Number(curScrollPer.toFixed(2))
   }
 })
-
-function scrollTop() {
-  document.documentElement.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start',
-  })
-}
 </script>
 
 <template>
   <div
-    v-show="percent"
-    :style="{ opacity: percent / 40 }"
-    class="font-normal hover:op100! transition-opacity ease transition-300 fixed z-10 right-8 bottom-8 cursor-pointer flex flex-col items-center"
-    @click="scrollTop"
+    class="fixed right-0 top-0 h-full w-1 z-10"
   >
-    <div class="i-ph:caret-up-light size-1.8rem" />
-    <div class="w10 text-center font-mono">
-      {{ percent }}%
-    </div>
+    <div
+      class="bg-action transition-all duration-300 w-full"
+      :style="{ height: `${percent}%` }"
+    />
   </div>
 </template>
