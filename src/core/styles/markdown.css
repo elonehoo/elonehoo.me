@@ -57,22 +57,43 @@
 }
 
 /* ol */
-.prose-md ol > li {
-  --at-apply: relative pl-1.75em;
+.prose-md ol {
+  --at-apply: my-2 pl-1;
 }
+
+.prose-md ol > li {
+  --at-apply: relative pl-0.95em;
+}
+
 .prose-md ol > li::before {
-  --at-apply: absolute font-400 text-action left-0;
+  --at-apply: absolute font-500 text-action left-0;
   content: counter(list-item, var(--list-counter-style, decimal)) ".";
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* ul */
-.prose-md ul > li {
-  --at-apply: pl-5 relative mt-1.5;
+.prose-md ul {
+  --at-apply: my-2 pl-1;
 }
+
+.prose-md ul > li {
+  --at-apply: pl-1.75em relative mt-1;
+}
+
 .prose-md ul > li::before {
-  --at-apply: absolute content-[""] bg-action rounded-full w-2 h-2;
-  top: 0.455em;
-  left: 0.455em;
+  --at-apply: absolute content-[""] bg-action rounded-full w-1.75 h-1.75;
+  top: 50%;
+  left: 0.75em;
+  transform: translateY(-50%);
+}
+
+/* 嵌套列表样式 */
+.prose-md ul ul,
+.prose-md ol ol,
+.prose-md ul ol,
+.prose-md ol ul {
+  --at-apply: mt-1 mb-0;
 }
 
 /* img */
@@ -94,7 +115,7 @@ table {
 }
 
 .prose-md thead {
-  --at-apply: font-600 border-b-gray-12 border-b;
+  --at-apply: font-600 border-b-action/40 border-b border-b-dashed;
 }
 
 .prose-md thead th:first-child {
@@ -106,7 +127,7 @@ table {
 }
 
 .prose-md tbody tr {
-  --at-apply: border-b-gray-12 border-b;
+  --at-apply: border-b-action/40 border-b;
 }
 
 .prose-md tbody td:first-child {

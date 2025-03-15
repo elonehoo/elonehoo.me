@@ -96,8 +96,40 @@
     bg-[rgba(0,0,0,0.3)]
     transition-[background-color]
     duration-[0.5s] -mx-6 px-6
-    inline-block;
+    inline-block border-l border-action;
   width: calc(100% + 2 * 24px);
+}
+
+.prose-md [class*='language-'] code .diff.remove {
+  --at-apply:
+    bg-red-900/30
+    transition-[background-color]
+    duration-[0.5s] -mx-6 px-6 op-70
+    inline-block border-l border-red;
+  width: calc(100% + 2 * 24px);
+}
+
+.prose-md [class*='language-'] code .diff.remove span {
+  --at-apply: op-95;
+}
+
+.prose-md [class*='language-'] code .diff.add {
+  --at-apply:
+    bg-green-900/30
+    transition-[background-color]
+    duration-[0.5s] -mx-6 px-6
+    inline-block border-l border-green;
+  width: calc(100% + 2 * 24px);
+}
+
+.prose-md [class*='language-'] code .highlighted.error {
+  background-color: rgb(127 29 29 / 0.4) !important;
+  border: none !important;
+}
+
+.prose-md [class*='language-'] code .highlighted.warning {
+  background-color: rgb(113 63 18 / 0.4) !important;
+  border: none !important;
 }
 
 .dark .prose-md [class*='language-'] code .highlighted {
