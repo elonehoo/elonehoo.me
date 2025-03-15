@@ -68,8 +68,6 @@
 .prose-md ol > li::before {
   --at-apply: absolute font-500 text-action left-0;
   content: counter(list-item, var(--list-counter-style, decimal)) ".";
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 /* ul */
@@ -82,12 +80,12 @@
 }
 
 .prose-md ul > li::before {
-  --at-apply: absolute content-[""] bg-action rounded-full w-1.75 h-1.75;
-  top: 0.55em;  /* 调整为与第一行文本垂直居中 */
+  --at-apply: absolute content-[""] bg-action w-0.5 h-90%;
+  top: 50%;
+  transform: translateY(-50%);
   left: 0.75em;
 }
 
-/* 嵌套列表样式 */
 .prose-md ul ul,
 .prose-md ol ol,
 .prose-md ul ol,
