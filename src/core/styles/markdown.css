@@ -83,9 +83,8 @@
 
 .prose-md ul > li::before {
   --at-apply: absolute content-[""] bg-action rounded-full w-1.75 h-1.75;
-  top: 50%;
+  top: 0.55em;  /* 调整为与第一行文本垂直居中 */
   left: 0.75em;
-  transform: translateY(-50%);
 }
 
 /* 嵌套列表样式 */
