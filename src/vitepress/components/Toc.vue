@@ -1,15 +1,9 @@
 <script setup lang="ts">
+import { BackTop } from '../../core'
 import { useOutlineHeaders } from '../composables/outline'
 import OutlineItem from './OutlineItem.vue'
 
 const headers = useOutlineHeaders()
-
-function scrollTop() {
-  document.documentElement.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start',
-  })
-}
 </script>
 
 <template>
@@ -21,8 +15,8 @@ function scrollTop() {
     <OutlineItem
       :headers="headers"
     />
-    <span class="text-gray-11 cursor-pointer" @click="scrollTop">
-      Back to top
-    </span>
+    <div class="flex justify-end mt-4">
+      <BackTop />
+    </div>
   </div>
 </template>

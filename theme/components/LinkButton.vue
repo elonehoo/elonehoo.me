@@ -18,6 +18,6 @@ const props = defineProps<{
     cursor-pointer after:bg-transparent!"
   >
     <slot />
-    <Icones name="Right" class="w-3 h-3" />
+    <Icones name="Right" class="hidden sm:block w-3 h-3" />
   </Link>
 </template>
