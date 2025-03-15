@@ -6,7 +6,10 @@ const headers = useOutlineHeaders()
 </script>
 
 <template>
-  <div v-if="headers.length !== 0" class="fixed op-0 md:op-100">
+  <div
+    v-if="headers.length !== 0"
+    class="fixed op-0 md:op-100"
+  >
     <span class="text-gray-11">Toc</span>
     <OutlineItem
       :headers="headers"

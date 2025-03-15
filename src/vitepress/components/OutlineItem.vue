@@ -4,16 +4,22 @@ import { Link } from 'destyler'
 
 const props = defineProps<{
   headers: MenuItemWithLinkAndChildren[]
+  nested?: boolean
 }>()
 </script>
 
 <template>
-  <ul>
+  <ul :class="nested ? 'nested' : 'root'">
     <li v-for="header in props.headers" :key="header.link">
-      <Link :to="header.link" class="relative text-gray-11 hover:text-gray-1">
+      <Link :to="header.link" class="outline-link relative text-gray-11 hover:text-gray-1">
         {{ header.text }}
       </Link>
-      <OutlineItem v-if="header.children" class="mr-4" :headers="header.children" />
+      <OutlineItem
+        v-if="header.children"
+        class="mr-4"
+        :headers="header.children"
+        nested
+      />
     </li>
   </ul>
 </template>
