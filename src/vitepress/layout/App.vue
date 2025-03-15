@@ -20,7 +20,9 @@ const { frontmatter, page } = useData()
       <Outline v-if="frontmatter.page || frontmatter.home || page.isNotFound" />
       <!-- Show Table of Contents for other pages -->
       <Toc v-else />
-      <Progress />
+      <ClientOnly>
+        <Progress />
+      </ClientOnly>
     </CustomAside>
   </Background>
 </template>
