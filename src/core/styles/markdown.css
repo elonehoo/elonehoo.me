@@ -31,7 +31,7 @@
 }
 
 .prose-md :is(h1, h2, h3, h4, h5, h6)::before {
-  --at-apply: text-gray-400 text-sm mr-2;
+  --at-apply: text-gray-400 text-sm mr-2 text-center;
 }
 
 .prose-md h1::before { content: "#"; }

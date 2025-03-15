@@ -6,6 +6,7 @@
   <div>
     <BackButton />
     <Title />
+    <Time />
     <Content class="prose-md" />
   </div>
 </template>

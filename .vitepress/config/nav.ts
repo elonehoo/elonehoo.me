@@ -22,12 +22,6 @@ export const nav: ThemeConfig['nav'] = [
         icon: 'note',
         activeMatch: `^/(notes)`,
       },
-    ],
-  },
-
-  {
-    text: '记录我的开源和尝试',
-    items: [
       {
         text: '项目',
         link: '/projects',
@@ -48,5 +42,4 @@ export const nav: ThemeConfig['nav'] = [
       },
     ],
   },
-
 ]

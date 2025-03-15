@@ -65,6 +65,7 @@ declare module 'vue' {
     TextRotator: typeof import('./.vitepress/demos/TextRotator.vue')['default']
     Three: typeof import('./.vitepress/demos/Three.vue')['default']
     TicTacToeLoading: typeof import('./.vitepress/demos/TicTacToeLoading.vue')['default']
+    Time: typeof import('./theme/components/Time.vue')['default']
     Title: typeof import('./theme/components/Title.vue')['default']
     Todo: typeof import('./.vitepress/demos/Todo.vue')['default']
     TooltipAnime: typeof import('./.vitepress/demos/TooltipAnime.vue')['default']
