@@ -2,6 +2,7 @@
 import { useData } from 'vitepress'
 import { Background, CustomAside, CustomContent } from '../../core'
 import Outline from '../components/Outline.vue'
+import Progress from '../components/Progress.vue'
 import Toc from '../components/Toc.vue'
 import VPFooter from '../components/VPFooter.vue'
 
@@ -19,6 +20,7 @@ const { frontmatter, page } = useData()
       <Outline v-if="frontmatter.page || frontmatter.home || page.isNotFound" />
       <!-- Show Table of Contents for other pages -->
       <Toc v-else />
+      <Progress />
     </CustomAside>
   </Background>
 </template>
