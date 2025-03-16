@@ -42,6 +42,7 @@ declare module 'vue' {
     LineInteraction: typeof import('./.vitepress/demos/LineInteraction.vue')['default']
     LinkButton: typeof import('./theme/components/LinkButton.vue')['default']
     List: typeof import('./theme/pages/List.vue')['default']
+    LugeTransitions: typeof import('./.vitepress/demos/LugeTransitions.vue')['default']
     Mess: typeof import('./.vitepress/demos/Mess.vue')['default']
     MobinkakeiLoader: typeof import('./.vitepress/demos/MobinkakeiLoader.vue')['default']
     Motion: typeof import('./.vitepress/demos/Motion.vue')['default']
