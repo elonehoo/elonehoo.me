@@ -3,7 +3,7 @@ import YouTubePlayer from 'youtube-player'
 
 const props = withDefaults(defineProps<{
   id?: string
-  src: string
+  src?: string
   width?: number
   height?: number
 }>(), {
