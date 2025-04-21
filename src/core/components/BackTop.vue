@@ -11,7 +11,7 @@ function scrollTop() {
   <div
     class="
     flex items-center gap-x-0.5 w-fit text-gray-8 text-sm
-     px-1.5 py-1 rounded-sm text-gray-1 dark:text-gray-12
+     px-1.5 py-1 rounded-sm text-light dark:text-dark
     bg-action/80 hover:bg-action
     dark:bg-action dark:hover:bg-action/50
     font-medium cursor-pointer after:bg-transparent!"
