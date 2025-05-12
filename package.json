@@ -32,7 +32,7 @@
     "@unocss/reset": "66.1.1",
     "dayjs": "^1.11.13",
     "eslint": "^9.26.0",
-    "feed": "^4.2.2",
+    "feed": "^5.0.0",
     "markdown-it": "^14.1.0",
     "three": "^0.176.0",
     "unocss-preset-animations": "^1.2.1",
