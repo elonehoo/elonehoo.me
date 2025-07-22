@@ -122,6 +122,10 @@ projects:
     - name: 'keyboard'
       link: 'https://github.com/elonehoo/keyboard'
       desc: 'used to capture keyboard input.'
+  VS Code:
+    - name: 'Git Ignore Helper'
+      link: 'https://github.com/elonehoo/vscode-git-ignore'
+      desc: 'A VSCode extension to manage git ignored files with drag and drop interface'
   Game:
     - name: 'jumper'
       link: 'https://github.com/elonehoo/vue-junmper'
