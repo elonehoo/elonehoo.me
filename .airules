@@ -1,0 +1,30 @@
+# AI Rules for elonehoo.me
+
+## Code Style
+- Follow the existing code style in the project
+- Use TypeScript for new code
+- Use Vue 3 Composition API
+- Maintain consistency with existing components
+
+## Project Structure
+- VitePress files are in src/vitepress/
+- Theme components are in theme/
+- Content is in content/
+- Static assets are in content/public/
+
+## Development Guidelines
+- Always explain changes before implementing
+- Prefer small, focused changes
+- Test changes locally before suggesting
+- Respect existing conventions
+
+## Communication
+- Be concise and clear
+- Provide context when suggesting changes
+- Ask for clarification when unsure
+- Explain technical concepts simply
+
+## Tools
+- Use pnpm for package management
+- Follow linting rules in eslint.config.js
+- Use VitePress for documentation
