@@ -3,13 +3,13 @@ export interface SocialLink {
   link: string
 }
 
-export type SocialLinkIcon =
-  | 'GitHub'
-  | 'Twitter'
-  | 'Instagram'
-  | 'Mastodon'
-  | 'Email'
-  | 'Follow'
-  | 'RSS'
+export type SocialLinkIcon
+  = | 'GitHub'
+    | 'Twitter'
+    | 'Instagram'
+    | 'Mastodon'
+    | 'Email'
+    | 'Follow'
+    | 'RSS'
 
 export type SocialLinkSize = 'small' | 'medium'
