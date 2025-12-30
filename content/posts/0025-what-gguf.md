@@ -5,7 +5,7 @@ lang: zh
 duration: 5min
 ---
 
-![GGUF](/gguf/spec.png)
+![GGUF](/posts/gguf/spec.png)
 
 GGUF (GPT-Generated Unified Format, GPT 生成的统一格式) 是一种专为大语言模型 (LLM) 设计的文件格式。意在解决大型模型在实际应用中遇到的存储效率、加载速度、兼容性和扩展性等问题，从而简化 LLM 的使用和部署。
 

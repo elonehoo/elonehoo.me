@@ -19,7 +19,7 @@ export function useAppearance() {
 
   function toggleDark() {
   // @ts-expect-error experimental API
-    const isAppearanceTransition = document.startViewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const isAppearanceTransition = typeof window !== 'undefined' && document.startViewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (!isAppearanceTransition) {
       isDark.value = !isDark.value
       theme.value = isDark.value ? 'dark' : 'light'

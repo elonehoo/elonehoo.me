@@ -20,7 +20,7 @@ layout: 'default'
 
 Cline 的流程可以参考这张草图：
 
-![cline work process](/cline/process.png)
+![cline work process](/posts/cline/process.png)
 
 `Cline 的核心是依赖系统提示词以及模型的指令遵循能力`。在编程任务启动的时候，首次系统提示词、用户自定义质量、用户的输入，以及所在项目的「环境信息（打开的那些，那些文件等等）」，提交给 LLM。LLM 根据指令输出解决方案和操作。Cline 通过解析返回的操作指令（比如`<execute_command />`、`<read_file />`），调用编写好的 Tool Use 能力进行处理，并将处理的结果交给 LLM 处理。`Cline 会多次调用 LLM 来完成单词任务`。
 

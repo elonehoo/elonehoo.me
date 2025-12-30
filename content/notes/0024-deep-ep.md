@@ -9,7 +9,7 @@ duration: 5min
 
 但实际上 `no_allocate` 这个指令其实文档中是有的（详见文档214页），但是只是草草说了句用途，并没有详细解释能带来什么提升。
 
-![DeepEP 文档截图](/deep-ep/214.png)
+![DeepEP 文档截图](/notes/0024-deep-ep/214.png)
 
 由此可见 DeepSeek 对 CUDA 的研究程度之深，以及在GPU领域的积累。
 

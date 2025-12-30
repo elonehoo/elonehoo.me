@@ -110,11 +110,11 @@ function renderImages(dogs) {
 
 ### 从一个极简的交互稿开始
 
-<!-- ![极简的交互稿](/composition-api/easy-interaction.png) -->
+<!-- ![极简的交互稿](/posts/composition-api/easy-interaction.png) -->
 
 需求较为简单，就是一个搜索结果页面，带有搜索框和多个类别的搜索结果，先按上述的 Container/Presentational 模式拆分一下组件，可得如下组件：
 
-<!-- ![组件的拆分稿](/composition-api/component-split.png) -->
+<!-- ![组件的拆分稿](/posts/composition-api/component-split.png) -->
 
 拆分后，对应的组件如下：
 
@@ -311,7 +311,7 @@ zh-CN:
 
 最终展示效果如下：
 
-![最终实现](/composition-api/finally-realized.png)
+![最终实现](/posts/composition-api/finally-realized.png)
 
 ## Composition 封装示例
 

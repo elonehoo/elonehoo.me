@@ -12,7 +12,7 @@ layout: 'default'
 
 ---
 
-![](/0033-steam-steel-and-infinite-minds/001.jpeg)
+![](/posts/0033-steam-steel-and-infinite-minds/001.jpeg)
 
 <span class="text-sm flex justify-center items-center mt-1 select-none">
 左：少年 Andrew Carnegie 和他的弟弟
@@ -31,7 +31,7 @@ layout: 'default'
 知识工作很快会变成什么样？
 当组织架构图里纳入了永不休眠的心智，会发生什么？
 
-![](/0033-steam-steel-and-infinite-minds/002.jpeg)
+![](/posts/0033-steam-steel-and-infinite-minds/002.jpeg)
 <span class="text-sm flex justify-center items-center mt-1 select-none">
 早期电影常常看起来像舞台剧，一台摄像机对着舞台拍。
 </span>
@@ -41,7 +41,7 @@ layout: 'default'
 
 引用 [**Marshall McLuhan**](https://zh.wikipedia.org/wiki/%E9%A6%AC%E7%B4%A0%C2%B7%E9%BA%A5%E5%85%8B%E9%AD%AF%E6%BC%A2) 的话："「driving to the future via the rearview window./我们总是在透过后视镜驶向未来。」"
 
-![](/0033-steam-steel-and-infinite-minds/003.jpeg)
+![](/posts/0033-steam-steel-and-infinite-minds/003.jpeg)
 <span class="text-sm mt-1 select-none">
 如今最受欢迎的人工智能形式看起来就像过去的谷歌搜索。
 **Marshall McLuhan** 称之为"「we are always driving into the future via the rearview window./透过后视镜开车。」"
@@ -63,7 +63,7 @@ layout: 'default'
 他会在午饭前或睡觉前排队任务，让它们在他离开的时候工作。
 他已经成为无限心智的管理者。
 
-![](/0033-steam-steel-and-infinite-minds/004.jpeg)
+![](/posts/0033-steam-steel-and-infinite-minds/004.jpeg)
 <span class="text-sm flex justify-center items-center mt-1 select-none">
 20 世纪 70 年代《科学美国人》关于运动效率的研究启发了
 Steve Jobs's 著名的"「bicycle for the mind/心智的自行车」"比喻。
@@ -95,7 +95,7 @@ Steve Jobs's 著名的"「bicycle for the mind/心智的自行车」"比喻。
 > 我们还没找到改进通用知识工作模型的方法。
 > 所以人类仍需在循环中监督、引导，并展示什么是好的。
 
-![](/0033-steam-steel-and-infinite-minds/005.jpeg)
+![](/posts/0033-steam-steel-and-infinite-minds/005.jpeg)
 <span class="text-sm flex justify-center items-center mt-1 select-none">
 1865 年的《红旗法案》要求一名持旗者走在车辆前方（于 1896 年被废除）。
 这是一个不受欢迎的 "人在循环中" 的例子。
@@ -111,7 +111,7 @@ Steve Jobs's 著名的"「bicycle for the mind/心智的自行车」"比喻。
 
 公司是近代的产物。它们随着规模扩大而退化，并达到极限。
 
-![](/0033-steam-steel-and-infinite-minds/006.jpeg)
+![](/posts/0033-steam-steel-and-infinite-minds/006.jpeg)
 <span class="text-sm flex justify-center items-center mt-1 select-none">
 1855 年纽约与伊利铁路公司的组织架构图。
 现代公司和组织架构图随着铁路公司演变而来，
@@ -125,7 +125,7 @@ Steve Jobs's 著名的"「bicycle for the mind/心智的自行车」"比喻。
 
 两个历史比喻展示了未来组织在新奇迹材料下可以呈现出怎样的不同面貌。
 
-![](/0033-steam-steel-and-infinite-minds/007.jpeg)
+![](/posts/0033-steam-steel-and-infinite-minds/007.jpeg)
 <span class="text-sm flex justify-center items-center mt-1 select-none">
 钢铁的奇迹：1913 年竣工时， Woolworth 大厦是纽约市最高的建筑。
 </span>
@@ -141,7 +141,7 @@ AI 就是组织的钢铁。它有潜力在工作流程中保持上下文，并�
 曾经需要三个层级批准的高管决策可能很快在几分钟内完成。
 公司可以真正规模化，而无需接受我们过去认为不可避免的退化。
 
-![](/0033-steam-steel-and-infinite-minds/008.jpeg)
+![](/posts/0033-steam-steel-and-infinite-minds/008.jpeg)
 <span class="text-sm flex justify-center items-center mt-1 select-none">
 用水轮驱动的水磨坊。水力强大但不可靠，且将磨坊限制在少数地点和季节性运行。
 </span>
@@ -154,7 +154,7 @@ AI 就是组织的钢铁。它有潜力在工作流程中保持上下文，并�
 他们围绕蒸汽机重新设计了工厂（后来，当电力上线时，管理者进一步从中央动力轴分散开来，在不同机器周围放置更小的引擎）。
 生产力开始指数级增长，第二次工业革命真正起飞。
 
-![](/0033-steam-steel-and-infinite-minds/009.jpeg)
+![](/posts/0033-steam-steel-and-infinite-minds/009.jpeg)
 <span class="text-sm flex justify-center items-center mt-1 select-none">
 这幅由 Thomas Allom 于1835年创作的版画描绘了英国 Lancashire 的一家纺织厂。它由蒸汽机驱动。
 </span>
@@ -167,7 +167,7 @@ AI 聊天机器人被固定在现有工具上。
 
 钢铁和蒸汽不仅改变了建筑和工厂，它们改变了城市。
 
-![](/0033-steam-steel-and-infinite-minds/010.jpeg)
+![](/posts/0033-steam-steel-and-infinite-minds/010.jpeg)
 
 直到几百年前，城市都是人类尺度的。你可以在四十分钟内步行穿过 Florence 。生活节奏由一个人能走多远、声音能传多远来设定。
 

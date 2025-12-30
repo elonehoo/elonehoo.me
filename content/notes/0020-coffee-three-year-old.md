@@ -9,8 +9,8 @@ duration: 5min
 
 这应该是我人生中最重要的东西，因为我居然可以把一只猫养活三年。
 
-![coffee 01](/public/coffee/01.jpeg)
+![coffee 01](/notes/0020-coffee-three-year-old/01.jpeg)
 
-![coffee 02](/public/coffee/02.jpeg)
+![coffee 02](/notes/0020-coffee-three-year-old/02.jpeg)
 
 让我们祝愿咖啡生日快乐，希望它能健康长寿。

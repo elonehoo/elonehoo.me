@@ -3,11 +3,11 @@ title: A Better Way to Use CSS in Web Applications
 date: 2023-02-08T20:46:00.000
 lang: en
 duration: 6min
-image: 'https://elonehoo.me/better-css/better-css-1.webp'
+image: 'https://elonehoo.me/posts/better-css/better-css-1.webp'
 layout: 'default'
 ---
 
-![what is right](/better-css/better-css-1.webp)
+![what is right](/posts/better-css/better-css-1.webp)
 
 In this article, I want to discuss the kinds of properties that make working with CSS hard and the kinds of properties developers want out of the system. We will then analyze common solutions and how they stack against these goals. Finally, I will propose a solution that checks off all the boxes.
 
@@ -19,7 +19,7 @@ The web was designed for documents, and because of that, there was a lot of talk
 
 So what was needed was to style the semantic markup in a way that would be completely external to the HTML. Enter stylesheets and CSS selectors.
 
-![what is right](/better-css/better-css-2.webp)
+![what is right](/posts/better-css/better-css-2.webp)
 
 CSS selectors allow the stylesheet to refer to the elements in HTML. The problem is that the CSS selectors are complicated. It is very difficult to reason when each selector will select and in which order. For the browser to know how to style an element, the browser needs to have full knowledge of all the styles and execute each selector to determine which selectors apply and what the final combined style should be. Selectors are powerful (allowing us to style any HTML document) and complicated to reason about. We are never sure what kind of visual change a given stylesheet change will have.
 
@@ -27,7 +27,7 @@ CSS selectors allow the stylesheet to refer to the elements in HTML. The problem
 
 As developers, we love our tooling to help us navigate and wrangle our code. One of the best features of an IDE is to find all references. Finding references is used to help us refactor our code by renaming our variables.
 
-![developers tooling](/better-css/developers-tooling.webp)
+![developers tooling](/posts/better-css/developers-tooling.webp)
 
 Query selectors are not conducive to finding references because they can only be evaluated in the context of a complete HTML document. (Sure, some queries are specific enough that we don't need the whole document, but you can never be sure.) And therein lies the problem. We don't have good tooling to work with our styles. Lack of tooling means that invariably the stylesheets end up as append-only documents as everyone is afraid to remove anything from them for fear of unintentionally breaking something.
 
@@ -39,7 +39,7 @@ We are not building documents! We are building applications. And we are abusing 
 
 We want to be able to easily find all of the styles which refer to a given element. Because styles compose and because they have selectors, finding all of the possible styles which refer to an element can only be done at runtime when all of the styles are present. Yet our tooling works at compile time. We are too used to just alt-clicking on symbols and expecting to be taken to the definition. With stylesheets, that is not possible.
 
-![find references](/better-css/find-references.webp)
+![find references](/posts/better-css/find-references.webp)
 
 ## Rename
 
@@ -49,7 +49,7 @@ One of the hardest problems in computer science is naming. Because of that, refa
 
 We often write more styles than the application actually needs. So we want the not-needed styles to be automatically removed and not shipped to the browser. Dead styles are just dead weight and they should be removed. But once again, we need to find all references of styles to have reasonable tree-shaking solutions for styles.
 
-![tree shaking](/better-css/tree-shaking.webp)
+![tree shaking](/posts/better-css/tree-shaking.webp)
 
 ## Scoping
 
@@ -69,7 +69,7 @@ Finally, we want a lazy loading solution so that the styles can be loaded only a
 
 `Find references` / `rename` / `tree shaking` / `type safety` / `lazy-loading`; it is all different facets of the same coin. If you can't find references, you can't rename, tree shake, lazy-load, or have type safety. Solving static analysis of styles is paramount to enable all other benefits.
 
-![lazy loading](/better-css/lazy-loading.webp)
+![lazy loading](/posts/better-css/lazy-loading.webp)
 
 ## CSS, the good parts (the tyranny of the selectors)
 
@@ -79,17 +79,17 @@ When developing applications, we must be able to reason about our code in a stat
 
 Applications must limit themselves to class selectors only `.class-name {}` without additional parent constraints or composition. By restricting ourselves to such a limited usage, we can reason about our codebase statically. Call it the CSS the good parts.
 
-![good parts](/better-css/good-parts.webp)
+![good parts](/posts/better-css/good-parts.webp)
 
 ## Atomic styles
 
 Our selectors often apply multiple styles. This makes them very specific and hard to reuse. What if each selector applied a minimal set of styles instead? (See [StyleX](https://www.infoq.com/news/2021/10/facebook-css-js-stylex/)) the argument here is that over time the number of styles reaches a limit even as the application grows.
 
-![atomic styles data](/better-css/atomic-styles-data.png)
+![atomic styles data](/posts/better-css/atomic-styles-data.png)
 
 Take the code below as an example. The developer can express the styling directly inline without concern about style collision or re-use. The atomic nature of the CSS transformation is that each of the styles gets broken down into its atomic unit and saved into the stylesheet. The tooling there generates a unique name (not collisions) and automatically reuses the atomic style in other locations.
 
-![atomic styles](/better-css/atomic-styles.webp)
+![atomic styles](/posts/better-css/atomic-styles.webp)
 
 The value added to this approach is that the developer does not have to consider style reuse or worry about style collisions. The tooling just does the right thing.
 
@@ -118,7 +118,7 @@ Vanilla CSS has failed us as a solution, which is why people have been inventing
 
 CSS-in-JS is very popular because the styles can be inlined into the markup. This means the developer does not have to spend the mental energy to create a name for the `class`. It also means that it is very clear which CSS affects which element. The styling is now type-safe and it only loads when the component loads.
 
-![css in js](/better-css/emotion.png)
+![css in js](/posts/better-css/emotion.png)
 
 So much win; what can be the downside? Well, CSS-in-JS is fully runtime dynamic and, therefore, can’t be analyzed statically by our tooling. The CSS-in-JS implementation is too powerful for our tolls to reason about it. So lazy-loading or tree-shaking is not an option.
 
@@ -132,7 +132,7 @@ Finally, `emotion.js` CSS-in-JS implementation is not atomic. There is no upper 
 
 An alternative to CSS-in-JS is [Vanilla Extract](https://vanilla-extract.style/), which combines static analysis but feels like CSS-in-JS.
 
-![vanilla extract](/better-css/vanilla-extract.png)
+![vanilla extract](/posts/better-css/vanilla-extract.png)
 
 Vanilla extract has many nice properties but it does have a cost of forcing the developer to put all of the styling information into a separate file named `foo.css.ts` so that the Vanilla extract compiler can statically extract the styles and generate a `stylesheet.css`. The only downside of Vanilla extract is that it can’t be inlined into the component code, and it is not atomic, meaning that there is no upper bound on the amount of CSS it can generate.
 
@@ -144,7 +144,7 @@ In contrast to CSS-in-JS, the tailwind is fully static. It is possible to run th
 
 The downside is that we have created yet another language for expressing styles. You can't just write `margin: 4px` instead; it is `m-1`. The end result is that the class attribute is often abused as multiple lines of classes need to be added.
 
-![tailwind](/better-css/tailwind.png)
+![tailwind](/posts/better-css/tailwind.png)
 
 Regardless of where you sit on [the tailwind debate](https://www.builder.io/blog/the-tailwind-css-drama-your-users-don't-care-about), Tailwind proves that static (ahead-of-time classes) and atomic classes are scalable. They can be used to build large applications. I think the debate is not about whether you can use tailwind but rather about the syntax that the tailwind presents. Can we have the static power of tailwind without the class hell tailwind sometimes leads down to?
 
@@ -152,7 +152,7 @@ Regardless of where you sit on [the tailwind debate](https://www.builder.io/blog
 
 CSS modules allow you to write a CSS file with class selectors. When the CSS module gets imported into your application, the selectors get renamed into unique selectors, giving you a scoping of styles. The CSS module import also gives you a mapping object to refer to styling human-readable names, but the mapping returns a mangled name that is scoped.
 
-![css modules](/better-css/css-modules.png)
+![css modules](/posts/better-css/css-modules.png)
 
 CSS modules have many of the properties we want. They are scoped, typed-checked, and rename-able, but not inline-able and not atomic.
 
@@ -168,7 +168,7 @@ I will postulate that what we really need to build applications is a system that
 
 - **inline-able**: We want to be able to style the component as we are creating the component. There should not be a need to change files, and thus think about how to refer to things, which necessitates that things have names.
 
-![really](/better-css/really.webp)
+![really](/posts/better-css/really.webp)
 
 ## Conclusion
 

@@ -36,7 +36,7 @@ Prettier 形容它自己是 ["一个固执己见的代码格式化工具"](https
 
 但是，我感觉到它经常损害了代码和 git diff 的可读性。
 
-![diff-error](/eslint-or-prettier/diff-error.png)
+![diff-error](/posts/eslint-or-prettier/diff-error.png)
 
 > 格式化工具很棒，尤其是在 PR 审查时。但是它们也会带来一些问题，例如当添加内容时会触发换行。这里的 diff 并没有显示出改变了什么。如果 diff 查看器能够意识到 Prettier，将换行符视为间距，那就太棒了。
 
@@ -45,7 +45,7 @@ Prettier 形容它自己是 ["一个固执己见的代码格式化工具"](https
 下图展示了另一个示例：
 
 <a href="https://prettier.io/playground/#N4Igxg9gdgLgprEAuc0DOMAEBXNcBOamAvJgNoA6UmmwOe+AkgCZKYCMANPQVAIYBbOGwogAggBsAZgEs4mAMJ98QiTJh9RmAL6cqNOrgIs2AJm5H8-ISJABxGf0wAlCGgAWfKFt37aPJlZMAGYLBmthTFEAZXdsAHNMADk+ACNsHz1qf0sTTAAWMN5BSNFnPncBL0wAMXw+Bky-QwY8gFYiqxLbABU3d3kAGQBPbFSEJuyW4yCANk6I22iCeJkIZJkJCCllSYBdAG4qEE4QCAAHGDWoNGRQZXwIAHcABWUEW5Q+CSe+YdvTql6mAANZwGDREqDRxwZA7CR4QHAsEQ858MCOeLIGD4bBwU5wATjZjMODMQZeeLYPjxOA1CAqPgwK5QLFfbAwCAnEDuGACCQAdXc6jgaDRYDgyxu6hkADd1MNkOA0ACQI4GDAXvV4lU4d9ESAAFZoAAe0UxEjgAEVsBB4HqEfiQGjCAQlak0nAJNzzvhHDABTJmDB3Mh8uZnY88AL6uclb7RQRZbDTgBHW3wLUXT4gBoAWigcDJZO5+Dg6ZkZa1NN1SHhBrwAhk2NxTrQFutGdhdf1To0qUDwdDSAjOL4m0xCggAlrIFFbW5Rh6aU+9adsrxjCgpNg0TAfsuYm30Rgw0tDrw2m0QA" target="_blank">
-<img src="/eslint-or-prettier/prettier-print-width.png" scale-110 block m="b--5!" />
+<img src="/posts/eslint-or-prettier/prettier-print-width.png" scale-110 block m="b--5!" />
 </a>
 
 <sup><em>`printWidth` 的值 42 是为了演示而设置的，但该情况会发生在任何 `printWidth` 下</em></sup>

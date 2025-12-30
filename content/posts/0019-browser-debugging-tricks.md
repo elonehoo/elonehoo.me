@@ -21,7 +21,7 @@ description:
 
 例如，我们可以在断点处使用 `console.log` 。日志点是记录到控制台的断点，但不会暂停执行。虽然 **Microsoft Edge** 已经内置了日志点一段时间，Chrome 在 v73 版本中刚刚添加了它们，但 Firefox 没有。不过，我们可以使用条件断点在任何浏览器中模拟它们。
 
-![weird debugging tricks](/browser-debugging-tricks/weird-debugging-tricks.gif)
+![weird debugging tricks](/posts/browser-debugging-tricks/weird-debugging-tricks.gif)
 
 使用 `console.count` 而不是 `console.log`，如果我们还想要一个运行计数，以了解该行代码执行了多少次。
 
@@ -31,11 +31,11 @@ description:
 
 我们还可以在使用控制台的监视面板。例如，每次我们的应用程序在调试器中暂停时，为了转储 `localStorage` 的一个快照，我们可以创建一个 `console.table(localStorage)` 监视器：
 
-![console table in watch](/browser-debugging-tricks/console-table-in-watch.png)
+![console table in watch](/posts/browser-debugging-tricks/console-table-in-watch.png)
 
 或者要在 DOM 变更后执行一个表达式，可以设置一个 DOM 变更断点（在 Element Inspector 中）：
 
-![chrome dom mutation](/browser-debugging-tricks/chrome-dom-mutation.png)
+![chrome dom mutation](/posts/browser-debugging-tricks/chrome-dom-mutation.png)
 
 然后添加我们的监视表达式，例如记录DOM的快照：`(window.doms = window.doms || []).push(document.documentElement.outerHTML)`。现在，经过任何 DOM 子树的修改，调试器将暂停执行，新的 DOM 快照将位于 `window.doms` 数组的末尾。（没有办法创建一个不暂停执行的DOM突变断点。）
 
@@ -43,7 +43,7 @@ description:
 
 假设我们有一个函数显示加载旋转器，还有一个函数隐藏它，但在我们的代码中，我们调用了显示方法，但没有匹配的隐藏调用。我们如何找到未配对显示调用的源头？在显示方法中使用 `console.trace` 在一个条件断点，运行我们的代码，找到显示方法的最后一个堆栈跟踪，点击调用者跳转到代码：
 
-![console trace find stack](/browser-debugging-tricks/console-trace-find-stack.gif)
+![console trace find stack](/posts/browser-debugging-tricks/console-trace-find-stack.gif)
 
 ### 改变程序的行为
 
@@ -51,13 +51,13 @@ description:
 
 例如，我们可以覆盖传递给 `getPerson` 函数的参数id。由于 `id=1` 的计算结果为真，这个条件断点会暂停调试器。为了防止这种情况，可以在表达式后面添加 `, false` 。
 
-![debugging tricks](/browser-debugging-tricks/debugging-tricks.gif)
+![debugging tricks](/posts/browser-debugging-tricks/debugging-tricks.gif)
 
 ### 快速而粗略的性能分析
 
 我们不应该将性能分析与诸如条件断点评估时间之类的事情混淆，但如果我们想要快速而粗略地测量某件事情运行所需的时间，我们可以在条件断点中使用控制台计时 API 。在我们的起始点设置一个条件断点，条件为 `console.time('label')` ，在结束点设置一个条件断点，条件为 `console.timeEnd('label')` 。每次我们测量的事情运行时，浏览器都会在控制台记录它运行了多长时间。
 
-![console time performance profile](/browser-debugging-tricks/console-time-performance-profile.gif)
+![console time performance profile](/posts/browser-debugging-tricks/console-time-performance-profile.gif)
 
 ### 使用函数的 Arity
 
@@ -67,13 +67,13 @@ description:
 
 当我们有一个有可选参数的重载函数时，这很有用。
 
-![conditional breakpoint argument length](/browser-debugging-tricks/conditional-breakpoint-argument-length.gif)
+![conditional breakpoint argument length](/posts/browser-debugging-tricks/conditional-breakpoint-argument-length.gif)
 
 #### 函数参数数量不匹配的断点
 
 仅当当前函数被调用时传入了错误的参数数量时暂停：`(arguments.callee.length) != arguments.length`
 
-![conditional breakpoint arity check](/browser-debugging-tricks/conditional-breakpoint-arity-check.gif)
+![conditional breakpoint arity check](/posts/browser-debugging-tricks/conditional-breakpoint-arity-check.gif)
 
 在查找函数调用点的漏洞时很有用。
 
@@ -107,9 +107,9 @@ description:
 
 当我们右键点击边距并选择“Never Pause Here”，Chrome 会创建一个条件断点，该断点为假且永远不会通过。这样设置后，调试器就永远不会在这一行暂停。
 
-![never-pause-here](/browser-debugging-tricks/never-pause-here.png)
+![never-pause-here](/posts/browser-debugging-tricks/never-pause-here.png)
 
-![never-pause-here-result](/browser-debugging-tricks/never-pause-here-result.png)
+![never-pause-here-result](/posts/browser-debugging-tricks/never-pause-here-result.png)
 
 当我们想要免除某行的XHR断点，忽略正在抛出的异常等情况时很有用。
 
@@ -123,7 +123,7 @@ description:
 
 使用一个全局 Boolean 来控制一个或多个条件断点：
 
-![conditional-breakpoint-gated](/browser-debugging-tricks/conditional-breakpoint-gated.png)
+![conditional-breakpoint-gated](/posts/browser-debugging-tricks/conditional-breakpoint-gated.png)
 
 然后通过编程方式切换 Boolean ，例如。
 
@@ -135,7 +135,7 @@ window.enableBreakpoints = true
 
 - 来自其他断点
 
-![conditional-breakpoint-gated-enable-from-breakpoint](/browser-debugging-tricks/conditional-breakpoint-gated-enable-from-breakpoint.png)
+![conditional-breakpoint-gated-enable-from-breakpoint](/posts/browser-debugging-tricks/conditional-breakpoint-gated-enable-from-breakpoint.png)
 
 - 来自控制台上的计时器
 
@@ -253,11 +253,11 @@ JS 控制台在诊断 HTML/CSS 问题时可能会很有帮助。
 
 假设我们想检查一个只在特定条件下出现的DOM元素。检查这个元素需要将鼠标移动到它上面，但当我们尝试这样做时，它就会消失：
 
-![elusive-element](/browser-debugging-tricks/elusive-element.gif)
+![elusive-element](/posts/browser-debugging-tricks/elusive-element.gif)
 
 要检查元素，我们可以将此代码粘贴到我们的控制台中：`setTimeout(function() { debugger; }, 5000);`。这会给我们5秒钟的时间来触发用户界面，一旦5秒计时器结束，JavaScript 的执行将暂停，没有任何东西会让我们的元素消失。我们可以自由地移动鼠标到开发者工具上，而不会丢失该元素。
 
-![elusive-element-inspected](/browser-debugging-tricks/elusive-element-inspected.gif)
+![elusive-element-inspected](/posts/browser-debugging-tricks/elusive-element-inspected.gif)
 
 当 JavaScript 执行暂停时，我们可以检查元素，编辑其CSS，在JS控制台中执行命令等。
 
@@ -304,7 +304,7 @@ setInterval(() => {
 })()
 ```
 
-![monitor-focus](/browser-debugging-tricks/monitor-focus.gif)
+![monitor-focus](/posts/browser-debugging-tricks/monitor-focus.gif)
 
 ### 查找 Bold Elements
 
@@ -336,7 +336,7 @@ Array.from($0.querySelectorAll("*")).filter(isBold);
 
 在 Chrome 浏览器中，我们可以检查当前选中元素的事件监听器：`getEventListeners($0)`，例如：
 
-![getEventListeners](/browser-debugging-tricks/getEventListeners.png)
+![getEventListeners](/posts/browser-debugging-tricks/getEventListeners.png)
 
 ### 监控元素的事件
 
@@ -344,4 +344,4 @@ Array.from($0.querySelectorAll("*")).filter(isBold);
 
 为选定元素调试特定事件：`monitorEvents($0, ["control", "key"])`
 
-![monitorEvents](/browser-debugging-tricks/monitorEvents.gif)
+![monitorEvents](/posts/browser-debugging-tricks/monitorEvents.gif)

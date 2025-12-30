@@ -2,8 +2,13 @@
 import { AsideItem, Toast } from '../../core'
 import { useConfig } from '../composables/config'
 
-const clipboard = ref(`${window.location.href}feed.rss`)
+const clipboard = ref('')
 const showToast = ref(false)
+
+// SSR-safe: initialize clipboard value on mount
+onMounted(() => {
+  clipboard.value = `${window.location.href}feed.rss`
+})
 
 const { copied, copy } = useClipboard({
   source: clipboard,
