@@ -3,47 +3,47 @@ title: WWDC23 Design for spatial user interfaces
 date: 2023-06-16T15:36:00.000
 lang: en
 duration: 16min
-image: 'https://elonehoo.me/posts/wwdc-design/og.png'
+image: 'https://elonehoo.me/posts/0011-wwdc-design/og.png'
 layout: 'default'
 ---
 
-![wwdc design](/posts/wwdc-design/og.png)
+![wwdc design](/posts/0011-wwdc-design/og.png)
 
 1. When designing App icons in visionOS, the icon can be divided into a maximum of three layers (one background layer + two foreground layers), each layer with a size of 1024*1024px. When used, the system will automatically add a glass layer to give the icon depth, highlights and shadow effects, creating subtle depth perception as seen in official videos.
 
-![app icon](/posts/wwdc-design/app-icon.png)
+![app icon](/posts/0011-wwdc-design/app-icon.png)
 
 2. It should be noted that the foreground layer of the icon should not use transparency, otherwise the automatically added shadow by the system will show through.
 
-![app icon transparency](/posts/wwdc-design/transparency.png)
+![app icon transparency](/posts/0011-wwdc-design/transparency.png)
 
 3. The window theme in visionOS uses a newly designed glass material, and the system automatically reflects its position in space through highlight shadows (reflection of ambient light) at the edges.
 
-![highlight shadows](/posts/wwdc-design/highlight-shadows.png)
+![highlight shadows](/posts/0011-wwdc-design/highlight-shadows.png)
 
 4. Avoid using solid colors on windows, too many opaque windows will make the interface feel stuffy.
 
-![solid colors](/posts/wwdc-design/solid-colors.png)
+![solid colors](/posts/0011-wwdc-design/solid-colors.png)
 
 5. There is no explicit light or dark mode in visionOS, but the system will automatically sense the ambient light to adjust the window color contrast and ensure that the content is always visible.
 
-![light or dark](/posts/wwdc-design/light-or-dark.png)
+![light or dark](/posts/0011-wwdc-design/light-or-dark.png)
 
 6. Use darker overlay layers as the background to increase contrast, and avoid overlapping light-colored materials that may affect readability.
 
 7. In order to improve readability and contrast, the font weight in visionOS should be slightly bolder than that of iOS.
 
-![font bold](/posts/wwdc-design/font-bold.png)
+![font bold](/posts/0011-wwdc-design/font-bold.png)
 
 8. Apply vibrancy effect to foreground elements instead of simply adjusting transparency. Vibrancy effect can subtly blend the background color into the element, enhancing contrast and readability. For more details, please continue reading here: https://developer.apple.com/design/human-interface-guidelines/materials
 
 9. There are three types of vibrancy effects: primary, secondary, and tertiary, which can be used as needed. Here is a related document that can also be referenced: https://developer.apple.com/documentation/uikit/uivibrancyeffectstyle/label
 
-![vibrancy effects](/posts/wwdc-design/vibrancy-effects.png)
+![vibrancy effects](/posts/0011-wwdc-design/vibrancy-effects.png)
 
 10. Emphasize that strong colors should not be directly applied to foreground elements, and try to use system colors as much as possible (because system colors can dynamically adapt and adjust with ambient light).
 
-![emphasize](/posts/wwdc-design/emphasize.png)
+![emphasize](/posts/0011-wwdc-design/emphasize.png)
 
 11. Turning your head left or right is easier than up and down, so don't place things too high or low on the screen. The interface should also extend horizontally rather than vertically.
 
@@ -51,7 +51,7 @@ layout: 'default'
 
 13. If multiple buttons are arranged in an area, try to use system standard buttons and leave at least 16pt spacing between the buttons.
 
-![16pt](/posts/wwdc-design/16pt.png)
+![16pt](/posts/0011-wwdc-design/16pt.png)
 
 14. Small interactive buttons can use a size of 28pt (but the hot zone should still be at least 60pt).
 

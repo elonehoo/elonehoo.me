@@ -31,7 +31,7 @@ duration: 5min
 
 > 建议看看：[WCAG 2.1对比度标准](https://www.w3.org/Translations/WCAG21-zh/) / [人体工程学夜间模式研究](https://patents.google.com/patent/CN106339666B/zh)
 
-![x-mode-select](/posts/why-dark-mode/x-mode-select.png)
+![x-mode-select](/posts/0029-why-dark-mode/x-mode-select.png)
 
 请记住 `暗色设计` 不是「颜色反转」那么简单，需要：
 
