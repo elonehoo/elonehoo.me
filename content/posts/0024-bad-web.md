@@ -18,7 +18,7 @@ duration: 15min
 
 - 还有一个技术是目前已经被淘汰的 [Flash](https://zh.wikipedia.org/wiki/Adobe_Flash)
 
-![adobe flash](/posts/bad-web/adobe_flash.jpeg)
+![adobe flash](/posts/0024-bad-web/adobe_flash.jpeg)
 
 我们现在所说的前端通常包括了 HTML、CSS、JavaScript，甚至是 Node.js、SVG 等和 Web UI 层相关的开发技术，
 那么在没有 ES6，没有 HTML5，没有 CSS3 的时代，前端到底糟糕到什么程度呢？
@@ -29,7 +29,7 @@ duration: 15min
 
 前端经过了这么多年的发展，尤其是 Node.js 发布到成熟的那几年，已经变得非常成熟，而“糟糕”的时代也已然成为历史。
 
-![node.js](/posts/bad-web/node.jpeg)
+![node.js](/posts/0024-bad-web/node.jpeg)
 
 从另一个角度，我们作为**前端开发者，现在也许是个糟糕的时代**。以前的开发技能经过这么多年的发展已经不在适用。前端逐渐规范的后果就是淘汰了一大批“古典/保守”的前端开发者们，而抓住风口的开发者们已经实现了弯道超车。
 
@@ -51,7 +51,7 @@ duration: 15min
 
 终于找到了失业的根本原因了，于是 [Leicestershire](https://zh.wikipedia.org/wiki/%E8%8E%B1%E6%96%AF%E7%89%B9%E9%83%A1) 一个名叫 内德‧卢德 的工人第一个捣毁织袜机，进而在全国掀起了一场砸毁机器的浪潮，无数的工人涌入工厂将机器砸毁。这场运动也被称为 [卢德运动](https://zh.wikipedia.org/wiki/%E7%9B%A7%E5%BE%B7%E9%81%8B%E5%8B%95)。而这次运动导致了大部分工厂被迫停工，加剧了工人的失业。最终政府制定律法，并对卢德分子进行镇压。
 
-![Luddite](/posts/bad-web/Luddite.jpg)
+![Luddite](/posts/0024-bad-web/Luddite.jpg)
 
 在故事中，“机器生产逐渐的代替了手工劳作”是一次生产力的变革，作为类比，前端技术的更替也是生产力的变革，我们也可以对比一下 [React](https://react.dev/)/[Vue](https://vuejs.org/) 开发维护的几万行代码的项目和使用 [jQuery](https://jquery.com/) 开发维护的几万行代码的项目，那个更容易，这是技术上的差距吗，也不尽然，只要规划的合理，JQuery 也一样可以开发大型项目，但由于 React/Vue 的出现让大部分的开发者不愿意继续基于 JQuery 来开发一套适用于大型项目的工具链了。
 

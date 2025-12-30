@@ -106,7 +106,7 @@ Guillermo Rauch 描绘了 React 如何重塑他与设计师的协作。
 
 你可能不信，觉得五分钟就能撸出来。我劝你亲手试试。（欢迎贴出代码链接和耗时。）
 
-![calculator](/posts/pure-ui/calculator.webp)
+![calculator](/posts/0032-pure-ui/calculator.webp)
 
 看看 UI 团队用什么工具思考这个界面：
 
@@ -149,7 +149,7 @@ Guillermo Rauch 描绘了 React 如何重塑他与设计师的协作。
 
 - 在 **"显示结果"** 状态中（刚刚计算完答案），按数字意味着开启新的操作数，并切换到 **"正在输入操作数"** 态，从而改变后续动作的解读方式。
 
-![](/posts/pure-ui/number.webp)
+![](/posts/0032-pure-ui/number.webp)
 （计算器应用的高层状态图，来自 Ian Horrocks《Constructing the User Interface with Statecharts》第 215 页， Addison Wessley 出版）
 
 有了"交互"这个概念，我们可以像之前一样，想象输入序列并追问界面该如何响应。
