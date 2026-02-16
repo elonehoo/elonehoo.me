@@ -31,7 +31,7 @@
     "@types/youtube-player": "^5.5.11",
     "@unocss/reset": "66.6.0",
     "dayjs": "^1.11.19",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.0",
     "feed": "^5.2.0",
     "markdown-it": "^14.1.1",
     "three": "^0.182.0",
