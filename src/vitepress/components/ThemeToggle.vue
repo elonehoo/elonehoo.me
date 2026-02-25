@@ -21,7 +21,7 @@ const CANVAS_H = 350
 const canvasRef = ref<HTMLCanvasElement | null>(null)
 
 // ─── 响应式状态 ───
-const screenW = ref(window.innerWidth)
+const screenW = ref(typeof window !== 'undefined' ? window.innerWidth : 1024)
 const isMobile = computed(() => screenW.value < 768)
 // lit = 亮色模式（与原始一致：lit 对应 checked / light）
 const lit = computed(() => theme.value !== 'dark')
@@ -121,8 +121,8 @@ function positionBasedOnParent(b: Bead) {
 
 // ─── Canvas 渲染（与原始完全一致的渐变和高光） ───
 function drawBead(b: Bead) {
-  if (!ctx) 
-return
+  if (!ctx)
+    return
   const x = b.x
   const y = b.y
 
@@ -154,8 +154,8 @@ return
 }
 
 function drawLine(b: Bead) {
-  if (!ctx) 
-return
+  if (!ctx)
+    return
   ctx.save()
   ctx.beginPath()
   ctx.moveTo(b.parent.x, b.parent.y)
@@ -249,8 +249,8 @@ onMounted(() => {
     canvas.style.width = `${CANVAS_W}px`
     canvas.style.height = `${CANVAS_H}px`
     ctx = canvas.getContext('2d')
-    if (ctx) 
-ctx.scale(dpr, dpr)
+    if (ctx)
+      ctx.scale(dpr, dpr)
   }
   initBeads()
   lastTime = performance.now()
@@ -260,8 +260,8 @@ ctx.scale(dpr, dpr)
 })
 
 onUnmounted(() => {
-  if (rafId) 
-cancelAnimationFrame(rafId)
+  if (rafId)
+    cancelAnimationFrame(rafId)
   window.removeEventListener('resize', onResize)
   document.removeEventListener('visibilitychange', onVisChange)
 })
