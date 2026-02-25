@@ -1,6 +1,7 @@
 import type { Config as ThemeConfig } from '../../src'
 import { mergeConfig } from 'vite'
 import { defineConfigWithTheme } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 import baseConfig from '../../src/vitepress/config/baseConfig'
 
 import ViteConfig from '../../vite.config'
@@ -8,7 +9,7 @@ import { genFeed } from '../plugins/rss'
 import { head } from './head'
 import { nav } from './nav'
 
-export default defineConfigWithTheme<ThemeConfig>({
+export default withMermaid(defineConfigWithTheme<ThemeConfig>({
   extends: baseConfig,
 
   title: 'Elone Hoo',
@@ -40,6 +41,10 @@ export default defineConfigWithTheme<ThemeConfig>({
     image: {
       lazyLoading: true,
     },
+  },
+
+  mermaid: {
+    // https://mermaid.js.org/config/setup/modules/mermaidAPI.html#mermaidapi-configuration-defaults
   },
 
   head,
@@ -82,4 +87,4 @@ export default defineConfigWithTheme<ThemeConfig>({
       copyright: '2022-PRESENT © Elone Hoo',
     },
   },
-})
+}))

@@ -45,8 +45,9 @@
 .prose-md blockquote {
   --at-apply:
     my-1.6em text-gray-9 font-medium italic text-inherit
-    border-l-4 border-gray-6 pl-1em;
+    border-l-4 pl-1em rounded-lg;
   quotes: "\201C""\201D""\2018""\2019";
+  border-color: color(display-p3 0.85 0.85 0.85 / 0.25);
 }
 
 .prose-md blockquote p:first-of-type::before {
@@ -80,7 +81,7 @@
 }
 
 .prose-md ul > li::before {
-  --at-apply: absolute content-[""] bg-action w-0.5 h-90%;
+  --at-apply: absolute content-[""] bg-action/40 rounded-md w-0.5 h-90%;
   top: 50%;
   transform: translateY(-50%);
   left: 0.75em;
