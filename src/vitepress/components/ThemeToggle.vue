@@ -3,376 +3,281 @@ import { useAppearance } from '../../core'
 
 const { theme } = useAppearance()
 
-// 挂绳状态
-const isPulling = ref(false)
-const pullDistance = ref(0)
-const currentPull = ref(0)
-const isReleasing = ref(false)
-const hasTriggered = ref(false)
+// ═══════════════════════════════════════════════════════
+// 珠链拉绳 — 完全复刻 015 On/Off Switch
+// ═══════════════════════════════════════════════════════
 
-// 绳子长度
-const ROPE_LENGTH = 200 // 绳子自然长度
-const SHORT_LENGTH = 15 // 收缩后的长度
-// 不再限制最大拉动距离，由屏幕高度决定
-const TRIGGER_THRESHOLD = 150 // 触发阈值
-const SPRING_STIFFNESS = 0.06 // 弹簧刚度（更柔和）
-const DAMPING = 0.85 // 阻尼系数
+// ─── 物理设定（与原始完全一致） ───
+const BEAD_COUNT = 30
+const BEAD_SIZE = 3
+const BEAD_DIST = 300 / (BEAD_COUNT + 2)
+const INITIAL_X_MOMENTUM = -6
+const GRAVITY = 12
+const X_FRICTION = 0.01
+const CANVAS_W = 300
+const CANVAS_H = 350
 
-// 双击相关
-let lastMouseDownTime = 0
-const DOUBLE_CLICK_DELAY = 300 // 双击检测延迟（毫秒）
+// ─── DOM 引用 ───
+const canvasRef = ref<HTMLCanvasElement | null>(null)
 
-// 是否处于收缩状态
-const isRetracted = ref(false)
+// ─── 响应式状态 ───
+const screenW = ref(window.innerWidth)
+const isMobile = computed(() => screenW.value < 768)
+// lit = 亮色模式（与原始一致：lit 对应 checked / light）
+const lit = computed(() => theme.value !== 'dark')
 
-// 物理引擎相关
-const velocity = ref(0)
-let animationFrameId: number | null = null
-
-// 绳子摆动角度（模拟真实绳子的物理摆动）
-const swingAngle = ref(0)
-const swingVelocity = ref(0)
-
-// 绳子水平偏移（随鼠标移动）
-const ropeOffsetX = ref(0)
-
-// 屏幕尺寸（用于动态调整SVG大小）
-const screenHeight = ref(window.innerHeight)
-const screenWidth = ref(window.innerWidth)
-
-// 判断是否为移动设备（屏幕宽度小于 768px）
-const isMobile = computed(() => screenWidth.value < 768)
-
-// 绳子和卡片位置配置（根据屏幕尺寸动态调整）
 const anchorXOffset = computed(() => isMobile.value ? 40 : 240)
-const anchorYOffset = computed(() => isMobile.value ? 0 : 0)
+// 锚点在 canvas 中居中 = CANVAS_W / 2 = 150
+const ANCHOR_CX = CANVAS_W / 2
+const containerRight = computed(() => anchorXOffset.value - (CANVAS_W - ANCHOR_CX))
 
-// 绳子颜色
-const ropeColor = computed(() => {
-  if (hasTriggered.value)
-    return '#4ade80'
-  return 'hsl(var(--theme-action))'
-})
+let ctx: CanvasRenderingContext2D | null = null
+let rafId: number | null = null
+let lastTime = 0
+let running = true
 
-// 绳子宽度（随拉伸变细）
-const ropeWidth = computed(() => {
-  const baseWidth = 6
-  const stretch = pullDistance.value / ROPE_LENGTH
-  return Math.max(2, baseWidth - stretch * 2)
-})
-
-// 绳子路径 - 使用单条三次贝塞尔曲线
-const ropePath = computed(() => {
-  // 锚点位置（可配置）
-  const anchorX = screenWidth.value - anchorXOffset.value
-  const anchorY = anchorYOffset.value
-
-  // 手柄终点位置
-  const endX = anchorX + ropeOffsetX.value
-  const endY = anchorY + pullDistance.value
-
-  // 计算重力下垂
-  const horizontalDist = Math.abs(endX - anchorX)
-  const sag = 25 + horizontalDist * 0.4 + pullDistance.value / 25
-
-  // 使用单条三次贝塞尔曲线
-  // 控制点1：从锚点出发，向下并向终点方向
-  const cp1X = anchorX + (endX - anchorX) * 0.25
-  const cp1Y = anchorY + pullDistance.value * 0.25 + sag * 0.5
-
-  // 控制点2：接近终点，向上并向起点方向
-  const cp2X = anchorX + (endX - anchorX) * 0.75
-  const cp2Y = anchorY + pullDistance.value * 0.75 + sag * 0.5
-
-  return `M ${anchorX.toFixed(2)} ${anchorY.toFixed(2)} C ${cp1X.toFixed(2)} ${cp1Y.toFixed(2)}, ${cp2X.toFixed(2)} ${cp2Y.toFixed(2)}, ${endX.toFixed(2)} ${endY.toFixed(2)}`
-})
-
-// 手柄位置
-const handlePosition = computed(() => {
-  const anchorX = screenWidth.value - anchorXOffset.value
-  const anchorY = anchorYOffset.value
-  const x = anchorX + ropeOffsetX.value + Math.sin(swingAngle.value) * 30
-  const y = anchorY + pullDistance.value
-  return { x, y }
-})
-
-// 鼠标/触摸位置
-const startY = ref(0)
-const startX = ref(0)
-
-// 监听窗口大小变化
-function updateScreenSize() {
-  screenHeight.value = window.innerHeight
-  screenWidth.value = window.innerWidth
+// ─── 珠链数据结构（与原始 Bead class 一致） ───
+interface FixedPoint { x: number, y: number }
+interface Bead {
+  x: number
+  y: number
+  speedX: number
+  speedY: number
+  parent: FixedPoint | Bead
 }
+function isBead(p: FixedPoint | Bead): p is Bead { return 'speedX' in p }
 
-onMounted(() => {
-  window.addEventListener('resize', updateScreenSize)
-  // 初始绳子位置，始终为 200
-  pullDistance.value = ROPE_LENGTH
-  currentPull.value = pullDistance.value
-})
+let anchor: FixedPoint = { x: ANCHOR_CX, y: 0 }
+let beads: Bead[] = []
 
-onUnmounted(() => {
-  window.removeEventListener('resize', updateScreenSize)
-  if (animationFrameId) {
-    cancelAnimationFrame(animationFrameId)
-  }
-})
-
-// 开始拉动
-function startPull(e: MouseEvent | TouchEvent) {
-  e.preventDefault()
-  isPulling.value = true
-  hasTriggered.value = false
-  isReleasing.value = false
-  velocity.value = 0
-  swingVelocity.value = 0
-  swingAngle.value = 0
-  ropeOffsetX.value = 0
-
-  // 获取当前鼠标/触摸位置作为起始点
-  const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY
-  const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX
-
-  // 记录起始位置为当前鼠标位置，这样拖拽时卡片会跟随鼠标
-  startY.value = clientY
-  startX.value = clientX
-
-  if (animationFrameId) {
-    cancelAnimationFrame(animationFrameId)
-    animationFrameId = null
-  }
-
-  document.addEventListener('mousemove', onPull)
-  document.addEventListener('mouseup', endPull)
-  document.addEventListener('touchmove', onPull, { passive: false })
-  document.addEventListener('touchend', endPull)
-}
-
-// 拉动中
-function onPull(e: MouseEvent | TouchEvent) {
-  if (!isPulling.value || isReleasing.value)
-    return
-
-  const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY
-  const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX
-
-  // 计算鼠标移动的距离
-  const deltaY = clientY - startY.value
-  const deltaX = clientX - startX.value
-
-  // 获取初始的绳子长度（在开始拖拽时）
-  const initialPull = isRetracted.value ? SHORT_LENGTH : ROPE_LENGTH
-
-  // 新的拉动距离 = 初始长度 + 鼠标移动的垂直距离
-  pullDistance.value = Math.max(35, initialPull + deltaY)
-  ropeOffsetX.value = deltaX
-
-  // 计算摆动角度（限制最大角度）
-  const targetAngle = Math.atan2(deltaX, Math.max(100, pullDistance.value)) * 0.4
-  // 限制摆动角度在合理范围内
-  swingAngle.value = Math.max(-0.5, Math.min(0.5, targetAngle))
-
-  // 计算速度并更新位置
-  velocity.value = (pullDistance.value - currentPull.value) * 0.5
-  currentPull.value = pullDistance.value
-
-  // 检查是否达到触发阈值（标记状态，但不立即切换）
-  if (pullDistance.value >= TRIGGER_THRESHOLD && !hasTriggered.value) {
-    hasTriggered.value = true
+function initBeads() {
+  anchor = { x: ANCHOR_CX, y: 0 }
+  beads = []
+  for (let i = 0; i < BEAD_COUNT; i++) {
+    beads.push({
+      x: ANCHOR_CX,
+      y: i * BEAD_DIST + BEAD_SIZE,
+      speedX: 0,
+      speedY: 0,
+      parent: i === 0 ? anchor : beads[i - 1],
+    })
   }
 }
 
-// 结束拉动
-function endPull() {
-  if (!isPulling.value)
-    return
-
-  isPulling.value = false
-  isReleasing.value = true
-
-  document.removeEventListener('mousemove', onPull)
-  document.removeEventListener('mouseup', endPull)
-  document.removeEventListener('touchmove', onPull)
-  document.removeEventListener('touchend', endPull)
-
-  // 如果达到了触发阈值，松手时切换主题
-  if (hasTriggered.value) {
-    triggerToggle()
-  }
-
-  // 拖拽后松手，始终回到展开状态（200px）
-  isRetracted.value = false
-
-  // 启动回弹动画
-  startReboundAnimation()
+// ─── 物理辅助（与原始完全一致） ───
+function pythag(x1: number, y1: number, x2: number, y2: number) {
+  return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1))
 }
 
-// 回弹物理动画
-function startReboundAnimation() {
-  // 根据 isRetracted 状态决定目标位置
-  const targetPull = isRetracted.value ? SHORT_LENGTH : ROPE_LENGTH
-  const targetSwing = 0
+function getAngle(x1: number, y1: number, x2: number, y2: number) {
+  return Math.atan((y2 - y1) / (x2 - x1))
+}
 
-  function animate() {
-    // 弹簧力 - 位移
-    const displacementY = currentPull.value - targetPull
-    const displacementSwing = swingAngle.value - targetSwing
+function updateMomentum(b: Bead, dt: number) {
+  // gravity
+  b.speedY += GRAVITY * dt / 1000
+  if (Math.abs(b.speedX) < b.speedX - X_FRICTION * dt / 1000)
+    b.speedX = 0
+  else
+    b.speedX = b.speedX > 0 ? b.speedX - X_FRICTION * dt / 1000 : b.speedX + X_FRICTION * dt / 1000
+}
 
-    // 弹簧力
-    const springForceY = -SPRING_STIFFNESS * displacementY
-    const springForceSwing = -SPRING_STIFFNESS * displacementSwing
+function moveBead(b: Bead) {
+  b.x += b.speedX
+  b.y += b.speedY
+}
 
-    // 重力对摆动的影响
-    const gravityRestoring = -0.015 * Math.sin(swingAngle.value)
-
-    // 应用速度和阻尼
-    velocity.value += springForceY
-    velocity.value *= DAMPING
-
-    swingVelocity.value += springForceSwing + gravityRestoring
-    swingVelocity.value *= DAMPING
-
-    // 更新位置
-    currentPull.value += velocity.value
-    pullDistance.value = currentPull.value
-
-    // 水平位置逐渐回到中心
-    ropeOffsetX.value += (0 - ropeOffsetX.value) * 0.08 + swingVelocity.value * 15
-    ropeOffsetX.value *= 0.92
-
-    swingAngle.value += swingVelocity.value
-
-    // 检查是否停止
-    const isSettled = (
-      Math.abs(velocity.value) < 0.1
-      && Math.abs(swingVelocity.value) < 0.001
-      && Math.abs(pullDistance.value - targetPull) < 1
-      && Math.abs(ropeOffsetX.value) < 1
-    )
-
-    if (isSettled) {
-      pullDistance.value = targetPull
-      ropeOffsetX.value = 0
-      swingAngle.value = 0
-      isReleasing.value = false
-
-      // 重置
-      setTimeout(() => {
-        if (!isPulling.value) {
-          hasTriggered.value = false
-        }
-      }, 500)
-
-      animationFrameId = null
-      return
+function positionBasedOnParent(b: Bead) {
+  const p = b.parent
+  const d = pythag(b.x, b.y, p.x, p.y)
+  if (d > BEAD_DIST) {
+    const a = getAngle(b.x, b.y, p.x, p.y)
+    let dx = Math.cos(a) * (d - BEAD_DIST)
+    let dy = Math.sin(a) * (d - BEAD_DIST)
+    if (b.x > p.x) {
+      dx *= -1
+      dy *= -1
     }
 
-    animationFrameId = requestAnimationFrame(animate)
-  }
+    if (isBead(p)) {
+      b.x += dx / 2
+      b.y += dy / 2
+      b.speedX += dx / 2
+      b.speedY += dy / 2
 
-  currentPull.value = pullDistance.value
-  animate()
+      p.x -= dx / 2
+      p.y -= dy / 2
+      p.speedX -= dx / 2
+      p.speedY -= dy / 2
+    }
+    else {
+      b.x += dx
+      b.y += dy
+      b.speedX += dx
+      b.speedY += dy
+    }
+  }
 }
 
-// 触发切换
-function triggerToggle() {
-  if ('vibrate' in navigator) {
-    navigator.vibrate([30, 50, 30])
+// ─── Canvas 渲染（与原始完全一致的渐变和高光） ───
+function drawBead(b: Bead) {
+  if (!ctx) 
+return
+  const x = b.x
+  const y = b.y
+
+  ctx.save()
+  ctx.beginPath()
+  ctx.moveTo(x, y - BEAD_SIZE)
+  ctx.arc(x, y, BEAD_SIZE, 0, Math.PI * 2, false)
+
+  let grd: CanvasGradient
+  if (lit.value) {
+    grd = ctx.createRadialGradient(x, y, BEAD_SIZE, x - BEAD_SIZE / 2, y - BEAD_SIZE / 4, BEAD_SIZE * 0.75)
+    grd.addColorStop(1, '#c98b4c')
+    grd.addColorStop(0, '#967e54')
   }
-  // 直接切换 theme，让 watch 更新 isDark
+  else {
+    grd = ctx.createRadialGradient(x, y, BEAD_SIZE, x - BEAD_SIZE / 2, y - BEAD_SIZE / 4, BEAD_SIZE * 0.75)
+    grd.addColorStop(1, '#4a5425')
+    grd.addColorStop(0, '#172023')
+  }
+  ctx.fillStyle = grd
+  ctx.fill()
+
+  const highlight = ctx.createRadialGradient(x, y, BEAD_SIZE, x + BEAD_SIZE / 3, y + BEAD_SIZE / 6, BEAD_SIZE)
+  highlight.addColorStop(0, '#f4db97')
+  highlight.addColorStop(1, 'rgba(195, 229, 228, 0)')
+  ctx.fillStyle = highlight
+  ctx.fill()
+  ctx.restore()
+}
+
+function drawLine(b: Bead) {
+  if (!ctx) 
+return
+  ctx.save()
+  ctx.beginPath()
+  ctx.moveTo(b.parent.x, b.parent.y)
+  ctx.lineTo(b.x, b.y)
+  ctx.stroke()
+  ctx.restore()
+}
+
+// ─── 动画循环（与原始结构一致） ───
+function loop() {
+  const now = performance.now()
+  const dt = Math.min(now - lastTime, 50)
+  lastTime = now
+
+  if (!ctx || !running) { rafId = requestAnimationFrame(loop); return }
+
+  ctx.clearRect(0, 0, CANVAS_W, CANVAS_H)
+
+  // 锚点到第一颗珠子的延长线
+  if (beads[0].parent.y !== 0) {
+    ctx.strokeStyle = lit.value ? '#c2cdd1' : '#737777'
+    ctx.beginPath()
+    ctx.moveTo(CANVAS_W / 2, 0)
+    ctx.lineTo(CANVAS_W / 2, beads[0].parent.y)
+    ctx.stroke()
+  }
+
+  // 链条线样式
+  ctx.strokeStyle = lit.value ? '#baaf62' : '#3d392d'
+  ctx.fillStyle = lit.value ? '#544f3f' : '#2c2a1e'
+
+  // 物理步进：动量 → 移动 → 约束（与原始一致，分两步）
+  beads.forEach((bead) => {
+    updateMomentum(bead, dt)
+    moveBead(bead)
+    positionBasedOnParent(bead)
+  })
+  // 额外 20 次约束迭代（与原始一致）
+  for (let i = 0; i < 20; i++) {
+    beads.forEach((bead) => {
+      positionBasedOnParent(bead)
+    })
+  }
+  // 先画线
+  beads.forEach((bead) => {
+    drawLine(bead)
+  })
+  // 再画珠子
+  beads.forEach((bead) => {
+    drawBead(bead)
+  })
+
+  rafId = requestAnimationFrame(loop)
+}
+
+// ─── 交互（与原始 mousedown/mouseup 一致） ───
+function onDown(e: MouseEvent | TouchEvent) {
+  e.preventDefault()
+  e.stopPropagation()
+  // mousedown → 拉下锚点
+  beads[0].parent.y = BEAD_DIST * 2
+  running = true
+  document.addEventListener('mouseup', onUp, { once: true })
+  document.addEventListener('touchend', onUp, { once: true })
+  document.addEventListener('touchcancel', onUp, { once: true })
+}
+
+function onUp() {
+  // mouseup → 给末端珠子水平冲量，释放锚点
+  beads[BEAD_COUNT - 1].speedX += INITIAL_X_MOMENTUM
+  beads[0].parent.y = 0
+  running = true
+  // 切换主题
   theme.value = theme.value === 'dark' ? 'light' : 'dark'
 }
 
-// 处理单击/触摸开始拖拽，同时检测双击
-function handleCardDown(e: MouseEvent | TouchEvent) {
-  e.preventDefault()
-  e.stopPropagation()
+// ─── 生命周期 ───
+function onResize() { screenW.value = window.innerWidth }
 
-  const now = Date.now()
-
-  // 检测双击：短时间内再次按下
-  if (now - lastMouseDownTime < DOUBLE_CLICK_DELAY) {
-    // 双击 - 切换收缩状态
-    lastMouseDownTime = 0
-    isRetracted.value = !isRetracted.value
-    if ('vibrate' in navigator) {
-      navigator.vibrate(50)
-    }
-    // 停止当前的拖拽（如果有）
-    if (isPulling.value) {
-      isPulling.value = false
-      document.removeEventListener('mousemove', onPull)
-      document.removeEventListener('mouseup', endPull)
-      document.removeEventListener('touchmove', onPull)
-      document.removeEventListener('touchend', endPull)
-    }
-    // 取消当前的动画帧（如果有）
-    if (animationFrameId) {
-      cancelAnimationFrame(animationFrameId)
-      animationFrameId = null
-    }
-    // 重置速度和状态
-    velocity.value = 0
-    swingVelocity.value = 0
-    ropeOffsetX.value = 0
-    swingAngle.value = 0
-    // 启动回弹动画
-    isReleasing.value = true
-    startReboundAnimation()
-    return
-  }
-
-  // 记录按下时间
-  lastMouseDownTime = now
-
-  // 立即开始拖拽
-  startPull(e)
+function onVisChange() {
+  lastTime = performance.now()
+  running = !document.hidden
 }
+
+onMounted(() => {
+  const canvas = canvasRef.value
+  if (canvas) {
+    const dpr = window.devicePixelRatio || 1
+    canvas.width = CANVAS_W * dpr
+    canvas.height = CANVAS_H * dpr
+    canvas.style.width = `${CANVAS_W}px`
+    canvas.style.height = `${CANVAS_H}px`
+    ctx = canvas.getContext('2d')
+    if (ctx) 
+ctx.scale(dpr, dpr)
+  }
+  initBeads()
+  lastTime = performance.now()
+  loop()
+  window.addEventListener('resize', onResize)
+  document.addEventListener('visibilitychange', onVisChange)
+})
+
+onUnmounted(() => {
+  if (rafId) 
+cancelAnimationFrame(rafId)
+  window.removeEventListener('resize', onResize)
+  document.removeEventListener('visibilitychange', onVisChange)
+})
 </script>
 
 <template>
-  <div class="pull-cord-fixed">
-    <svg
-      class="cord-svg"
-      :width="screenWidth"
-      :height="screenHeight"
-    >
-
-      <!-- 绳子主体 -->
-      <path
-        :d="ropePath"
-        :stroke="ropeColor"
-        :stroke-width="ropeWidth - 1"
-        fill="none"
-        stroke-linecap="round"
-        class="rope"
-      />
-
-      <!-- 手柄卡片 -->
-      <g
-        :transform="`translate(${handlePosition.x}, ${handlePosition.y})`"
-        class="handle-group"
-        @mousedown="handleCardDown"
-        @touchstart="handleCardDown"
-      >
-        <!-- 卡片主体 -->
-        <rect
-          x="-26"
-          y="-18"
-          width="56"
-          height="56"
-          rx="12"
-          fill="hsl(var(--theme-action))"
-          stroke="rgba(0,0,0,0.2)"
-          stroke-width="1.5"
-          class="handle-card"
-        />
-
-      </g>
-
-    </svg>
+  <div
+    class="pull-cord-fixed"
+    :style="{ right: `${containerRight}px` }"
+  >
+    <canvas
+      ref="canvasRef"
+      class="cord-canvas"
+      @mousedown="onDown"
+      @touchstart.prevent="onDown"
+    />
   </div>
 </template>
 
@@ -380,67 +285,14 @@ function handleCardDown(e: MouseEvent | TouchEvent) {
 .pull-cord-fixed {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
   z-index: 999;
   pointer-events: none;
 }
 
-.cord-svg {
-  pointer-events: none;
+.cord-canvas {
   display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.rope {
-  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.2));
-}
-
-.handle-card {
-  transition: fill 0.2s;
-}
-
-.handle-group {
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
-  cursor: grab;
   pointer-events: auto;
-}
-
-.handle-group:active {
-  cursor: grabbing;
-}
-
-.drag-overlay {
-  pointer-events: auto;
-  cursor: grab;
-}
-
-.drag-overlay:active {
-  cursor: grabbing;
-}
-
-.hint-text {
-  position: absolute;
-  top: 50px;
-  right: 10px;
-  font-size: 12px;
-  color: var(--gray-11, #71717a);
-  background: rgba(255, 255, 255, 0.9);
-  padding: 6px 12px;
-  border-radius: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  pointer-events: none;
-  transition: opacity 0.3s;
-  white-space: nowrap;
-}
-
-.dark .hint-text {
-  background: rgba(24, 24, 27, 0.9);
-  color: var(--gray-11, #a1a1aa);
+  cursor: pointer;
+  filter: drop-shadow(3px 2px 3px rgba(0, 0, 0, 0.5));
 }
 </style>
