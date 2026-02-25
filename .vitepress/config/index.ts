@@ -1,6 +1,6 @@
 import type { Config as ThemeConfig } from '../../src'
 import { mergeConfig } from 'vite'
-import { defineConfigWithTheme } from 'vitepress'
+import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 import baseConfig from '../../src/vitepress/config/baseConfig'
 
@@ -9,7 +9,7 @@ import { genFeed } from '../plugins/rss'
 import { head } from './head'
 import { nav } from './nav'
 
-export default withMermaid(defineConfigWithTheme<ThemeConfig>({
+export default withMermaid(defineConfig<ThemeConfig>({
   extends: baseConfig,
 
   title: 'Elone Hoo',
@@ -45,6 +45,12 @@ export default withMermaid(defineConfigWithTheme<ThemeConfig>({
 
   mermaid: {
     // https://mermaid.js.org/config/setup/modules/mermaidAPI.html#mermaidapi-configuration-defaults
+    flowchart: {
+      curve: 'basis',
+      padding: 20,
+      nodeSpacing: 50,
+      rankSpacing: 50,
+    },
   },
 
   head,

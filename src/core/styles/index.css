@@ -5,4 +5,5 @@
 @import './custom-block.css';
 @import './code-group.css';
 @import './transition.css';
+@import './mermaid.css';
 @import "@radix-ui/colors/gray.css";
