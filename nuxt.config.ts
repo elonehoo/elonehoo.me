@@ -1,5 +1,3 @@
-
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -31,17 +29,4 @@ export default defineNuxtConfig({
       branch: 'dev'
     }
   },
-  content: {
-    build: {
-      markdown: {
-        // Object syntax can be used to override default options
-        remarkPlugins: {
-          'remark-gfm': {
-            singleTilde: false,
-          },
-          'remark-supersub': {},
-        },
-      }
-    }
-  }
 })
