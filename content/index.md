@@ -53,7 +53,7 @@ MacBook Pro 2024、Mac Mini 2020、iPhone 14、Apple Watch Series 9、iPad air 3
 
 ### 软技能
 
-Google Search、GitHub、Stack Overflow、OpenAI Chat GPT
+Google Search、GitHub、Stack Overflow、OpenAI Chat GPT、Claude Code
 
 ### 自然语言
 
