@@ -22,7 +22,13 @@ export default defineNuxtConfig({
   },
   studio: {
     i18n: {
-      defaultLocale: 'zh' // 'en', 'fr' or 'de'
+      defaultLocale: 'zh',
+    },
+    repository: {
+      provider: 'github',
+      owner: 'elonehoo',
+      repo: 'elonehoo.me',
+      branch: 'dev'
     }
   },
   content: {
