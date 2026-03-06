@@ -1,0 +1,64 @@
+.vp-code-group {
+  --at-apply: mt-4;
+}
+
+.vp-code-group .tabs {
+  --at-apply:
+    relative flex mx--6 px-3 bg-gray-12
+    overflow-x-auto overflow-y-hidden;
+  box-shadow: inset 0 -1px var(--gray-11);
+}
+
+@media (min-width: 640px) {
+  .vp-code-group .tabs {
+    --at-apply: mx-0 rounded-[8px_8px_0_0];
+  }
+}
+
+.vp-code-group .tabs input {
+  --at-apply: fixed op-0 pointer-events-none;
+}
+
+.vp-code-group .tabs label {
+  --at-apply:
+    relative inline-block leading-[48px] text-sm font-medium
+    px-3 py-0 border-b-transparent border-b border-solid
+    whitespace-nowrap cursor-pointer transition-[color]
+    duration-[0.25s] select-none text-gray-1;
+}
+
+.vp-code-group .tabs label::after {
+  --at-apply:
+    absolute z-[1] h-0.5 content-[''] bg-transparent
+    transition-[background-color] duration-[0.25s]
+    rounded-sm -bottom-px inset-x-2;
+}
+
+.vp-code-group label:hover {
+  --at-apply: text-action;
+}
+
+.vp-code-group input:checked + label {
+  --at-apply: text-action;
+}
+
+.vp-code-group input:checked + label::after {
+  --at-apply: bg-action;
+}
+
+.vp-code-group div[class*='language-'],
+.vp-block {
+  --at-apply: hidden;
+  margin-top: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.vp-code-group div[class*='language-'].active,
+.vp-block.active {
+  --at-apply: block;
+}
+
+.vp-block {
+  --at-apply: px-6 py-5;
+}
