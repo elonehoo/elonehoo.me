@@ -57,7 +57,7 @@ Google Search、GitHub、Stack Overflow、OpenAI Chat GPT
 
 ### 自然语言
 
-中文、英文学习中
+中文、英文^学习中^
 
 ::div{.text-center.font-bold}
 我们会成为朋友的，对吧 ？

@@ -20,11 +20,19 @@ export default defineNuxtConfig({
       standalone: false
     }
   },
+  studio: {
+    i18n: {
+      defaultLocale: 'zh' // 'en', 'fr' or 'de'
+    }
+  },
   content: {
     build: {
       markdown: {
         // Object syntax can be used to override default options
         remarkPlugins: {
+          'remark-gfm': {
+            singleTilde: false,
+          },
           'remark-supersub': {},
         },
       }
