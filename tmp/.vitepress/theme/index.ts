@@ -1,5 +1,5 @@
 import { h } from 'vue'
-import DefaultLayout from '~~/layout/Default.vue'
+import DefaultLayout from 'tmp/theme/layout/Default.vue'
 import { VPTheme } from '~/index'
 
 import '@unocss/reset/tailwind.css'

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { groupByTime } from '~~/shared/groupByTime'
-import { data } from '@/demos.data'
+import { data } from 'tmp/data/demos.data'
 
 const demos = computed(() => groupByTime(data))
 </script>

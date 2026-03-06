@@ -7,9 +7,9 @@
     "module": "esnext",
     "moduleResolution": "node",
     "paths": {
-      "~/*": ["src/*"],
-      "~~/*": ["theme/*"],
-      "@/*": ["data/*"]
+      "~/*": ["tmp/src/*"],
+      "~~/*": ["tmp/theme/*"],
+      "@/*": ["tmp/data/*"]
     },
     "resolveJsonModule": true,
     "types": [
@@ -29,10 +29,10 @@
     "./.vitepress/**/*.vue",
     "./pages/**/*.ts",
     "./pages/**/*.vue",
-    "./theme/**/*.ts",
-    "./theme/**/*.vue",
-    "./src/**/*.ts",
-    "./src/**/*.vue"
+    "tmp/theme/**/*.ts",
+    "tmp/theme/**/*.vue",
+    "tmp/src/**/*.ts",
+    "tmp/src/**/*.vue"
   ],
   "exclude": ["dist", "node_modules"]
 }
