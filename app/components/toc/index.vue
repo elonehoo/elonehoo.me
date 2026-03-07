@@ -2,17 +2,19 @@
 import type { TocLink } from '@nuxt/content'
 
 const route = useRoute()
+const pagePath = computed(() => route.path)
 const activeId = ref('')
+const observer = shallowRef<IntersectionObserver>()
 
 const { data } = await useAsyncData(
   'page-toc',
   () => {
     return queryCollection('content')
-      .where('path', '=', route.path)
+      .path(pagePath.value)
       .first()
   },
   {
-    watch: [() => route.path],
+    watch: [pagePath],
   },
 )
 
@@ -37,11 +39,16 @@ const headingIds = computed(() => {
   return ids
 })
 
-watch(() => route.hash, (hash) => {
+function syncActiveId(hash = route.hash) {
   activeId.value = decodeURIComponent(hash.replace(/^#/, ''))
-}, { immediate: true })
+}
 
-watch(headingIds, async (ids, _, onCleanup) => {
+function disconnectObserver() {
+  observer.value?.disconnect()
+  observer.value = undefined
+}
+
+async function observeHeadings(ids: string[]) {
   if (!import.meta.client || !ids.length)
     return
 
@@ -54,7 +61,7 @@ watch(headingIds, async (ids, _, onCleanup) => {
   if (!headings.length)
     return
 
-  const observer = new IntersectionObserver((entries) => {
+  const nextObserver = new IntersectionObserver((entries) => {
     const current = entries
       .filter(entry => entry.isIntersecting)
       .sort((left, right) => left.boundingClientRect.top - right.boundingClientRect.top)[0]
@@ -67,12 +74,34 @@ watch(headingIds, async (ids, _, onCleanup) => {
   })
 
   for (const heading of headings)
-    observer.observe(heading)
+    nextObserver.observe(heading)
+
+  observer.value = nextObserver
+}
+
+watch(headingIds, async (ids, _, onCleanup) => {
+  disconnectObserver()
+
+  if (!ids.length) {
+    syncActiveId('')
+    return
+  }
+
+  syncActiveId()
+  await observeHeadings(ids)
 
   onCleanup(() => {
-    observer.disconnect()
+    disconnectObserver()
   })
-}, { immediate: true })
+}, { immediate: true, flush: 'post' })
+
+onMounted(() => {
+  syncActiveId()
+})
+
+onBeforeUnmount(() => {
+  disconnectObserver()
+})
 </script>
 
 <template>
