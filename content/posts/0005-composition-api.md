@@ -3,7 +3,6 @@ title: Vue Composition Api
 date: 2023-02-07T13:12:00.000
 lang: zh
 duration: 25min
-layout: 'default'
 ---
 
 > 本文会比往期文章相对长些。如果你能花些时间读完，不胜感激。若你在电脑端阅读，可在右侧查看目录。最后，希望能对你有所帮助 :)

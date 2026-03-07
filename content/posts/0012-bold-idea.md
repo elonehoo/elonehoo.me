@@ -5,7 +5,6 @@ lang: zh
 duration: 6min
 subtitle: 最近我产生了一个不错的产品创意
 description: 最近我产生了一个不错的产品创意
-layout: 'default'
 ---
 
 最近我产生了一个不错的产品创意 - **「个人知识库」**

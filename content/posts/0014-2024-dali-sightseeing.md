@@ -7,7 +7,6 @@ recording: true
 duration: 5min
 subtitle: 这是2024年对于大理旅游的计划，我会在这里记录目前的旅游攻略
 description: 这是2024年对于大理旅游的计划，我会在这里记录目前的旅游攻略
-layout: 'default'
 ---
 
 > [!TIP]

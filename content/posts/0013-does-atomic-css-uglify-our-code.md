@@ -4,7 +4,6 @@ date: 2023-07-23T21:12:00.000
 lang: zh
 duration: 15min
 tocAlwaysOn: true
-layout: 'default'
 ---
 
 > 在一些公司的项目中，我开始推行了「原子化CSS」，但是受到了不小的阻力，所以有了这一篇文章。

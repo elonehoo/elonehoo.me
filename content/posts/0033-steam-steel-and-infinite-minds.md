@@ -3,7 +3,6 @@ title: 钢铁为骨，蒸汽为血，心智无垠
 date: 2025-12-29T23:59:00.000+08:00
 lang: zh
 duration: 12min
-layout: 'default'
 ---
 
 每个时代都由一种奇迹定义。

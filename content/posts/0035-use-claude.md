@@ -6,7 +6,6 @@ description: |-
   我摸索出来的这套工作流跟大多数人用 AI 编程工具的方式完全不一样。
 duration: 30min
 lang: zh
-layout: default
 recording: false
 upcoming: false
 ---

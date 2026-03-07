@@ -3,7 +3,6 @@ title: Domain Email
 date: 2022-12-20T16:00:00.000+00:00
 lang: en
 duration: 5min
-layout: 'default'
 ---
 
 Saw [a tweet from Evan You](https://twitter.com/youyuxi/status/1272932071749619712) about the [hey.com](https://hey.com/) mail service recently. I got interested in having a short and nice email address. My current one in Hotmail is just too long to even being spell out in talk. `hey.com` looks very nice but $99/year is not a very good deal to me. I decide to use my own domain for receiving emails.

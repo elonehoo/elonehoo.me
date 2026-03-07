@@ -3,7 +3,6 @@ title: 未来的 Destyler UI
 date: 2024-07-14T20:52:00.000
 lang: zh
 duration: 25min
-layout: 'default'
 img: 'https://destyler.org/blog/release-0.0.4.png'
 read: true
 ---

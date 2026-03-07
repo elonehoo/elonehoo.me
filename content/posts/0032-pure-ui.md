@@ -3,7 +3,6 @@ title: 纯 UI 设计
 date: 2025-11-30T23:59:00.000+08:00
 lang: zh
 duration: 12min
-layout: 'default'
 ---
 
 今年是我从事前端开发的第 5 年，而今天也是我拜读 [Guillermo Rauch](https://github.com/rauchg) 的

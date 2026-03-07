@@ -3,7 +3,6 @@ title: vite简介
 date: 2023-01-02T21:36:00
 lang: zh
 duration: 10min
-layout: 'default'
 ---
 
 Vite 由 Vue 的作者尤雨溪设计并开发，目前在"bundless 界"处于领先地位，试图替代 Webpack dev server，提升开发效率。

@@ -4,7 +4,6 @@ date: 2023-06-16T15:36:00.000
 lang: en
 duration: 16min
 image: 'https://elonehoo.me/posts/0011-wwdc-design/og.png'
-layout: 'default'
 ---
 
 ![wwdc design](/posts/0011-wwdc-design/og.png)

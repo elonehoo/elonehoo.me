@@ -3,7 +3,6 @@ title: New House
 date: 2024-04-24T13:16:00Z
 lang: en
 duration: 2min
-layout: 'default'
 ---
 
 I have migrated my blog from [nuxt](https://nuxt.com/) to [vitepress](https://vitepress.dev/).

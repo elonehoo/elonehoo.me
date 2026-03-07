@@ -3,7 +3,6 @@ title: Vue.js 3.4 中改进的 Computed
 date: 2024-01-04T21:56:00
 lang: zh
 duration: 10min
-layout: 'default'
 ---
 
 在 Vue.js 中，您可以使用 Computed 属性根据反应值获取反应值（没有任何副作用）。

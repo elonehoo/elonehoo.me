@@ -3,7 +3,6 @@ title: 代码格式化产生的纠纷
 date: 2023-02-03T13:46:00
 lang: zh
 duration: 12min
-layout: 'default'
 ---
 
 [[toc]]

@@ -3,7 +3,6 @@ title: Why i like Arc?
 date: 2023-06-15T11:19:00.000+00:00
 lang: en
 duration: 20min
-layout: 'default'
 ---
 
 The following are my favorite things about [Arc](https://arc.net), listed in order of preference.

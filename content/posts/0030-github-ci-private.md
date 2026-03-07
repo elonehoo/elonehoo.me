@@ -3,7 +3,7 @@ title: 利用 CI 脱壳代理模式提升 GitHub Actions 构建效率
 date: 2025-04-02T22:46:00.000+08:00
 lang: zh
 duration: 8min
-layout: 'default'
+
 ---
 
 在使用 GitHub Actions 构建大型跨平台应用时，

@@ -3,7 +3,6 @@ title: 为什么我不使用 MultiRepo
 date: 2023-06-09T13:37:00.000+00:00
 lang: zh
 duration: 20min
-layout: 'default'
 ---
 
 我已经多次开始写这篇文章，但一直无法完成并发表它。我找不到合适的方式来表达我对 MultiRepo 的看法。但这一次，我想我应该尽力去表达清楚，以供将来作参考。

@@ -4,7 +4,6 @@ date: 2023-02-08T20:46:00.000
 lang: en
 duration: 6min
 image: 'https://elonehoo.me/posts/0006-better-css/better-css-1.webp'
-layout: 'default'
 ---
 
 ![what is right](/posts/0006-better-css/better-css-1.webp)

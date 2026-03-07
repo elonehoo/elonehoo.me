@@ -3,7 +3,6 @@ title: Elone Hoo 的实验项目
 date: 2023-03-03T10:20:00.000
 lang: zh
 duration: 5min
-layout: 'default'
 ---
 
 # 嗨 👋🏼

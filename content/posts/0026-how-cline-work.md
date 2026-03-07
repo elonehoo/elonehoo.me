@@ -3,7 +3,6 @@ title: Cline 是怎么工作的
 date: 2025-01-25T12:27:00
 lang: zh
 duration: 12min
-layout: 'default'
 ---
 
 令很多人没有想到， AI 在编程领域掀起了半边天，从 [V0](https://v0.dev/), 到 [bolt.new](https://bolt.new/) 再到现在各种结合 Agant 的编程工具 [Cursor](https://www.cursor.com/)，[Windsurf](https://codeium.com/windsurf), AI Coding 已经具备了 idea MVP 的巨大潜力。再从传统的 AI 辅助编程，到如今的直接项目生产的背后，到底有着怎么样的魔力呢？
