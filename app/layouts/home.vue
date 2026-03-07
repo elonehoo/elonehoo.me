@@ -5,7 +5,7 @@ defineOptions({
 </script>
 
 <template>
-  <CustomContent>
+  <div>
     <slot />
-  </CustomContent>
+  </div>
 </template>

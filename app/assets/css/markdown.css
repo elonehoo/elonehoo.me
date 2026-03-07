@@ -4,7 +4,7 @@
 
 .prose-md a{
   --at-apply:
-    items-center gap-x-0.5 w-fit cursor-pointer relative inline-flex
+    items-center gap-x-0.5 px-1 w-fit cursor-pointer relative inline-flex
     rounded-sm hover:bg-action hover:text-gray-1 dark:hover:text-gray-12
     after:content-[''] after:absolute after:bottom-px after:left-0
     after:w-full after:h-px after:bg-action;
@@ -30,8 +30,13 @@
   --at-apply: font-medium flex items-center gap-x-1.5 relative pt-2 text-18px;
 }
 
+.prose-md :is(h1, h2, h3, h4, h5, h6) a {
+  --at-apply: inline-flex items-center gap-x-0 rounded-none bg-transparent hover:bg-transparent pointer-events-none;
+  &::after { content: none; }
+}
+
 .prose-md :is(h1, h2, h3, h4, h5, h6)::before {
-  --at-apply: text-gray-400 text-sm mr-2 text-center;
+  --at-apply: text-gray-400 text-sm text-center;
 }
 
 .prose-md h1::before { content: "#"; }

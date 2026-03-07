@@ -1,13 +1,14 @@
 import dayjs from 'dayjs'
 
 interface Item {
-  time: string
+  time?: string
+  date?: string
   [k: string]: any
 }
 
-interface Result {
+interface Result<T = Item> {
   key: string
-  records: any
+  records: T[]
 }
 
 export function formatDate(d: string | Date, onlyDate = true) {
@@ -21,28 +22,39 @@ export function formatTime(time: string) {
   return dayjs(time).format('YYYY-MM-DD')
 }
 
-export function groupByTime(records: Item[]): Result[] {
-  const result: Result[] = []
-  const timeMap = new Map()
-  if (records.some(r => !r.time))
+function getRecordTime(record: Item) {
+  return record.date || record.time
+}
+
+export function groupByTime<T extends Item>(records: T[]): Result<T>[] {
+  const result: Result<T>[] = []
+  const timeMap = new Map<string, T[]>()
+  if (records.some(record => !getRecordTime(record)))
     return [{ key: '', records }] // not need group
+
   const getTimestamp = (time: string) => dayjs(time).unix()
   const sortedRecords = records.slice().sort((a, b) => {
-    return getTimestamp(b.date) - getTimestamp(a.date)
+    return getTimestamp(getRecordTime(b)!) - getTimestamp(getRecordTime(a)!)
   })
-  for (const item of sortedRecords) {
-    const year = dayjs(item.date).year()
-    if (timeMap.has(year))
-      timeMap.get(year).push(item)
 
+  for (const item of sortedRecords) {
+    const year = String(dayjs(getRecordTime(item)!).year())
+    const yearRecords = timeMap.get(year)
+    if (yearRecords)
+      yearRecords.push(item)
     else
       timeMap.set(year, [item])
   }
+
   let idx = records.length
   for (const [year, records] of timeMap) {
     result.push({
       key: year,
-      records: records.map((v: any) => ({ ...v, time: dayjs(v.date).format('M 月 DD 日'), _idx: idx-- })),
+      records: records.map(v => ({
+        ...v,
+        time: dayjs(getRecordTime(v)!).format('M 月 DD 日'),
+        _idx: idx--,
+      })),
     })
   }
 

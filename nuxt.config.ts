@@ -5,17 +5,22 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@unocss/nuxt',
     '@nuxt/eslint',
-    'nuxt-studio'
+    'nuxt-studio',
   ],
-  devtools: { 
-    enabled: true 
+  devtools: {
+    enabled: true,
   },
   css: [
-    '~/assets/css/index.css'
+    '~/assets/css/index.css',
   ],
   eslint: {
     config: {
-      standalone: false
+      standalone: false,
+    },
+  },
+  content: {
+    renderer: {
+      anchorLinks: true,
     }
   },
   studio: {
@@ -26,7 +31,7 @@ export default defineNuxtConfig({
       provider: 'github',
       owner: 'elonehoo',
       repo: 'elonehoo.me',
-      branch: 'dev'
-    }
+      branch: 'dev',
+    },
   },
 })

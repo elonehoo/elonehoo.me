@@ -10,3 +10,14 @@ body {
 }
 
 
+.text-center,
+[text-center=""] {
+  text-align: center;
+}
+
+/* layer: default */
+.font-bold,
+[font-bold=""] {
+  --un-font-weight: var(--fontWeight-bold);
+  font-weight: var(--fontWeight-bold);
+}

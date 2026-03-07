@@ -6,3 +6,7 @@
 @import './code-group.css';
 @import './transition.css';
 @import './mermaid.css';
+
+html {
+	scroll-behavior: smooth;
+}

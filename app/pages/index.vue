@@ -1,6 +1,7 @@
 <script setup lang="ts">
 definePageMeta({
   layout: 'home',
+  outline: true,
 })
 
 const { data: home } = await useAsyncData(() => queryCollection('content').path('/').first())
@@ -13,9 +14,10 @@ useSeoMeta({
 
 <template>
   <div class="prose-md">
-    <ContentRenderer v-if="home" :value="home" />
-    <div v-else>
-      Home not found
-    </div>
+    <ContentRenderer v-if="home" :value="home">
+      <template #empty>
+        Home not found
+      </template>
+    </ContentRenderer>
   </div>
 </template>

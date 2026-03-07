@@ -9,6 +9,9 @@ description: Elone Hoo's Portfolio
 
 目前我居住在良渚，这是一个非常美丽的小镇，我有一只猫，她叫做 `咖啡` 。如果你想见到我/想跟我说话，可以给我[发邮件](mailto\:hi@elonehoo.me)！我们可以一起喝杯咖啡，聊聊天。如果你愿意和我一起写代码，那就更好了 :)。
 
+::List
+::
+
 ---
 
 ## 斜杠属性
@@ -19,7 +22,7 @@ description: Elone Hoo's Portfolio
 
 ## 设备
 
-MacBook Pro 2024、Mac Mini 2020、iPhone 14、Apple Watch Series 9、iPad air 3、Logitech G304、Nuphy Air60、AirPods 2、Redmi A27U、Nintendo Switch
+MacBook Pro 2024、Mac Mini 2020、iPhone 14 Pro、Apple Watch Series 9、iPad air 3、Logitech G304、Nuphy Air60、AirPods 2、Redmi A27U、Nintendo Switch
 
 ## 技术栈
 
