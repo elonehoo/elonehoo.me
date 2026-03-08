@@ -2,7 +2,7 @@
 import dayjs from 'dayjs'
 
 definePageMeta({
-  layout: 'doc',
+  layout: 'default',
   outline: false,
 })
 

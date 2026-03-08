@@ -1,10 +1,12 @@
 <script setup lang="ts">
 definePageMeta({
-  layout: 'post',
+  layout: 'list',
   outline: true,
 })
 
-const { data } = await useAsyncData(() => queryCollection('content').path('/posts').first())
+const route = useRoute()
+
+const { data } = await useAsyncData(() => queryCollection('content').path(`/${route.params.id}`).first())
 
 useSeoMeta({
   title: data.value?.seo.title,
