@@ -23,6 +23,8 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4.2.0
+        with:
+          version: latest
 
       - name: Install
         run: pnpm install --no-frozen-lockfile

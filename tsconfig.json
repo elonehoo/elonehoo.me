@@ -1,38 +1,17 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "jsx": "preserve",
-    "lib": ["DOM", "ESNext", "dom.iterable"],
-    "baseUrl": ".",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "paths": {
-      "~/*": ["src/*"],
-      "~~/*": ["theme/*"],
-      "@/*": ["data/*"]
+  "references": [
+    {
+      "path": "./.nuxt/tsconfig.app.json"
     },
-    "resolveJsonModule": true,
-    "types": [
-      "vite/client",
-      "vitepress"
-    ],
-    "strict": true,
-    "strictNullChecks": true,
-    "noUnusedLocals": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
-  },
-  "include": [
-    "./*.ts",
-    "./.vitepress/**/*.ts",
-    "./.vitepress/**/*.vue",
-    "./pages/**/*.ts",
-    "./pages/**/*.vue",
-    "./theme/**/*.ts",
-    "./theme/**/*.vue",
-    "./src/**/*.ts",
-    "./src/**/*.vue"
+    {
+      "path": "./.nuxt/tsconfig.server.json"
+    },
+    {
+      "path": "./.nuxt/tsconfig.shared.json"
+    },
+    {
+      "path": "./.nuxt/tsconfig.node.json"
+    }
   ],
-  "exclude": ["dist", "node_modules"]
+  "files": []
 }

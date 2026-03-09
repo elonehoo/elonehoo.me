@@ -1,0 +1,22 @@
+<script setup lang="ts">
+import Icones from './icones/Icones.vue'
+
+const props = defineProps<{
+  link: string
+}>()
+</script>
+
+<template>
+  <NuxtLink
+    :to="props.link"
+    target="_self"
+    class="
+    flex items-center gap-x-0.5 w-fit text-gray-8 text-sm
+    hover:bg-action hover:text-gray-1! px-1.5 py-1 rounded-sm
+    font-medium border border-gray-6 hover:border-action
+    cursor-pointer after:bg-transparent!"
+  >
+    <slot />
+    <Icones name="Right" class="hidden sm:block w-3 h-3" />
+  </NuxtLink>
+</template>

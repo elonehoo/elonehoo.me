@@ -1,0 +1,10 @@
+---
+title: Notes - Elone Hoo
+description: Elone Hoo's Portfolio
+---
+
+> 随笔
+>
+> 一些碎碎念、生活感悟、技术见解、设计小样等等。
+
+:doc-list

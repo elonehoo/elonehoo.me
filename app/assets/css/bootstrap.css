@@ -1,0 +1,23 @@
+body {
+  --at-apply: scrollbar-hide bg-light dark:bg-black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+  font-family: ANWE, ANWT, PingFang SC, Microsoft YaHei, Arial, sans-serif;
+  font-size: 16px;
+  color: rgb(var(--foreground-rgb));
+
+}
+
+
+.text-center,
+[text-center=""] {
+  text-align: center;
+}
+
+/* layer: default */
+.font-bold,
+[font-bold=""] {
+  --un-font-weight: var(--fontWeight-bold);
+  font-weight: var(--fontWeight-bold);
+}

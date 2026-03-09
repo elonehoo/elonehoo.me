@@ -1,0 +1,142 @@
+.prose-md {
+  --at-apply: prose text-base;
+}
+
+.prose-md a{
+  --at-apply:
+    items-center gap-x-0.5 px-1 w-fit cursor-pointer relative inline-flex
+    rounded-sm hover:bg-action hover:text-gray-1 dark:hover:text-gray-1
+    after:content-[''] after:absolute after:bottom-px after:left-0
+    after:w-full after:h-px after:bg-action;
+}
+
+.prose-md a:hover code{
+  --at-apply: text-gray-1;
+}
+
+.prose-md hr {
+  --at-apply:
+    flex select-none my-8 w-[calc(100%-6px)] mx-auto rounded-md
+    border-none transition-colors duration-100 ease-out flex-col
+    h-0.5 bg-gray-4;
+}
+
+.prose-md p {
+  --at-apply:
+    my-2 leading-loose;
+}
+
+.prose-md :is(h1, h2, h3, h4, h5, h6) {
+  --at-apply: font-medium flex items-center gap-x-1.5 relative pt-2 text-18px;
+}
+
+.prose-md :is(h1, h2, h3, h4, h5, h6) a {
+  --at-apply: inline-flex items-center gap-x-0 rounded-none bg-transparent hover:bg-transparent pointer-events-none;
+  &::after { content: none; }
+}
+
+.prose-md :is(h1, h2, h3, h4, h5, h6)::before {
+  --at-apply: text-gray-400 text-sm text-center;
+}
+
+.prose-md h1::before { content: "#"; }
+.prose-md h2::before { content: "##"; }
+.prose-md h3::before { content: "###"; }
+.prose-md h4::before { content: "####"; }
+.prose-md h5::before { content: "#####"; }
+.prose-md h6::before { content: "######"; }
+
+/* blockquote */
+.prose-md blockquote {
+  --at-apply:
+    my-1.6em text-gray-9 font-medium italic text-inherit
+    border-l-4 pl-1em rounded-lg;
+  quotes: "\201C""\201D""\2018""\2019";
+  border-color: color(display-p3 0.85 0.85 0.85 / 0.25);
+}
+
+.prose-md blockquote p:first-of-type::before {
+  content: open-quote;
+}
+.prose-md blockquote p:last-of-type::after {
+  content: close-quote;
+}
+
+/* ol */
+.prose-md ol {
+  --at-apply: my-2 pl-1;
+}
+
+.prose-md ol > li {
+  --at-apply: relative pl-0.95em;
+}
+
+.prose-md ol > li::before {
+  --at-apply: absolute font-500 text-action left-0;
+  content: counter(list-item, var(--list-counter-style, decimal)) ".";
+}
+
+/* ul */
+.prose-md ul {
+  --at-apply: my-2 pl-1;
+}
+
+.prose-md ul > li {
+  --at-apply: pl-1.75em relative mt-1;
+}
+
+.prose-md ul > li::before {
+  --at-apply: absolute content-[""] bg-action/40 rounded-md w-0.5 h-90%;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0.75em;
+}
+
+.prose-md ul ul,
+.prose-md ol ol,
+.prose-md ul ol,
+.prose-md ol ul {
+  --at-apply: mt-1 mb-0;
+}
+
+/* img */
+.prose-md img {
+  --at-apply: w-full rounded-md;
+}
+.prose-md p > img {
+  --at-apply: w-full shadow rounded-md my-1;
+}
+
+/* Table */
+.prose-md table {
+  --at-apply:
+    w-full table-auto text-left text-[0.875em] leading-[1.7142857] my-[2em];
+}
+
+table {
+  --at-apply: indent-[0] border-inherit border-collapse;
+}
+
+.prose-md thead {
+  --at-apply: font-600 border-b-action/40 border-b border-b-dashed;
+}
+
+.prose-md thead th:first-child {
+  --at-apply: pl-0;
+}
+
+.prose-md thead th {
+  --at-apply: align-bottom pb-[0.5714286em] px-[0.5714286em];
+}
+
+.prose-md tbody tr {
+  --at-apply: border-b-action/40 border-b;
+}
+
+.prose-md tbody td:first-child {
+  --at-apply: pl-0;
+}
+
+.prose-md tbody td {
+  --at-apply: align-top p-[0.5714286em];
+}
