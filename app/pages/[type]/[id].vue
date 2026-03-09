@@ -41,7 +41,7 @@ useSeoMeta({
     <ContentRenderer
       v-if="data"
       :value="data"
-      class="prose-md"
+      class="prose-md mt-4"
     />
   </div>
 </template>
