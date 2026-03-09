@@ -22,7 +22,7 @@
 .prose-md pre[class*='language-'] {
   --at-apply:
     bg-light dark:bg-dark border rounded-md border-op-25 border-gray-4 dark:border-gray-12
-    relative overflow-x-auto my-7 pt-4;
+    relative overflow-x-auto my-7 py-2;
   transition: background-color 0.5s;
 }
 
