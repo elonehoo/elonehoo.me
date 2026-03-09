@@ -18,6 +18,24 @@
   animation-name: reveal-dark;
 }
 
+html[data-theme-switch]::view-transition-old(root),
+html[data-theme-switch]::view-transition-new(root) {
+  animation-duration: 1.4s;
+  animation-timing-function: cubic-bezier(.22, 1, .36, 1);
+}
+
+html[data-theme-switch]::view-transition-old(root) {
+  animation-name: none;
+}
+
+html[data-theme-switch='dark']::view-transition-new(root) {
+  animation-name: lights-off;
+}
+
+html[data-theme-switch='light']::view-transition-new(root) {
+  animation-name: lights-on;
+}
+
 @keyframes reveal-dark {
   from {
     clip-path: polygon(-30% 0, -30% 0, -15% 100%, -10% 115%);
@@ -33,5 +51,33 @@
   }
   to {
     clip-path: polygon(130% 0, -30% 0, -15% 100%, 110% 115%);
+  }
+}
+
+@keyframes lights-off {
+  from {
+    clip-path: circle(0 at var(--theme-transition-x, 50%) var(--theme-transition-y, 50%));
+    filter: brightness(1.08) saturate(1.05);
+  }
+  55% {
+    filter: brightness(.92) saturate(1.02);
+  }
+  to {
+    clip-path: circle(var(--theme-transition-radius, 150vmax) at var(--theme-transition-x, 50%) var(--theme-transition-y, 50%));
+    filter: brightness(1);
+  }
+}
+
+@keyframes lights-on {
+  from {
+    clip-path: circle(0 at var(--theme-transition-x, 50%) var(--theme-transition-y, 50%));
+    filter: brightness(1.35) saturate(1.1);
+  }
+  60% {
+    filter: brightness(1.12) saturate(1.04);
+  }
+  to {
+    clip-path: circle(var(--theme-transition-radius, 150vmax) at var(--theme-transition-x, 50%) var(--theme-transition-y, 50%));
+    filter: brightness(1);
   }
 }

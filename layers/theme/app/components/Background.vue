@@ -2,10 +2,53 @@
 defineOptions({
   name: 'Theme.Background',
 })
+
+const colorMode = useColorMode()
+
+async function toggleColorMode(event: MouseEvent) {
+  const nextMode = colorMode.value === 'dark' ? 'light' : 'dark'
+
+  if (!import.meta.client) {
+    colorMode.preference = nextMode
+    return
+  }
+
+  const root = document.documentElement
+  const x = event.clientX
+  const y = event.clientY
+  const radius = Math.hypot(
+    Math.max(x, window.innerWidth - x),
+    Math.max(y, window.innerHeight - y),
+  )
+
+  root.style.setProperty('--theme-transition-x', `${x}px`)
+  root.style.setProperty('--theme-transition-y', `${y}px`)
+  root.style.setProperty('--theme-transition-radius', `${radius}px`)
+  root.dataset.themeSwitch = nextMode
+
+  const transition = document.startViewTransition?.(async () => {
+    colorMode.preference = nextMode
+    await nextTick()
+  })
+
+  if (!transition) {
+    colorMode.preference = nextMode
+    delete root.dataset.themeSwitch
+    return
+  }
+
+  transition.finished.finally(() => {
+    delete root.dataset.themeSwitch
+  })
+}
 </script>
 
 <template>
-  <div class="p-4 py-10 background md:p-12 min-h-screen z--10">
+  <div
+    class="p-4 py-10 background md:p-12 min-h-screen z--10"
+    title="双击切换明暗模式"
+    @dblclick="toggleColorMode"
+  >
     <div class="justify-between md:flex animate-in fade-in duration-500">
       <slot />
     </div>
