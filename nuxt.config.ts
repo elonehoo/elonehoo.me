@@ -1,11 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
+  ssr: true,
   modules: [
     '@nuxt/content',
     '@unocss/nuxt',
     '@nuxt/eslint',
     'nuxt-studio',
+    '@vueuse/nuxt',
   ],
   devtools: {
     enabled: true,
@@ -21,7 +23,7 @@ export default defineNuxtConfig({
   content: {
     renderer: {
       anchorLinks: true,
-    }
+    },
   },
   studio: {
     i18n: {

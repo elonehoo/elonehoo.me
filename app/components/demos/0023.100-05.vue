@@ -1,7 +1,7 @@
 <!-- eslint-disable -->
 <!-- prettier-ignore -->
 <!-- @ts-nocheck -->
-<script setup>
+<!-- <script setup>
 import { useData } from 'vitepress'
 
 const { isDark } = useData()
@@ -310,4 +310,17 @@ onMounted(() => {
   <CraftBox class="h-60!">
     <canvas id="canvas" />
   </CraftBox>
+</template> -->
+
+<script setup lang="ts">
+const props = defineProps<{
+  modelValue?: boolean,
+}>()
+
+</script>
+
+<template>
+  <div>
+    <slot />
+  </div>
 </template>
