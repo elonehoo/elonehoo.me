@@ -19,28 +19,28 @@
   }
 }
 
-.prose-md div[class*='language-'] {
+.prose-md pre[class*='language-'] {
   --at-apply:
-    bg-light dark:bg-dark border rounded-md border-gray-4 dark:border-gray-12
-    relative overflow-x-auto my-7;
+    bg-light dark:bg-dark border rounded-md border-op-25 border-gray-4 dark:border-gray-12
+    relative overflow-x-auto my-7 pt-4;
   transition: background-color 0.5s;
 }
 
 @media (min-width: 640px) {
-  .prose-md div[class*='language-'] {
+  .prose-md pre[class*='language-'] {
     --at-apply: my-7 rounded-lg;
   }
 }
 
 @media (max-width: 639px) {
-  .prose-md li div[class*='language-'] {
+  .prose-md li pre[class*='language-'] {
     --at-apply: rounded-[8px_0_0_8px];
   }
 }
 
-.prose-md div[class*='language-'] + div[class*='language-'],
-.prose-md div[class$='-api'] + div[class*='language-'],
-.prose-md div[class*='language-'] + div[class$='-api'] > div[class*='language-']:first-child {
+.prose-md pre[class*='language-'] + pre[class*='language-'],
+.prose-md div[class$='-api'] + pre[class*='language-'],
+.prose-md pre[class*='language-'] + div[class$='-api'] > pre[class*='language-']:first-child {
   --at-apply: mt-[-16px];
 }
 
@@ -74,14 +74,6 @@
   line-height: var(--vt-md-code-line-height);
   font-size: var(--vt-md-code-font-size);
   transition: color 0.5s;
-}
-
-.prose-md [class*='language-'] code .line span {
-  color: var(--shiki-light);
-}
-
-.dark .prose-md [class*='language-'] code .line span {
-  color: var(--shiki-dark);
 }
 
 .prose-md [class*='language-'] .line-numbers-wrapper {
@@ -136,7 +128,7 @@
   --at-apply: bg-white/5
 }
 
-.prose-md div[class*='language-'].line-numbers-mode {
+.prose-md pre[class*='language-'].line-numbers-mode {
   --at-apply: pl-32px;
 }
 

@@ -25,6 +25,20 @@ export default defineNuxtConfig({
     renderer: {
       anchorLinks: true,
     },
+    build: {
+      markdown: {
+        highlight: {
+          theme: {
+            // Default theme (same as single string)
+            default: 'vitesse-light',
+            // Theme used if `html.dark`
+            dark: 'vitesse-dark',
+            // Theme used if `html.sepia`
+            sepia: 'monokai',
+          },
+        },
+      },
+    },
   },
   studio: {
     i18n: {
