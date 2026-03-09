@@ -14,6 +14,7 @@
   "dependencies": {
     "@nuxt/content": "^3.12.0",
     "@nuxt/eslint": "1.15.2",
+    "@nuxtjs/color-mode": "4.0.0",
     "better-sqlite3": "^12.6.2",
     "nuxt": "^4.3.1",
     "nuxt-studio": "1.4.0",

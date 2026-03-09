@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-
 const router = useRouter()
 
 function goBack() {
@@ -13,7 +11,7 @@ function goBack() {
     class="
       flex gap-x-1 w-fit rounded-sm pl-0.5 pr-1
       bg-action/80 dark:bg-action
-      text-gray-1 dark:text-gray-12
+      text-gray-1 dark:text-dark
       py-0.5 leading-none items-center transition
       duration-100 justify-center back-button"
     @click="goBack"
