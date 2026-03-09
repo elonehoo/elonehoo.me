@@ -12,7 +12,7 @@ import SunIcon from './Sun.vue'
 import XIcon from './X.vue'
 
 defineOptions({
-  name: 'Theme.Icones',
+  name: 'ThemeIcones',
 })
 
 const props = defineProps<{

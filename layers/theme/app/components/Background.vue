@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineOptions({
-  name: 'Theme.Background',
+  name: 'ThemeBackground',
 })
 
 const colorMode = useColorMode()

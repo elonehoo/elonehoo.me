@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineOptions({
-  name: 'Theme.LangTag',
+  name: 'ThemeLangTag',
 })
 
 defineProps<{

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { TocLink } from '@nuxt/content'
 
+const LEADING_HASH_RE = /^#/
+
 const route = useRoute()
 const pagePath = computed(() => route.path)
 const activeId = ref('')
@@ -40,7 +42,7 @@ const headingIds = computed(() => {
 })
 
 function syncActiveId(hash = route.hash) {
-  activeId.value = decodeURIComponent(hash.replace(/^#/, ''))
+  activeId.value = decodeURIComponent(hash.replace(LEADING_HASH_RE, ''))
 }
 
 function disconnectObserver() {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineOptions({
-  name: 'Theme.Icones.Email',
+  name: 'ThemeIconesEmail',
 })
 </script>
 

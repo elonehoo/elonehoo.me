@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineOptions({
-  name: 'Theme.Aside',
+  name: 'ThemeAside',
 })
 </script>
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineOptions({
-  name: 'Layout.List',
+  name: 'LayoutList',
 })
 </script>
 

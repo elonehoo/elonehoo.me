@@ -11,8 +11,10 @@ const props = defineProps<{
   nested?: boolean
 }>()
 
+const LEADING_HASH_RE = /^#/
+
 function normalizeId(id: string) {
-  return decodeURIComponent(id.replace(/^#/, ''))
+  return decodeURIComponent(id.replace(LEADING_HASH_RE, ''))
 }
 
 function getLink(id: string) {

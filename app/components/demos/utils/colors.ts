@@ -2,8 +2,10 @@ import { clamp } from '@vueuse/core'
 
 export type ColorVector = [number, number, number]
 
+const HEX_COLOR_RE = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i
+
 export function hexToRgb(hex: string): ColorVector {
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)!
+  const result = HEX_COLOR_RE.exec(hex)!
   return [
     Number.parseInt(result[1], 16),
     Number.parseInt(result[2], 16),
