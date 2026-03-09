@@ -48,7 +48,7 @@ export default defineNuxtConfig({
       provider: 'github',
       owner: 'elonehoo',
       repo: 'elonehoo.me',
-      branch: 'dev',
+      branch: 'main',
     },
   },
 })
