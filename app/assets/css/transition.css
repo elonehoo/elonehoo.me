@@ -20,7 +20,7 @@
 
 html[data-theme-switch]::view-transition-old(root),
 html[data-theme-switch]::view-transition-new(root) {
-  animation-duration: 1.4s;
+  animation-duration: 1.2s;
   animation-timing-function: cubic-bezier(.22, 1, .36, 1);
 }
 
