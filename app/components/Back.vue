@@ -1,25 +1,26 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-const route = useRoute()
+const router = useRouter()
 
-const prevPath = computed(() => route.path.split('/').slice(0, -1).join('/') || '/')
+function goBack() {
+  router.back()
+}
 </script>
 
 <template>
-  <NuxtLink
+  <button
     class="
       flex gap-x-1 w-fit rounded-sm pl-0.5 pr-1
       bg-action/80 dark:bg-action
       text-gray-1 dark:text-gray-12
       py-0.5 leading-none items-center transition
       duration-100 justify-center back-button"
-    :to="prevPath"
-    target="_self"
+    @click="goBack"
   >
     <Icones name="Left" class="w-4 h-4" />
     <span class="text-sm font-medium ml-1">cd ..</span>
-  </NuxtLink>
+  </button>
 </template>
 
 <style scoped>

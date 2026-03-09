@@ -15,7 +15,7 @@ const list = computed(() => groupByTime(data.value ?? [], post => post.date))
     <section v-for="group in list" :key="group.key" class="space-y-4">
       <OnlyTitle :value="group.key" />
       <div>
-        <PostItems
+        <DocItem
           v-for="record in group.records"
           :key="record.path"
           :record="record"
