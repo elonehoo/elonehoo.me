@@ -12,7 +12,7 @@ const isExternalLink = computed(() => {
 </script>
 
 <template>
-  <div class="group relative text-gray-9 hover:text-gray-12 dark:hover:text-gray-1">
+  <div class="group relative text-gray-9 hover:text-gray-12">
     <NuxtLink :to="props.link" :target="isExternalLink ? '_blank' : undefined">
       <slot />
     </NuxtLink>

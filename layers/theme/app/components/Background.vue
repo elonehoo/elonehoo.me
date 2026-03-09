@@ -46,7 +46,6 @@ async function toggleColorMode(event: MouseEvent) {
 <template>
   <div
     class="p-4 py-10 background md:p-12 min-h-screen z--10"
-    title="双击切换明暗模式"
     @dblclick="toggleColorMode"
   >
     <div class="justify-between md:flex animate-in fade-in duration-500">
