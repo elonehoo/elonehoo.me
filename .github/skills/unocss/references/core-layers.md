@@ -45,8 +45,10 @@ outputToCssLayers: true
 // Or with custom names
 outputToCssLayers: {
   cssLayerName: (layer) => {
-    if (layer === 'default') return 'utilities'
-    if (layer === 'shortcuts') return 'utilities.shortcuts'
+    if (layer === 'default')
+      return 'utilities'
+    if (layer === 'shortcuts')
+      return 'utilities.shortcuts'
   }
 }
 ```
@@ -97,7 +99,7 @@ preflights: [
 | `theme` | Theme CSS variables | -150 |
 | `base` | Reset styles | -100 |
 
-<!-- 
+<!--
 Source references:
 - https://unocss.dev/config/layers
 - https://unocss.dev/config/preflights

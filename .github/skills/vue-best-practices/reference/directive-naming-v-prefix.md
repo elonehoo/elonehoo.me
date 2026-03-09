@@ -49,7 +49,7 @@ const 'v-focus' = {  // Syntax error
 <script setup>
 // CORRECT: v prefix with camelCase
 const vFocus = {
-  mounted: (el) => el.focus()
+  mounted: el => el.focus()
 }
 
 const vHighlight = {
@@ -62,7 +62,8 @@ const vHighlight = {
 const vClickOutside = {
   mounted(el, binding) {
     el._handler = (e) => {
-      if (!el.contains(e.target)) binding.value(e)
+      if (!el.contains(e.target))
+        binding.value(e)
     }
     document.addEventListener('click', el._handler)
   },
@@ -72,16 +73,20 @@ const vClickOutside = {
 }
 
 // CORRECT: Function shorthand with v prefix
-const vColor = (el, binding) => {
+function vColor(el, binding) {
   el.style.color = binding.value
 }
 </script>
 
 <template>
   <!-- Use kebab-case in template -->
-  <input v-focus />
-  <p v-highlight>Highlighted text</p>
-  <div v-click-outside="closeMenu">Dropdown</div>
+  <input v-focus>
+  <p v-highlight>
+    Highlighted text
+  </p>
+  <div v-click-outside="closeMenu">
+    Dropdown
+  </div>
   <span v-color="'red'">Colored text</span>
 </template>
 ```
@@ -92,16 +97,16 @@ In templates, directives should use kebab-case:
 
 ```vue
 <script setup>
-const vMyLongDirectiveName = (el) => { /* ... */ }
-const vAutoFocusInput = (el) => el.focus()
+function vMyLongDirectiveName(el) { /* ... */ }
+const vAutoFocusInput = el => el.focus()
 const vLazyLoadImage = { /* ... */ }
 </script>
 
 <template>
   <!-- camelCase in script -> kebab-case in template -->
-  <div v-my-long-directive-name></div>
-  <input v-auto-focus-input />
-  <img v-lazy-load-image />
+  <div v-my-long-directive-name />
+  <input v-auto-focus-input>
+  <img v-lazy-load-image>
 </template>
 ```
 
@@ -115,10 +120,10 @@ export default {
   directives: {
     // Key is directive name (without v- prefix)
     focus: {
-      mounted: (el) => el.focus()
+      mounted: el => el.focus()
     },
     highlight: {
-      mounted: (el) => el.classList.add('is-highlight')
+      mounted: el => el.classList.add('is-highlight')
     },
     // Multi-word uses camelCase key
     clickOutside: {
@@ -142,7 +147,7 @@ const app = createApp(App)
 
 // Global directive - name without v- prefix
 app.directive('focus', {
-  mounted: (el) => el.focus()
+  mounted: el => el.focus()
 })
 
 // Multi-word directive

@@ -16,20 +16,21 @@ When class bindings involve multiple conditions or complex logic, extract them i
 ```vue
 <template>
   <!-- Hard to read, error-prone -->
-  <div :class="{
-    'btn': true,
-    'btn-primary': type === 'primary' && !disabled,
-    'btn-secondary': type === 'secondary' && !disabled,
-    'btn-disabled': disabled,
-    'btn-loading': isLoading,
-    'btn-large': size === 'large',
-    'btn-small': size === 'small'
-  }">
+  <div
+    class="btn" :class="{
+      'btn-primary': type === 'primary' && !disabled,
+      'btn-secondary': type === 'secondary' && !disabled,
+      'btn-disabled': disabled,
+      'btn-loading': isLoading,
+      'btn-large': size === 'large',
+      'btn-small': size === 'small',
+    }"
+  >
     {{ label }}
   </div>
 
   <!-- Even worse: string concatenation -->
-  <div :class="'btn btn-' + type + (disabled ? ' btn-disabled' : '') + (isLoading ? ' btn-loading' : '')">
+  <div :class="`btn btn-${type}${disabled ? ' btn-disabled' : ''}${isLoading ? ' btn-loading' : ''}`">
     {{ label }}
   </div>
 </template>
@@ -109,7 +110,7 @@ const dynamicClasses = computed(() => ({
 
 <template>
   <!-- Static 'card' class + dynamic classes -->
-  <div :class="['card', dynamicClasses]">
+  <div class="card" :class="[dynamicClasses]">
     Content
   </div>
 </template>

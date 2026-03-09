@@ -22,7 +22,7 @@ tags: [vue3, vue-router, lifecycle, params, reactivity]
 ```vue
 <!-- UserProfile.vue - Used for /users/:id -->
 <script setup>
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
@@ -67,7 +67,7 @@ watch(
     user.value = await fetchUser(newId)
     loading.value = false
   },
-  { immediate: true }  // Run immediately for initial load
+  { immediate: true } // Run immediately for initial load
 )
 </script>
 ```
@@ -76,8 +76,8 @@ watch(
 
 ```vue
 <script setup>
-import { ref, onMounted } from 'vue'
-import { useRoute, onBeforeRouteUpdate } from 'vue-router'
+import { onMounted, ref } from 'vue'
+import { onBeforeRouteUpdate, useRoute } from 'vue-router'
 
 const route = useRoute()
 const user = ref(null)
@@ -129,16 +129,19 @@ export function useRouteData(paramName, fetcher) {
   watch(
     () => route.params[paramName],
     async (id) => {
-      if (!id) return
+      if (!id)
+        return
 
       loading.value = true
       error.value = null
 
       try {
         data.value = await fetcher(id)
-      } catch (e) {
+      }
+      catch (e) {
         error.value = e
-      } finally {
+      }
+      finally {
         loading.value = false
       }
     },
@@ -152,8 +155,8 @@ export function useRouteData(paramName, fetcher) {
 ```vue
 <!-- Usage in component -->
 <script setup>
-import { useRouteData } from '@/composables/useRouteData'
 import { fetchUser } from '@/api/users'
+import { useRouteData } from '@/composables/useRouteData'
 
 const { data: user, loading, error } = useRouteData('id', fetchUser)
 </script>

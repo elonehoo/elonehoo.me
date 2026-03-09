@@ -174,20 +174,20 @@ test('form has accessible labels', () => {
 // ANTI-PATTERN: Giant component snapshot
 test('page renders', () => {
   const wrapper = mount(EntirePageComponent)
-  expect(wrapper.html()).toMatchSnapshot()  // 500+ lines of HTML
+  expect(wrapper.html()).toMatchSnapshot() // 500+ lines of HTML
 })
 
 // ANTI-PATTERN: Snapshot with dynamic content
 test('shows current date', () => {
   const wrapper = mount(DateDisplay)
-  expect(wrapper.html()).toMatchSnapshot()  // Fails every day!
+  expect(wrapper.html()).toMatchSnapshot() // Fails every day!
 })
 
 // ANTI-PATTERN: Snapshot after every test
 test('button works', async () => {
   const wrapper = mount(Counter)
   await wrapper.find('button').trigger('click')
-  expect(wrapper.html()).toMatchSnapshot()  // Redundant
+  expect(wrapper.html()).toMatchSnapshot() // Redundant
 })
 ```
 

@@ -27,12 +27,12 @@ export default {
 }
 
 // component.vue
-const http = inject('http')  // Type is unknown
-const config = inject('config')  // Type is unknown
+const http = inject('http') // Type is unknown
+const config = inject('config') // Type is unknown
 
 // Another plugin accidentally uses the same key
 otherPlugin.install = (app) => {
-  app.provide('http', differentHttpClient)  // COLLISION! Overwrites first
+  app.provide('http', differentHttpClient) // COLLISION! Overwrites first
 }
 ```
 
@@ -96,12 +96,12 @@ For larger applications, organize keys by domain:
 
 ```typescript
 // injection-keys/index.ts
-export * from './auth'
-export * from './i18n'
-export * from './http'
-
 // injection-keys/auth.ts
 import type { InjectionKey } from 'vue'
+
+export * from './auth'
+export * from './http'
+export * from './i18n'
 
 export interface AuthService {
   login: (credentials: Credentials) => Promise<User>

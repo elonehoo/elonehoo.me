@@ -23,7 +23,7 @@ tags: [vue3, vue-router, navigation-guards, migration, async]
 // WRONG: Using deprecated next() function
 router.beforeEach((to, from, next) => {
   if (!isAuthenticated) {
-    next('/login')  // Easy to forget this call
+    next('/login') // Easy to forget this call
   }
   // BUG: next() not called when authenticated - navigation hangs!
 })
@@ -33,7 +33,7 @@ router.beforeEach((to, from, next) => {
   if (!isAuthenticated) {
     next('/login')
   }
-  next()  // BUG: Called twice when not authenticated!
+  next() // BUG: Called twice when not authenticated!
 })
 
 // WRONG: next() in async code without proper handling
@@ -42,7 +42,7 @@ router.beforeEach(async (to, from, next) => {
   if (!user) {
     next('/login')
   }
-  next()  // Still gets called even after redirect!
+  next() // Still gets called even after redirect!
 })
 ```
 
@@ -52,7 +52,7 @@ router.beforeEach(async (to, from, next) => {
 // CORRECT: Return-based syntax (modern Vue Router 4+)
 router.beforeEach((to, from) => {
   if (!isAuthenticated) {
-    return '/login'  // Redirect
+    return '/login' // Redirect
   }
   // Return nothing (undefined) to proceed
 })
@@ -60,7 +60,7 @@ router.beforeEach((to, from) => {
 // CORRECT: Return false to cancel navigation
 router.beforeEach((to, from) => {
   if (hasUnsavedChanges) {
-    return false  // Cancel navigation
+    return false // Cancel navigation
   }
 })
 
@@ -104,15 +104,15 @@ If maintaining legacy code that uses `next()`, follow these rules strictly:
 router.beforeEach((to, from, next) => {
   if (!isAuthenticated) {
     next('/login')
-    return  // CRITICAL: Exit after calling next()
+    return // CRITICAL: Exit after calling next()
   }
 
   if (!hasPermission(to)) {
     next('/forbidden')
-    return  // CRITICAL: Exit after calling next()
+    return // CRITICAL: Exit after calling next()
   }
 
-  next()  // Only reached if all checks pass
+  next() // Only reached if all checks pass
 })
 ```
 
@@ -123,7 +123,8 @@ router.beforeEach(async (to, from) => {
   try {
     await validateAccess(to)
     // Proceed
-  } catch (error) {
+  }
+  catch (error) {
     if (error.status === 401) {
       return '/login'
     }

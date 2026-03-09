@@ -23,7 +23,9 @@ This is a common issue when using CSS animations on parent elements or when moda
 <template>
   <div class="animated-container">
     <!-- Modal is nested inside animated parent -->
-    <button @click="showModal = true">Open Modal</button>
+    <button @click="showModal = true">
+      Open Modal
+    </button>
 
     <!-- BROKEN: position: fixed is relative to .animated-container, not viewport -->
     <div v-if="showModal" class="modal">
@@ -55,13 +57,17 @@ This is a common issue when using CSS animations on parent elements or when moda
 ```vue
 <template>
   <div class="animated-container">
-    <button @click="showModal = true">Open Modal</button>
+    <button @click="showModal = true">
+      Open Modal
+    </button>
 
     <!-- Teleport moves modal outside the problematic parent -->
     <Teleport to="body">
       <div v-if="showModal" class="modal">
         <p>Modal now positions correctly relative to viewport!</p>
-        <button @click="showModal = false">Close</button>
+        <button @click="showModal = false">
+          Close
+        </button>
       </div>
     </Teleport>
   </div>

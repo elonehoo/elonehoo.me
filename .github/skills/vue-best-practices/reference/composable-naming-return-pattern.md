@@ -40,7 +40,7 @@ export function useMouse() {
 // WRONG: Returning single ref directly - inconsistent API
 export function useCounter() {
   const count = ref(0)
-  return count  // Consumer must use .value everywhere
+  return count // Consumer must use .value everywhere
 }
 ```
 
@@ -65,7 +65,7 @@ export function useMouse() {
 
 // Consumer can destructure and keep reactivity
 const { x, y } = useMouse()
-watch(x, (newX) => console.log('x changed:', newX))  // Works!
+watch(x, newX => console.log('x changed:', newX)) // Works!
 
 // Or use as object if preferred
 const mouse = useMouse()
@@ -84,10 +84,10 @@ import { useMouse } from './composables/useMouse'
 const mouse = reactive(useMouse())
 
 // Now access without .value
-console.log(mouse.x)  // Auto-unwrapped, still reactive
+console.log(mouse.x) // Auto-unwrapped, still reactive
 
 // But DON'T destructure from this!
-const { x } = reactive(useMouse())  // WRONG: loses reactivity again
+const { x } = reactive(useMouse()) // WRONG: loses reactivity again
 ```
 
 ## Pattern: Returning Both State and Actions

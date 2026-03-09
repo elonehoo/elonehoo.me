@@ -39,7 +39,7 @@ test('renders async component', () => {
 **Correct:**
 
 ```javascript
-import { mount, flushPromises } from '@vue/test-utils'
+import { flushPromises, mount } from '@vue/test-utils'
 import { defineAsyncComponent, nextTick } from 'vue'
 
 const AsyncWidget = defineAsyncComponent(() =>
@@ -78,8 +78,8 @@ test('shows loading state initially', async () => {
 ## Testing with Suspense
 
 ```javascript
-import { mount, flushPromises } from '@vue/test-utils'
-import { Suspense, defineAsyncComponent, h } from 'vue'
+import { flushPromises, mount } from '@vue/test-utils'
+import { defineAsyncComponent, h, Suspense } from 'vue'
 
 const AsyncWidget = defineAsyncComponent(() =>
   import('./Widget.vue')
@@ -112,7 +112,7 @@ test('renders async component with Suspense', async () => {
 ## Testing Error States
 
 ```javascript
-import { mount, flushPromises } from '@vue/test-utils'
+import { flushPromises, mount } from '@vue/test-utils'
 import { defineAsyncComponent } from 'vue'
 
 test('shows error component on load failure', async () => {

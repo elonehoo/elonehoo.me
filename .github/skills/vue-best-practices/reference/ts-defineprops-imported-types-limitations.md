@@ -37,7 +37,10 @@ export type Status = 'pending' | 'active' | 'completed'
 
 ```vue
 <script setup lang="ts">
-import type { User, Status } from '@/types/user'
+import type { Status, User } from '@/types/user'
+
+// WORKS: Direct imported interface
+defineProps<User>()
 
 // WORKS: Simple imported interface
 defineProps<{
@@ -49,8 +52,6 @@ defineProps<{
   status: Status
 }>()
 
-// WORKS: Direct imported interface
-defineProps<User>()
 </script>
 ```
 
@@ -61,8 +62,8 @@ defineProps<User>()
 ```typescript
 // types/conditional.ts
 export type ConditionalProps<T> = T extends string
-  ? { value: string; onChange: (v: string) => void }
-  : { value: number; onChange: (v: number) => void }
+  ? { value: string, onChange: (v: string) => void }
+  : { value: number, onChange: (v: number) => void }
 ```
 
 ```vue
@@ -93,7 +94,7 @@ defineProps<StringProps>()
 <script setup lang="ts">
 // This WORKS - conditional type on individual prop
 interface Props {
-  value: SomeType extends string ? string : number  // OK
+  value: SomeType extends string ? string : number // OK
 }
 
 defineProps<Props>()
@@ -116,7 +117,7 @@ interface GlobalUser {
 <script setup lang="ts">
 // ERROR: "Unresolvable type reference"
 defineProps<{
-  user: GlobalUser  // Can't resolve ambient global type
+  user: GlobalUser // Can't resolve ambient global type
 }>()
 </script>
 ```
@@ -179,13 +180,13 @@ export interface ReadonlyUser {
 
 ```typescript
 // types/forms.ts
-export interface TextInput { type: 'text'; value: string }
-export interface NumberInput { type: 'number'; value: number }
+export interface TextInput { type: 'text', value: string }
+export interface NumberInput { type: 'number', value: number }
 ```
 
 ```vue
 <script setup lang="ts">
-import type { TextInput, NumberInput } from '@/types/forms'
+import type { NumberInput, TextInput } from '@/types/forms'
 
 // Can cause issues in some Vue versions
 defineProps<{
@@ -224,7 +225,7 @@ export interface ButtonProps {
 }
 
 // AVOID: Over-engineered generic types
-export type ButtonProps<V extends string, S extends string> = {
+export interface ButtonProps<V extends string, S extends string> {
   variant: V
   size: S
   // ...complex type gymnastics
@@ -241,8 +242,8 @@ export type ButtonProps<V extends string, S extends string> = {
 export interface CreateUserProps {
   name: string
   email: string
-  age?: number  // Made optional
-  role?: 'admin' | 'user'  // Made optional
+  age?: number // Made optional
+  role?: 'admin' | 'user' // Made optional
 }
 ```
 

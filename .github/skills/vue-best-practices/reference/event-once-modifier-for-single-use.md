@@ -21,14 +21,6 @@ tags: [vue3, events, modifiers, once, event-handling]
 
 **Component events:**
 ```vue
-<template>
-  <!-- Handler fires only on first emit, then stops listening -->
-  <ChildComponent @initialized.once="handleInit" />
-
-  <!-- First-time user interaction tracking -->
-  <UserForm @submit.once="trackFirstSubmit" />
-</template>
-
 <script setup>
 function handleInit(data) {
   console.log('Component initialized:', data)
@@ -39,6 +31,14 @@ function trackFirstSubmit() {
   analytics.track('first_form_submit')
 }
 </script>
+
+<template>
+  <!-- Handler fires only on first emit, then stops listening -->
+  <ChildComponent @initialized.once="handleInit" />
+
+  <!-- First-time user interaction tracking -->
+  <UserForm @submit.once="trackFirstSubmit" />
+</template>
 ```
 
 **Native DOM events:**
@@ -60,13 +60,6 @@ function trackFirstSubmit() {
 
 ### One-Time Initialization
 ```vue
-<template>
-  <ThirdPartyChart
-    @ready.once="onChartReady"
-    :data="chartData"
-  />
-</template>
-
 <script setup>
 function onChartReady(chartInstance) {
   // Store reference, configure chart
@@ -75,17 +68,17 @@ function onChartReady(chartInstance) {
   chartInstance.setOption(customOptions)
 }
 </script>
+
+<template>
+  <ThirdPartyChart
+    :data="chartData"
+    @ready.once="onChartReady"
+  />
+</template>
 ```
 
 ### First Interaction Analytics
 ```vue
-<template>
-  <article @click.once="trackEngagement">
-    <h2>{{ article.title }}</h2>
-    <p>{{ article.excerpt }}</p>
-  </article>
-</template>
-
 <script setup>
 function trackEngagement() {
   analytics.track('article_first_click', {
@@ -93,10 +86,27 @@ function trackEngagement() {
   })
 }
 </script>
+
+<template>
+  <article @click.once="trackEngagement">
+    <h2>{{ article.title }}</h2>
+    <p>{{ article.excerpt }}</p>
+  </article>
+</template>
 ```
 
 ### Lazy Loading Trigger
 ```vue
+<script setup>
+const loaded = ref(false)
+const data = ref(null)
+
+async function loadHeavyContent() {
+  data.value = await fetchData()
+  loaded.value = true
+}
+</script>
+
 <template>
   <div
     ref="lazyContainer"
@@ -110,20 +120,17 @@ function trackEngagement() {
     </template>
   </div>
 </template>
-
-<script setup>
-const loaded = ref(false)
-const data = ref(null)
-
-async function loadHeavyContent() {
-  data.value = await fetchData()
-  loaded.value = true
-}
-</script>
 ```
 
 ### One-Time Animation
 ```vue
+<script setup>
+function onFirstAppearance() {
+  // Track first time user sees this element
+  // Won't fire again if element leaves and re-enters
+}
+</script>
+
 <template>
   <Transition
     @after-enter.once="onFirstAppearance"
@@ -133,13 +140,6 @@ async function loadHeavyContent() {
     </div>
   </Transition>
 </template>
-
-<script setup>
-function onFirstAppearance() {
-  // Track first time user sees this element
-  // Won't fire again if element leaves and re-enters
-}
-</script>
 ```
 
 ## Combining with Other Modifiers
@@ -157,7 +157,7 @@ function onFirstAppearance() {
   </div>
 
   <!-- Once + key modifier -->
-  <input @keyup.enter.once="submitOnFirstEnter" />
+  <input @keyup.enter.once="submitOnFirstEnter">
 </template>
 ```
 
@@ -170,7 +170,8 @@ Without `.once`, you'd need to manually track and remove:
 const hasHandled = ref(false)
 
 function handleClickManually() {
-  if (hasHandled.value) return
+  if (hasHandled.value)
+    return
   hasHandled.value = true
 
   // Do one-time action
@@ -180,10 +181,14 @@ function handleClickManually() {
 
 <template>
   <!-- Manual approach - more verbose -->
-  <button @click="handleClickManually">Click</button>
+  <button @click="handleClickManually">
+    Click
+  </button>
 
   <!-- .once approach - cleaner -->
-  <button @click.once="doSomething">Click</button>
+  <button @click.once="doSomething">
+    Click
+  </button>
 </template>
 ```
 

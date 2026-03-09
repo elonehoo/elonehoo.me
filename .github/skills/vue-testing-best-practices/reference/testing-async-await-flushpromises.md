@@ -29,8 +29,8 @@ import SearchComponent from './SearchComponent.vue'
 test('search filters results', () => {
   const wrapper = mount(SearchComponent)
 
-  wrapper.find('input').setValue('vue')  // Missing await!
-  wrapper.find('button').trigger('click')  // Missing await!
+  wrapper.find('input').setValue('vue') // Missing await!
+  wrapper.find('button').trigger('click') // Missing await!
 
   // This assertion likely fails - DOM hasn't updated yet
   expect(wrapper.findAll('.result').length).toBe(3)
@@ -40,7 +40,7 @@ test('search filters results', () => {
 test('loads data from API', async () => {
   const wrapper = mount(DataLoader)
 
-  await nextTick()  // This won't wait for the API call!
+  await nextTick() // This won't wait for the API call!
 
   // Assertion runs before fetch completes
   expect(wrapper.find('.data').text()).toBe('Loaded data')
@@ -49,10 +49,10 @@ test('loads data from API', async () => {
 
 **Correct:**
 ```javascript
-import { mount, flushPromises } from '@vue/test-utils'
+import { flushPromises, mount } from '@vue/test-utils'
 import { nextTick } from 'vue'
-import SearchComponent from './SearchComponent.vue'
 import DataLoader from './DataLoader.vue'
+import SearchComponent from './SearchComponent.vue'
 
 // CORRECT: Await trigger and setValue
 test('search filters results', async () => {
@@ -95,7 +95,7 @@ test('reflects programmatic state changes', async () => {
   // Direct state modification (when testing with exposed internals)
   wrapper.vm.count = 5
 
-  await nextTick()  // Wait for Vue to update DOM
+  await nextTick() // Wait for Vue to update DOM
 
   expect(wrapper.find('.count').text()).toBe('5')
 })
@@ -120,8 +120,8 @@ test('displays fetched data', async () => {
 test('processes data after fetch', async () => {
   const wrapper = mount(DataProcessor)
 
-  await flushPromises()  // Wait for fetch
-  await flushPromises()  // Wait for processing triggered by fetch
+  await flushPromises() // Wait for fetch
+  await flushPromises() // Wait for processing triggered by fetch
 
   expect(wrapper.find('.processed').exists()).toBe(true)
 })

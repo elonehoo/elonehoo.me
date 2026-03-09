@@ -48,9 +48,15 @@ console.log(route.params.id)
 ```vue
 <template>
   <nav>
-    <NuxtLink to="/">Home</NuxtLink>
-    <NuxtLink to="/about">About</NuxtLink>
-    <NuxtLink :to="{ name: 'posts-id', params: { id: 1 } }">Post 1</NuxtLink>
+    <NuxtLink to="/">
+      Home
+    </NuxtLink>
+    <NuxtLink to="/about">
+      About
+    </NuxtLink>
+    <NuxtLink :to="{ name: 'posts-id', params: { id: 1 } }">
+      Post 1
+    </NuxtLink>
   </nav>
 </template>
 ```
@@ -209,7 +215,8 @@ function enableAdmin() {
 onBeforeRouteLeave((to, from) => {
   // Confirm before leaving
   const answer = window.confirm('Leave?')
-  if (!answer) return false
+  if (!answer)
+    return false
 })
 
 onBeforeRouteUpdate((to, from) => {
@@ -218,7 +225,7 @@ onBeforeRouteUpdate((to, from) => {
 </script>
 ```
 
-<!-- 
+<!--
 Source references:
 - https://nuxt.com/docs/getting-started/routing
 - https://nuxt.com/docs/directory-structure/app/pages

@@ -10,7 +10,7 @@ description: Unit testing stores and components with @pinia/testing
 Create a fresh pinia instance for each test:
 
 ```ts
-import { setActivePinia, createPinia } from 'pinia'
+import { createPinia, setActivePinia } from 'pinia'
 import { useCounterStore } from '../src/stores/counter'
 
 describe('Counter Store', () => {
@@ -30,7 +30,7 @@ describe('Counter Store', () => {
 ### With Plugins
 
 ```ts
-import { setActivePinia, createPinia } from 'pinia'
+import { createPinia, setActivePinia } from 'pinia'
 import { createApp } from 'vue'
 import { somePlugin } from '../src/stores/plugin'
 
@@ -54,8 +54,8 @@ npm i -D @pinia/testing
 Use `createTestingPinia()`:
 
 ```ts
-import { mount } from '@vue/test-utils'
 import { createTestingPinia } from '@pinia/testing'
+import { mount } from '@vue/test-utils'
 import { useSomeStore } from '@/stores/myStore'
 
 const wrapper = mount(Counter, {
@@ -112,7 +112,8 @@ createTestingPinia({
 // Or use a function
 createTestingPinia({
   stubActions: (actionName, store) => {
-    if (actionName.startsWith('set')) return true
+    if (actionName.startsWith('set'))
+      return true
     return false
   },
 })
@@ -182,17 +183,17 @@ createTestingPinia({
 ## Type-Safe Mocked Store
 
 ```ts
-import type { Mock } from 'vitest'
 import type { Store, StoreDefinition } from 'pinia'
+import type { Mock } from 'vitest'
 
 function mockedStore<TStoreDef extends () => unknown>(
   useStore: TStoreDef
 ): TStoreDef extends StoreDefinition<infer Id, infer State, infer Getters, infer Actions>
   ? Store<Id, State, Record<string, never>, {
-      [K in keyof Actions]: Actions[K] extends (...args: any[]) => any
-        ? Mock<Actions[K]>
-        : Actions[K]
-    }>
+    [K in keyof Actions]: Actions[K] extends (...args: any[]) => any
+      ? Mock<Actions[K]>
+      : Actions[K]
+  }>
   : ReturnType<TStoreDef> {
   return useStore() as any
 }

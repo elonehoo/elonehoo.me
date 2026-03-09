@@ -20,7 +20,7 @@ tags: [vue3, computed, arrays, mutation, sort, reverse]
 **Incorrect:**
 ```vue
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const items = ref([3, 1, 4, 1, 5, 9, 2, 6])
 const users = ref([
@@ -58,7 +58,7 @@ const sortedUsers = computed(() => {
 **Correct:**
 ```vue
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const items = ref([3, 1, 4, 1, 5, 9, 2, 6])
 const users = ref([
@@ -68,17 +68,17 @@ const users = ref([
 
 // GOOD: Spread operator creates a copy first
 const sortedItems = computed(() => {
-  return [...items.value].sort((a, b) => a - b)
+  return items.value.toSorted((a, b) => a - b)
 })
 
 // GOOD: slice() also creates a copy
 const reversedItems = computed(() => {
-  return items.value.slice().reverse()
+  return items.value.toReversed()
 })
 
 // GOOD: Copy before sorting objects
 const sortedUsers = computed(() => {
-  return [...users.value].sort((a, b) => a.age - b.age)
+  return users.value.toSorted((a, b) => a.age - b.age)
 })
 
 // GOOD: Use toSorted() (ES2023) - non-mutating

@@ -23,7 +23,7 @@ Computed properties are designed to declaratively describe how to derive a value
 **Incorrect:**
 ```vue
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const items = ref([])
 const count = ref(0)
@@ -31,25 +31,25 @@ const lastFetch = ref(null)
 
 // BAD: Mutates other state
 const doubledCount = computed(() => {
-  count.value++  // Side effect - modifying state!
+  count.value++ // Side effect - modifying state!
   return count.value * 2
 })
 
 // BAD: Makes async request
 const userData = computed(async () => {
-  const response = await fetch('/api/user')  // Side effect - API call!
+  const response = await fetch('/api/user') // Side effect - API call!
   return response.json()
 })
 
 // BAD: Modifies DOM
 const highlightedItems = computed(() => {
-  document.title = `${items.value.length} items`  // Side effect - DOM mutation!
+  document.title = `${items.value.length} items` // Side effect - DOM mutation!
   return items.value.filter(i => i.highlighted)
 })
 
 // BAD: Writes to external state
 const processedData = computed(() => {
-  lastFetch.value = new Date()  // Side effect - modifying state!
+  lastFetch.value = new Date() // Side effect - modifying state!
   return items.value.map(i => i.name)
 })
 </script>
@@ -58,7 +58,7 @@ const processedData = computed(() => {
 **Correct:**
 ```vue
 <script setup>
-import { ref, computed, watch, onMounted } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 
 const items = ref([])
 const count = ref(0)

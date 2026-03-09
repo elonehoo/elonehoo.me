@@ -20,18 +20,20 @@ tags: [vue3, slots, v-slot, compilation-error, common-mistake]
 ```vue
 <template>
   <!-- BAD: v-slot on a native HTML element -->
-  <div v-slot:header>
+  <div #header>
     <h1>Title</h1>
   </div>
 
   <!-- BAD: Shorthand on HTML element -->
-  <span #default="{ item }">
+  <span v-slot="{ item }">
     {{ item.name }}
   </span>
 
   <!-- BAD: v-slot inside a plain HTML element -->
   <div>
-    <p v-slot:content>Some text</p>
+    <p #content>
+      Some text
+    </p>
   </div>
 </template>
 ```
@@ -62,7 +64,7 @@ These cause the error: `v-slot can only be used on components or <template> tags
   </BaseLayout>
 
   <!-- GOOD: Shorthand on component for default slot -->
-  <FancyList #default="{ item }">
+  <FancyList v-slot="{ item }">
     <div>{{ item.name }}</div>
   </FancyList>
 </template>

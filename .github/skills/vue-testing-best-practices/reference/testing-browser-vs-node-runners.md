@@ -35,7 +35,7 @@ Best for:
 // vitest.config.js
 export default defineConfig({
   test: {
-    environment: 'happy-dom',  // or 'jsdom'
+    environment: 'happy-dom', // or 'jsdom'
   }
 })
 ```
@@ -92,7 +92,7 @@ test('has correct hover styling', async () => {
 
   // Check initial style
   await expect.element(button).toHaveStyle({
-    backgroundColor: 'rgb(59, 130, 246)'  // blue
+    backgroundColor: 'rgb(59, 130, 246)' // blue
   })
 })
 
@@ -150,14 +150,14 @@ test('button has correct padding', async () => {
 ### Native Events - Browser Required
 ```javascript
 // Node runner: Synthetic events only
+// Vitest Browser Mode: Real native events via userEvent
+import { userEvent } from '@vitest/browser/context'
+
 test('handles drag and drop', async () => {
   const wrapper = mount(DraggableList)
   // trigger('dragstart') is synthetic - may not work as expected
   await wrapper.find('.item').trigger('dragstart')
 })
-
-// Vitest Browser Mode: Real native events via userEvent
-import { userEvent } from '@vitest/browser/context'
 
 test('reorders items on drag', async () => {
   const { getByTestId } = render(DraggableList)

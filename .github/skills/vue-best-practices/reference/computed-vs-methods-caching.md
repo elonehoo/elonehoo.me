@@ -21,13 +21,6 @@ When you need to derive a value from reactive state, prefer computed properties 
 
 **Incorrect:**
 ```vue
-<template>
-  <!-- BAD: Method runs on every re-render -->
-  <p>{{ getFilteredItems() }}</p>
-  <p>{{ calculateTotal() }}</p>
-  <p>{{ getCurrentTime() }}</p>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 
@@ -48,23 +41,22 @@ function calculateTotal() {
 
 // This looks like a computed use case, but Date.now() is non-reactive
 function getCurrentTime() {
-  return Date.now()  // Will appear to work but won't update reactively
+  return Date.now() // Will appear to work but won't update reactively
 }
 </script>
+
+<template>
+  <!-- BAD: Method runs on every re-render -->
+  <p>{{ getFilteredItems() }}</p>
+  <p>{{ calculateTotal() }}</p>
+  <p>{{ getCurrentTime() }}</p>
+</template>
 ```
 
 **Correct:**
 ```vue
-<template>
-  <!-- GOOD: Computed only recalculates when items change -->
-  <p>{{ filteredItems }}</p>
-  <p>{{ total }}</p>
-  <!-- GOOD: Method for non-reactive current time -->
-  <p>{{ getCurrentTime() }}</p>
-</template>
-
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const items = ref([/* large array */])
 const prices = ref([100, 200, 300])
@@ -87,6 +79,14 @@ function getCurrentTime() {
   return Date.now()
 }
 </script>
+
+<template>
+  <!-- GOOD: Computed only recalculates when items change -->
+  <p>{{ filteredItems }}</p>
+  <p>{{ total }}</p>
+  <!-- GOOD: Method for non-reactive current time -->
+  <p>{{ getCurrentTime() }}</p>
+</template>
 ```
 
 ## When to Use Each

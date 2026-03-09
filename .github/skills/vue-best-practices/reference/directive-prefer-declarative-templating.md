@@ -21,17 +21,6 @@ Before creating a custom directive, consider if the same result can be achieved 
 
 **Incorrect:**
 ```vue
-<template>
-  <!-- WRONG: Custom directive for something v-show does -->
-  <div v-visibility="isVisible">Content</div>
-
-  <!-- WRONG: Custom directive for class binding -->
-  <div v-add-class="{ active: isActive }">Content</div>
-
-  <!-- WRONG: Custom directive for style binding -->
-  <div v-set-color="textColor">Content</div>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 
@@ -62,25 +51,31 @@ const vAddClass = {
   }
 }
 
-const vSetColor = (el, binding) => {
+function vSetColor(el, binding) {
   el.style.color = binding.value
 }
 </script>
+
+<template>
+  <!-- WRONG: Custom directive for something v-show does -->
+  <div v-visibility="isVisible">
+    Content
+  </div>
+
+  <!-- WRONG: Custom directive for class binding -->
+  <div v-add-class="{ active: isActive }">
+    Content
+  </div>
+
+  <!-- WRONG: Custom directive for style binding -->
+  <div v-set-color="textColor">
+    Content
+  </div>
+</template>
 ```
 
 **Correct:**
 ```vue
-<template>
-  <!-- CORRECT: Use built-in v-show -->
-  <div v-show="isVisible">Content</div>
-
-  <!-- CORRECT: Use built-in class binding -->
-  <div :class="{ active: isActive }">Content</div>
-
-  <!-- CORRECT: Use built-in style binding -->
-  <div :style="{ color: textColor }">Content</div>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 
@@ -89,6 +84,23 @@ const isActive = ref(false)
 const textColor = ref('blue')
 // No custom directives needed!
 </script>
+
+<template>
+  <!-- CORRECT: Use built-in v-show -->
+  <div v-show="isVisible">
+    Content
+  </div>
+
+  <!-- CORRECT: Use built-in class binding -->
+  <div :class="{ active: isActive }">
+    Content
+  </div>
+
+  <!-- CORRECT: Use built-in style binding -->
+  <div :style="{ color: textColor }">
+    Content
+  </div>
+</template>
 ```
 
 ## When Custom Directives ARE Appropriate
@@ -170,7 +182,7 @@ For complex logic, a composable might be better than a directive:
 
 ```javascript
 // Composable approach - more flexible and testable
-import { ref, onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 export function useClickOutside(elementRef, callback) {
   const handler = (e) => {

@@ -28,7 +28,9 @@ tags: [vue3, sfc, scoped-css, performance, css-selectors]
     <section>
       <p>{{ content }}</p>
       <ul>
-        <li v-for="item in items" :key="item">{{ item }}</li>
+        <li v-for="item in items" :key="item">
+          {{ item }}
+        </li>
       </ul>
     </section>
   </article>
@@ -67,11 +69,17 @@ li {
 <template>
   <article class="article">
     <header class="article-header">
-      <h1 class="article-title">{{ title }}</h1>
-      <p class="article-subtitle">{{ subtitle }}</p>
+      <h1 class="article-title">
+        {{ title }}
+      </h1>
+      <p class="article-subtitle">
+        {{ subtitle }}
+      </p>
     </header>
     <section class="article-content">
-      <p class="article-text">{{ content }}</p>
+      <p class="article-text">
+        {{ content }}
+      </p>
       <ul class="article-list">
         <li v-for="item in items" :key="item" class="article-list-item">
           {{ item }}
@@ -191,7 +199,9 @@ For performance-critical components, CSS modules avoid the attribute selector en
 
 ```vue
 <template>
-  <p :class="$style.text">Content</p>
+  <p :class="$style.text">
+    Content
+  </p>
 </template>
 
 <style module>

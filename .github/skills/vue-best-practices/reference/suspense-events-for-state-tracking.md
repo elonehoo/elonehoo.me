@@ -22,13 +22,13 @@ import { ref } from 'vue'
 const loadingState = ref('idle')
 const loadStartTime = ref(null)
 
-const onPending = () => {
+function onPending() {
   loadingState.value = 'pending'
   loadStartTime.value = Date.now()
   console.log('Suspense entered pending state')
 }
 
-const onResolve = () => {
+function onResolve() {
   loadingState.value = 'resolved'
   const loadTime = Date.now() - loadStartTime.value
   console.log(`Content resolved in ${loadTime}ms`)
@@ -37,7 +37,7 @@ const onResolve = () => {
   analytics.track('page_load_time', { duration: loadTime })
 }
 
-const onFallback = () => {
+function onFallback() {
   loadingState.value = 'fallback'
   console.log('Fallback content is now visible')
 }
@@ -62,19 +62,19 @@ const onFallback = () => {
 ```vue
 <!-- App.vue -->
 <script setup>
-import { ref, provide } from 'vue'
+import { provide, ref } from 'vue'
 
 const globalLoading = ref(false)
 const pendingCount = ref(0)
 
 provide('globalLoading', globalLoading)
 
-const onSuspensePending = () => {
+function onSuspensePending() {
   pendingCount.value++
   globalLoading.value = true
 }
 
-const onSuspenseResolve = () => {
+function onSuspenseResolve() {
   pendingCount.value--
   if (pendingCount.value === 0) {
     globalLoading.value = false
@@ -129,11 +129,11 @@ import { ref } from 'vue'
 
 const isTransitioning = ref(false)
 
-const onPending = () => {
+function onPending() {
   isTransitioning.value = true
 }
 
-const onResolve = () => {
+function onResolve() {
   // Delay to allow enter transition to complete
   setTimeout(() => {
     isTransitioning.value = false

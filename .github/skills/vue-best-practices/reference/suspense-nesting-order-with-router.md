@@ -73,6 +73,16 @@ Each of these components wraps and controls its child in specific ways. Incorrec
 ## With Selective KeepAlive
 
 ```vue
+<script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
+// Only cache specific routes
+const cachedViews = computed(() => ['Dashboard', 'Profile', 'Settings'])
+</script>
+
 <template>
   <RouterView v-slot="{ Component, route }">
     <template v-if="Component">
@@ -90,16 +100,6 @@ Each of these components wraps and controls its child in specific ways. Incorrec
     </template>
   </RouterView>
 </template>
-
-<script setup>
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
-
-const route = useRoute()
-
-// Only cache specific routes
-const cachedViews = computed(() => ['Dashboard', 'Profile', 'Settings'])
-</script>
 ```
 
 ## Why This Order?

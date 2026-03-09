@@ -22,11 +22,15 @@ This is useful for notification stacks, modal layering, and tooltip systems.
 ```vue
 <template>
   <Teleport to="#notifications">
-    <div class="notification">First notification</div>
+    <div class="notification">
+      First notification
+    </div>
   </Teleport>
 
   <Teleport to="#notifications">
-    <div class="notification">Second notification</div>
+    <div class="notification">
+      Second notification
+    </div>
   </Teleport>
 </template>
 ```
@@ -43,6 +47,24 @@ This is useful for notification stacks, modal layering, and tooltip systems.
 
 ```vue
 <!-- NotificationSystem.vue -->
+<script setup>
+import { ref } from 'vue'
+
+const notifications = ref([])
+
+function notify(message, type = 'info') {
+  const id = Date.now()
+  notifications.value.push({ id, message, type })
+  setTimeout(dismiss, 5000, id)
+}
+
+function dismiss(id) {
+  notifications.value = notifications.value.filter(n => n.id !== id)
+}
+
+defineExpose({ notify })
+</script>
+
 <template>
   <Teleport to="#notifications">
     <TransitionGroup name="notification" tag="div" class="notification-stack">
@@ -53,29 +75,13 @@ This is useful for notification stacks, modal layering, and tooltip systems.
         :class="notification.type"
       >
         {{ notification.message }}
-        <button @click="dismiss(notification.id)">×</button>
+        <button @click="dismiss(notification.id)">
+          ×
+        </button>
       </div>
     </TransitionGroup>
   </Teleport>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-
-const notifications = ref([])
-
-function notify(message, type = 'info') {
-  const id = Date.now()
-  notifications.value.push({ id, message, type })
-  setTimeout(() => dismiss(id), 5000)
-}
-
-function dismiss(id) {
-  notifications.value = notifications.value.filter(n => n.id !== id)
-}
-
-defineExpose({ notify })
-</script>
 ```
 
 ## Modal Layering
@@ -88,7 +94,9 @@ When modals open other modals, they naturally stack:
   <Teleport to="#modals">
     <div v-if="visible" class="modal">
       <p>Parent Modal</p>
-      <button @click="showChild = true">Open Child Modal</button>
+      <button @click="showChild = true">
+        Open Child Modal
+      </button>
     </div>
   </Teleport>
 
@@ -96,7 +104,9 @@ When modals open other modals, they naturally stack:
   <Teleport to="#modals">
     <div v-if="showChild" class="modal child-modal">
       <p>Child Modal (appears on top)</p>
-      <button @click="showChild = false">Close</button>
+      <button @click="showChild = false">
+        Close
+      </button>
     </div>
   </Teleport>
 </template>
@@ -137,7 +147,9 @@ Components from different parts of the app can teleport to the same target:
 <!-- Header.vue -->
 <template>
   <Teleport to="#global-alerts">
-    <div v-if="headerAlert" class="alert">Header alert</div>
+    <div v-if="headerAlert" class="alert">
+      Header alert
+    </div>
   </Teleport>
 </template>
 

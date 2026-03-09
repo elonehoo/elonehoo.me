@@ -23,12 +23,15 @@ If your code relies on the wrapper element for styling or layout, you must expli
 ```vue
 <template>
   <transition-group name="list">
-    <div v-for="item in items" :key="item.id">{{ item }}</div>
+    <div v-for="item in items" :key="item.id">
+      {{ item }}
+    </div>
   </transition-group>
 </template>
 
 <!-- Renders as: -->
-<span>  <!-- Default wrapper in Vue 2 -->
+<span>
+  <!-- Default wrapper in Vue 2 -->
   <div>Item 1</div>
   <div>Item 2</div>
 </span>
@@ -38,13 +41,20 @@ If your code relies on the wrapper element for styling or layout, you must expli
 ```vue
 <template>
   <TransitionGroup name="list">
-    <div v-for="item in items" :key="item.id">{{ item }}</div>
+    <div v-for="item in items" :key="item.id">
+      {{ item }}
+    </div>
   </TransitionGroup>
 </template>
 
 <!-- Renders as (fragment): -->
-<div>Item 1</div>
-<div>Item 2</div>
+<div>
+Item 1
+</div>
+
+<div>
+Item 2
+</div>
 <!-- No wrapper element! -->
 ```
 
@@ -53,7 +63,9 @@ If your code relies on the wrapper element for styling or layout, you must expli
 <template>
   <!-- Use tag prop to specify wrapper element -->
   <TransitionGroup name="list" tag="ul">
-    <li v-for="item in items" :key="item.id">{{ item }}</li>
+    <li v-for="item in items" :key="item.id">
+      {{ item }}
+    </li>
   </TransitionGroup>
 </template>
 
@@ -72,7 +84,9 @@ If your code relies on the wrapper element for styling or layout, you must expli
 ```vue
 <template>
   <transition-group class="grid-container" name="list">
-    <div v-for="item in items" :key="item.id">{{ item }}</div>
+    <div v-for="item in items" :key="item.id">
+      {{ item }}
+    </div>
   </transition-group>
 </template>
 
@@ -90,7 +104,9 @@ In Vue 3, the class is not applied to anything because there's no wrapper elemen
 ```vue
 <template>
   <TransitionGroup class="grid-container" name="list" tag="div">
-    <div v-for="item in items" :key="item.id">{{ item }}</div>
+    <div v-for="item in items" :key="item.id">
+      {{ item }}
+    </div>
   </TransitionGroup>
 </template>
 ```

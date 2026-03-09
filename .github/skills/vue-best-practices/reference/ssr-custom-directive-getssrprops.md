@@ -61,7 +61,7 @@ const vTooltip = {
     return {
       'data-tooltip': binding.value,
       'aria-label': binding.value,
-      class: 'has-tooltip'
+      'class': 'has-tooltip'
     }
   }
 }
@@ -97,13 +97,13 @@ export const vFocus = {
 ```
 
 ```vue
-<template>
-  <input v-focus type="text" placeholder="Auto-focused input" />
-</template>
-
 <script setup>
 import { vFocus } from '@/directives/vFocus'
 </script>
+
+<template>
+  <input v-focus type="text" placeholder="Auto-focused input">
+</template>
 ```
 
 ## Directive with Dynamic ID
@@ -143,9 +143,9 @@ const vDraggable = {
   // SSR: Just mark element as draggable for styling/semantics
   getSSRProps(binding) {
     return {
-      draggable: 'true',
+      'draggable': 'true',
       'data-draggable': '',
-      role: 'listitem'
+      'role': 'listitem'
     }
   }
 }
@@ -190,8 +190,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 ## Testing SSR Directives
 
 ```javascript
-import { renderToString } from 'vue/server-renderer'
 import { createSSRApp, h } from 'vue'
+import { renderToString } from 'vue/server-renderer'
 import { vTooltip } from './directives/vTooltip'
 
 test('vTooltip renders attributes during SSR', async () => {

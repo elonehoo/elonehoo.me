@@ -12,7 +12,7 @@ Pinia supports HMR to edit stores without page reload, preserving existing state
 Add this snippet after each store definition:
 
 ```ts
-import { defineStore, acceptHMRUpdate } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 
 export const useAuth = defineStore('auth', {
   // store options...
@@ -26,7 +26,7 @@ if (import.meta.hot) {
 ## Setup Store Example
 
 ```ts
-import { defineStore, acceptHMRUpdate } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 
 export const useCounterStore = defineStore('counter', () => {
   const count = ref(0)

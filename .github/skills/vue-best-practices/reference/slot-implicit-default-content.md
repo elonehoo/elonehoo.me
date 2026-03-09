@@ -132,20 +132,20 @@ All three `<p>` elements end up in the default slot together, which may not be t
 <template>
   <div class="layout">
     <header>
-      <slot name="header"></slot>
+      <slot name="header" />
     </header>
 
     <aside>
-      <slot name="sidebar"></slot>
+      <slot name="sidebar" />
     </aside>
 
     <main>
       <!-- All implicit content ends up here -->
-      <slot></slot>
+      <slot />
     </main>
 
     <footer>
-      <slot name="footer"></slot>
+      <slot name="footer" />
     </footer>
   </div>
 </template>

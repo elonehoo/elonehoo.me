@@ -39,7 +39,7 @@ const routes = [
     children: [
       {
         path: 'child',
-        component: Child  // This may mount TWICE!
+        component: Child // This may mount TWICE!
       }
     ]
   }
@@ -59,7 +59,7 @@ Add logging to confirm the issue:
 ```vue
 <!-- Child.vue -->
 <script setup>
-import { onMounted, onActivated } from 'vue'
+import { onActivated, onMounted } from 'vue'
 
 let mountCount = 0
 
@@ -83,7 +83,7 @@ Don't use `useRoute()` directly with KeepAlive:
 
 ```vue
 <script setup>
-import { ref, onActivated } from 'vue'
+import { onActivated, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 // Problem: useRoute() can cause issues with KeepAlive
@@ -132,7 +132,7 @@ Protect your component from double mount effects:
 
 ```vue
 <script setup>
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const isInitialized = ref(false)
 
@@ -171,7 +171,7 @@ const shouldCache = computed(() => {
     <KeepAlive v-if="shouldCache">
       <component :is="Component" />
     </KeepAlive>
-    <component v-else :is="Component" />
+    <component :is="Component" v-else />
   </router-view>
 </template>
 ```

@@ -18,7 +18,7 @@ import LoadingSpinner from './LoadingSpinner.vue'
 const AsyncDashboard = defineAsyncComponent({
   loader: () => import('./Dashboard.vue'),
   loadingComponent: LoadingSpinner,
-  delay: 0  // Loading spinner flashes immediately, causing flicker
+  delay: 0 // Loading spinner flashes immediately, causing flicker
 })
 </script>
 ```
@@ -41,15 +41,15 @@ const AsyncDashboard = defineAsyncComponent({
 ```vue
 <script setup>
 import { defineAsyncComponent } from 'vue'
-import LoadingSpinner from './LoadingSpinner.vue'
 import ErrorDisplay from './ErrorDisplay.vue'
+import LoadingSpinner from './LoadingSpinner.vue'
 
 // For slower expected loads, consider a shorter delay
 const AsyncHeavyChart = defineAsyncComponent({
   loader: () => import('./HeavyChart.vue'),
   loadingComponent: LoadingSpinner,
   errorComponent: ErrorDisplay,
-  delay: 100,    // Show loading sooner for components known to be heavy
+  delay: 100, // Show loading sooner for components known to be heavy
   timeout: 30000 // Longer timeout for complex components
 })
 </script>

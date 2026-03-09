@@ -251,7 +251,7 @@ Optimized `.npmrc` for performance:
 prefer-offline=true
 auto-install-peers=true
 
-# Build optimization  
+# Build optimization
 side-effects-cache=true
 # Only build what's necessary
 onlyBuiltDependencies[]=esbuild
@@ -276,7 +276,7 @@ workspace-concurrency=4
 | Build changed only | `pnpm --filter "...[origin/main]" build` |
 | Clean store | `pnpm store prune` |
 
-<!-- 
+<!--
 Source references:
 - https://pnpm.io/npmrc
 - https://pnpm.io/cli/install

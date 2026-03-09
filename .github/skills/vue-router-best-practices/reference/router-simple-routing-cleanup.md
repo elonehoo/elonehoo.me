@@ -21,9 +21,9 @@ tags: [vue3, routing, events, memory-leak, cleanup]
 
 ```vue
 <script setup>
-import { ref, computed } from 'vue'
-import Home from './Home.vue'
+import { computed, ref } from 'vue'
 import About from './About.vue'
+import Home from './Home.vue'
 
 const routes = {
   '/': Home,
@@ -56,9 +56,9 @@ const currentView = computed(() => {
 
 ```vue
 <script setup>
-import { ref, computed, onUnmounted } from 'vue'
-import Home from './Home.vue'
+import { computed, onUnmounted, ref } from 'vue'
 import About from './About.vue'
+import Home from './Home.vue'
 import NotFound from './NotFound.vue'
 
 const routes = {
@@ -91,8 +91,8 @@ const currentView = computed(() => {
 
 ```vue
 <script>
-import Home from './Home.vue'
 import About from './About.vue'
+import Home from './Home.vue'
 import NotFound from './NotFound.vue'
 
 const routes = {
@@ -133,7 +133,7 @@ export default {
 
 ```javascript
 // composables/useHashRouter.js
-import { ref, computed, onUnmounted } from 'vue'
+import { computed, onUnmounted, ref } from 'vue'
 
 export function useHashRouter(routes, notFoundComponent = null) {
   const currentPath = ref(window.location.hash)
@@ -171,8 +171,8 @@ export function useHashRouter(routes, notFoundComponent = null) {
 <!-- Usage -->
 <script setup>
 import { useHashRouter } from '@/composables/useHashRouter'
-import Home from './Home.vue'
 import About from './About.vue'
+import Home from './Home.vue'
 import NotFound from './NotFound.vue'
 
 const { currentView } = useHashRouter({

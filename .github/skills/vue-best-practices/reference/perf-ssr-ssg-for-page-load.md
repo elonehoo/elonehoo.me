@@ -40,7 +40,7 @@ Choose your architecture based on your content's nature and page load requiremen
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')  // Nothing visible until this runs
+createApp(App).mount('#app') // Nothing visible until this runs
 
 // index.html - Users see empty #app until JS executes
 // <div id="app"></div>
@@ -68,6 +68,11 @@ export default defineNuxtConfig({
 
 ```vue
 <!-- pages/index.vue - Works with both SSR and SSG -->
+<script setup>
+// Data fetched at build time (SSG) or request time (SSR)
+const { data: features } = await useFetch('/api/features')
+</script>
+
 <template>
   <div>
     <HeroSection />
@@ -75,11 +80,6 @@ export default defineNuxtConfig({
     <PricingTable />
   </div>
 </template>
-
-<script setup>
-// Data fetched at build time (SSG) or request time (SSR)
-const { data: features } = await useFetch('/api/features')
-</script>
 ```
 
 ## Hybrid Approach: SSG Marketing + SPA App
@@ -151,9 +151,9 @@ app.get('*', async (req, res) => {
 ## Static Site Generation with Vite
 
 ```javascript
+import vue from '@vitejs/plugin-vue'
 // vite.config.js - Using vite-ssg for SSG
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [vue()],

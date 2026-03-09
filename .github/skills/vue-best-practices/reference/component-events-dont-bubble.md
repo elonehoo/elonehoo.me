@@ -191,6 +191,7 @@ For truly decoupled components, a simple event bus can work:
 ```js
 // eventBus.js
 import mitt from 'mitt'
+
 export const emitter = mitt()
 ```
 

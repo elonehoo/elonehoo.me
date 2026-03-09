@@ -111,7 +111,7 @@ export default {
     onMounted(() => {
       fetch('/api/data', { signal: abortController.signal })
         .then(handleData)
-        .catch(err => {
+        .catch((err) => {
           if (err.name !== 'AbortError') {
             handleError(err)
           }

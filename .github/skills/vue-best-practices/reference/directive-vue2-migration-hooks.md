@@ -110,7 +110,8 @@ app.directive('focus', {
 Vue.directive('click-outside', {
   bind(el, binding) {
     el._handler = (e) => {
-      if (!el.contains(e.target)) binding.value(e)
+      if (!el.contains(e.target))
+        binding.value(e)
     }
     document.addEventListener('click', el._handler)
   },
@@ -121,9 +122,10 @@ Vue.directive('click-outside', {
 
 // Vue 3
 app.directive('click-outside', {
-  beforeMount(el, binding) {  // or mounted
+  beforeMount(el, binding) { // or mounted
     el._handler = (e) => {
-      if (!el.contains(e.target)) binding.value(e)
+      if (!el.contains(e.target))
+        binding.value(e)
     }
     document.addEventListener('click', el._handler)
   },

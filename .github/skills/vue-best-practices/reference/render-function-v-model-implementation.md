@@ -47,7 +47,7 @@ export default {
     return () => h(CustomInput, {
       // WRONG: Wrong event name format
       modelValue: text.value,
-      onModelValueUpdate: (val) => text.value = val
+      onModelValueUpdate: val => text.value = val
     })
   }
 }
@@ -64,8 +64,8 @@ export default {
 
     return () => h(CustomInput, {
       // CORRECT: modelValue prop + onUpdate:modelValue handler
-      modelValue: text.value,
-      'onUpdate:modelValue': (value) => text.value = value
+      'modelValue': text.value,
+      'onUpdate:modelValue': value => text.value = value
     })
   }
 }
@@ -84,7 +84,7 @@ export default {
 
     return () => h('input', {
       value: text.value,
-      onInput: (e) => text.value = e.target.value
+      onInput: e => text.value = e.target.value
     })
   }
 }
@@ -103,12 +103,12 @@ export default {
 
     return () => h(UserForm, {
       // v-model:firstName
-      firstName: firstName.value,
-      'onUpdate:firstName': (val) => firstName.value = val,
+      'firstName': firstName.value,
+      'onUpdate:firstName': val => firstName.value = val,
 
       // v-model:lastName
-      lastName: lastName.value,
-      'onUpdate:lastName': (val) => lastName.value = val
+      'lastName': lastName.value,
+      'onUpdate:lastName': val => lastName.value = val
     })
   }
 }
@@ -177,19 +177,19 @@ export default {
         {/* v-model on custom component */}
         <CustomInput
           modelValue={text.value}
-          onUpdate:modelValue={(val) => text.value = val}
+          onUpdate:modelValue={val => text.value = val}
         />
 
         {/* v-model on native input */}
         <input
           value={text.value}
-          onInput={(e) => text.value = e.target.value}
+          onInput={e => text.value = e.target.value}
         />
 
         {/* Named v-model */}
         <Counter
           count={count.value}
-          onUpdate:count={(val) => count.value = val}
+          onUpdate:count={val => count.value = val}
         />
       </div>
     )
@@ -210,7 +210,7 @@ export default {
   setup(props, { emit }) {
     return () => h('input', {
       value: props.modelValue,
-      onInput: (e) => emit('update:modelValue', e.target.value)
+      onInput: e => emit('update:modelValue', e.target.value)
     })
   }
 }

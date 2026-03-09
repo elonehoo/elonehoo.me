@@ -49,13 +49,13 @@ const props = defineProps<Props>()
 ```typescript
 // WRONG: Cannot use both runtime and type-based declaration
 const props = defineProps<{ foo: string }>({
-  foo: { type: String, required: true }  // Error!
+  foo: { type: String, required: true } // Error!
 })
 
 // CORRECT: Choose one style
-const props = defineProps<{ foo: string }>()  // Type-based only
+const props = defineProps<{ foo: string }>() // Type-based only
 // OR
-const props = defineProps({                    // Runtime only
+const props = defineProps({ // Runtime only
   foo: { type: String, required: true }
 })
 ```
@@ -75,7 +75,7 @@ interface Props {
 // CRITICAL: Mutable types (arrays, objects) MUST use factory functions
 const props = withDefaults(defineProps<Props>(), {
   msg: 'hello',
-  labels: () => ['one', 'two'],      // Factory function required!
+  labels: () => ['one', 'two'], // Factory function required!
   config: () => ({ theme: 'light' }) // Factory function required!
 })
 </script>
@@ -154,15 +154,16 @@ Vue 3.3+ supports:
 ```typescript
 // Vue 3.3+ supports this
 import type { UserProps } from './types'
+
 defineProps<UserProps>()
 
 // Still NOT supported: conditional types for entire props
 type ConditionalProps<T> = T extends string ? { foo: string } : { bar: number }
-defineProps<ConditionalProps<SomeType>>()  // Error!
+defineProps<ConditionalProps<SomeType>>() // Error!
 
 // Conditional types ARE supported for individual props
 interface Props {
-  value: SomeType extends string ? string : number  // OK
+  value: SomeType extends string ? string : number // OK
 }
 ```
 

@@ -58,7 +58,7 @@ document.title = 'My Page'
 **Correct - Use onMounted:**
 ```vue
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 // Safe defaults that work on server
 const width = ref(0)
@@ -127,12 +127,12 @@ export function useMediaQuery(query) {
 ```vue
 <script setup>
 // Nuxt provides process.client and process.server
-if (process.client) {
+if (import.meta.client) {
   // Only runs in browser
   window.analytics.track('page_view')
 }
 
-if (process.server) {
+if (import.meta.server) {
   // Only runs on server
   console.log('Rendering on server')
 }
@@ -157,17 +157,17 @@ Use libraries that abstract platform differences:
 
 ```javascript
 // Fetch - works in both Node.js 18+ and browsers
-const response = await fetch('/api/data')
-
 // For older Node.js, use node-fetch or axios
 import axios from 'axios'
+
+const response = await fetch('/api/data')
 const { data } = await axios.get('/api/data')
 ```
 
 ```javascript
+import { parse } from 'cookie' // Works both
 // Universal cookie handling
 import Cookies from 'js-cookie' // Client only
-import { parse } from 'cookie' // Works both
 
 // In Nuxt, use useCookie()
 const token = useCookie('auth-token')
@@ -187,14 +187,16 @@ const token = useCookie('auth-token')
 **Incorrect:**
 ```javascript
 // WRONG: Node.js APIs in universal code
-import fs from 'fs'
+import fs from 'node:fs'
+
 const config = JSON.parse(fs.readFileSync('./config.json'))
 ```
 
 **Correct - Separate Server Code:**
 ```javascript
 // server/utils.js - Server-only file
-import fs from 'fs'
+import fs from 'node:fs'
+
 export function loadConfig() {
   return JSON.parse(fs.readFileSync('./config.json'))
 }

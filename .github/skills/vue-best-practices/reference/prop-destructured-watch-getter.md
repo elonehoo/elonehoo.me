@@ -30,11 +30,11 @@ const { searchQuery, userId } = defineProps(['searchQuery', 'userId'])
 // WRONG: Passing value, not reactive source
 // This captures the initial value only - changes won't trigger the watcher
 watch(searchQuery, (newValue) => {
-  console.log('Query changed:', newValue)  // Never fires after initial!
+  console.log('Query changed:', newValue) // Never fires after initial!
 })
 
 // WRONG: Composable receives static value
-const debouncedQuery = useDebounce(searchQuery, 300)  // Won't update
+const debouncedQuery = useDebounce(searchQuery, 300) // Won't update
 </script>
 ```
 
@@ -48,7 +48,7 @@ const { searchQuery, userId } = defineProps(['searchQuery', 'userId'])
 
 // CORRECT: Wrap in getter function to maintain reactivity
 watch(() => searchQuery, (newValue) => {
-  console.log('Query changed:', newValue)  // Fires on every change
+  console.log('Query changed:', newValue) // Fires on every change
 })
 
 // CORRECT: Pass getter to composable
@@ -85,10 +85,10 @@ When creating composables that should work with destructured props:
 
 ```javascript
 // composables/useDebounce.js
-import { ref, watch, toValue } from 'vue'
+import { ref, toValue, watch } from 'vue'
 
 export function useDebounce(source, delay = 300) {
-  const debounced = ref(toValue(source))  // toValue handles both getter and ref
+  const debounced = ref(toValue(source)) // toValue handles both getter and ref
   let timeout
 
   watch(

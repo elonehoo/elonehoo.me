@@ -22,8 +22,8 @@ This is one of the most frequent sources of "my composable doesn't update" bugs 
 **Incorrect:**
 ```vue
 <script setup>
-import { useFetch } from './composables/useFetch'
 import { useDebounce } from './composables/useDebounce'
+import { useFetch } from './composables/useFetch'
 
 const props = defineProps({
   userId: Number,
@@ -43,8 +43,8 @@ const debouncedQuery = useDebounce(props.searchQuery, 300)
 ```vue
 <script setup>
 import { computed } from 'vue'
-import { useFetch } from './composables/useFetch'
 import { useDebounce } from './composables/useDebounce'
+import { useFetch } from './composables/useFetch'
 
 const props = defineProps({
   userId: Number,
@@ -91,7 +91,7 @@ Composables should accept multiple input types using `toValue()`:
 
 ```javascript
 // composables/useDebounce.js
-import { ref, watch, toValue } from 'vue'
+import { ref, toValue, watch } from 'vue'
 
 export function useDebounce(source, delay = 300) {
   // toValue() handles: ref, getter function, or plain value
@@ -99,7 +99,7 @@ export function useDebounce(source, delay = 300) {
   let timeout
 
   watch(
-    () => toValue(source),  // Normalizes any input type
+    () => toValue(source), // Normalizes any input type
     (newValue) => {
       clearTimeout(timeout)
       timeout = setTimeout(() => {
@@ -115,7 +115,7 @@ export function useDebounce(source, delay = 300) {
 
 ```javascript
 // composables/useFetch.js
-import { ref, watchEffect, toValue } from 'vue'
+import { ref, toValue, watchEffect } from 'vue'
 
 export function useFetch(url) {
   const data = ref(null)
@@ -130,9 +130,11 @@ export function useFetch(url) {
       // toValue() makes this work with computed, getter, or string
       const response = await fetch(toValue(url))
       data.value = await response.json()
-    } catch (e) {
+    }
+    catch (e) {
       error.value = e
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   })

@@ -17,7 +17,7 @@ Never construct Tailwind CSS class names dynamically using string concatenation 
 <script setup>
 const props = defineProps({
   color: String, // 'red', 'blue', 'green'
-  size: String   // 'sm', 'md', 'lg'
+  size: String // 'sm', 'md', 'lg'
 })
 </script>
 
@@ -28,7 +28,7 @@ const props = defineProps({
   </div>
 
   <!-- WRONG: String concatenation -->
-  <div :class="'p-' + padding">
+  <div :class="`p-${padding}`">
     Content
   </div>
 
@@ -81,11 +81,13 @@ const props = defineProps({
 
 <template>
   <!-- CORRECT: All class names are complete strings -->
-  <button :class="{
-    'bg-blue-500 hover:bg-blue-600': variant === 'primary',
-    'bg-gray-500 hover:bg-gray-600': variant === 'secondary',
-    'bg-red-500 hover:bg-red-600': variant === 'danger'
-  }">
+  <button
+    :class="{
+      'bg-blue-500 hover:bg-blue-600': variant === 'primary',
+      'bg-gray-500 hover:bg-gray-600': variant === 'secondary',
+      'bg-red-500 hover:bg-red-600': variant === 'danger',
+    }"
+  >
     Click me
   </button>
 </template>

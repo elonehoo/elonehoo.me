@@ -39,7 +39,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <input ref="inputEl" v-model="text" />
+  <input ref="inputEl" v-model="text">
 </template>
 ```
 
@@ -81,7 +81,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <input ref="inputEl" v-model="text" />
+  <input ref="inputEl" v-model="text">
 </template>
 ```
 
@@ -101,13 +101,13 @@ watchPostEffect(() => {
 </script>
 
 <template>
-  <input v-if="showInput" ref="inputEl" />
+  <input v-if="showInput" ref="inputEl">
 </template>
 ```
 
 ```vue
 <script setup>
-import { ref, watch, onMounted } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 const inputEl = ref(null)
 
@@ -125,7 +125,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <input ref="inputEl" />
+  <input ref="inputEl">
 </template>
 ```
 
@@ -143,7 +143,7 @@ watchPostEffect(() => {
 </script>
 
 <template>
-  <input ref="my-input" />
+  <input ref="my-input">
 </template>
 ```
 

@@ -20,10 +20,12 @@ tags: [vue3, teleport, testing, vue-test-utils]
 ```vue
 <!-- Modal.vue -->
 <template>
-  <button @click="open = true">Open</button>
+  <button @click="open = true">
+    Open
+  </button>
   <Teleport to="body">
     <div v-if="open" class="modal" data-testid="modal">
-      <input type="text" data-testid="modal-input" />
+      <input type="text" data-testid="modal-input">
     </div>
   </Teleport>
 </template>
@@ -72,7 +74,7 @@ import Modal from './Modal.vue'
 
 test('modal renders to body', async () => {
   const wrapper = mount(Modal, {
-    attachTo: document.body  // Required for Teleport to work
+    attachTo: document.body // Required for Teleport to work
   })
 
   await wrapper.find('button').trigger('click')
@@ -91,7 +93,7 @@ test('modal renders to body', async () => {
 
 **Solution 3 - Custom Teleport Stub with Content Access:**
 ```ts
-import { mount, config } from '@vue/test-utils'
+import { config, mount } from '@vue/test-utils'
 import { h, Teleport } from 'vue'
 import Modal from './Modal.vue'
 

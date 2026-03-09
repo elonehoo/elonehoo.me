@@ -44,7 +44,9 @@ tags: [vue3, transition, scoped-css, slot, reusable-component]
 <!-- Parent component using the transition -->
 <template>
   <MyFadeTransition>
-    <div v-if="show">This won't animate!</div>
+    <div v-if="show">
+      This won't animate!
+    </div>
   </MyFadeTransition>
 </template>
 
@@ -161,6 +163,29 @@ Use the custom class props to apply scoped classes:
 
 ```vue
 <!-- transitions/SlideTransition.vue -->
+<script setup>
+defineProps({
+  mode: {
+    type: String,
+    default: 'out-in',
+    validator: v => ['out-in', 'in-out', ''].includes(v)
+  },
+  appear: {
+    type: Boolean,
+    default: false
+  }
+})
+
+defineEmits([
+  'before-enter',
+  'enter',
+  'after-enter',
+  'before-leave',
+  'leave',
+  'after-leave'
+])
+</script>
+
 <template>
   <Transition
     name="slide"
@@ -176,25 +201,6 @@ Use the custom class props to apply scoped classes:
     <slot />
   </Transition>
 </template>
-
-<script setup>
-defineProps({
-  mode: {
-    type: String,
-    default: 'out-in',
-    validator: (v) => ['out-in', 'in-out', ''].includes(v)
-  },
-  appear: {
-    type: Boolean,
-    default: false
-  }
-})
-
-defineEmits([
-  'before-enter', 'enter', 'after-enter',
-  'before-leave', 'leave', 'after-leave'
-])
-</script>
 
 <!-- Unscoped so styles apply to slotted content -->
 <style>

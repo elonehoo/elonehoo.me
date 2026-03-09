@@ -14,19 +14,29 @@ Optimized link component with prefetching:
 ```vue
 <template>
   <!-- Basic usage -->
-  <NuxtLink to="/about">About</NuxtLink>
+  <NuxtLink to="/about">
+    About
+  </NuxtLink>
 
   <!-- With route object -->
-  <NuxtLink :to="{ name: 'posts-id', params: { id: 1 } }">Post 1</NuxtLink>
+  <NuxtLink :to="{ name: 'posts-id', params: { id: 1 } }">
+    Post 1
+  </NuxtLink>
 
   <!-- External link (opens in new tab) -->
-  <NuxtLink to="https://nuxt.com" external>Nuxt</NuxtLink>
+  <NuxtLink to="https://nuxt.com" external>
+    Nuxt
+  </NuxtLink>
 
   <!-- Disable prefetching -->
-  <NuxtLink to="/heavy-page" :prefetch="false">Heavy Page</NuxtLink>
+  <NuxtLink to="/heavy-page" :prefetch="false">
+    Heavy Page
+  </NuxtLink>
 
   <!-- Replace history instead of push -->
-  <NuxtLink to="/page" replace>Replace</NuxtLink>
+  <NuxtLink to="/page" replace>
+    Replace
+  </NuxtLink>
 
   <!-- Custom active class -->
   <NuxtLink
@@ -84,15 +94,15 @@ Controls layout rendering:
 Dynamic layout:
 
 ```vue
+<script setup>
+const layout = computed(() => isAdmin ? 'admin' : 'default')
+</script>
+
 <template>
   <NuxtLayout :name="layout">
     <NuxtPage />
   </NuxtLayout>
 </template>
-
-<script setup>
-const layout = computed(() => isAdmin ? 'admin' : 'default')
-</script>
 ```
 
 Layout with transitions:
@@ -129,6 +139,12 @@ Progress bar for page navigation:
 Catch and handle errors in child components:
 
 ```vue
+<script setup>
+function handleError(error) {
+  console.error('Error caught:', error)
+}
+</script>
+
 <template>
   <NuxtErrorBoundary @error="handleError">
     <ComponentThatMightFail />
@@ -136,17 +152,13 @@ Catch and handle errors in child components:
     <template #error="{ error, clearError }">
       <div class="error">
         <p>Something went wrong: {{ error.message }}</p>
-        <button @click="clearError">Try again</button>
+        <button @click="clearError">
+          Try again
+        </button>
       </div>
     </template>
   </NuxtErrorBoundary>
 </template>
-
-<script setup>
-function handleError(error) {
-  console.error('Error caught:', error)
-}
-</script>
 ```
 
 ## ClientOnly
@@ -218,12 +230,16 @@ Render content outside component tree:
 
 ```vue
 <template>
-  <button @click="showModal = true">Open Modal</button>
+  <button @click="showModal = true">
+    Open Modal
+  </button>
 
   <Teleport to="body">
     <div v-if="showModal" class="modal">
       <p>Modal content</p>
-      <button @click="showModal = false">Close</button>
+      <button @click="showModal = false">
+        Close
+      </button>
     </div>
   </Teleport>
 </template>
@@ -255,7 +271,7 @@ Accessibility: announces page changes to screen readers:
 </template>
 ```
 
-<!-- 
+<!--
 Source references:
 - https://nuxt.com/docs/api/components/nuxt-link
 - https://nuxt.com/docs/api/components/nuxt-page

@@ -37,37 +37,43 @@ const items = ref(['a', 'b', 'c'])
 
 // BAD: Hand-written render function - no compile-time optimizations
 // Every render: all vnodes created anew, all nodes diffed
-const render = () => h('div', [
-  h('header', { class: 'static-header' }, 'My App'),  // Static but recreated every render
-  h('p', `Count: ${count.value}`),
-  h('ul', items.value.map(item => h('li', { key: item }, item)))
-])
+function render() {
+  return h('div', [
+    h('header', { class: 'static-header' }, 'My App'), // Static but recreated every render
+    h('p', `Count: ${count.value}`),
+    h('ul', items.value.map(item => h('li', { key: item }, item)))
+  ])
+}
 </script>
 ```
 
 **Correct:**
 ```vue
-<template>
-  <div>
-    <!-- GOOD: Static header hoisted, never recreated or diffed -->
-    <header class="static-header">My App</header>
-
-    <!-- GOOD: Patch flag marks only text as dynamic -->
-    <p>Count: {{ count }}</p>
-
-    <!-- GOOD: Only list items are tracked as dynamic -->
-    <ul>
-      <li v-for="item in items" :key="item">{{ item }}</li>
-    </ul>
-  </div>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 
 const count = ref(0)
 const items = ref(['a', 'b', 'c'])
 </script>
+
+<template>
+  <div>
+    <!-- GOOD: Static header hoisted, never recreated or diffed -->
+    <header class="static-header">
+      My App
+    </header>
+
+    <!-- GOOD: Patch flag marks only text as dynamic -->
+    <p>Count: {{ count }}</p>
+
+    <!-- GOOD: Only list items are tracked as dynamic -->
+    <ul>
+      <li v-for="item in items" :key="item">
+        {{ item }}
+      </li>
+    </ul>
+  </div>
+</template>
 ```
 
 ## When Render Functions Are Appropriate
@@ -113,7 +119,7 @@ export default {
     const count = ref(0)
 
     return () => h('div', [
-      staticHeader,  // Reused, not recreated
+      staticHeader, // Reused, not recreated
       h('p', `Count: ${count.value}`)
     ])
   }

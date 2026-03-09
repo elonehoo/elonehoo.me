@@ -44,8 +44,12 @@ const { data, status } = useFetch('/api/posts', { lazy: true })
 </script>
 
 <template>
-  <div v-if="status === 'pending'">Loading...</div>
-  <div v-else>{{ data }}</div>
+  <div v-if="status === 'pending'">
+    Loading...
+  </div>
+  <div v-else>
+    {{ data }}
+  </div>
 </template>
 ```
 
@@ -159,7 +163,9 @@ const { data: related } = useLazyFetch(`/api/posts/${id}/related`)
     <p>{{ post?.content }}</p>
   </article>
 
-  <section v-if="status === 'pending'">Loading comments...</section>
+  <section v-if="status === 'pending'">
+    Loading comments...
+  </section>
   <CommentList v-else :comments="comments" />
 </template>
 ```
@@ -304,7 +310,9 @@ watch(error, (err) => {
 <template>
   <div v-if="error">
     <p>Failed to load: {{ error.message }}</p>
-    <button @click="refresh()">Retry</button>
+    <button @click="refresh()">
+      Retry
+    </button>
   </div>
 </template>
 ```
@@ -348,7 +356,7 @@ await callOnce(async () => {
 </script>
 ```
 
-<!-- 
+<!--
 Source references:
 - https://nuxt.com/docs/getting-started/data-fetching
 - https://nuxt.com/docs/api/composables/use-fetch

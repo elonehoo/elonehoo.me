@@ -31,7 +31,7 @@ export function groupByTime<T extends { path?: string }>(
     return [{ key: '', records: records.map((record, index) => toGroupedRecord(record, records.length - index, getRecordTime)) }]
 
   const getTimestamp = (time: string) => dayjs(time).unix()
-  const sortedRecords = records.slice().sort((a, b) => {
+  const sortedRecords = records.toSorted((a, b) => {
     return getTimestamp(getRecordTime(b)!) - getTimestamp(getRecordTime(a)!)
   })
 

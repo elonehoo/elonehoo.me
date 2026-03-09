@@ -38,7 +38,7 @@ Choosing the wrong abstraction leads to code that's harder to maintain, test, an
 ```javascript
 // GOOD: Simple DOM manipulation
 const vFocus = {
-  mounted: (el) => el.focus()
+  mounted: el => el.focus()
 }
 
 // GOOD: Third-party library integration
@@ -58,7 +58,8 @@ const vTippy = {
 const vClickOutside = {
   mounted(el, binding) {
     el._handler = (e) => {
-      if (!el.contains(e.target)) binding.value(e)
+      if (!el.contains(e.target))
+        binding.value(e)
     }
     document.addEventListener('click', el._handler)
   },
@@ -90,17 +91,6 @@ const vLazyLoad = {
 ```vue
 <!-- GOOD: Component with template and state -->
 <!-- Tooltip.vue -->
-<template>
-  <div class="tooltip-wrapper" @mouseenter="show" @mouseleave="hide">
-    <slot></slot>
-    <Transition name="fade">
-      <div v-if="isVisible" class="tooltip-content">
-        {{ content }}
-      </div>
-    </Transition>
-  </div>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 
@@ -112,22 +102,24 @@ const isVisible = ref(false)
 const show = () => isVisible.value = true
 const hide = () => isVisible.value = false
 </script>
+
+<template>
+  <div class="tooltip-wrapper" @mouseenter="show" @mouseleave="hide">
+    <slot />
+    <Transition name="fade">
+      <div v-if="isVisible" class="tooltip-content">
+        {{ content }}
+      </div>
+    </Transition>
+  </div>
+</template>
 ```
 
 ```vue
 <!-- GOOD: Component with complex logic -->
 <!-- InfiniteScroll.vue -->
-<template>
-  <div ref="container">
-    <slot></slot>
-    <div v-if="loading" class="loading-indicator">
-      <slot name="loading">Loading...</slot>
-    </div>
-  </div>
-</template>
-
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 const props = defineProps({
   threshold: { type: Number, default: 100 }
@@ -138,8 +130,9 @@ const container = ref(null)
 const loading = ref(false)
 
 // Complex scroll logic with state management
-const handleScroll = () => {
-  if (loading.value) return
+function handleScroll() {
+  if (loading.value)
+    return
   const { scrollHeight, scrollTop, clientHeight } = container.value
   if (scrollHeight - scrollTop - clientHeight < props.threshold) {
     loading.value = true
@@ -150,6 +143,17 @@ const handleScroll = () => {
 onMounted(() => container.value?.addEventListener('scroll', handleScroll))
 onUnmounted(() => container.value?.removeEventListener('scroll', handleScroll))
 </script>
+
+<template>
+  <div ref="container">
+    <slot />
+    <div v-if="loading" class="loading-indicator">
+      <slot name="loading">
+        Loading...
+      </slot>
+    </div>
+  </div>
+</template>
 ```
 
 ## Composable-Appropriate Use Cases

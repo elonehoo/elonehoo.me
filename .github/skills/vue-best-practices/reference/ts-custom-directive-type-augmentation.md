@@ -24,7 +24,7 @@ tags: [vue3, typescript, directives, module-augmentation, ComponentCustomPropert
 import type { Directive, DirectiveBinding } from 'vue'
 
 // Define the directive's value type
-export type HighlightValue = string | { color: string; intensity?: number }
+export type HighlightValue = string | { color: string, intensity?: number }
 
 // Create typed directive
 export const vHighlight: Directive<HTMLElement, HighlightValue> = {
@@ -32,7 +32,8 @@ export const vHighlight: Directive<HTMLElement, HighlightValue> = {
     const value = binding.value
     if (typeof value === 'string') {
       el.style.backgroundColor = value
-    } else {
+    }
+    else {
       el.style.backgroundColor = value.color
       el.style.opacity = String(value.intensity ?? 1)
     }
@@ -45,7 +46,7 @@ export const vHighlight: Directive<HTMLElement, HighlightValue> = {
 // Type augmentation for template usage
 declare module 'vue' {
   interface ComponentCustomProperties {
-    vHighlight: typeof vHighlight  // Use 'v' prefix!
+    vHighlight: typeof vHighlight // Use 'v' prefix!
   }
 }
 ```
@@ -105,9 +106,12 @@ export const vTooltip: Directive<HTMLElement, TooltipValue> = {
     const { value, modifiers } = binding
 
     let position: string = 'bottom'
-    if (modifiers.top) position = 'top'
-    else if (modifiers.left) position = 'left'
-    else if (modifiers.right) position = 'right'
+    if (modifiers.top)
+      position = 'top'
+    else if (modifiers.left)
+      position = 'left'
+    else if (modifiers.right)
+      position = 'right'
 
     el.setAttribute('data-tooltip', value.text)
     el.setAttribute('data-tooltip-position', position)
@@ -137,8 +141,8 @@ declare module 'vue' {
 // main.ts
 import { createApp } from 'vue'
 import App from './App.vue'
-import { vHighlight } from './directives/highlight'
 import { vFocus } from './directives/focus'
+import { vHighlight } from './directives/highlight'
 import { vTooltip } from './directives/tooltip'
 
 const app = createApp(App)
@@ -155,10 +159,14 @@ app.mount('#app')
 <!-- Component.vue -->
 <template>
   <!-- TypeScript validates the value type -->
-  <div v-highlight="'yellow'">Highlighted text</div>
-  <div v-highlight="{ color: 'blue', intensity: 0.5 }">Complex highlight</div>
+  <div v-highlight="'yellow'">
+    Highlighted text
+  </div>
+  <div v-highlight="{ color: 'blue', intensity: 0.5 }">
+    Complex highlight
+  </div>
 
-  <input v-focus="shouldFocus" />
+  <input v-focus="shouldFocus">
 
   <button v-tooltip="{ text: 'Click me', delay: 500 }">
     Hover for tooltip
@@ -187,8 +195,8 @@ src/
 ```typescript
 // types/directives.d.ts
 import type { Directive } from 'vue'
-import type { HighlightValue } from '@/directives/highlight'
 import type { FocusValue } from '@/directives/focus'
+import type { HighlightValue } from '@/directives/highlight'
 import type { TooltipValue } from '@/directives/tooltip'
 
 declare module 'vue' {
@@ -253,7 +261,9 @@ const vLocalHighlight: Directive<HTMLElement, string> = {
 
 <template>
   <!-- Works without global type augmentation -->
-  <div v-local-highlight="'yellow'">Local highlight</div>
+  <div v-local-highlight="'yellow'">
+    Local highlight
+  </div>
 </template>
 ```
 

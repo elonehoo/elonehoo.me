@@ -74,7 +74,7 @@ Even with `max`, cached components hold resources. Clean up when deactivated:
 
 ```vue
 <script setup>
-import { ref, onActivated, onDeactivated, onUnmounted } from 'vue'
+import { onActivated, onDeactivated, onUnmounted, ref } from 'vue'
 
 const chartInstance = ref(null)
 const websocket = ref(null)
@@ -114,7 +114,7 @@ Libraries that manipulate the DOM outside Vue need explicit cleanup:
 
 ```vue
 <script setup>
-import { ref, onMounted, onDeactivated, onUnmounted } from 'vue'
+import { onDeactivated, onMounted, onUnmounted, ref } from 'vue'
 
 const mapContainer = ref(null)
 let mapInstance = null

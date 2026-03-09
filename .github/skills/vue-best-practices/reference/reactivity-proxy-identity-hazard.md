@@ -76,13 +76,13 @@ function isSelected(item) {
 
 // CORRECT: For Set/Map operations, use primitive keys
 const selectedIds = reactive(new Set())
-selectedIds.add(item.id)  // Use ID, not object
-selectedIds.has(item.id)  // Check by ID
+selectedIds.add(item.id) // Use ID, not object
+selectedIds.has(item.id) // Check by ID
 ```
 
 ```javascript
 // When you must compare objects, use toRaw on both sides
-import { toRaw, isReactive } from 'vue'
+import { isReactive, toRaw } from 'vue'
 
 function areEqual(a, b) {
   const rawA = isReactive(a) ? toRaw(a) : a

@@ -87,7 +87,7 @@ export default defineConfig({
 
 ```typescript
 // e2e/user-flow.spec.ts
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 
 test.describe('User Authentication', () => {
   test('user can log in and see dashboard', async ({ page }) => {
@@ -134,7 +134,7 @@ test.describe('User Authentication', () => {
 
 ```typescript
 // e2e/product-list.spec.ts
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 
 test('user can add product to cart', async ({ page }) => {
   await page.goto('/products')
@@ -157,7 +157,7 @@ test('user can add product to cart', async ({ page }) => {
 
 ```typescript
 // e2e/pages/LoginPage.ts
-import { Page, Locator } from '@playwright/test'
+import { Locator, Page } from '@playwright/test'
 
 export class LoginPage {
   readonly page: Page
@@ -188,7 +188,7 @@ export class LoginPage {
 
 ```typescript
 // e2e/auth.spec.ts
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 import { LoginPage } from './pages/LoginPage'
 
 test('successful login', async ({ page }) => {

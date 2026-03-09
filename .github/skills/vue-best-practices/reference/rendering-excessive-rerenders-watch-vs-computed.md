@@ -35,7 +35,7 @@ watch(() => user.value.name, (name) => {
 // Fires on ANY nested change, even unrelated ones
 const items = ref([/* 1000 items with nested properties */])
 watch(items, (newItems) => {
-  console.log('Items changed')  // Fires on every tiny change
+  console.log('Items changed') // Fires on every tiny change
 }, { deep: true })
 </script>
 ```
@@ -43,7 +43,7 @@ watch(items, (newItems) => {
 **Correct:**
 ```vue
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 const user = ref({ name: 'John', settings: { theme: 'dark', notifications: true } })
 
@@ -54,7 +54,7 @@ const displayName = computed(() => `User: ${user.value.name}`)
 // GOOD: Watch specific paths, not the entire object
 const items = ref([/* 1000 items */])
 watch(
-  () => items.value.length,  // Only watch the length
+  () => items.value.length, // Only watch the length
   (newLength) => {
     console.log(`Items count: ${newLength}`)
   }
@@ -64,7 +64,7 @@ watch(
 watch(
   () => user.value.settings.theme,
   (newTheme) => {
-    applyTheme(newTheme)  // Side effect - appropriate for watch
+    applyTheme(newTheme) // Side effect - appropriate for watch
   }
 )
 </script>
@@ -90,7 +90,7 @@ const count = ref(0)
 
 // DANGER: Infinite loop!
 watch(count, (newVal) => {
-  count.value = newVal + 1  // Modifies watched source -> triggers watch again
+  count.value = newVal + 1 // Modifies watched source -> triggers watch again
 })
 
 // CORRECT: Use computed or avoid self-modification
@@ -104,7 +104,7 @@ When you must watch complex objects:
 
 ```vue
 <script setup>
-import { ref, watch, toRaw } from 'vue'
+import { ref, toRaw, watch } from 'vue'
 
 const formData = ref({
   personal: { name: '', email: '' },
@@ -121,7 +121,7 @@ watch(formData, () => {
 watch(
   () => formData.value.personal,
   () => savePersonalSection(),
-  { deep: true }  // Deep only on this small subtree
+  { deep: true } // Deep only on this small subtree
 )
 
 // GOOD: Watch serialized version for change detection
@@ -147,13 +147,13 @@ watch(items, () => {
   console.log('Items changed')
 })
 
-items.value.sort()  // Watch doesn't fire - array reference unchanged
+items.value.sort() // Watch doesn't fire - array reference unchanged
 
 // Solution 1: Use deep (performance cost)
 watch(items, callback, { deep: true })
 
 // Solution 2: Replace array instead of mutating
-items.value = [...items.value].sort()
+items.value = items.value.toSorted()
 </script>
 ```
 

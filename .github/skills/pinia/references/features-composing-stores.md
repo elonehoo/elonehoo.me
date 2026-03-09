@@ -85,8 +85,8 @@ export const useCartStore = defineStore('cart', {
 Call `useStore()` inside an action:
 
 ```ts
-import { useUserStore } from './user'
 import { apiOrderCart } from './api'
+import { useUserStore } from './user'
 
 export const useCartStore = defineStore('cart', {
   actions: {
@@ -96,7 +96,8 @@ export const useCartStore = defineStore('cart', {
       try {
         await apiOrderCart(user.token, this.items)
         this.emptyCart()
-      } catch (err) {
+      }
+      catch (err) {
         displayError(err)
       }
     },

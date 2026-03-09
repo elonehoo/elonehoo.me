@@ -141,7 +141,7 @@ Workspace packages can satisfy peer dependencies:
   }
 }
 
-// packages/components/package.json  
+// packages/components/package.json
 {
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0"
@@ -243,7 +243,7 @@ pnpm list --depth=Infinity
 
 5. **Test with different peer versions** if you support multiple majors
 
-<!-- 
+<!--
 Source references:
 - https://pnpm.io/package_json#pnpmpeerdependencyrules
 - https://pnpm.io/npmrc#auto-install-peers

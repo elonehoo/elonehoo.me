@@ -93,7 +93,7 @@ Now clean DOM:
 
 ```vue
 <script setup>
-import { useSlots, computed } from 'vue'
+import { computed, useSlots } from 'vue'
 
 const slots = useSlots()
 
@@ -102,15 +102,18 @@ const hasFooter = computed(() => !!slots.footer)
 
 // Can also check slot content conditionally in logic
 function getLayoutClass() {
-  if (slots.header && slots.footer) return 'full-layout'
-  if (slots.header) return 'header-only'
-  if (slots.footer) return 'footer-only'
+  if (slots.header && slots.footer)
+    return 'full-layout'
+  if (slots.header)
+    return 'header-only'
+  if (slots.footer)
+    return 'footer-only'
   return 'minimal'
 }
 </script>
 
 <template>
-  <div :class="['card', getLayoutClass()]">
+  <div class="card" :class="[getLayoutClass()]">
     <header v-if="hasHeader">
       <slot name="header" />
     </header>

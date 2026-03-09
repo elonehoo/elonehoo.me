@@ -44,10 +44,12 @@ const displayName = computed(() =>
 
 <template>
   <div class="user-card">
-    <img :src="user.avatar" :alt="displayName" class="avatar" />
+    <img :src="user.avatar" :alt="displayName" class="avatar">
     <div class="info">
-      <h3 class="name">{{ displayName }}</h3>
-      <span :class="['status', { online: isOnline }]">
+      <h3 class="name">
+        {{ displayName }}
+      </h3>
+      <span class="status" :class="[{ online: isOnline }]">
         {{ isOnline ? 'Online' : 'Offline' }}
       </span>
     </div>
@@ -99,12 +101,14 @@ Template, logic, and styles within a component are inherently coupled:
 ```vue
 <!-- Everything references each other -->
 <script setup>
-const isExpanded = ref(false)  // Used by template and affects styling
+const isExpanded = ref(false) // Used by template and affects styling
 </script>
 
 <template>
   <!-- Uses isExpanded from script, applies class for styling -->
-  <div :class="{ expanded: isExpanded }">...</div>
+  <div :class="{ expanded: isExpanded }">
+    ...
+  </div>
 </template>
 
 <style scoped>
@@ -148,7 +152,9 @@ For genuinely large components (rare), use src imports:
 ```vue
 <!-- LargeDataTable.vue -->
 <script src="./LargeDataTable.ts" lang="ts"></script>
+
 <template src="./LargeDataTable.html"></template>
+
 <style src="./LargeDataTable.scss" scoped lang="scss"></style>
 ```
 

@@ -25,7 +25,7 @@ import { ref, watchEffect } from 'vue'
 
 const A0 = ref(1)
 const A1 = ref(2)
-const A2 = ref()  // Unnecessary ref
+const A2 = ref() // Unnecessary ref
 
 // WRONG: Using watchEffect to derive state
 watchEffect(() => {
@@ -51,7 +51,7 @@ watchEffect(() => {
 
 **Correct:**
 ```javascript
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const A0 = ref(1)
 const A1 = ref(2)
@@ -118,7 +118,7 @@ const fullName = computed(() => `${firstName.value} ${lastName.value}`)
 // - You're interacting with external systems
 // - You need to run async operations
 watchEffect(() => {
-  document.title = fullName.value  // Side effect
+  document.title = fullName.value // Side effect
 })
 ```
 

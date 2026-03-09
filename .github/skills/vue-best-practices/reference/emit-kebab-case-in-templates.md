@@ -61,6 +61,7 @@ Vue handles these automatically **in template syntax only**:
 ```vue
 <!-- All of these work equivalently in Vue 3 templates -->
 <Child @updateValue="handler" />  <!-- camelCase listener -->
+
 <Child @update-value="handler" /> <!-- kebab-case listener (preferred) -->
 ```
 
@@ -74,20 +75,20 @@ import { h } from 'vue'
 
 // CORRECT - camelCase event name with 'on' prefix
 h(ChildComponent, {
-  onUpdateValue: (value) => handleUpdate(value),
-  onItemSelected: (item) => handleSelect(item)
+  onUpdateValue: value => handleUpdate(value),
+  onItemSelected: item => handleSelect(item)
 })
 
 // WRONG - kebab-case does NOT work in render functions
 h(ChildComponent, {
-  'onUpdate-value': (value) => handleUpdate(value),  // Won't work!
-  'on-update-value': (value) => handleUpdate(value)  // Won't work!
+  'onUpdate-value': value => handleUpdate(value), // Won't work!
+  'on-update-value': value => handleUpdate(value) // Won't work!
 })
 ```
 
 ```ts
 // Programmatic listeners also require camelCase
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const childRef = ref<ComponentPublicInstance | null>(null)
 
@@ -96,7 +97,7 @@ onMounted(() => {
   childRef.value?.$on?.('updateValue', handler)
 
   // WRONG - kebab-case won't match
-  childRef.value?.$on?.('update-value', handler)  // Won't work!
+  childRef.value?.$on?.('update-value', handler) // Won't work!
 })
 ```
 
@@ -119,8 +120,8 @@ When using TypeScript, define emits in camelCase:
 ```vue
 <script setup lang="ts">
 const emit = defineEmits<{
-  updateValue: [value: string]         // camelCase
-  itemSelected: [item: Item]           // camelCase
+  'updateValue': [value: string] // camelCase
+  'itemSelected': [item: Item] // camelCase
   'update:modelValue': [value: string] // Special v-model syntax (with colon)
 }>()
 </script>
@@ -144,6 +145,7 @@ function updateValue(newValue) {
 ```vue
 <!-- Parent - v-model handles the event automatically -->
 <CustomInput v-model="value" />
+
 <CustomInput v-model:first-name="firstName" />
 ```
 

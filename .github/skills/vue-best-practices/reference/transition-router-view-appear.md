@@ -22,12 +22,16 @@ tags: [vue3, transition, vue-router, appear, initial-load, navigation]
 <template>
   <!-- Without appear: No animation on initial render -->
   <Transition name="fade">
-    <div v-if="show">Content</div>
+    <div v-if="show">
+      Content
+    </div>
   </Transition>
 
   <!-- With appear: Animates on initial render -->
   <Transition name="fade" appear>
-    <div v-if="show">Content</div>
+    <div v-if="show">
+      Content
+    </div>
   </Transition>
 </template>
 ```
@@ -67,16 +71,8 @@ Since the component wasn't present in the initial render and is "inserted" after
 ## If You Want to Disable Initial Animation
 
 ```vue
-<template>
-  <RouterView v-slot="{ Component }">
-    <Transition :name="isInitialLoad ? '' : 'fade'" mode="out-in">
-      <component :is="Component" />
-    </Transition>
-  </RouterView>
-</template>
-
 <script setup>
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const isInitialLoad = ref(true)
@@ -90,19 +86,19 @@ router.isReady().then(() => {
   }, 0)
 })
 </script>
+
+<template>
+  <RouterView v-slot="{ Component }">
+    <Transition :name="isInitialLoad ? '' : 'fade'" mode="out-in">
+      <component :is="Component" />
+    </Transition>
+  </RouterView>
+</template>
 ```
 
 ## Alternative: Use CSS to Skip First Animation
 
 ```vue
-<template>
-  <RouterView v-slot="{ Component }">
-    <Transition name="fade" mode="out-in">
-      <component :is="Component" :class="{ 'skip-initial': isInitialLoad }" />
-    </Transition>
-  </RouterView>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -114,6 +110,14 @@ router.isReady().then(() => {
   isInitialLoad.value = false
 })
 </script>
+
+<template>
+  <RouterView v-slot="{ Component }">
+    <Transition name="fade" mode="out-in">
+      <component :is="Component" :class="{ 'skip-initial': isInitialLoad }" />
+    </Transition>
+  </RouterView>
+</template>
 
 <style>
 .fade-enter-active,
@@ -183,7 +187,7 @@ const routes = [
   {
     path: '/about',
     component: About,
-    meta: { transition: 'slide' }  // Custom transition for this route
+    meta: { transition: 'slide' } // Custom transition for this route
   }
 ]
 ```

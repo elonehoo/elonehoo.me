@@ -27,7 +27,7 @@ const htmlContent = ref('<p class="dynamic">This is dynamic content</p>')
 
 <template>
   <div class="container">
-    <div v-html="htmlContent"></div>
+    <div v-html="htmlContent" />
   </div>
 </template>
 
@@ -50,7 +50,7 @@ const htmlContent = ref('<p class="dynamic">This is dynamic content</p>')
 
 <template>
   <div class="container">
-    <div v-html="htmlContent"></div>
+    <div v-html="htmlContent" />
   </div>
 </template>
 
@@ -90,12 +90,13 @@ Vue scoped CSS adds a unique data attribute (e.g., `data-v-7ba5bd90`) to:
 ```vue
 <script setup>
 import { ref } from 'vue'
+
 const htmlContent = ref('<p class="my-component-dynamic">Dynamic text</p>')
 </script>
 
 <template>
   <div class="my-component">
-    <div v-html="htmlContent"></div>
+    <div v-html="htmlContent" />
   </div>
 </template>
 
@@ -113,7 +114,7 @@ When using third-party libraries that manipulate the DOM:
 
 ```vue
 <script setup>
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const editorRef = ref(null)
 
@@ -125,7 +126,7 @@ onMounted(() => {
 
 <template>
   <div class="editor-wrapper">
-    <div ref="editorRef"></div>
+    <div ref="editorRef" />
   </div>
 </template>
 
@@ -166,7 +167,7 @@ const items = ref([
 
 <template>
   <!-- BAD -->
-  <div v-html="badHtml"></div>
+  <div v-html="badHtml" />
 
   <!-- GOOD: Scoped styles work normally -->
   <ul>

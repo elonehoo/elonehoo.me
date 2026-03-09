@@ -35,7 +35,9 @@ Without the `suspensible` prop, the inner `<Suspense>` is treated as a synchrono
       <!-- Inner Suspense not coordinated with parent -->
       <Suspense>
         <AsyncWidget />
-        <template #fallback>Loading widget...</template>
+        <template #fallback>
+          Loading widget...
+        </template>
       </Suspense>
     </OuterLayout>
 

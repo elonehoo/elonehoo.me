@@ -22,7 +22,7 @@ tags: [vue3, typescript, props, boolean, defineProps]
 ```vue
 <script setup lang="ts">
 interface Props {
-  disabled?: boolean  // TypeScript sees: boolean | undefined
+  disabled?: boolean // TypeScript sees: boolean | undefined
 }
 
 const props = defineProps<Props>()
@@ -48,7 +48,9 @@ Vue has special "boolean casting" behavior inherited from HTML boolean attribute
 ```vue
 <!-- All of these make disabled = true -->
 <MyComponent disabled />
+
 <MyComponent :disabled="true" />
+
 <MyComponent disabled="" />
 
 <!-- This makes disabled = false (NOT undefined) -->
@@ -79,7 +81,7 @@ interface Props {
 
 // Explicitly document the default
 const props = withDefaults(defineProps<Props>(), {
-  disabled: false  // Now it's clear this defaults to false
+  disabled: false // Now it's clear this defaults to false
 })
 </script>
 ```
@@ -99,14 +101,15 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  state: undefined,  // Can actually be undefined
+  state: undefined, // Can actually be undefined
   toggleState: undefined
 })
 
 // Now you can check for undefined
 if (props.state === undefined) {
   // Use parent's state
-} else if (props.state === 'disabled') {
+}
+else if (props.state === 'disabled') {
   // Explicitly disabled
 }
 </script>
@@ -128,9 +131,11 @@ const props = withDefaults(defineProps<Props>(), {
 // Three distinct states
 if (props.selected === null) {
   console.log('Selection not specified')
-} else if (props.selected) {
+}
+else if (props.selected) {
   console.log('Selected')
-} else {
+}
+else {
   console.log('Explicitly not selected')
 }
 </script>
@@ -180,7 +185,7 @@ onMounted(async () => {
 
 <template>
   <!-- Bug: undefined becomes false, not "inherit system preference" -->
-  <ThemeToggle :darkMode="userPreferences.darkMode" />
+  <ThemeToggle :dark-mode="userPreferences.darkMode" />
 </template>
 ```
 
@@ -191,13 +196,13 @@ onMounted(async () => {
 const userPreferences = ref<{
   darkMode: boolean | null
 }>({
-  darkMode: null  // Use null for "not yet loaded"
+  darkMode: null // Use null for "not yet loaded"
 })
 </script>
 
 <template>
   <!-- Now ThemeToggle can distinguish between null and false -->
-  <ThemeToggle :darkMode="userPreferences.darkMode" />
+  <ThemeToggle :dark-mode="userPreferences.darkMode" />
 </template>
 ```
 

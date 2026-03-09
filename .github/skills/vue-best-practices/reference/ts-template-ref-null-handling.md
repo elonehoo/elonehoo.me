@@ -28,14 +28,14 @@ import { ref } from 'vue'
 const inputRef = ref<HTMLInputElement>()
 
 // WRONG: Will crash if accessed before mount
-inputRef.value.focus()  // Error: Cannot read properties of null
+inputRef.value.focus() // Error: Cannot read properties of null
 
 // WRONG: Accessed in setup, element doesn't exist yet
-console.log(inputRef.value.value)  // Error!
+console.log(inputRef.value.value) // Error!
 </script>
 
 <template>
-  <input ref="inputRef" />
+  <input ref="inputRef">
 </template>
 ```
 
@@ -43,14 +43,14 @@ console.log(inputRef.value.value)  // Error!
 
 ```vue
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 // CORRECT: Include null in the type
 const inputRef = ref<HTMLInputElement | null>(null)
 
 // CORRECT: Access in onMounted when DOM exists
 onMounted(() => {
-  inputRef.value?.focus()  // Safe with optional chaining
+  inputRef.value?.focus() // Safe with optional chaining
 })
 
 // CORRECT: Guard before accessing
@@ -62,7 +62,7 @@ function focusInput() {
 </script>
 
 <template>
-  <input ref="inputRef" />
+  <input ref="inputRef">
 </template>
 ```
 
@@ -72,7 +72,7 @@ Vue 3.5 introduces `useTemplateRef` with better type inference:
 
 ```vue
 <script setup lang="ts">
-import { useTemplateRef, onMounted } from 'vue'
+import { onMounted, useTemplateRef } from 'vue'
 
 // Type is automatically inferred for static refs
 const inputRef = useTemplateRef<HTMLInputElement>('input')
@@ -83,7 +83,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <input ref="input" />
+  <input ref="input">
 </template>
 ```
 
@@ -100,7 +100,7 @@ const modalRef = ref<HTMLDivElement | null>(null)
 
 // WRONG: Assuming ref always exists after first mount
 function closeModal() {
-  modalRef.value.classList.remove('open')  // May be null!
+  modalRef.value.classList.remove('open') // May be null!
 }
 
 // CORRECT: Always guard access
@@ -131,7 +131,7 @@ For component refs, use `InstanceType`:
 
 ```vue
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import ChildComponent from './ChildComponent.vue'
 
 // Component ref with null
@@ -167,7 +167,7 @@ defineExpose({
 
 ```vue
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const items = ref(['a', 'b', 'c'])
 
@@ -179,7 +179,7 @@ onMounted(() => {
   itemRefs.value[0]?.focus()
 
   // Iterate safely
-  itemRefs.value.forEach(el => {
+  itemRefs.value.forEach((el) => {
     el?.classList.add('mounted')
   })
 })
@@ -204,7 +204,7 @@ Be careful with async operations:
 
 ```vue
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const containerRef = ref<HTMLDivElement | null>(null)
 
@@ -240,7 +240,7 @@ export function assertRef<T>(
 // Usage in component
 function mustFocus() {
   assertRef(inputRef, 'Input element not mounted')
-  inputRef.value.focus()  // TypeScript knows it's not null here
+  inputRef.value.focus() // TypeScript knows it's not null here
 }
 ```
 

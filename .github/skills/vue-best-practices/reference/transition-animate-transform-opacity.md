@@ -140,7 +140,7 @@ function onEnter(el, done) {
   // Force reflow
   el.offsetHeight
   el.style.transition = 'height 0.3s ease'
-  el.style.height = el.scrollHeight + 'px'
+  el.style.height = `${el.scrollHeight}px`
 
   el.addEventListener('transitionend', () => {
     el.style.height = ''
@@ -150,7 +150,7 @@ function onEnter(el, done) {
 }
 
 function onLeave(el, done) {
-  el.style.height = el.scrollHeight + 'px'
+  el.style.height = `${el.scrollHeight}px`
   el.style.overflow = 'hidden'
   el.offsetHeight
   el.style.transition = 'height 0.3s ease'

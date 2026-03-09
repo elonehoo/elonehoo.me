@@ -23,7 +23,9 @@ tags: [vue3, keepalive, vue-router, navigation, cache, ux]
 <!-- App.vue -->
 <template>
   <nav>
-    <router-link to="/products">Products</router-link>
+    <router-link to="/products">
+      Products
+    </router-link>
   </nav>
 
   <router-view v-slot="{ Component }">
@@ -65,7 +67,7 @@ Users clicking navigation expect a "fresh start" but get the cached state.
 ```vue
 <!-- Products.vue -->
 <script setup>
-import { ref, onActivated, watch } from 'vue'
+import { onActivated, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
@@ -100,8 +102,8 @@ Different behavior based on how user navigated:
 
 ```vue
 <script setup>
-import { ref, onActivated } from 'vue'
-import { useRoute, useRouter, onBeforeRouteUpdate } from 'vue-router'
+import { onActivated, ref } from 'vue'
+import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
 const router = useRouter()

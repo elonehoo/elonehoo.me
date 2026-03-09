@@ -20,16 +20,16 @@ tags: [vue3, v-model, defineModel, modifiers, props, naming]
 **Problem - Hidden props created automatically:**
 ```vue
 <script setup>
+// CONFLICT: This prop name collides with the hidden titleModifiers
+const props = defineProps({
+  titleModifiers: Object // WRONG: Conflicts with defineModel's hidden prop
+})
+
 // This creates TWO props: modelValue and modelValueModifiers
 const model = defineModel()
 
 // This creates TWO props: title and titleModifiers
 const title = defineModel('title')
-
-// CONFLICT: This prop name collides with the hidden titleModifiers
-const props = defineProps({
-  titleModifiers: Object  // WRONG: Conflicts with defineModel's hidden prop
-})
 </script>
 ```
 
@@ -67,8 +67,8 @@ const [title, titleModifiers] = defineModel('title', {
 ```vue
 <script setup>
 // These are OK - no conflicts
-const name = defineModel('name')      // Creates: name, nameModifiers
-const age = defineModel('age')        // Creates: age, ageModifiers
+const name = defineModel('name') // Creates: name, nameModifiers
+const age = defineModel('age') // Creates: age, ageModifiers
 
 // PROBLEM: If you had a model named 'model', it creates:
 // - 'model' prop
@@ -77,7 +77,7 @@ const age = defineModel('age')        // Creates: age, ageModifiers
 // The names are similar and can cause confusion
 
 // AVOID: Don't name a model something that would conflict
-const model = defineModel('model')  // Creates 'model' and 'modelModifiers'
+const model = defineModel('model') // Creates 'model' and 'modelModifiers'
 // This is confusing alongside the default modelValue/modelValueModifiers
 </script>
 ```
@@ -86,9 +86,9 @@ const model = defineModel('model')  // Creates 'model' and 'modelModifiers'
 ```vue
 <script setup>
 // Good: Clear, distinct names that won't conflict
-const firstName = defineModel('firstName')   // firstNameModifiers
-const lastName = defineModel('lastName')     // lastNameModifiers
-const email = defineModel('email')           // emailModifiers
+const firstName = defineModel('firstName') // firstNameModifiers
+const lastName = defineModel('lastName') // lastNameModifiers
+const email = defineModel('email') // emailModifiers
 
 // Avoid ambiguous names
 // Bad: const value = defineModel('value')  // valueModifiers - too generic
@@ -112,7 +112,8 @@ When creating components with custom modifier support, document them clearly:
 const [title, modifiers] = defineModel('title', {
   set(value: string) {
     let result = value
-    if (modifiers.trim) result = result.trim()
+    if (modifiers.trim)
+      result = result.trim()
     if (modifiers.capitalize) {
       result = result.charAt(0).toUpperCase() + result.slice(1)
     }
@@ -125,7 +126,7 @@ const [title, modifiers] = defineModel('title', {
 </script>
 
 <template>
-  <input v-model="title" />
+  <input v-model="title">
 </template>
 ```
 

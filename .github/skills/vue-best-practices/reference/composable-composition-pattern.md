@@ -127,7 +127,8 @@ export function useAutoSave(dataRef, saveFunction, options = {}) {
   let timeoutId = null
 
   watch(dataRef, (newData) => {
-    if (onlyWhenOnline && !isOnline.value) return
+    if (onlyWhenOnline && !isOnline.value)
+      return
 
     clearTimeout(timeoutId)
     timeoutId = setTimeout(async () => {
@@ -135,7 +136,8 @@ export function useAutoSave(dataRef, saveFunction, options = {}) {
       try {
         await saveFunction(newData)
         lastSaved.value = new Date()
-      } finally {
+      }
+      finally {
         isSaving.value = false
       }
     }, debounce)
@@ -152,7 +154,7 @@ Extract inline composables when a component gets complex:
 ```vue
 <script setup>
 // BEFORE: All logic mixed together
-import { ref, computed, watch, onMounted } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 
 const searchQuery = ref('')
 const filters = ref({ category: null, minPrice: 0 })
@@ -168,9 +170,9 @@ const sortOrder = ref('asc')
 
 ```vue
 <script setup>
+import { useProductFilters } from './composables/useProductFilters'
 // AFTER: Separated into focused composables
 import { useProductSearch } from './composables/useProductSearch'
-import { useProductFilters } from './composables/useProductFilters'
 import { useProductSort } from './composables/useProductSort'
 
 const { searchQuery, debouncedQuery } = useProductSearch()

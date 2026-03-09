@@ -23,33 +23,33 @@ This timing catches developers who expect to use component state in prop validat
 ```vue
 <script>
 export default {
-  data() {
-    return {
-      validOptions: ['a', 'b', 'c'],
-      defaultMessage: 'Hello'
-    }
-  },
   props: {
     option: {
       type: String,
       // WRONG: 'this' is undefined during prop validation
       validator(value) {
-        return this.validOptions.includes(value)  // TypeError!
+        return this.validOptions.includes(value) // TypeError!
       }
     },
     message: {
       type: String,
       // WRONG: Cannot access data properties
       default() {
-        return this.defaultMessage  // TypeError!
+        return this.defaultMessage // TypeError!
       }
     },
     config: {
       type: Object,
       // WRONG: Cannot access computed properties
       default() {
-        return this.computedDefaults  // TypeError!
+        return this.computedDefaults // TypeError!
       }
+    }
+  },
+  data() {
+    return {
+      validOptions: ['a', 'b', 'c'],
+      defaultMessage: 'Hello'
     }
   }
 }
@@ -145,7 +145,7 @@ For validation that needs instance access, use lifecycle hooks:
 
 ```vue
 <script setup>
-import { onMounted, inject, warn } from 'vue'
+import { inject, onMounted, warn } from 'vue'
 
 const props = defineProps({
   theme: String

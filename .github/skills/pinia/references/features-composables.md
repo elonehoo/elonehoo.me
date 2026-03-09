@@ -12,8 +12,8 @@ Pinia stores can leverage Vue composables for reusable stateful logic.
 Call composables inside the `state` property, but only those returning writable refs:
 
 ```ts
-import { defineStore } from 'pinia'
 import { useLocalStorage } from '@vueuse/core'
+import { defineStore } from 'pinia'
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
@@ -35,15 +35,15 @@ export const useAuthStore = defineStore('auth', {
 More flexible - can use almost any composable:
 
 ```ts
-import { defineStore } from 'pinia'
 import { useMediaControls } from '@vueuse/core'
+import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useVideoPlayer = defineStore('video', () => {
   const videoElement = ref<HTMLVideoElement>()
   const src = ref('/data/video.mp4')
-  const { playing, volume, currentTime, togglePictureInPicture } =
-    useMediaControls(videoElement, { src })
+  const { playing, volume, currentTime, togglePictureInPicture }
+    = useMediaControls(videoElement, { src })
 
   function loadVideo(element: HTMLVideoElement, newSrc: string) {
     videoElement.value = element
@@ -70,8 +70,8 @@ export const useVideoPlayer = defineStore('video', () => {
 Define a `hydrate()` function to handle client-side hydration:
 
 ```ts
-import { defineStore } from 'pinia'
 import { useLocalStorage } from '@vueuse/core'
+import { defineStore } from 'pinia'
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
@@ -90,8 +90,8 @@ export const useAuthStore = defineStore('auth', {
 Mark state that shouldn't hydrate from server:
 
 ```ts
-import { defineStore, skipHydrate } from 'pinia'
 import { useEyeDropper, useLocalStorage } from '@vueuse/core'
+import { defineStore, skipHydrate } from 'pinia'
 
 export const useColorStore = defineStore('colors', () => {
   const { isSupported, open, sRGBHex } = useEyeDropper()
@@ -100,7 +100,7 @@ export const useColorStore = defineStore('colors', () => {
   return {
     // Skip hydration for client-only state
     lastColor: skipHydrate(lastColor),
-    open,       // Function - no hydration needed
+    open, // Function - no hydration needed
     isSupported, // Boolean - not reactive
   }
 })

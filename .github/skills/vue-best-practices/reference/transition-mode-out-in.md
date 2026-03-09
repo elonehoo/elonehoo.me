@@ -22,8 +22,12 @@ tags: [vue3, transition, animation, mode, out-in, in-out]
 <template>
   <!-- BAD: No mode - buttons overlap during transition! -->
   <Transition name="fade">
-    <button v-if="isEditing" key="save" @click="save">Save</button>
-    <button v-else key="edit" @click="edit">Edit</button>
+    <button v-if="isEditing" key="save" @click="save">
+      Save
+    </button>
+    <button v-else key="edit" @click="edit">
+      Edit
+    </button>
   </Transition>
 </template>
 
@@ -49,8 +53,12 @@ Result: Both buttons visible during transition
 <template>
   <!-- GOOD: out-in mode ensures sequential animation -->
   <Transition name="fade" mode="out-in">
-    <button v-if="isEditing" key="save" @click="save">Save</button>
-    <button v-else key="edit" @click="edit">Edit</button>
+    <button v-if="isEditing" key="save" @click="save">
+      Save
+    </button>
+    <button v-else key="edit" @click="edit">
+      Edit
+    </button>
   </Transition>
 </template>
 
@@ -131,7 +139,9 @@ New element enters first, then old element leaves
 <template>
   <!-- Card flip effect - new card slides in behind -->
   <Transition name="flip" mode="in-out">
-    <div :key="cardId" class="card">{{ cardContent }}</div>
+    <div :key="cardId" class="card">
+      {{ cardContent }}
+    </div>
   </Transition>
 </template>
 ```
@@ -145,7 +155,7 @@ New element enters first, then old element leaves
 <template>
   <!-- Image cross-fade - overlap creates smooth blend -->
   <Transition name="crossfade">
-    <img :key="currentImage" :src="currentImage" class="gallery-image" />
+    <img :key="currentImage" :src="currentImage" class="gallery-image">
   </Transition>
 </template>
 
@@ -174,8 +184,12 @@ If you must use the default mode (no mode) for non-overlapping elements, use abs
 <template>
   <div class="container">
     <Transition name="slide">
-      <div v-if="showA" key="a" class="panel">Panel A</div>
-      <div v-else key="b" class="panel">Panel B</div>
+      <div v-if="showA" key="a" class="panel">
+        Panel A
+      </div>
+      <div v-else key="b" class="panel">
+        Panel B
+      </div>
     </Transition>
   </div>
 </template>

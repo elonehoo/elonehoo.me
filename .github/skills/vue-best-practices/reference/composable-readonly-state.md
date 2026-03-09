@@ -28,7 +28,7 @@ export function useCart() {
     items.value.reduce((sum, item) => sum + item.price * item.quantity, 0)
   )
 
-  return { items, total }  // Anyone can mutate items directly!
+  return { items, total } // Anyone can mutate items directly!
 }
 
 // Consumer code - mutations scattered everywhere
@@ -48,7 +48,7 @@ items.value[0].quantity = 5
 
 **Correct:**
 ```javascript
-import { ref, computed, readonly } from 'vue'
+import { computed, readonly, ref } from 'vue'
 
 export function useCart() {
   const items = ref([])
@@ -66,7 +66,8 @@ export function useCart() {
     const existing = items.value.find(item => item.id === product.id)
     if (existing) {
       existing.quantity += quantity
-    } else {
+    }
+    else {
       items.value.push({ ...product, quantity })
     }
   }
@@ -137,10 +138,12 @@ export function useAuth() {
       const response = await api.login(credentials)
       _user.value = response.user
       _token.value = response.token
-    } catch (e) {
+    }
+    catch (e) {
       _error.value = e.message
       throw e
-    } finally {
+    }
+    finally {
       _isLoading.value = false
     }
   }
@@ -176,7 +179,7 @@ export function useAuth() {
 // Form input - consumers SHOULD mutate directly
 export function useForm(initial) {
   const values = ref({ ...initial })
-  return { values }  // No readonly - it's meant to be mutated
+  return { values } // No readonly - it's meant to be mutated
 }
 
 // Counter with min/max - needs controlled mutations
@@ -184,11 +187,13 @@ export function useCounter(min = 0, max = 100) {
   const _count = ref(min)
 
   function increment() {
-    if (_count.value < max) _count.value++
+    if (_count.value < max)
+      _count.value++
   }
 
   function decrement() {
-    if (_count.value > min) _count.value--
+    if (_count.value > min)
+      _count.value--
   }
 
   return {

@@ -22,7 +22,7 @@ export const useCounterStore = defineStore('counter', {
     name: 'Eduardo',
   }),
   getters: {
-    doubleCount: (state) => state.count * 2,
+    doubleCount: state => state.count * 2,
   },
   actions: {
     increment() {
@@ -39,8 +39,8 @@ Think of `state` as `data`, `getters` as `computed`, and `actions` as `methods`.
 Uses Composition API syntax - more flexible and powerful:
 
 ```ts
-import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
+import { computed, ref } from 'vue'
 
 export const useCounterStore = defineStore('counter', () => {
   const count = ref(0)
@@ -346,7 +346,7 @@ someStore.$onAction(callback, true)
 ## Options API Helpers
 
 ```ts
-import { mapState, mapWritableState, mapActions } from 'pinia'
+import { mapActions, mapState, mapWritableState } from 'pinia'
 import { useCounterStore } from '../stores/counter'
 
 export default {
@@ -367,9 +367,9 @@ export default {
 ## Accessing Global Providers in Setup Stores
 
 ```ts
+import { defineStore } from 'pinia'
 import { inject } from 'vue'
 import { useRoute } from 'vue-router'
-import { defineStore } from 'pinia'
 
 export const useSearchFilters = defineStore('search-filters', () => {
   const route = useRoute()

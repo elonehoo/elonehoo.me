@@ -28,13 +28,13 @@ import App from './App.vue'
 const app = createApp(App).mount('#app')
 
 // This fails! app is actually the root component instance
-app.use(router)  // TypeError: app.use is not a function
-app.config.errorHandler = fn  // app.config is undefined
+app.use(router) // TypeError: app.use is not a function
+app.config.errorHandler = fn // app.config is undefined
 ```
 
 ```javascript
 // WRONG: Trying to save both in one line
-const { app, component } = createApp(App).mount('#app')  // Doesn't work this way
+const { app, component } = createApp(App).mount('#app') // Doesn't work this way
 ```
 
 **Correct:**
@@ -47,7 +47,7 @@ const app = createApp(App)
 
 // Configure the app
 app.use(router)
-app.config.errorHandler = (err) => console.error(err)
+app.config.errorHandler = err => console.error(err)
 
 // Store component instance if needed
 const rootComponent = app.mount('#app')
@@ -62,7 +62,7 @@ const rootComponent = app.mount('#app')
 createApp(App)
   .use(router)
   .use(pinia)
-  .mount('#app')  // Return value (component instance) discarded - that's fine
+  .mount('#app') // Return value (component instance) discarded - that's fine
 ```
 
 ## When You Need the Root Component Instance

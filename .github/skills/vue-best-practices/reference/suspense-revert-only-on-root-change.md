@@ -40,7 +40,7 @@ const activeTab = ref('dashboard')
 
 ```vue
 <script setup>
-import { ref, defineAsyncComponent } from 'vue'
+import { defineAsyncComponent, ref } from 'vue'
 
 const activeTab = ref('dashboard')
 
@@ -101,7 +101,7 @@ watch(activeTab, () => {
   isTabLoading.value = true
 })
 
-const onTabLoaded = () => {
+function onTabLoaded() {
   isTabLoading.value = false
 }
 </script>

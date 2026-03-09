@@ -22,7 +22,9 @@ tags: [vue3, teleport, scoped-styles, css]
 <template>
   <Teleport to="body">
     <div class="modal">
-      <p class="modal-text">This text may not be styled!</p>
+      <p class="modal-text">
+        This text may not be styled!
+      </p>
     </div>
   </Teleport>
 </template>
@@ -45,7 +47,9 @@ tags: [vue3, teleport, scoped-styles, css]
 <template>
   <Teleport to="body">
     <div class="my-modal">
-      <p class="my-modal-text">This text will be styled</p>
+      <p class="my-modal-text">
+        This text will be styled
+      </p>
     </div>
   </Teleport>
 </template>
@@ -78,7 +82,9 @@ tags: [vue3, teleport, scoped-styles, css]
 <template>
   <Teleport to="body">
     <div class="modal">
-      <p class="modal-text">Styled with :deep()</p>
+      <p class="modal-text">
+        Styled with :deep()
+      </p>
     </div>
   </Teleport>
 </template>
@@ -100,7 +106,9 @@ tags: [vue3, teleport, scoped-styles, css]
 <template>
   <Teleport to="body">
     <div :class="$style.modal">
-      <p :class="$style.modalText">Styled with CSS modules</p>
+      <p :class="$style.modalText">
+        Styled with CSS modules
+      </p>
     </div>
   </Teleport>
 </template>
@@ -124,9 +132,13 @@ Using Teleport as one of multiple root nodes causes additional issues:
 ```vue
 <template>
   <!-- Multi-root component -->
-  <button @click="open = true">Open</button>
+  <button @click="open = true">
+    Open
+  </button>
   <Teleport to="body">
-    <div class="modal">Content</div>
+    <div class="modal">
+      Content
+    </div>
   </Teleport>
 </template>
 
@@ -137,9 +149,11 @@ Pass classes explicitly to avoid inheritance issues:
 
 ```vue
 <template>
-  <button @click="open = true">Open</button>
+  <button @click="open = true">
+    Open
+  </button>
   <Teleport to="body">
-    <div :class="['modal', $attrs.class]" :style="$attrs.style">
+    <div class="modal" :class="[$attrs.class]" :style="$attrs.style">
       Content
     </div>
   </Teleport>

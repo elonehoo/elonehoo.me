@@ -101,7 +101,9 @@ Each v-for block:
 <template>
   <div>
     <!-- These static elements: hoisted once, never diffed -->
-    <nav class="sidebar">Navigation</nav>
+    <nav class="sidebar">
+      Navigation
+    </nav>
 
     <!-- This dynamic binding: tracked in root block -->
     <h1>{{ title }}</h1>

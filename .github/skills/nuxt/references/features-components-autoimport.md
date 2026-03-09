@@ -75,7 +75,9 @@ const showChart = ref(false)
 <template>
   <!-- Component code loaded only when rendered -->
   <LazyHeavyChart v-if="showChart" />
-  <button @click="showChart = true">Show Chart</button>
+  <button @click="showChart = true">
+    Show Chart
+  </button>
 </template>
 ```
 
@@ -169,15 +171,15 @@ Never hydrate (static only):
 ### Hydration Event
 
 ```vue
-<template>
-  <LazyChart hydrate-on-visible @hydrated="onChartReady" />
-</template>
-
 <script setup>
 function onChartReady() {
   console.log('Chart is now interactive')
 }
 </script>
+
+<template>
+  <LazyChart hydrate-on-visible @hydrated="onChartReady" />
+</template>
 ```
 
 ## Client/Server Components
@@ -321,7 +323,7 @@ export default defineNuxtModule({
 })
 ```
 
-<!-- 
+<!--
 Source references:
 - https://nuxt.com/docs/directory-structure/app/components
 - https://nuxt.com/docs/guide/concepts/auto-imports#auto-imported-components

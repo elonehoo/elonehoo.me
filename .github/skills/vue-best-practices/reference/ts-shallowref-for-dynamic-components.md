@@ -52,7 +52,8 @@ by marking the component with `markRaw` or using `shallowRef` instead of `ref`.
 `shallowRef` only makes the `.value` reference reactive, not the contents:
 
 ```typescript
-import { shallowRef, type Component } from 'vue'
+import type { Component } from 'vue'
+import { shallowRef } from 'vue'
 import ComponentA from './ComponentA.vue'
 import ComponentB from './ComponentB.vue'
 
@@ -75,7 +76,8 @@ function switchComponent() {
 When components are part of a larger reactive object:
 
 ```typescript
-import { reactive, markRaw, type Component } from 'vue'
+import type { Component } from 'vue'
+import { markRaw, reactive } from 'vue'
 import TabHome from './TabHome.vue'
 import TabProfile from './TabProfile.vue'
 import TabSettings from './TabSettings.vue'
@@ -115,7 +117,8 @@ const activeTab = shallowRef<Tab>(tabs[0])
 For proper TypeScript support with dynamic components:
 
 ```typescript
-import { shallowRef, type Component, type DefineComponent } from 'vue'
+import type { Component, DefineComponent } from 'vue'
+import { shallowRef } from 'vue'
 
 // Generic component type
 const currentComponent = shallowRef<Component | null>(null)
@@ -133,7 +136,8 @@ const currentComponent = shallowRef<DefineComponent<MyComponentProps> | null>(nu
 When using dynamic imports for code splitting:
 
 ```typescript
-import { shallowRef, defineAsyncComponent, type Component } from 'vue'
+import type { Component } from 'vue'
+import { defineAsyncComponent, shallowRef } from 'vue'
 
 const currentComponent = shallowRef<Component | null>(null)
 
@@ -150,7 +154,8 @@ async function loadComponent(name: string) {
 For tab systems or wizard-like interfaces:
 
 ```typescript
-import { shallowRef, markRaw, type Component } from 'vue'
+import type { Component } from 'vue'
+import { markRaw, shallowRef } from 'vue'
 
 // Type-safe component registry
 const componentRegistry = {

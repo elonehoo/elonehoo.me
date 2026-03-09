@@ -23,7 +23,7 @@ tags: [vue3, slots, fallback-content, component-design, reusability]
 <template>
   <button type="submit" class="btn-primary">
     <!-- Empty if no content provided -->
-    <slot></slot>
+    <slot />
   </button>
 </template>
 ```
@@ -50,7 +50,9 @@ tags: [vue3, slots, fallback-content, component-design, reusability]
 <!-- Result: <button type="submit" class="btn-primary">Submit</button> -->
 
 <!-- Usage with content - overrides default -->
-<SubmitButton>Save Changes</SubmitButton>
+<SubmitButton>
+Save Changes
+</SubmitButton>
 <!-- Result: <button type="submit" class="btn-primary">Save Changes</button> -->
 ```
 
@@ -87,22 +89,6 @@ Fallback content can include multiple elements and logic:
 
 ```vue
 <!-- UserAvatar.vue -->
-<template>
-  <div class="avatar-container">
-    <slot name="image">
-      <!-- Complex fallback with conditional logic -->
-      <img
-        v-if="user?.avatar"
-        :src="user.avatar"
-        :alt="user.name"
-      />
-      <div v-else class="avatar-placeholder">
-        {{ initials }}
-      </div>
-    </slot>
-  </div>
-</template>
-
 <script setup>
 import { computed } from 'vue'
 
@@ -111,7 +97,8 @@ const props = defineProps({
 })
 
 const initials = computed(() => {
-  if (!props.user?.name) return '?'
+  if (!props.user?.name)
+    return '?'
   return props.user.name
     .split(' ')
     .map(n => n[0])
@@ -119,6 +106,22 @@ const initials = computed(() => {
     .toUpperCase()
 })
 </script>
+
+<template>
+  <div class="avatar-container">
+    <slot name="image">
+      <!-- Complex fallback with conditional logic -->
+      <img
+        v-if="user?.avatar"
+        :src="user.avatar"
+        :alt="user.name"
+      >
+      <div v-else class="avatar-placeholder">
+        {{ initials }}
+      </div>
+    </slot>
+  </div>
+</template>
 ```
 
 ## When to Use Fallbacks

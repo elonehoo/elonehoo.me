@@ -24,7 +24,7 @@ Every time the source state changes, a new snapshot is created. Mutating a snaps
 **Incorrect:**
 ```vue
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const books = ref(['Vue Guide', 'React Handbook'])
 
@@ -76,7 +76,7 @@ export default {
 **Correct:**
 ```vue
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const books = ref(['Vue Guide', 'React Handbook'])
 
@@ -91,11 +91,11 @@ function addBook(bookName) {
 
 // GOOD: Create a copy before mutating for display
 const sortedBooks = computed(() => {
-  return [...books.value].sort()  // Spread to create copy before sort
+  return books.value.toSorted() // Spread to create copy before sort
 })
 
 const reversedBooks = computed(() => {
-  return [...books.value].reverse()  // Spread to create copy before reverse
+  return books.value.toReversed() // Spread to create copy before reverse
 })
 </script>
 ```
@@ -132,7 +132,7 @@ If you genuinely need to "set" a computed value, use a writable computed propert
 
 ```vue
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const firstName = ref('John')
 const lastName = ref('Doe')
@@ -151,7 +151,7 @@ const fullName = computed({
 })
 
 // Now this is valid:
-fullName.value = 'Jane Smith'  // Updates firstName and lastName
+fullName.value = 'Jane Smith' // Updates firstName and lastName
 </script>
 ```
 

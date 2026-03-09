@@ -27,7 +27,7 @@ export const userMixin = {
   data() {
     return {
       user: null,
-      loading: false  // Conflict waiting to happen!
+      loading: false // Conflict waiting to happen!
     }
   },
   methods: {
@@ -40,7 +40,7 @@ export const authMixin = {
   data() {
     return {
       token: null,
-      loading: false  // NAME CONFLICT with userMixin!
+      loading: false // NAME CONFLICT with userMixin!
     }
   },
   methods: {
@@ -57,10 +57,10 @@ export default {
     console.log(this.user)
 
     // PROBLEM 2: Which 'loading'? Last mixin wins, silently!
-    console.log(this.loading)  // Is this user loading or auth loading?
+    console.log(this.loading) // Is this user loading or auth loading?
 
     // PROBLEM 3: Can't customize behavior per-component
-    this.fetchUser()  // Always fetches the same way
+    this.fetchUser() // Always fetches the same way
   }
 }
 ```
@@ -152,12 +152,14 @@ export function useForm(initialValues, validationSchema) {
   }
 
   async function submit(onSubmit) {
-    if (!validate()) return
+    if (!validate())
+      return
 
     submitting.value = true
     try {
       await onSubmit(values.value)
-    } finally {
+    }
+    finally {
       submitting.value = false
     }
   }

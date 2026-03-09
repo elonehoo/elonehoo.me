@@ -103,7 +103,8 @@ const AsyncTooltip = defineAsyncComponent({
 ## Custom Hydration Strategy
 
 ```typescript
-import { defineAsyncComponent, type HydrationStrategy } from 'vue'
+import type { HydrationStrategy } from 'vue'
+import { defineAsyncComponent } from 'vue'
 
 const hydrateAfterAnimation: HydrationStrategy = (hydrate, forEachElement) => {
   // Wait for page load animation to complete

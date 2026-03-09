@@ -131,8 +131,8 @@ watch(() => props.user, (newUser) => {
 </script>
 
 <template>
-  <input v-model="localValue" />
-  <input v-model="localUser.name" />
+  <input v-model="localValue">
+  <input v-model="localUser.name">
 </template>
 ```
 
@@ -179,7 +179,7 @@ const emit = defineEmits(['update:modelValue'])
   <input
     :value="modelValue"
     @input="emit('update:modelValue', $event.target.value)"
-  />
+  >
 </template>
 ```
 

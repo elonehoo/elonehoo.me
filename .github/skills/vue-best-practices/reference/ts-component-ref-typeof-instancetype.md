@@ -39,7 +39,7 @@ function reset() {
 defineExpose({
   increment,
   reset,
-  count: internalCount  // Expose ref for reading
+  count: internalCount // Expose ref for reading
 })
 </script>
 ```
@@ -47,7 +47,7 @@ defineExpose({
 ```vue
 <!-- ParentComponent.vue -->
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import ChildComponent from './ChildComponent.vue'
 
 // Type the ref using InstanceType
@@ -55,11 +55,11 @@ const childRef = ref<InstanceType<typeof ChildComponent> | null>(null)
 
 onMounted(() => {
   // TypeScript knows about exposed methods
-  childRef.value?.increment()  // OK
-  childRef.value?.reset()      // OK
+  childRef.value?.increment() // OK
+  childRef.value?.reset() // OK
 
   // Access exposed ref
-  console.log(childRef.value?.count)  // Ref<number>
+  console.log(childRef.value?.count) // Ref<number>
 })
 
 function handleClick() {
@@ -69,7 +69,9 @@ function handleClick() {
 
 <template>
   <ChildComponent ref="childRef" />
-  <button @click="handleClick">Increment Child</button>
+  <button @click="handleClick">
+    Increment Child
+  </button>
 </template>
 ```
 
@@ -77,7 +79,7 @@ function handleClick() {
 
 ```vue
 <script setup lang="ts">
-import { useTemplateRef, onMounted } from 'vue'
+import { onMounted, useTemplateRef } from 'vue'
 import ChildComponent from './ChildComponent.vue'
 
 // useTemplateRef with component type
@@ -120,8 +122,8 @@ defineExpose({
 ```vue
 <!-- Parent.vue -->
 <script setup lang="ts">
-import { useTemplateRef } from 'vue'
 import type { ComponentExposed } from 'vue-component-type-helpers'
+import { useTemplateRef } from 'vue'
 import GenericList from './GenericList.vue'
 
 interface User {
@@ -134,7 +136,7 @@ const listRef = useTemplateRef<ComponentExposed<typeof GenericList<User>>>('list
 
 function selectFirstUser() {
   const users: User[] = [{ id: '1', name: 'John' }]
-  listRef.value?.selectItem(users[0])  // Properly typed as User
+  listRef.value?.selectItem(users[0]) // Properly typed as User
 }
 </script>
 
@@ -149,9 +151,9 @@ When you don't have access to the component's exposed types, use `ComponentPubli
 
 ```vue
 <script setup lang="ts">
-import { ref } from 'vue'
 import type { ComponentPublicInstance } from 'vue'
 import SomeThirdPartyComponent from 'third-party-lib'
+import { ref } from 'vue'
 
 // Fallback: ComponentPublicInstance gives access to $el, $refs, etc.
 const thirdPartyRef = ref<ComponentPublicInstance | null>(null)
@@ -171,7 +173,7 @@ function getElement() {
 
 ```vue
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import ListItem from './ListItem.vue'
 
 type ListItemInstance = InstanceType<typeof ListItem>
@@ -197,8 +199,8 @@ function focusItem(index: number) {
   <ListItem
     v-for="(item, index) in items"
     :key="item.id"
-    :item="item"
     :ref="(el) => setItemRef(el, index)"
+    :item="item"
   />
 </template>
 ```
@@ -218,8 +220,8 @@ export type ChildComponentRef = Ref<ChildComponentInstance | null>
 
 ```vue
 <script setup lang="ts">
-import { ref } from 'vue'
 import type { ChildComponentRef } from '@/types/components'
+import { ref } from 'vue'
 import ChildComponent from '@/components/ChildComponent.vue'
 
 const childRef: ChildComponentRef = ref(null)
@@ -247,7 +249,7 @@ const childRef = ref<InstanceType<typeof Child> | null>(null)
 onMounted(() => {
   // childRef.value?.doSomething is undefined!
   // Script setup components don't expose anything by default
-  childRef.value?.doSomething()  // Runtime: undefined is not a function
+  childRef.value?.doSomething() // Runtime: undefined is not a function
 })
 </script>
 ```

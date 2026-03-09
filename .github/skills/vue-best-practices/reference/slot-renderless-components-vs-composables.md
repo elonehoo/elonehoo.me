@@ -21,7 +21,7 @@ tags: [vue3, slots, renderless-components, composables, performance, composition
 ```vue
 <!-- MouseTracker.vue - Renderless component -->
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 const x = ref(0)
 const y = ref(0)
@@ -51,7 +51,7 @@ onUnmounted(() => window.removeEventListener('mousemove', update))
 **Composable Alternative (Recommended):**
 ```typescript
 // composables/useMouse.ts
-import { ref, onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 export function useMouse() {
   const x = ref(0)

@@ -34,8 +34,7 @@ export default {
       // WRONG: No keys - causes inefficient patching
       items.value.map(item =>
         h('li', item.name)
-      )
-    )
+      ))
   }
 }
 ```
@@ -75,8 +74,7 @@ export default {
       // CORRECT: Unique id as key
       items.value.map(item =>
         h('li', { key: item.id }, item.name)
-      )
-    )
+      ))
   }
 }
 ```
@@ -94,7 +92,7 @@ export default {
       <ul>
         {todos.value.map(todo => (
           <TodoItem
-            key={todo.id}  // Good: stable unique identifier
+            key={todo.id} // Good: stable unique identifier
             todo={todo}
           />
         ))}
@@ -113,14 +111,12 @@ export default {
 
     return () => h('div', [
       h('h2', 'User List'),
-      h('ul',
-        users.value.map(user =>
-          h('li', { key: user.email }, [  // email is unique
-            h('span', user.name),
-            h('span', ` (${user.email})`)
-          ])
-        )
-      )
+      h('ul', users.value.map(user =>
+        h('li', { key: user.email }, [ // email is unique
+          h('span', user.name),
+          h('span', ` (${user.email})`)
+        ])
+      ))
     ])
   }
 }

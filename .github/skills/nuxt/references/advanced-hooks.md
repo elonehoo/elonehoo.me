@@ -282,7 +282,7 @@ export default defineNitroPlugin((nitroApp) => {
 })
 ```
 
-<!-- 
+<!--
 Source references:
 - https://nuxt.com/docs/guide/going-further/hooks
 - https://nuxt.com/docs/api/advanced/hooks

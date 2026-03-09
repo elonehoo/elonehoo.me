@@ -115,7 +115,7 @@ Called after the lockfile is generated. Use for post-resolution modifications.
 function afterAllResolved(lockfile, context) {
   // Log all resolved packages
   context.log(`Resolved ${Object.keys(lockfile.packages || {}).length} packages`)
-  
+
   // Modify lockfile if needed
   return lockfile
 }
@@ -129,7 +129,7 @@ The `context` object provides utilities:
 function readPackage(pkg, context) {
   // Log messages
   context.log('Processing package...')
-  
+
   return pkg
 }
 ```
@@ -227,7 +227,7 @@ function readPackage(pkg, context) {
 pnpm install --reporter=append-only
 ```
 
-<!-- 
+<!--
 Source references:
 - https://pnpm.io/pnpmfile
 -->

@@ -64,10 +64,10 @@ export default {
       // CORRECT: Only use documented properties
       if (slotContent?.[0]) {
         const vnode = slotContent[0]
-        console.log(vnode.type)     // Safe: element type or component
-        console.log(vnode.props)    // Safe: props object
+        console.log(vnode.type) // Safe: element type or component
+        console.log(vnode.props) // Safe: props object
         console.log(vnode.children) // Safe: children
-        console.log(vnode.key)      // Safe: key prop
+        console.log(vnode.key) // Safe: key prop
       }
 
       return h('div', slotContent)
@@ -77,7 +77,7 @@ export default {
 ```
 
 ```javascript
-import { h, ref, onMounted } from 'vue'
+import { h, onMounted, ref } from 'vue'
 
 export default {
   setup() {
@@ -114,12 +114,13 @@ export default {
       const children = slots.default?.() || []
 
       // Safe: Check if something is a vnode
-      children.forEach(child => {
+      children.forEach((child) => {
         if (isVNode(child)) {
           // Safe: Check vnode type
           if (typeof child.type === 'string') {
             console.log('Element:', child.type)
-          } else if (typeof child.type === 'object') {
+          }
+          else if (typeof child.type === 'object') {
             console.log('Component:', child.type.name)
           }
 

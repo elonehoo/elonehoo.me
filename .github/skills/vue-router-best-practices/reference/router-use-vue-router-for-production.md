@@ -22,9 +22,9 @@ tags: [vue3, vue-router, spa, production, architecture]
 ```vue
 <!-- Only for: learning, prototypes, or micro-apps with 2-3 pages -->
 <script setup>
-import { ref, computed } from 'vue'
-import Home from './Home.vue'
+import { computed, ref } from 'vue'
 import About from './About.vue'
+import Home from './Home.vue'
 
 const routes = { '/': Home, '/about': About }
 const currentPath = ref(window.location.hash.slice(1) || '/')
@@ -72,7 +72,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('@/views/Home.vue'),  // Lazy loaded
+    component: () => import('@/views/Home.vue'), // Lazy loaded
     meta: { requiresAuth: false }
   },
   {
@@ -92,7 +92,7 @@ const routes = [
     path: '/users/:id',
     name: 'UserProfile',
     component: () => import('@/views/UserProfile.vue'),
-    props: true  // Pass params as props
+    props: true // Pass params as props
   },
   {
     path: '/:pathMatch(.*)*',
@@ -134,8 +134,12 @@ createApp(App)
 <!-- App.vue -->
 <template>
   <nav>
-    <router-link to="/">Home</router-link>
-    <router-link to="/dashboard">Dashboard</router-link>
+    <router-link to="/">
+      Home
+    </router-link>
+    <router-link to="/dashboard">
+      Dashboard
+    </router-link>
   </nav>
 
   <router-view v-slot="{ Component }">

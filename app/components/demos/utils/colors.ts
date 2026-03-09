@@ -25,7 +25,7 @@ export function rgbToHex(r = 0, g = 0, b = 0) {
  */
 export function colorInterpration(vectors: ColorVector[], n: number) {
   if (n >= 1)
-    return vectors[vectors.length - 1]
+    return vectors.at(-1)
 
   const normalized = clamp(n, 0, 1) * (vectors.length - 1)
   const integer = Math.trunc(normalized)

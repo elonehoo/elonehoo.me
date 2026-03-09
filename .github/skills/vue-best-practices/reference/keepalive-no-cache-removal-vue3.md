@@ -41,7 +41,7 @@ Control cache membership via reactive props:
 
 ```vue
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const cachedViews = ref(['Dashboard', 'Settings', 'Profile'])
 
@@ -71,7 +71,7 @@ Change the key to force a fresh instance:
 
 ```vue
 <script setup>
-import { ref, reactive } from 'vue'
+import { reactive, ref } from 'vue'
 
 const currentView = ref('Dashboard')
 const viewKeys = reactive({
@@ -129,7 +129,7 @@ function clearCacheAndSwitch(viewName) {
   <KeepAlive v-if="shouldCache">
     <component :is="currentView" />
   </KeepAlive>
-  <component v-else :is="currentView" />
+  <component :is="currentView" v-else />
 </template>
 ```
 

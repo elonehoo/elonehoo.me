@@ -230,7 +230,7 @@ Reference in components:
 
 ```vue
 <template>
-  <img src="~/assets/images/hero.png" />
+  <img src="~/assets/images/hero.png">
 </template>
 
 <style>
@@ -261,7 +261,7 @@ Reference in components:
 | `.server.vue` | Server-only component |
 | `.global.ts` | Global middleware |
 
-<!-- 
+<!--
 Source references:
 - https://nuxt.com/docs/directory-structure
 - https://nuxt.com/docs/directory-structure/app

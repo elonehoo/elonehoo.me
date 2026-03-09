@@ -23,8 +23,12 @@ const { data, status, error, refresh, clear } = await useFetch('/api/posts')
 </script>
 
 <template>
-  <div v-if="status === 'pending'">Loading...</div>
-  <div v-else-if="error">Error: {{ error.message }}</div>
+  <div v-if="status === 'pending'">
+    Loading...
+  </div>
+  <div v-else-if="error">
+    Error: {{ error.message }}
+  </div>
   <div v-else>
     <article v-for="post in data" :key="post.id">
       {{ post.title }}
@@ -46,7 +50,7 @@ const { data } = await useFetch('/api/posts', {
   // Only pick specific fields
   pick: ['id', 'title'],
   // Transform response
-  transform: (posts) => posts.map(p => ({ ...p, slug: slugify(p.title) })),
+  transform: posts => posts.map(p => ({ ...p, slug: slugify(p.title) })),
   // Custom key for caching
   key: 'posts-list',
   // Don't fetch on server
@@ -228,7 +232,7 @@ const data = await $fetch('/api/user', { headers })
 </script>
 ```
 
-<!-- 
+<!--
 Source references:
 - https://nuxt.com/docs/getting-started/data-fetching
 - https://nuxt.com/docs/api/composables/use-fetch

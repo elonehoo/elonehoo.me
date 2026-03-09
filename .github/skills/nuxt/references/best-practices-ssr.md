@@ -134,7 +134,9 @@ const randomValue = useState('random', () => Math.random())
 ```vue
 <template>
   <!-- window doesn't exist on server -->
-  <div v-if="window?.innerWidth > 768">Desktop</div>
+  <div v-if="window?.innerWidth > 768">
+    Desktop
+  </div>
 </template>
 ```
 
@@ -143,13 +145,19 @@ const randomValue = useState('random', () => Math.random())
 ```vue
 <template>
   <!-- CSS media queries work on both -->
-  <div class="hidden md:block">Desktop</div>
-  <div class="md:hidden">Mobile</div>
+  <div class="hidden md:block">
+    Desktop
+  </div>
+  <div class="md:hidden">
+    Mobile
+  </div>
 
   <!-- Or use ClientOnly for JS-dependent rendering -->
   <ClientOnly>
     <ResponsiveComponent />
-    <template #fallback>Loading...</template>
+    <template #fallback>
+      Loading...
+    </template>
   </ClientOnly>
 </template>
 ```
@@ -317,7 +325,9 @@ onMounted(async () => {
   <ClientOnly>
     <BrowserOnlyComponent />
     <template #fallback>
-      <div class="skeleton">Loading...</div>
+      <div class="skeleton">
+        Loading...
+      </div>
     </template>
   </ClientOnly>
 </template>
@@ -347,7 +357,7 @@ DevTools shows payload data and hydration state.
 | "window is not defined" | Browser API used during SSR |
 | "document is not defined" | DOM access during SSR |
 
-<!-- 
+<!--
 Source references:
 - https://nuxt.com/docs/guide/concepts/auto-imports#vue-and-nuxt-composables
 - https://nuxt.com/docs/guide/best-practices/hydration

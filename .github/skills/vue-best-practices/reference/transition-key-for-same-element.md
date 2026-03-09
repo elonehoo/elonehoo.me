@@ -21,19 +21,22 @@ This is one of the most common causes of "my transition isn't working" issues.
 
 **Problematic Code:**
 ```vue
+<script setup>
+import { ref } from 'vue'
+
+const count = ref(0)
+</script>
+
 <template>
   <!-- BAD: Same element type, no key - no transition occurs! -->
   <Transition name="fade">
     <span>{{ count }}</span>
   </Transition>
 
-  <button @click="count++">Increment</button>
+  <button @click="count++">
+    Increment
+  </button>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-const count = ref(0)
-</script>
 
 <!-- The span just updates its text content, never triggers enter/leave -->
 ```
@@ -42,8 +45,12 @@ const count = ref(0)
 <template>
   <!-- BAD: Same element type in v-if/v-else without keys -->
   <Transition name="fade">
-    <p v-if="isActive">Active state</p>
-    <p v-else>Inactive state</p>
+    <p v-if="isActive">
+      Active state
+    </p>
+    <p v-else>
+      Inactive state
+    </p>
   </Transition>
 </template>
 
@@ -52,19 +59,22 @@ const count = ref(0)
 
 **Correct Code:**
 ```vue
+<script setup>
+import { ref } from 'vue'
+
+const count = ref(0)
+</script>
+
 <template>
   <!-- GOOD: Key bound to changing value forces re-render -->
   <Transition name="fade" mode="out-in">
     <span :key="count">{{ count }}</span>
   </Transition>
 
-  <button @click="count++">Increment</button>
+  <button @click="count++">
+    Increment
+  </button>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-const count = ref(0)
-</script>
 
 <!-- Now each number change triggers a full enter/leave transition -->
 ```
@@ -73,8 +83,12 @@ const count = ref(0)
 <template>
   <!-- GOOD: Explicit keys on same element types -->
   <Transition name="fade" mode="out-in">
-    <p v-if="isActive" key="active">Active state</p>
-    <p v-else key="inactive">Inactive state</p>
+    <p v-if="isActive" key="active">
+      Active state
+    </p>
+    <p v-else key="inactive">
+      Inactive state
+    </p>
   </Transition>
 </template>
 ```
@@ -91,22 +105,27 @@ const count = ref(0)
 ## Animated Counter Example
 
 ```vue
+<script setup>
+import { ref } from 'vue'
+
+const count = ref(0)
+</script>
+
 <template>
   <div class="counter">
-    <button @click="count--">-</button>
+    <button @click="count--">
+      -
+    </button>
 
     <Transition name="slide-up" mode="out-in">
       <span :key="count" class="count-display">{{ count }}</span>
     </Transition>
 
-    <button @click="count++">+</button>
+    <button @click="count++">
+      +
+    </button>
   </div>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-const count = ref(0)
-</script>
 
 <style>
 .slide-up-enter-active,
@@ -135,6 +154,18 @@ const count = ref(0)
 ## Tab Switching with Same Component
 
 ```vue
+<script setup>
+import { ref } from 'vue'
+import TabContent from './TabContent.vue'
+
+const tabs = [
+  { id: 'home', label: 'Home' },
+  { id: 'profile', label: 'Profile' },
+  { id: 'settings', label: 'Settings' }
+]
+const currentTab = ref('home')
+</script>
+
 <template>
   <div class="tabs">
     <button
@@ -152,18 +183,6 @@ const count = ref(0)
     <TabContent :key="currentTab" :tab-id="currentTab" />
   </Transition>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-import TabContent from './TabContent.vue'
-
-const tabs = [
-  { id: 'home', label: 'Home' },
-  { id: 'profile', label: 'Profile' },
-  { id: 'settings', label: 'Settings' }
-]
-const currentTab = ref('home')
-</script>
 ```
 
 ## When Keys Are NOT Needed
@@ -174,7 +193,9 @@ Keys are not necessary when transitioning between **different** element types:
 <template>
   <!-- No key needed - different element types -->
   <Transition name="fade">
-    <button v-if="isEditing" @click="save">Save</button>
+    <button v-if="isEditing" @click="save">
+      Save
+    </button>
     <span v-else>View mode</span>
   </Transition>
 </template>

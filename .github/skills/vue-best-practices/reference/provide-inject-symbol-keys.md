@@ -24,6 +24,7 @@ tags: [vue3, provide-inject, typescript, architecture, component-library]
 <!-- ThemeProvider.vue (your code) -->
 <script setup>
 import { provide, ref } from 'vue'
+
 provide('theme', ref('dark'))
 </script>
 
@@ -103,7 +104,7 @@ export const LoggerKey: InjectionKey<(msg: string) => void> = Symbol('logger')
 <!-- Provider.vue -->
 <script setup lang="ts">
 import { provide, ref } from 'vue'
-import { UserKey, ThemeKey } from '@/injection-keys'
+import { ThemeKey, UserKey } from '@/injection-keys'
 
 const user = ref({
   id: '123',
@@ -126,7 +127,7 @@ provide(ThemeKey, theme)
 <!-- Consumer.vue -->
 <script setup lang="ts">
 import { inject } from 'vue'
-import { UserKey, ThemeKey } from '@/injection-keys'
+import { ThemeKey, UserKey } from '@/injection-keys'
 
 // TypeScript knows user is Ref<User> | undefined
 const user = inject(UserKey)
@@ -155,7 +156,7 @@ src/
 
 ```ts
 // injection-keys/auth.ts
-import type { InjectionKey, Ref, ComputedRef } from 'vue'
+import type { ComputedRef, InjectionKey, Ref } from 'vue'
 
 export interface AuthState {
   user: User | null
@@ -176,8 +177,8 @@ export const AuthActionsKey: InjectionKey<AuthActions> = Symbol('auth-actions')
 ```ts
 // injection-keys/index.ts
 export * from './auth'
-export * from './theme'
 export * from './feature-x'
+export * from './theme'
 ```
 
 ## Handling Missing Injections with Types

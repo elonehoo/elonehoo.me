@@ -24,7 +24,9 @@ If you need sequenced enter/leave behavior, you must implement it manually with 
 <template>
   <!-- mode="out-in" has NO EFFECT on TransitionGroup -->
   <TransitionGroup name="list" tag="ul" mode="out-in">
-    <li v-for="item in items" :key="item.id">{{ item }}</li>
+    <li v-for="item in items" :key="item.id">
+      {{ item }}
+    </li>
   </TransitionGroup>
 </template>
 ```
@@ -53,7 +55,9 @@ If you need sequenced enter/leave behavior, you must implement it manually with 
 <template>
   <!-- TransitionGroup for lists, no mode support -->
   <TransitionGroup name="list" tag="ul">
-    <li v-for="item in items" :key="item.id">{{ item }}</li>
+    <li v-for="item in items" :key="item.id">
+      {{ item }}
+    </li>
   </TransitionGroup>
 </template>
 ```
@@ -63,19 +67,6 @@ If you need sequenced enter/leave behavior, you must implement it manually with 
 If you need items to leave before new items enter, use JavaScript hooks:
 
 ```vue
-<template>
-  <TransitionGroup
-    name="list"
-    tag="ul"
-    :css="false"
-    @before-enter="onBeforeEnter"
-    @enter="onEnter"
-    @leave="onLeave"
-  >
-    <li v-for="item in items" :key="item.id">{{ item }}</li>
-  </TransitionGroup>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 
@@ -115,7 +106,7 @@ function onLeave(el, done) {
     isLeaving.value = false
 
     // Process queued enters
-    enterQueue.forEach(queuedEl => {
+    enterQueue.forEach((queuedEl) => {
       queuedEl.style.transition = 'opacity 0.3s'
       queuedEl.style.opacity = 1
     })
@@ -123,6 +114,21 @@ function onLeave(el, done) {
   }, 300)
 }
 </script>
+
+<template>
+  <TransitionGroup
+    name="list"
+    tag="ul"
+    :css="false"
+    @before-enter="onBeforeEnter"
+    @enter="onEnter"
+    @leave="onLeave"
+  >
+    <li v-for="item in items" :key="item.id">
+      {{ item }}
+    </li>
+  </TransitionGroup>
+</template>
 ```
 
 ## Staggered Animation Alternative
@@ -130,23 +136,6 @@ function onLeave(el, done) {
 Instead of sequential mode behavior, consider staggered animations for a polished effect:
 
 ```vue
-<template>
-  <TransitionGroup
-    name="list"
-    tag="ul"
-    @before-enter="onBeforeEnter"
-    @enter="onEnter"
-  >
-    <li
-      v-for="(item, index) in items"
-      :key="item.id"
-      :data-index="index"
-    >
-      {{ item }}
-    </li>
-  </TransitionGroup>
-</template>
-
 <script setup>
 function onBeforeEnter(el) {
   el.style.opacity = 0
@@ -165,6 +154,23 @@ function onEnter(el, done) {
   }, delay)
 }
 </script>
+
+<template>
+  <TransitionGroup
+    name="list"
+    tag="ul"
+    @before-enter="onBeforeEnter"
+    @enter="onEnter"
+  >
+    <li
+      v-for="(item, index) in items"
+      :key="item.id"
+      :data-index="index"
+    >
+      {{ item }}
+    </li>
+  </TransitionGroup>
+</template>
 ```
 
 ## Reference

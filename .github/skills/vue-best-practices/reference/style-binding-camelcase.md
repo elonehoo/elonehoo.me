@@ -17,12 +17,14 @@ When using `:style` bindings in Vue, prefer camelCase property names over kebab-
 ```vue
 <template>
   <!-- Requires quotes, harder to read -->
-  <div :style="{
-    'font-size': fontSize + 'px',
-    'background-color': bgColor,
-    'margin-top': marginTop + 'px',
-    'z-index': zIndex
-  }">
+  <div
+    :style="{
+      'font-size': `${fontSize}px`,
+      'background-color': bgColor,
+      'margin-top': `${marginTop}px`,
+      'z-index': zIndex,
+    }"
+  >
     Content
   </div>
 </template>
@@ -33,12 +35,14 @@ When using `:style` bindings in Vue, prefer camelCase property names over kebab-
 ```vue
 <template>
   <!-- Clean camelCase syntax -->
-  <div :style="{
-    fontSize: fontSize + 'px',
-    backgroundColor: bgColor,
-    marginTop: marginTop + 'px',
-    zIndex: zIndex
-  }">
+  <div
+    :style="{
+      fontSize: `${fontSize}px`,
+      backgroundColor: bgColor,
+      marginTop: `${marginTop}px`,
+      zIndex,
+    }"
+  >
     Content
   </div>
 </template>

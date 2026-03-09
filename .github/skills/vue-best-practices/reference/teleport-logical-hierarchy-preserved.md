@@ -19,19 +19,6 @@ tags: [vue3, teleport, component-hierarchy, props, events]
 **Key Concept:**
 ```vue
 <!-- ParentComponent.vue -->
-<template>
-  <div class="parent">
-    <Teleport to="body">
-      <!-- ChildComponent is logically still a child of ParentComponent -->
-      <!-- even though it renders in <body> -->
-      <ChildComponent
-        :message="parentMessage"
-        @update="handleUpdate"
-      />
-    </Teleport>
-  </div>
-</template>
-
 <script setup>
 import { provide, ref } from 'vue'
 
@@ -45,30 +32,45 @@ function handleUpdate(value) {
   console.log('Received from teleported child:', value)
 }
 </script>
+
+<template>
+  <div class="parent">
+    <Teleport to="body">
+      <!-- ChildComponent is logically still a child of ParentComponent -->
+      <!-- even though it renders in <body> -->
+      <ChildComponent
+        :message="parentMessage"
+        @update="handleUpdate"
+      />
+    </Teleport>
+  </div>
+</template>
 ```
 
 ```vue
 <!-- ChildComponent.vue -->
-<template>
-  <div class="modal">
-    <p>{{ message }}</p>
-    <p>Theme: {{ theme }}</p>
-    <button @click="$emit('update', 'new value')">Update</button>
-  </div>
-</template>
-
 <script setup>
 import { inject } from 'vue'
 
 // Props work normally
 defineProps(['message'])
 
-// Inject works across teleport boundary
-const theme = inject('theme')
-
 // Emit works normally
 defineEmits(['update'])
+
+// Inject works across teleport boundary
+const theme = inject('theme')
 </script>
+
+<template>
+  <div class="modal">
+    <p>{{ message }}</p>
+    <p>Theme: {{ theme }}</p>
+    <button @click="$emit('update', 'new value')">
+      Update
+    </button>
+  </div>
+</template>
 ```
 
 ## What Teleport Changes vs. Preserves
@@ -88,20 +90,6 @@ defineEmits(['update'])
 
 ```vue
 <!-- ModalForm.vue -->
-<template>
-  <Teleport to="body">
-    <div v-if="visible" class="modal-overlay">
-      <form @submit.prevent="handleSubmit" class="modal-form">
-        <!-- Slot content receives parent's scope -->
-        <slot :formData="formData" />
-
-        <button type="submit">Submit</button>
-        <button type="button" @click="$emit('close')">Cancel</button>
-      </form>
-    </div>
-  </Teleport>
-</template>
-
 <script setup>
 import { reactive } from 'vue'
 
@@ -114,26 +102,28 @@ function handleSubmit() {
   emit('submit', formData)
 }
 </script>
+
+<template>
+  <Teleport to="body">
+    <div v-if="visible" class="modal-overlay">
+      <form class="modal-form" @submit.prevent="handleSubmit">
+        <!-- Slot content receives parent's scope -->
+        <slot :form-data="formData" />
+
+        <button type="submit">
+          Submit
+        </button>
+        <button type="button" @click="$emit('close')">
+          Cancel
+        </button>
+      </form>
+    </div>
+  </Teleport>
+</template>
 ```
 
 ```vue
 <!-- ParentPage.vue -->
-<template>
-  <button @click="showModal = true">Add User</button>
-
-  <!-- Events and slots work as expected despite teleportation -->
-  <ModalForm
-    :visible="showModal"
-    @close="showModal = false"
-    @submit="handleFormSubmit"
-  >
-    <template #default="{ formData }">
-      <input v-model="formData.name" placeholder="Name" />
-      <input v-model="formData.email" placeholder="Email" />
-    </template>
-  </ModalForm>
-</template>
-
 <script setup>
 import { ref } from 'vue'
 
@@ -144,6 +134,24 @@ function handleFormSubmit(data) {
   showModal.value = false
 }
 </script>
+
+<template>
+  <button @click="showModal = true">
+    Add User
+  </button>
+
+  <!-- Events and slots work as expected despite teleportation -->
+  <ModalForm
+    :visible="showModal"
+    @close="showModal = false"
+    @submit="handleFormSubmit"
+  >
+    <template #default="{ formData }">
+      <input v-model="formData.name" placeholder="Name">
+      <input v-model="formData.email" placeholder="Email">
+    </template>
+  </ModalForm>
+</template>
 ```
 
 ## Vue Devtools Behavior

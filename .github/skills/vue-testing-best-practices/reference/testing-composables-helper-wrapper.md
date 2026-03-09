@@ -23,7 +23,7 @@ Simple composables using only reactivity APIs can be tested directly. Complex co
 **Simple Composable - Test Directly:**
 ```javascript
 // composables/useCounter.js
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 export function useCounter(initialValue = 0) {
   const count = ref(initialValue)
@@ -36,7 +36,7 @@ export function useCounter(initialValue = 0) {
 
 ```javascript
 // useCounter.test.js
-import { describe, it, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { useCounter } from './useCounter'
 
 // CORRECT: Simple composable can be tested directly
@@ -64,7 +64,7 @@ describe('useCounter', () => {
 **Complex Composable - Use Host Wrapper:**
 ```javascript
 // composables/useFetch.js
-import { ref, onMounted, onUnmounted, inject } from 'vue'
+import { inject, onMounted, onUnmounted, ref } from 'vue'
 
 export function useFetch(url) {
   const data = ref(null)
@@ -81,9 +81,12 @@ export function useFetch(url) {
     try {
       const response = await apiClient.get(url, { signal: controller.signal })
       data.value = response.data
-    } catch (e) {
-      if (e.name !== 'AbortError') error.value = e
-    } finally {
+    }
+    catch (e) {
+      if (e.name !== 'AbortError')
+        error.value = e
+    }
+    finally {
       loading.value = false
     }
   })
@@ -121,9 +124,9 @@ export function withSetup(composable) {
 ```
 
 ```javascript
-// useFetch.test.js
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { flushPromises } from '@vue/test-utils'
+// useFetch.test.js
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { withSetup } from './test-utils'
 import { useFetch } from './useFetch'
 

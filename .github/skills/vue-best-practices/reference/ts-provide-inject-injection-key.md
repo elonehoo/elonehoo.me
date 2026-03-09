@@ -42,10 +42,10 @@ provide('user', user)
 import { inject } from 'vue'
 
 // Type is unknown!
-const user = inject('user')  // Type: unknown
+const user = inject('user') // Type: unknown
 
 // Must manually assert type - error prone
-const user = inject('user') as User  // Works but risky
+const user = inject('user') as User // Works but risky
 </script>
 ```
 
@@ -74,8 +74,9 @@ export const authKey: InjectionKey<AuthContext> = Symbol('auth')
 ```vue
 <!-- Provider.vue -->
 <script setup lang="ts">
+import type { AuthContext, User } from '@/keys'
 import { provide, ref } from 'vue'
-import { userKey, authKey, type User, type AuthContext } from '@/keys'
+import { authKey, userKey } from '@/keys'
 
 const user: User = { id: '1', name: 'John' }
 
@@ -83,7 +84,7 @@ const user: User = { id: '1', name: 'John' }
 provide(userKey, user)
 
 // Error if type doesn't match
-provide(userKey, { wrong: 'data' })  // TypeScript error!
+provide(userKey, { wrong: 'data' }) // TypeScript error!
 
 // Complex context
 const authContext: AuthContext = {
@@ -99,7 +100,7 @@ provide(authKey, authContext)
 <!-- Consumer.vue -->
 <script setup lang="ts">
 import { inject } from 'vue'
-import { userKey, authKey } from '@/keys'
+import { authKey, userKey } from '@/keys'
 
 // Automatically typed as User | undefined
 const user = inject(userKey)
@@ -109,7 +110,7 @@ const auth = inject(authKey)
 
 // Access with proper typing
 if (user) {
-  console.log(user.name)  // TypeScript knows this is string
+  console.log(user.name) // TypeScript knows this is string
 }
 </script>
 ```
@@ -120,8 +121,9 @@ Injected values are always potentially `undefined` because the provider might no
 
 ```vue
 <script setup lang="ts">
+import type { User } from '@/keys'
 import { inject } from 'vue'
-import { userKey, type User } from '@/keys'
+import { userKey } from '@/keys'
 
 // Option 1: Provide a default value (removes undefined)
 const user = inject(userKey, { id: '0', name: 'Guest' })
@@ -149,17 +151,18 @@ if (!user) {
 For cleaner consumer code, create typed composables:
 
 ```typescript
+import type { AuthContext } from '@/keys'
 // composables/useAuth.ts
 import { inject } from 'vue'
-import { authKey, type AuthContext } from '@/keys'
+import { authKey } from '@/keys'
 
 export function useAuth(): AuthContext {
   const auth = inject(authKey)
 
   if (!auth) {
     throw new Error(
-      'useAuth() requires an AuthProvider ancestor. ' +
-      'Make sure to wrap your component tree with <AuthProvider>.'
+      'useAuth() requires an AuthProvider ancestor. '
+      + 'Make sure to wrap your component tree with <AuthProvider>.'
     )
   }
 
@@ -215,8 +218,8 @@ export const authContextKey: InjectionKey<AuthContext> = Symbol('authContext')
 ```typescript
 // injection-keys/index.ts
 export * from './auth'
-export * from './theme'
 export * from './i18n'
+export * from './theme'
 ```
 
 ## Generic Injection Keys
@@ -239,7 +242,7 @@ export function createListKey<T>(name: string): InjectionKey<ListContext<T>> {
 }
 
 // Usage
-interface Product { id: string; name: string }
+interface Product { id: string, name: string }
 export const productListKey = createListKey<Product>('productList')
 ```
 

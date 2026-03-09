@@ -102,7 +102,7 @@ Force fresh instances when needed:
 
 ```vue
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const currentView = ref('Dashboard')
 const cacheKey = ref(0)

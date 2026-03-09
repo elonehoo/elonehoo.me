@@ -140,7 +140,7 @@ export function useForm(initialValues) {
 
 // UTILITY: Stateless validation
 export function validateEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  return /^[^\s@]+@[^\s@][^\s.@]*\.[^\s@]+$/.test(email)
 }
 
 export function validateRequired(value) {

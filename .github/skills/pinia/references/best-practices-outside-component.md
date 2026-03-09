@@ -12,9 +12,9 @@ Stores need the `pinia` instance, which is automatically injected in components.
 Call stores **after** pinia is installed:
 
 ```ts
-import { useUserStore } from '@/stores/user'
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
+import { useUserStore } from '@/stores/user'
 import App from './App.vue'
 
 // ❌ Fails - pinia not created yet
@@ -34,6 +34,7 @@ const userStore = useUserStore()
 
 ```ts
 import { createRouter } from 'vue-router'
+
 const router = createRouter({ /* ... */ })
 
 // ❌ May fail depending on import order

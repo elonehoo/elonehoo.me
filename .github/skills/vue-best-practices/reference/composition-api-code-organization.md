@@ -24,7 +24,7 @@ The key insight is that Composition API gives you flexibility - which requires d
 ```vue
 <script setup>
 // Scattered code - hard to understand what relates to what
-import { ref, computed, onMounted, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 
 const searchQuery = ref('')
 const items = ref([])
@@ -42,7 +42,7 @@ const filteredItems = computed(() => {
 function openModal() { isModalOpen.value = true }
 
 const sortedItems = computed(() => {
-  return [...filteredItems.value].sort(/* ... */)
+  return filteredItems.value.toSorted()
 })
 
 function closeModal() { isModalOpen.value = false }
@@ -64,7 +64,7 @@ async function fetchItems() { /* ... */ }
 **Organized by Concern (Good):**
 ```vue
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 
 // ============================================
 // DATA FETCHING & STATE
@@ -77,9 +77,11 @@ async function fetchItems() {
   isLoading.value = true
   try {
     items.value = await api.getItems()
-  } catch (e) {
+  }
+  catch (e) {
     error.value = e
-  } finally {
+  }
+  finally {
     isLoading.value = false
   }
 }
@@ -116,9 +118,8 @@ const filteredItems = computed(() =>
 )
 
 const sortedItems = computed(() =>
-  [...filteredItems.value].sort((a, b) =>
-    sortOrder.value === 'asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name)
-  )
+  filteredItems.value.toSorted((a, b) =>
+    sortOrder.value === 'asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name))
 )
 
 // ============================================
@@ -144,8 +145,8 @@ function closeModal() {
 ```vue
 <script setup>
 import { useItems } from '@/composables/useItems'
-import { useSearch } from '@/composables/useSearch'
 import { useModal } from '@/composables/useModal'
+import { useSearch } from '@/composables/useSearch'
 
 // Each composable encapsulates a logical concern
 const { items, isLoading, error, fetchItems } = useItems()

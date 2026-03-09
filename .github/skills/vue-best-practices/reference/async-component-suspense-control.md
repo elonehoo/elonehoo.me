@@ -17,9 +17,9 @@ import { defineAsyncComponent } from 'vue'
 // These options will be IGNORED if a parent Suspense exists
 const AsyncDashboard = defineAsyncComponent({
   loader: () => import('./Dashboard.vue'),
-  loadingComponent: LoadingSpinner,  // Won't show!
-  errorComponent: ErrorDisplay,       // Won't show!
-  timeout: 3000                        // Ignored!
+  loadingComponent: LoadingSpinner, // Won't show!
+  errorComponent: ErrorDisplay, // Won't show!
+  timeout: 3000 // Ignored!
 })
 </script>
 
@@ -41,7 +41,7 @@ const AsyncDashboard = defineAsyncComponent({
   loadingComponent: LoadingSpinner,
   errorComponent: ErrorDisplay,
   timeout: 3000,
-  suspensible: false  // Component controls its own loading state
+  suspensible: false // Component controls its own loading state
 })
 </script>
 

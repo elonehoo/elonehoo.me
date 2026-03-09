@@ -154,7 +154,7 @@ export default defineNuxtConfig({
 })
 ```
 
-<!-- 
+<!--
 Source references:
 - https://nuxt.com/docs/getting-started/configuration
 - https://nuxt.com/docs/guide/going-further/runtime-config

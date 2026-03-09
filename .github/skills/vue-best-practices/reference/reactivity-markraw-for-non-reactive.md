@@ -22,14 +22,14 @@ Without `markRaw()`, placing these objects inside reactive state causes Vue to w
 
 **Incorrect:**
 ```javascript
-import { reactive, ref } from 'vue'
 import mapboxgl from 'mapbox-gl'
 import * as monaco from 'monaco-editor'
+import { reactive, ref } from 'vue'
 
 // WRONG: Library instances wrapped in Proxy
 const state = reactive({
-  map: new mapboxgl.Map({ container: 'map' }),  // Proxied!
-  editor: monaco.editor.create(element, {}),    // Proxied!
+  map: new mapboxgl.Map({ container: 'map' }), // Proxied!
+  editor: monaco.editor.create(element, {}), // Proxied!
 })
 
 // Problems:
@@ -40,7 +40,7 @@ const state = reactive({
 
 // WRONG: DOM elements in reactive state
 const elements = reactive({
-  container: document.getElementById('app'),  // Proxied DOM node!
+  container: document.getElementById('app'), // Proxied DOM node!
 })
 ```
 
@@ -88,7 +88,7 @@ class WebSocketManager {
 const wsManager = markRaw(new WebSocketManager('ws://example.com'))
 
 const state = reactive({
-  connection: wsManager  // Won't be proxied
+  connection: wsManager // Won't be proxied
 })
 
 // Can still use the instance normally
@@ -98,9 +98,13 @@ state.connection.on('message', handleMessage)
 **Gotcha: markRaw only affects root level:**
 ```javascript
 import { markRaw, reactive } from 'vue'
+// container.raw.nested might still be proxied in some cases
+
+// SAFER: Use shallowRef for the container
+import { shallowRef } from 'vue'
 
 const rawObject = markRaw({
-  nested: { value: 1 }  // This nested object is NOT marked raw
+  nested: { value: 1 } // This nested object is NOT marked raw
 })
 
 const state = reactive({
@@ -110,16 +114,12 @@ const state = reactive({
 // rawObject itself won't be proxied
 // But if you access nested objects through a reactive parent:
 const container = reactive({ raw: rawObject })
-// container.raw.nested might still be proxied in some cases
-
-// SAFER: Use shallowRef for the container
-import { shallowRef } from 'vue'
 const safeContainer = shallowRef(rawObject)
 ```
 
 **Combining with shallowRef for best results:**
 ```javascript
-import { shallowRef, markRaw, onMounted, onUnmounted } from 'vue'
+import { markRaw, onMounted, onUnmounted, shallowRef } from 'vue'
 
 // Pattern: shallowRef + markRaw for external library instances
 export function useMapbox(containerId) {

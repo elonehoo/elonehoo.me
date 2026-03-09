@@ -23,14 +23,14 @@ The `withDirectives` function wraps a vnode and applies directives with their va
 ```javascript
 import { h } from 'vue'
 
-const vFocus = { mounted: (el) => el.focus() }
+const vFocus = { mounted: el => el.focus() }
 
 export default {
   setup() {
     return () => {
       // WRONG: Directives don't work as props
       return h('input', {
-        'v-focus': true  // This doesn't work
+        'v-focus': true // This doesn't work
       })
     }
   }
@@ -43,7 +43,7 @@ import { h, withDirectives } from 'vue'
 
 // Custom directive
 const vFocus = {
-  mounted: (el) => el.focus()
+  mounted: el => el.focus()
 }
 
 export default {
@@ -52,7 +52,7 @@ export default {
       // CORRECT: Use withDirectives
       return withDirectives(
         h('input'),
-        [[vFocus]]  // Array of directive tuples
+        [[vFocus]] // Array of directive tuples
       )
     }
   }
@@ -64,18 +64,18 @@ export default {
 The directive tuple format: `[directive, value, argument, modifiers]`
 
 ```javascript
-import { h, withDirectives, resolveDirective } from 'vue'
+import { h, resolveDirective, withDirectives } from 'vue'
 
 // Directive definition
 // Usage in template: <div v-pin:top.animate="200">
 const vPin = {
   mounted(el, binding) {
-    console.log(binding.value)    // 200
-    console.log(binding.arg)      // 'top'
+    console.log(binding.value) // 200
+    console.log(binding.arg) // 'top'
     console.log(binding.modifiers) // { animate: true }
 
     el.style.position = 'fixed'
-    el.style[binding.arg] = binding.value + 'px'
+    el.style[binding.arg] = `${binding.value}px`
   }
 }
 
@@ -97,7 +97,7 @@ export default {
 ```javascript
 import { h, withDirectives } from 'vue'
 
-const vFocus = { mounted: (el) => el.focus() }
+const vFocus = { mounted: el => el.focus() }
 const vTooltip = {
   mounted(el, { value }) {
     el.title = value
@@ -122,7 +122,7 @@ export default {
 For globally or locally registered directives, use `resolveDirective`:
 
 ```javascript
-import { h, withDirectives, resolveDirective } from 'vue'
+import { h, resolveDirective, withDirectives } from 'vue'
 
 // Assuming v-focus and v-tooltip are registered globally
 export default {
@@ -146,7 +146,7 @@ export default {
 ## Practical Example: Click Outside Directive
 
 ```javascript
-import { h, withDirectives, ref } from 'vue'
+import { h, ref, withDirectives } from 'vue'
 
 const vClickOutside = {
   mounted(el, binding) {
@@ -184,7 +184,7 @@ Directives in JSX also require `withDirectives`:
 ```jsx
 import { withDirectives } from 'vue'
 
-const vFocus = { mounted: (el) => el.focus() }
+const vFocus = { mounted: el => el.focus() }
 
 export default {
   setup() {

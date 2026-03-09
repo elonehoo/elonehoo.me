@@ -25,6 +25,17 @@ Without TransitionGroup, DOM updates occur instantly. With it, there can be noti
 
 **Problematic Pattern:**
 ```vue
+<script setup>
+import { ref } from 'vue'
+
+const items = ref([/* many items */])
+
+// Operations like slice can cause visible lag
+function removeItems() {
+  items.value = items.value.slice(5) // May lag with TransitionGroup
+}
+</script>
+
 <template>
   <!-- Potentially slow with large lists or complex CSS -->
   <TransitionGroup name="list" tag="ul">
@@ -40,17 +51,6 @@ Without TransitionGroup, DOM updates occur instantly. With it, there can be noti
   </TransitionGroup>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-
-const items = ref([/* many items */])
-
-// Operations like slice can cause visible lag
-function removeItems() {
-  items.value = items.value.slice(5)  // May lag with TransitionGroup
-}
-</script>
-
 <style>
 .list-move,
 .list-enter-active,
@@ -62,6 +62,15 @@ function removeItems() {
 
 **Optimized Approach:**
 ```vue
+<script setup>
+import { computed, ref } from 'vue'
+
+const items = ref([/* items */])
+
+// For large batch operations, consider disabling animations temporarily
+const isAnimating = ref(true)
+</script>
+
 <template>
   <!-- Simpler classes, shorter transitions -->
   <TransitionGroup name="list" tag="ul" class="relative">
@@ -74,15 +83,6 @@ function removeItems() {
     </li>
   </TransitionGroup>
 </template>
-
-<script setup>
-import { ref, computed } from 'vue'
-
-const items = ref([/* items */])
-
-// For large batch operations, consider disabling animations temporarily
-const isAnimating = ref(true)
-</script>
 
 <style>
 /* Keep transition CSS simple and specific */
@@ -124,19 +124,8 @@ const isAnimating = ref(true)
 ### 1. Skip Animations for Bulk Operations
 
 ```vue
-<template>
-  <TransitionGroup v-if="animationsEnabled" name="list" tag="ul">
-    <li v-for="item in items" :key="item.id">{{ item.name }}</li>
-  </TransitionGroup>
-
-  <!-- Instant update without animations -->
-  <ul v-else>
-    <li v-for="item in items" :key="item.id">{{ item.name }}</li>
-  </ul>
-</template>
-
 <script setup>
-import { ref, nextTick } from 'vue'
+import { nextTick, ref } from 'vue'
 
 const animationsEnabled = ref(true)
 
@@ -148,26 +137,43 @@ async function bulkUpdate(newItems) {
   animationsEnabled.value = true
 }
 </script>
+
+<template>
+  <TransitionGroup v-if="animationsEnabled" name="list" tag="ul">
+    <li v-for="item in items" :key="item.id">
+      {{ item.name }}
+    </li>
+  </TransitionGroup>
+
+  <!-- Instant update without animations -->
+  <ul v-else>
+    <li v-for="item in items" :key="item.id">
+      {{ item.name }}
+    </li>
+  </ul>
+</template>
 ```
 
 ### 2. Virtual Scrolling for Large Lists
 
 ```vue
-<template>
-  <!-- Use a virtual list library for large datasets -->
-  <RecycleScroller
-    :items="items"
-    :item-size="50"
-    key-field="id"
-    v-slot="{ item }"
-  >
-    <div class="list-item">{{ item.name }}</div>
-  </RecycleScroller>
-</template>
-
 <script setup>
 import { RecycleScroller } from 'vue-virtual-scroller'
 </script>
+
+<template>
+  <!-- Use a virtual list library for large datasets -->
+  <RecycleScroller
+    v-slot="{ item }"
+    :items="items"
+    :item-size="50"
+    key-field="id"
+  >
+    <div class="list-item">
+      {{ item.name }}
+    </div>
+  </RecycleScroller>
+</template>
 ```
 
 ### 3. Reduce CSS Complexity During Transitions

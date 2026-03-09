@@ -22,7 +22,7 @@ For primitive values, Vue 3.4+ handles this automatically. For objects, manually
 **Incorrect:**
 ```vue
 <script setup>
-import { ref, computed, watchEffect } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 
 const count = ref(0)
 
@@ -45,7 +45,7 @@ watchEffect(() => {
 **Correct:**
 ```vue
 <script setup>
-import { ref, computed, watchEffect } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 
 const count = ref(0)
 
@@ -66,10 +66,10 @@ const stats = computed((oldValue) => {
   }
 
   // Step 2: Compare with previous value
-  if (oldValue &&
-      oldValue.isEven === newValue.isEven &&
-      oldValue.category === newValue.category) {
-    return oldValue  // Return old reference - no effect triggers
+  if (oldValue
+    && oldValue.isEven === newValue.isEven
+    && oldValue.category === newValue.category) {
+    return oldValue // Return old reference - no effect triggers
   }
 
   return newValue
@@ -85,33 +85,33 @@ watchEffect(() => {
 ## Primitive vs Object Computed Behavior (Vue 3.4+)
 
 ```javascript
-import { ref, computed, watchEffect } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 
 const count = ref(0)
 
 // PRIMITIVE: Vue automatically detects value hasn't changed
 const isEven = computed(() => count.value % 2 === 0)
 
-watchEffect(() => console.log(isEven.value))  // true
+watchEffect(() => console.log(isEven.value)) // true
 
-count.value = 2  // isEven still true - NO log
-count.value = 4  // isEven still true - NO log
-count.value = 3  // isEven now false - logs: false
+count.value = 2 // isEven still true - NO log
+count.value = 4 // isEven still true - NO log
+count.value = 3 // isEven now false - logs: false
 
 // OBJECT: New reference every time (without manual comparison)
 const obj = computed(() => ({ isEven: count.value % 2 === 0 }))
 
-watchEffect(() => console.log(obj.value))  // { isEven: true }
+watchEffect(() => console.log(obj.value)) // { isEven: true }
 
-count.value = 2  // Logs again! New object reference
-count.value = 4  // Logs again! New object reference
+count.value = 2 // Logs again! New object reference
+count.value = 4 // Logs again! New object reference
 ```
 
 ## Advanced: Deep Object Comparison
 
 ```javascript
-import { ref, computed } from 'vue'
-import { isEqual } from 'lodash-es'  // For deep comparison
+import { isEqual } from 'lodash-es' // For deep comparison
+import { computed, ref } from 'vue'
 
 const filters = ref({ category: 'all', sortBy: 'date', page: 1 })
 

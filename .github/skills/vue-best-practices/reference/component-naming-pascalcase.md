@@ -58,7 +58,7 @@ import UserProfile from './UserProfile.vue'
   <nav>...</nav>           <!-- Native HTML -->
 
   <UserAvatar />           <!-- Component -->
-  <img src="..." />        <!-- Native HTML -->
+  <img src="...">        <!-- Native HTML -->
 </template>
 ```
 
@@ -76,7 +76,7 @@ Web Components (custom elements) require kebab-case with a hyphen. Using PascalC
   <MyButton @click="handle" />
 
   <!-- Web component (custom element) -->
-  <my-custom-element></my-custom-element>
+  <my-custom-element />
 </template>
 ```
 
@@ -106,7 +106,7 @@ import MyComponent from './MyComponent.vue'
 <template>
   <!-- Both work, but PascalCase is preferred -->
   <MyComponent />
-  <my-component />
+  <MyComponent />
 </template>
 ```
 

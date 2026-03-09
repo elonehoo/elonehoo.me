@@ -32,8 +32,8 @@ npm install -D vitest @vue/test-utils jsdom
 
 **vite.config.js:**
 ```javascript
-import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
   plugins: [vue()],
@@ -71,9 +71,9 @@ export default defineConfig({
 ## Test File Example
 
 ```javascript
-// src/components/Counter.test.js
-import { describe, it, expect, beforeEach } from 'vitest'  // optional with globals: true
 import { mount } from '@vue/test-utils'
+// src/components/Counter.test.js
+import { beforeEach, describe, expect, it } from 'vitest' // optional with globals: true
 import Counter from './Counter.vue'
 
 describe('Counter', () => {
@@ -112,16 +112,16 @@ npm install -D @testing-library/vue @testing-library/jest-dom
 ```
 
 ```javascript
+import * as matchers from '@testing-library/jest-dom/matchers'
 // src/test/setup.js
 import { expect } from 'vitest'
-import * as matchers from '@testing-library/jest-dom/matchers'
 
 expect.extend(matchers)
 ```
 
 ```javascript
 // Component.test.js
-import { render, screen, fireEvent } from '@testing-library/vue'
+import { fireEvent, render, screen } from '@testing-library/vue'
 import UserCard from './UserCard.vue'
 
 test('displays user name', () => {
@@ -136,9 +136,9 @@ test('displays user name', () => {
 ## Advanced Configuration
 
 ```javascript
+import vue from '@vitejs/plugin-vue'
 // vitest.config.js (separate file if preferred)
 import { defineConfig } from 'vitest/config'
-import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [vue()],
@@ -177,7 +177,7 @@ vi.mock('@/api/users', () => ({
 
 ### Testing with Fake Timers
 ```javascript
-import { vi, beforeEach, afterEach } from 'vitest'
+import { afterEach, beforeEach, vi } from 'vitest'
 
 beforeEach(() => {
   vi.useFakeTimers()

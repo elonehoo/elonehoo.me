@@ -92,7 +92,7 @@ const results = ref([])
 watch(
   [searchQuery, category],
   ([query, cat]) => {
-    fetchResults(query, cat)  // Same variables repeated
+    fetchResults(query, cat) // Same variables repeated
   }
 )
 
@@ -129,9 +129,10 @@ watch(userId, (id) => {
 watch(
   userId,
   (id) => {
-    if (id) loadUserProfile(id)
+    if (id)
+      loadUserProfile(id)
   },
-  { immediate: true }  // Explicit about running immediately
+  { immediate: true } // Explicit about running immediately
 )
 </script>
 ```

@@ -162,7 +162,7 @@ nuxt generate
 // nuxt.config.ts
 export default defineNuxtConfig({
   hooks: {
-    'prerender:routes'({ routes }) {
+    'prerender:routes': function ({ routes }) {
       // Add dynamic routes
       const posts = await fetchPostSlugs()
       for (const slug of posts) {
@@ -229,7 +229,7 @@ For components:
 </template>
 ```
 
-<!-- 
+<!--
 Source references:
 - https://nuxt.com/docs/guide/concepts/rendering
 - https://nuxt.com/docs/getting-started/prerendering

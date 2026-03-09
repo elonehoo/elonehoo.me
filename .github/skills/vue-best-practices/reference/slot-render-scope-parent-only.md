@@ -43,13 +43,13 @@ import SubmitButton from './SubmitButton.vue'
 <script setup>
 import { ref } from 'vue'
 
-const buttonText = ref('Click me')  // Not accessible in parent's slot content
-const isLoading = ref(false)        // Not accessible in parent's slot content
+const buttonText = ref('Click me') // Not accessible in parent's slot content
+const isLoading = ref(false) // Not accessible in parent's slot content
 </script>
 
 <template>
   <button>
-    <slot></slot>
+    <slot />
   </button>
 </template>
 ```
@@ -67,7 +67,7 @@ const isLoading = ref(false)
 <template>
   <button>
     <!-- Pass child data as slot props -->
-    <slot :text="buttonText" :loading="isLoading"></slot>
+    <slot :text="buttonText" :loading="isLoading" />
   </button>
 </template>
 ```
@@ -124,7 +124,7 @@ function Parent() {
 }
 
 function Child(slotCallback) {
-  const childData = 'World'  // Not visible to callback
+  const childData = 'World' // Not visible to callback
 
   // Must explicitly pass data via slot props
   return slotCallback({ text: childData })

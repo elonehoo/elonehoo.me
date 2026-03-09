@@ -163,10 +163,10 @@ The `binding` object contains:
 const vExample = {
   mounted(el, binding) {
     // READ these properties, don't modify them
-    console.log(binding.value)      // Read: OK
-    console.log(binding.arg)        // Read: OK
-    console.log(binding.modifiers)  // Read: OK
-    console.log(binding.instance)   // Read: OK
+    console.log(binding.value) // Read: OK
+    console.log(binding.arg) // Read: OK
+    console.log(binding.modifiers) // Read: OK
+    console.log(binding.instance) // Read: OK
 
     // Store what you need for later
     el.dataset.directiveArg = binding.arg || ''

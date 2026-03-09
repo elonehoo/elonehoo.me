@@ -45,10 +45,10 @@ createApp(BigApp).mount('#app')
 ```javascript
 // CORRECT: Mount separate instances to specific elements
 
-import { createApp } from 'vue'
-import SearchWidget from './widgets/SearchWidget.vue'
-import CartWidget from './widgets/CartWidget.vue'
 import { createPinia } from 'pinia'
+import { createApp } from 'vue'
+import CartWidget from './widgets/CartWidget.vue'
+import SearchWidget from './widgets/SearchWidget.vue'
 
 // Shared store for cross-widget state
 const pinia = createPinia()
@@ -60,7 +60,7 @@ searchApp.mount('.widget-search')
 
 // Widget 2: Shopping cart
 const cartApp = createApp(CartWidget)
-cartApp.use(pinia)  // Same Pinia instance = shared state
+cartApp.use(pinia) // Same Pinia instance = shared state
 cartApp.mount('.widget-cart')
 
 // Rest of page remains server-rendered static HTML
@@ -93,15 +93,16 @@ const app2 = createApp(Widget2).mount('#widget-2')
 
 ```javascript
 // Option 1: Shared Pinia store
-const pinia = createPinia()
-
-createApp(App1).use(pinia).mount('#app1')
-createApp(App2).use(pinia).mount('#app2')
 // Both apps share the same Pinia stores
 
 // Option 2: Shared reactive state module
 // sharedState.js
 import { reactive } from 'vue'
+
+const pinia = createPinia()
+
+createApp(App1).use(pinia).mount('#app1')
+createApp(App2).use(pinia).mount('#app2')
 export const sharedState = reactive({
   user: null,
   cart: []

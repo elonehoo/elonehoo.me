@@ -24,13 +24,13 @@ import MyComponent from './MyComponent.vue'
 
 // WRONG: Children array may be misinterpreted
 h(MyComponent, [
-  h('span', 'Slot content')  // May not render as expected
+  h('span', 'Slot content') // May not render as expected
 ])
 
 // WRONG: Named slots as direct properties
 h(MyComponent, {
-  header: h('h1', 'Title'),  // This is a prop, not a slot!
-  default: h('p', 'Content')  // This is also a prop
+  header: h('h1', 'Title'), // This is a prop, not a slot!
+  default: h('p', 'Content') // This is also a prop
 })
 ```
 
@@ -120,7 +120,7 @@ export default {
 ```js
 // Parent: Receives data from child via slot props
 h(DataTable, { data: items }, {
-  row: (slotProps) => h('tr', [
+  row: slotProps => h('tr', [
     h('td', slotProps.item.name),
     h('td', slotProps.item.value)
   ])
@@ -131,12 +131,10 @@ export default {
   props: ['data'],
   setup(props, { slots }) {
     return () => h('table', [
-      h('tbody',
-        props.data.map(item =>
-          // Pass data to slot function
-          slots.row?.({ item })
-        )
-      )
+      h('tbody', props.data.map(item =>
+      // Pass data to slot function
+        slots.row?.({ item })
+      ))
     ])
   }
 }
@@ -152,7 +150,7 @@ h('div', { class: 'wrapper' }, [
 
 // Conditional slot rendering
 h('div', [
-  slots.header?.(),  // Optional chaining - only render if slot provided
+  slots.header?.(), // Optional chaining - only render if slot provided
   h('main', slots.default?.()),
   slots.footer?.()
 ])

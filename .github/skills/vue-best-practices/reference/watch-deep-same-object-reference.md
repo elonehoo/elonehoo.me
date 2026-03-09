@@ -37,12 +37,12 @@ watch(
   (newUser, oldUser) => {
     // This comparison is ALWAYS true for nested mutations!
     if (newUser === oldUser) {
-      console.log('Same reference!')  // Always logs for nested changes
+      console.log('Same reference!') // Always logs for nested changes
     }
 
     // This also won't work - they're the same object
     if (newUser.name !== oldUser.name) {
-      console.log('Name changed')  // Never logs for nested mutations
+      console.log('Name changed') // Never logs for nested mutations
     }
   },
   { deep: true }
@@ -55,7 +55,7 @@ state.user.name = 'Jane'
 
 **Correct:**
 ```javascript
-import { reactive, watch, ref } from 'vue'
+import { reactive, ref, watch } from 'vue'
 
 const state = reactive({
   user: {
@@ -90,7 +90,7 @@ watch(
 ## Manual Snapshot Pattern
 
 ```javascript
-import { reactive, watch, ref } from 'vue'
+import { reactive, ref, watch } from 'vue'
 
 const state = reactive({ count: 0, items: [] })
 
@@ -128,8 +128,8 @@ watch(
   () => state.currentUser,
   (newUser, oldUser) => {
     // THESE DIFFER when the object itself is replaced
-    console.log('Old:', oldUser)  // { name: 'John' }
-    console.log('New:', newUser)  // { name: 'Jane' }
+    console.log('Old:', oldUser) // { name: 'John' }
+    console.log('New:', newUser) // { name: 'Jane' }
   },
   { deep: true }
 )
@@ -152,7 +152,7 @@ const state = reactive({
 
 // CORRECT: Getter returns new object, so old/new comparison works
 watch(
-  () => ({ ...state.user }),  // Shallow clone
+  () => ({ ...state.user }), // Shallow clone
   (newUser, oldUser) => {
     // Now these are different objects
     console.log('Changed from', oldUser, 'to', newUser)

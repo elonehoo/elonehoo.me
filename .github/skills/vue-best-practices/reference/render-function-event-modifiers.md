@@ -39,10 +39,11 @@ export default {
 
 ```javascript
 // WRONG: Forgetting to handle modifier in complex scenarios
-const handleDivClick = (e) => {
+function handleDivClick(e) {
   // Intended: only trigger when clicking div itself, not children
   // This manual check is easy to get wrong
-  if (e.target !== e.currentTarget) return
+  if (e.target !== e.currentTarget)
+    return
   // ...
 }
 ```
@@ -57,13 +58,10 @@ export default {
       console.log('clicked!')
     }
 
-    return () => h('button',
-      {
-        // CORRECT: Use withModifiers for stop and prevent
-        onClick: withModifiers(handleClick, ['stop', 'prevent'])
-      },
-      'Click'
-    )
+    return () => h('button', {
+      // CORRECT: Use withModifiers for stop and prevent
+      onClick: withModifiers(handleClick, ['stop', 'prevent'])
+    }, 'Click')
   }
 }
 ```
@@ -163,7 +161,7 @@ export default {
 ## JSX Equivalent
 
 ```jsx
-import { withModifiers, withKeys } from 'vue'
+import { withKeys, withModifiers } from 'vue'
 
 export default {
   setup() {

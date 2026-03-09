@@ -161,7 +161,8 @@ const vAutoScroll = {
 
   unmounted(el) {
     const state = el._autoScrollState
-    if (!state) return
+    if (!state)
+      return
 
     // Clean up everything
     if (state.intervalId) {
@@ -184,7 +185,7 @@ const vAutoScroll = {
 ```javascript
 // Test that cleanup works properly
 import { mount } from '@vue/test-utils'
-import { ref, nextTick } from 'vue'
+import { nextTick, ref } from 'vue'
 
 const vTrackInterval = {
   mounted(el) {

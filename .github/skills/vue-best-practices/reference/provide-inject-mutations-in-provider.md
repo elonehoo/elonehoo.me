@@ -23,7 +23,7 @@ tags: [vue3, provide-inject, state-management, architecture, debugging]
 ```vue
 <!-- Provider.vue -->
 <script setup>
-import { ref, provide } from 'vue'
+import { provide, ref } from 'vue'
 
 const user = ref({ name: 'John', preferences: { theme: 'dark' } })
 provide('user', user)
@@ -56,7 +56,7 @@ function updateTheme(theme) {
 ```vue
 <!-- Provider.vue -->
 <script setup>
-import { ref, provide, readonly } from 'vue'
+import { provide, readonly, ref } from 'vue'
 
 const user = ref({ name: 'John', preferences: { theme: 'dark' } })
 
@@ -111,7 +111,9 @@ function changeTheme(theme) {
 <template>
   <!-- data is readonly, prevents accidental mutation -->
   <div>Theme: {{ user.preferences.theme }}</div>
-  <button @click="changeTheme('light')">Light Mode</button>
+  <button @click="changeTheme('light')">
+    Light Mode
+  </button>
 </template>
 ```
 
@@ -122,7 +124,7 @@ Use `readonly()` to enforce the pattern at runtime:
 ```vue
 <!-- Provider.vue -->
 <script setup>
-import { ref, provide, readonly } from 'vue'
+import { provide, readonly, ref } from 'vue'
 
 const cart = ref([])
 
@@ -162,7 +164,9 @@ const { items, removeItem } = inject('cart')
 <template>
   <div v-for="item in items" :key="item.id">
     {{ item.name }}
-    <button @click="removeItem(item.id)">Remove</button>
+    <button @click="removeItem(item.id)">
+      Remove
+    </button>
   </div>
 </template>
 ```

@@ -27,7 +27,7 @@ declare module 'vue' {
 
 // GOOD - The export {} makes this a module, so it AUGMENTS types
 // types/vue.d.ts
-export {}  // This line is CRITICAL!
+export {} // This line is CRITICAL!
 
 declare module 'vue' {
   interface ComponentCustomProperties {
@@ -112,7 +112,7 @@ Both approaches work, but `'vue'` is more common in application code.
   "include": [
     "src/**/*.ts",
     "src/**/*.vue",
-    "types/**/*.d.ts"  // Include your declaration files
+    "types/**/*.d.ts" // Include your declaration files
   ]
 }
 ```

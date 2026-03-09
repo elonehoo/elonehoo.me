@@ -24,7 +24,7 @@ Component refs should be reserved for imperative actions (focus, scroll, animati
 ```vue
 <!-- ParentComponent.vue -->
 <script setup>
-import { ref, onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import UserForm from './UserForm.vue'
 
 const formRef = ref(null)
@@ -51,14 +51,16 @@ function prefillForm(userData) {
 
 <template>
   <UserForm ref="formRef" />
-  <button @click="submitForm">Submit</button>
+  <button @click="submitForm">
+    Submit
+  </button>
 </template>
 ```
 
 ```vue
 <!-- UserForm.vue - exposing too much -->
 <script setup>
-import { ref, reactive } from 'vue'
+import { reactive, ref } from 'vue'
 
 const formData = reactive({ name: '', email: '' })
 const isValid = ref(false)
@@ -121,7 +123,7 @@ function handleValidChange(isValid) {
 ```vue
 <!-- UserForm.vue - clean props/emit interface -->
 <script setup>
-import { reactive, computed, watch } from 'vue'
+import { computed, reactive, watch } from 'vue'
 
 const props = defineProps({
   initialData: { type: Object, default: () => ({}) },
@@ -149,8 +151,8 @@ function handleSubmit() {
 
 <template>
   <form @submit.prevent="handleSubmit">
-    <input v-model="formData.name" :disabled="submitting" />
-    <input v-model="formData.email" :disabled="submitting" />
+    <input v-model="formData.name" :disabled="submitting">
+    <input v-model="formData.email" :disabled="submitting">
     <button type="submit" :disabled="!isValid || submitting">
       {{ submitting ? 'Submitting...' : 'Submit' }}
     </button>
@@ -176,7 +178,9 @@ function focusInput() {
 
 <template>
   <CustomInput ref="inputRef" v-model="text" />
-  <button @click="focusInput">Focus Input</button>
+  <button @click="focusInput">
+    Focus Input
+  </button>
 </template>
 ```
 
@@ -196,7 +200,7 @@ defineExpose({
 </script>
 
 <template>
-  <input ref="inputEl" v-bind="$attrs" />
+  <input ref="inputEl" v-bind="$attrs">
 </template>
 ```
 

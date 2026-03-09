@@ -23,6 +23,44 @@ Template expressions including function calls are evaluated whenever the compone
 
 **Incorrect:**
 ```vue
+<script setup>
+import { ref } from 'vue'
+
+const count = ref(0)
+const items = ref([/* large array */])
+
+// BAD: Has side effect - modifies state
+function incrementAndGet() {
+  count.value++ // Side effect!
+  return count.value
+}
+
+// BAD: Async operation in template
+async function fetchUserName() {
+  const res = await fetch('/api/user') // Side effect!
+  return (await res.json()).name
+}
+
+// BAD: Logging is a side effect
+function logAndFormat(date) {
+  console.log('Formatting date:', date) // Side effect!
+  return new Date(date).toLocaleDateString()
+}
+
+// BAD: Expensive, runs every render without caching
+function filterAndSort(items) {
+  return items
+    .filter(i => i.active)
+    .sort((a, b) => a.name.localeCompare(b.name))
+}
+
+// BAD: Non-deterministic
+function getRandomGreeting() {
+  const greetings = ['Hello', 'Hi', 'Hey']
+  return greetings[Math.floor(Math.random() * greetings.length)]
+}
+</script>
+
 <template>
   <!-- BAD: Modifies state on every render -->
   <p>{{ incrementAndGet() }}</p>
@@ -43,72 +81,12 @@ Template expressions including function calls are evaluated whenever the compone
   <!-- BAD: Random values change on every render -->
   <p>{{ getRandomGreeting() }}</p>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-
-const count = ref(0)
-const items = ref([/* large array */])
-
-// BAD: Has side effect - modifies state
-function incrementAndGet() {
-  count.value++  // Side effect!
-  return count.value
-}
-
-// BAD: Async operation in template
-async function fetchUserName() {
-  const res = await fetch('/api/user')  // Side effect!
-  return (await res.json()).name
-}
-
-// BAD: Logging is a side effect
-function logAndFormat(date) {
-  console.log('Formatting date:', date)  // Side effect!
-  return new Date(date).toLocaleDateString()
-}
-
-// BAD: Expensive, runs every render without caching
-function filterAndSort(items) {
-  return items
-    .filter(i => i.active)
-    .sort((a, b) => a.name.localeCompare(b.name))
-}
-
-// BAD: Non-deterministic
-function getRandomGreeting() {
-  const greetings = ['Hello', 'Hi', 'Hey']
-  return greetings[Math.floor(Math.random() * greetings.length)]
-}
-</script>
 ```
 
 **Correct:**
 ```vue
-<template>
-  <!-- OK: Pure formatting function -->
-  <p>Count: {{ count }}</p>
-  <button @click="increment">Increment</button>
-
-  <!-- OK: Data fetched via lifecycle/watcher -->
-  <div>{{ userName }}</div>
-
-  <!-- OK: Pure function, no side effects -->
-  <span>{{ formatDate(date) }}</span>
-
-  <!-- OK: Computed property caches result -->
-  <ul>
-    <li v-for="item in filteredAndSortedItems" :key="item.id">
-      {{ item.name }}
-    </li>
-  </ul>
-
-  <!-- OK: Random value set once -->
-  <p>{{ greeting }}</p>
-</template>
-
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
 const count = ref(0)
 const userName = ref('')
@@ -142,6 +120,30 @@ const filteredAndSortedItems = computed(() => {
 const greetings = ['Hello', 'Hi', 'Hey']
 const greeting = ref(greetings[Math.floor(Math.random() * greetings.length)])
 </script>
+
+<template>
+  <!-- OK: Pure formatting function -->
+  <p>Count: {{ count }}</p>
+  <button @click="increment">
+    Increment
+  </button>
+
+  <!-- OK: Data fetched via lifecycle/watcher -->
+  <div>{{ userName }}</div>
+
+  <!-- OK: Pure function, no side effects -->
+  <span>{{ formatDate(date) }}</span>
+
+  <!-- OK: Computed property caches result -->
+  <ul>
+    <li v-for="item in filteredAndSortedItems" :key="item.id">
+      {{ item.name }}
+    </li>
+  </ul>
+
+  <!-- OK: Random value set once -->
+  <p>{{ greeting }}</p>
+</template>
 ```
 
 ## Pure Function Guidelines
@@ -168,16 +170,16 @@ function isExpired(date) {
 
 // IMPURE - unsafe for templates
 function logAndReturn(value) {
-  console.log(value)  // I/O
+  console.log(value) // I/O
   return value
 }
 
 function getFromLocalStorage(key) {
-  return localStorage.getItem(key)  // External state
+  return localStorage.getItem(key) // External state
 }
 
 function updateAndReturn(obj, key, value) {
-  obj[key] = value  // Mutation
+  obj[key] = value // Mutation
   return obj
 }
 ```

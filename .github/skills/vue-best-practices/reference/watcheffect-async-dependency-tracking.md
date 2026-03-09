@@ -36,7 +36,8 @@ watchEffect(async () => {
   // This dependency is NOT tracked - changes won't trigger re-run
   if (includeDetails.value) {
     userData.value = { ...data, details: await fetchDetails(data.id) }
-  } else {
+  }
+  else {
     userData.value = data
   }
 })
@@ -46,9 +47,9 @@ watchEffect(async () => {
   await someAsyncSetup()
 
   // None of these are tracked!
-  console.log(optionA.value)  // Not tracked
-  console.log(optionB.value)  // Not tracked
-  doSomething(optionC.value)  // Not tracked
+  console.log(optionA.value) // Not tracked
+  console.log(optionB.value) // Not tracked
+  doSomething(optionC.value) // Not tracked
 })
 </script>
 ```
@@ -56,7 +57,7 @@ watchEffect(async () => {
 **Correct:**
 ```vue
 <script setup>
-import { ref, watchEffect, watch } from 'vue'
+import { ref, watch, watchEffect } from 'vue'
 
 const userId = ref(1)
 const includeDetails = ref(true)
@@ -74,7 +75,8 @@ watchEffect(async () => {
 
   if (withDetails) {
     userData.value = { ...data, details: await fetchDetails(data.id) }
-  } else {
+  }
+  else {
     userData.value = data
   }
 })
@@ -88,7 +90,8 @@ watch(
 
     if (withDetails) {
       userData.value = { ...data, details: await fetchDetails(data.id) }
-    } else {
+    }
+    else {
       userData.value = data
     }
   },
@@ -155,11 +158,11 @@ const a = ref(1)
 const b = ref(2)
 
 watchEffect(async () => {
-  console.log('Tracked dependency a:', a.value)  // Tracked
+  console.log('Tracked dependency a:', a.value) // Tracked
 
   await someAsyncOperation()
 
-  console.log('Untracked dependency b:', b.value)  // NOT tracked!
+  console.log('Untracked dependency b:', b.value) // NOT tracked!
   // Changing b.value won't re-run this watchEffect
 })
 

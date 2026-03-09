@@ -22,24 +22,6 @@ This pattern is particularly useful for enter animations when new items are adde
 
 **Basic Pattern:**
 ```vue
-<template>
-  <TransitionGroup
-    tag="ul"
-    :css="false"
-    @before-enter="onBeforeEnter"
-    @enter="onEnter"
-    @leave="onLeave"
-  >
-    <li
-      v-for="(item, index) in items"
-      :key="item.id"
-      :data-index="index"
-    >
-      {{ item.name }}
-    </li>
-  </TransitionGroup>
-</template>
-
 <script setup>
 function onBeforeEnter(el) {
   el.style.opacity = 0
@@ -71,10 +53,7 @@ function onLeave(el, done) {
   }, delay)
 }
 </script>
-```
 
-**With GSAP Animation Library:**
-```vue
 <template>
   <TransitionGroup
     tag="ul"
@@ -84,15 +63,18 @@ function onLeave(el, done) {
     @leave="onLeave"
   >
     <li
-      v-for="(item, index) in computedList"
+      v-for="(item, index) in items"
       :key="item.id"
       :data-index="index"
     >
-      {{ item.msg }}
+      {{ item.name }}
     </li>
   </TransitionGroup>
 </template>
+```
 
+**With GSAP Animation Library:**
+```vue
 <script setup>
 import gsap from 'gsap'
 
@@ -119,6 +101,24 @@ function onLeave(el, done) {
   })
 }
 </script>
+
+<template>
+  <TransitionGroup
+    tag="ul"
+    :css="false"
+    @before-enter="onBeforeEnter"
+    @enter="onEnter"
+    @leave="onLeave"
+  >
+    <li
+      v-for="(item, index) in computedList"
+      :key="item.id"
+      :data-index="index"
+    >
+      {{ item.msg }}
+    </li>
+  </TransitionGroup>
+</template>
 ```
 
 ## Understanding the `:css="false"` Prop
@@ -144,7 +144,7 @@ When filtering a list, the index in `v-for` changes. Consider using a computed p
 
 ```vue
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const items = ref([
   { id: 1, msg: 'Bruce Lee', show: true },
@@ -169,7 +169,7 @@ For more advanced effects, calculate delay from center:
 ```javascript
 function onEnter(el, done) {
   const totalItems = document.querySelectorAll('[data-index]').length
-  const index = parseInt(el.dataset.index)
+  const index = Number.parseInt(el.dataset.index)
   const center = Math.floor(totalItems / 2)
   const distanceFromCenter = Math.abs(index - center)
 

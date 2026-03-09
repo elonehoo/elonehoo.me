@@ -21,13 +21,6 @@ This is especially important when using animation libraries like GSAP, Anime.js,
 
 **Problematic Code:**
 ```vue
-<template>
-  <!-- BAD: No done() callback - animation is skipped! -->
-  <Transition :css="false" @enter="onEnter" @leave="onLeave">
-    <div v-if="show" class="box">Content</div>
-  </Transition>
-</template>
-
 <script setup>
 import gsap from 'gsap'
 
@@ -50,17 +43,19 @@ function onLeave(el) {
   // Missing done() call - element removed immediately!
 }
 </script>
+
+<template>
+  <!-- BAD: No done() callback - animation is skipped! -->
+  <Transition :css="false" @enter="onEnter" @leave="onLeave">
+    <div v-if="show" class="box">
+      Content
+    </div>
+  </Transition>
+</template>
 ```
 
 **Correct Code:**
 ```vue
-<template>
-  <!-- GOOD: done() callback signals animation completion -->
-  <Transition :css="false" @enter="onEnter" @leave="onLeave">
-    <div v-if="show" class="box">Content</div>
-  </Transition>
-</template>
-
 <script setup>
 import gsap from 'gsap'
 
@@ -69,7 +64,7 @@ function onEnter(el, done) {
     opacity: 0,
     y: 50,
     duration: 0.5,
-    onComplete: done  // Tell Vue animation is complete
+    onComplete: done // Tell Vue animation is complete
   })
 }
 
@@ -78,10 +73,19 @@ function onLeave(el, done) {
     opacity: 0,
     y: -50,
     duration: 0.5,
-    onComplete: done  // Element removed after animation
+    onComplete: done // Element removed after animation
   })
 }
 </script>
+
+<template>
+  <!-- GOOD: done() callback signals animation completion -->
+  <Transition :css="false" @enter="onEnter" @leave="onLeave">
+    <div v-if="show" class="box">
+      Content
+    </div>
+  </Transition>
+</template>
 ```
 
 ## Why Use `:css="false"`?
@@ -95,12 +99,16 @@ function onLeave(el, done) {
   <!-- Without :css="false", Vue adds v-enter-active etc. classes -->
   <!-- These can interfere with your JS animation timing -->
   <Transition @enter="onEnter" @leave="onLeave">
-    <div v-if="show">May have CSS conflicts</div>
+    <div v-if="show">
+      May have CSS conflicts
+    </div>
   </Transition>
 
   <!-- With :css="false", no classes added - full JS control -->
   <Transition :css="false" @enter="onEnter" @leave="onLeave">
-    <div v-if="show">Pure JS animation</div>
+    <div v-if="show">
+      Pure JS animation
+    </div>
   </Transition>
 </template>
 ```
@@ -108,22 +116,6 @@ function onLeave(el, done) {
 ## Complete JavaScript Transition Example
 
 ```vue
-<template>
-  <Transition
-    :css="false"
-    @before-enter="onBeforeEnter"
-    @enter="onEnter"
-    @after-enter="onAfterEnter"
-    @enter-cancelled="onEnterCancelled"
-    @before-leave="onBeforeLeave"
-    @leave="onLeave"
-    @after-leave="onAfterLeave"
-    @leave-cancelled="onLeaveCancelled"
-  >
-    <div v-if="show" class="animated-box">Content</div>
-  </Transition>
-</template>
-
 <script setup>
 import gsap from 'gsap'
 import { ref } from 'vue'
@@ -145,7 +137,7 @@ function onEnter(el, done) {
     y: 0,
     duration: 0.5,
     ease: 'power2.out',
-    onComplete: done  // REQUIRED with :css="false"
+    onComplete: done // REQUIRED with :css="false"
   })
 }
 
@@ -172,7 +164,7 @@ function onLeave(el, done) {
     y: -50,
     duration: 0.5,
     ease: 'power2.in',
-    onComplete: done  // REQUIRED with :css="false"
+    onComplete: done // REQUIRED with :css="false"
   })
 }
 
@@ -187,6 +179,24 @@ function onLeaveCancelled() {
   }
 }
 </script>
+
+<template>
+  <Transition
+    :css="false"
+    @before-enter="onBeforeEnter"
+    @enter="onEnter"
+    @after-enter="onAfterEnter"
+    @enter-cancelled="onEnterCancelled"
+    @before-leave="onBeforeLeave"
+    @leave="onLeave"
+    @after-leave="onAfterLeave"
+    @leave-cancelled="onLeaveCancelled"
+  >
+    <div v-if="show" class="animated-box">
+      Content
+    </div>
+  </Transition>
+</template>
 ```
 
 ## Using Web Animations API
@@ -202,7 +212,7 @@ function onEnter(el, done) {
     easing: 'ease-out'
   })
 
-  animation.onfinish = done  // Call done when animation ends
+  animation.onfinish = done // Call done when animation ends
 }
 
 function onLeave(el, done) {

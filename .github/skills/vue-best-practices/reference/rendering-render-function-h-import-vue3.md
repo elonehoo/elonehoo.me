@@ -81,7 +81,9 @@ const count = ref(0)
 <!-- script setup typically uses templates, not render functions -->
 <template>
   <div>
-    <button @click="count++">Count: {{ count }}</button>
+    <button @click="count++">
+      Count: {{ count }}
+    </button>
   </div>
 </template>
 ```

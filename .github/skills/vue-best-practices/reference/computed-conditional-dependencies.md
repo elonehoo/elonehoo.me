@@ -22,7 +22,7 @@ This is a subtle but common source of bugs, especially with short-circuit evalua
 **Incorrect:**
 ```vue
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const isEnabled = ref(false)
 const data = ref('important data')
@@ -33,7 +33,7 @@ const result = computed(() => {
   if (!isEnabled.value) {
     return 'disabled'
   }
-  return data.value  // This dependency may not be tracked
+  return data.value // This dependency may not be tracked
 })
 
 // BAD: Short-circuit prevents second access
@@ -51,7 +51,7 @@ const permissions = ref(['read', 'write'])
 
 const canEdit = computed(() => {
   if (!user.value) {
-    return false  // permissions.value never accessed when user is null
+    return false // permissions.value never accessed when user is null
   }
   return permissions.value.includes('write')
 })
@@ -61,7 +61,7 @@ const canEdit = computed(() => {
 **Correct:**
 ```vue
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const isEnabled = ref(false)
 const data = ref('important data')
@@ -69,7 +69,7 @@ const data = ref('important data')
 // GOOD: Access all dependencies first
 const result = computed(() => {
   const enabled = isEnabled.value
-  const currentData = data.value  // Always accessed
+  const currentData = data.value // Always accessed
 
   if (!enabled) {
     return 'disabled'
@@ -83,7 +83,7 @@ const confirmPassword = ref('')
 
 const isValid = computed(() => {
   const pwd = password.value
-  const confirm = confirmPassword.value  // Always accessed
+  const confirm = confirmPassword.value // Always accessed
 
   return pwd && pwd === confirm
 })
@@ -94,7 +94,7 @@ const permissions = ref(['read', 'write'])
 
 const canEdit = computed(() => {
   const currentUser = user.value
-  const currentPermissions = permissions.value  // Always accessed
+  const currentPermissions = permissions.value // Always accessed
 
   if (!currentUser) {
     return false
@@ -117,10 +117,10 @@ Vue's reactivity system works by tracking which reactive properties are accessed
 
 const computed = computed(() => {
   // Vue starts tracking here
-  if (conditionA.value) {      // conditionA is tracked
-    return valueB.value        // valueB is ONLY tracked if conditionA is true
+  if (conditionA.value) { // conditionA is tracked
+    return valueB.value // valueB is ONLY tracked if conditionA is true
   }
-  return 'default'             // If conditionA is false, valueB is NOT tracked!
+  return 'default' // If conditionA is false, valueB is NOT tracked!
 })
 ```
 
@@ -136,8 +136,10 @@ const result = computed(() => {
   const itemsVal = items.value
 
   // Now use conditional logic safely
-  if (!userVal) return []
-  if (!settingsVal.enabled) return []
+  if (!userVal)
+    return []
+  if (!settingsVal.enabled)
+    return []
   return itemsVal.filter(i => i.active)
 })
 ```

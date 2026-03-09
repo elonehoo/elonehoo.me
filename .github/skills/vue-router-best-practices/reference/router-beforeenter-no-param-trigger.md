@@ -95,13 +95,13 @@ const routes = [
   {
     path: '/orders/:id',
     component: OrderDetail,
-    beforeEnter: (to) => validateOrderAccess(to.params.id)
+    beforeEnter: to => validateOrderAccess(to.params.id)
   }
 ]
 
 // In component - For param changes within route
 // OrderDetail.vue
-onBeforeRouteUpdate((to) => validateOrderAccess(to.params.id))
+onBeforeRouteUpdate(to => validateOrderAccess(to.params.id))
 
 // Shared validation function
 async function validateOrderAccess(orderId) {
@@ -116,7 +116,7 @@ async function validateOrderAccess(orderId) {
 
 ```javascript
 // guards/orderGuards.js
-export const orderAccessGuard = async (to) => {
+export async function orderAccessGuard(to) {
   const order = await checkOrderAccess(to.params.id)
   if (!order.canView) {
     return '/unauthorized'
@@ -128,7 +128,7 @@ const routes = [
   {
     path: '/orders/:id',
     component: OrderDetail,
-    beforeEnter: [orderAccessGuard]  // Can add multiple guards
+    beforeEnter: [orderAccessGuard] // Can add multiple guards
   }
 ]
 

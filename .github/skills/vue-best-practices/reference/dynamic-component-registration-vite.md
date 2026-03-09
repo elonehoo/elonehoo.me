@@ -32,7 +32,7 @@ const requireComponent = require.context(
   /Base[A-Z]\w+\.vue$/
 )
 
-requireComponent.keys().forEach(fileName => {
+requireComponent.keys().forEach((fileName) => {
   const componentConfig = requireComponent(fileName)
   const componentName = fileName
     .split('/')
@@ -115,7 +115,7 @@ import.meta.glob('./components/**/*.vue', {
 
 ```typescript
 // main.ts - with proper typing
-import { createApp, Component } from 'vue'
+import { Component, createApp } from 'vue'
 import App from './App.vue'
 
 const app = createApp(App)

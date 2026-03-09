@@ -18,18 +18,8 @@ tags: [vue3, teleport, responsive, mobile]
 
 **Basic Usage:**
 ```vue
-<template>
-  <Teleport to="body" :disabled="isMobile">
-    <div class="sidebar">
-      <!-- On mobile: renders inline -->
-      <!-- On desktop: teleports to body as overlay -->
-      <nav>Navigation content</nav>
-    </div>
-  </Teleport>
-</template>
-
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 const isMobile = ref(false)
 
@@ -46,13 +36,33 @@ onUnmounted(() => {
   window.removeEventListener('resize', checkMobile)
 })
 </script>
+
+<template>
+  <Teleport to="body" :disabled="isMobile">
+    <div class="sidebar">
+      <!-- On mobile: renders inline -->
+      <!-- On desktop: teleports to body as overlay -->
+      <nav>Navigation content</nav>
+    </div>
+  </Teleport>
+</template>
 ```
 
 ## Responsive Modal Pattern
 
 ```vue
+<script setup>
+import { useMediaQuery } from '@vueuse/core'
+import { ref } from 'vue'
+
+const open = ref(false)
+const isMobile = useMediaQuery('(max-width: 768px)')
+</script>
+
 <template>
-  <button @click="open = true">Open Menu</button>
+  <button @click="open = true">
+    Open Menu
+  </button>
 
   <!-- Teleport on desktop, inline sheet on mobile -->
   <Teleport to="body" :disabled="isMobile">
@@ -60,20 +70,14 @@ onUnmounted(() => {
       <div v-if="open" :class="isMobile ? 'bottom-sheet' : 'modal-overlay'">
         <div :class="isMobile ? 'sheet-content' : 'modal-content'">
           <slot />
-          <button @click="open = false">Close</button>
+          <button @click="open = false">
+            Close
+          </button>
         </div>
       </div>
     </Transition>
   </Teleport>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-import { useMediaQuery } from '@vueuse/core'
-
-const open = ref(false)
-const isMobile = useMediaQuery('(max-width: 768px)')
-</script>
 
 <style scoped>
 /* Desktop: Centered modal overlay */
@@ -129,10 +133,18 @@ const isMobile = useMediaQuery('(max-width: 768px)')
 
 ```vue
 <!-- AppLayout.vue -->
+<script setup>
+import { useMediaQuery } from '@vueuse/core'
+import { ref } from 'vue'
+
+const sidebarOpen = ref(false)
+const isMobile = useMediaQuery('(max-width: 1024px)')
+</script>
+
 <template>
   <div class="layout">
     <header>
-      <button @click="sidebarOpen = !sidebarOpen" class="menu-toggle">
+      <button class="menu-toggle" @click="sidebarOpen = !sidebarOpen">
         Menu
       </button>
     </header>
@@ -154,14 +166,6 @@ const isMobile = useMediaQuery('(max-width: 768px)')
     </Teleport>
   </div>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-import { useMediaQuery } from '@vueuse/core'
-
-const sidebarOpen = ref(false)
-const isMobile = useMediaQuery('(max-width: 1024px)')
-</script>
 
 <style>
 .layout {
@@ -196,7 +200,7 @@ Use `@vueuse/core` for reactive media queries:
 
 ```vue
 <script setup>
-import { useMediaQuery, useBreakpoints } from '@vueuse/core'
+import { useBreakpoints, useMediaQuery } from '@vueuse/core'
 
 // Simple media query
 const isMobile = useMediaQuery('(max-width: 768px)')

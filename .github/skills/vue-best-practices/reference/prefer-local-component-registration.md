@@ -26,10 +26,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import Card from './components/Card.vue'
 import Modal from './components/Modal.vue'
-import Table from './components/Table.vue'
 import Pagination from './components/Pagination.vue'
-import UserAvatar from './components/UserAvatar.vue'
 import SearchBar from './components/SearchBar.vue'
+import Table from './components/Table.vue'
+import UserAvatar from './components/UserAvatar.vue'
 
 const app = createApp(App)
 
@@ -46,16 +46,16 @@ app.mount('#app')
 
 ```vue
 <!-- SomePage.vue - uses only Card, but all components are bundled -->
+<script setup>
+// No imports - relying on global registration
+// This makes dependencies invisible and hurts tree-shaking
+</script>
+
 <template>
   <Card>
     <p>Content</p>
   </Card>
 </template>
-
-<script setup>
-// No imports - relying on global registration
-// This makes dependencies invisible and hurts tree-shaking
-</script>
 ```
 
 **Correct:**
@@ -63,8 +63,8 @@ app.mount('#app')
 // main.js - only register truly universal components globally
 import { createApp } from 'vue'
 import App from './App.vue'
-import BaseIcon from './components/BaseIcon.vue'
 import BaseButton from './components/BaseButton.vue'
+import BaseIcon from './components/BaseIcon.vue'
 
 const app = createApp(App)
 
@@ -110,13 +110,13 @@ export default {
 ## When Global Registration IS Appropriate
 
 ```javascript
-// Truly universal base components used across the entire app
-import BaseIcon from './components/BaseIcon.vue'
-import BaseButton from './components/BaseButton.vue'
-import BaseInput from './components/BaseInput.vue'
-
 // Third-party component libraries with controlled scope
 import { Button, Input } from 'some-ui-library'
+import BaseButton from './components/BaseButton.vue'
+// Truly universal base components used across the entire app
+import BaseIcon from './components/BaseIcon.vue'
+
+import BaseInput from './components/BaseInput.vue'
 
 app.component('BaseIcon', BaseIcon)
 app.component('BaseButton', BaseButton)

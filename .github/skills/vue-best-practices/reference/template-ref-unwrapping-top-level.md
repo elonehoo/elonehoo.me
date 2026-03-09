@@ -64,7 +64,7 @@ const { id } = object
 
 ```vue
 <script setup>
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const object = { id: ref(1) }
 

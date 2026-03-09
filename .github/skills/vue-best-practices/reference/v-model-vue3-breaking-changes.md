@@ -33,10 +33,10 @@ tags: [vue3, vue2, v-model, migration, breaking-changes, sync]
 <!-- Vue 2 Child Component -->
 <script>
 export default {
-  props: ['value'],  // WRONG in Vue 3
+  props: ['value'], // WRONG in Vue 3
   methods: {
     update(val) {
-      this.$emit('input', val)  // WRONG in Vue 3
+      this.$emit('input', val) // WRONG in Vue 3
     }
   }
 }
@@ -52,11 +52,11 @@ export default {
 <!-- Vue 3 Child Component -->
 <script>
 export default {
-  props: ['modelValue'],  // Changed from 'value'
-  emits: ['update:modelValue'],  // Declare emits
+  props: ['modelValue'], // Changed from 'value'
+  emits: ['update:modelValue'], // Declare emits
   methods: {
     update(val) {
-      this.$emit('update:modelValue', val)  // Changed from 'input'
+      this.$emit('update:modelValue', val) // Changed from 'input'
     }
   }
 }
@@ -71,7 +71,7 @@ export default {
 ```vue
 <!-- Vue 3 Child Component - Recommended -->
 <script setup>
-const model = defineModel()  // Handles prop and emit automatically
+const model = defineModel() // Handles prop and emit automatically
 </script>
 
 <template>
@@ -94,7 +94,7 @@ export default {
   props: ['title'],
   methods: {
     updateTitle(val) {
-      this.$emit('update:title', val)  // .sync pattern
+      this.$emit('update:title', val) // .sync pattern
     }
   }
 }
@@ -111,15 +111,15 @@ export default {
 const title = defineModel('title')
 </script>
 
-<template>
-  <input v-model="title">
-</template>
-
-<!-- Child with manual props/emits -->
 <script setup>
 const props = defineProps(['title'])
 const emit = defineEmits(['update:title'])
 </script>
+
+<!-- Child with manual props/emits -->
+<template>
+  <input v-model="title">
+</template>
 
 <template>
   <input

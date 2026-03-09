@@ -100,7 +100,7 @@ pnpm patch-commit <path>
 ```bash
 pnpm patch-remove <pkg>@<version>
 
-# Example  
+# Example
 pnpm patch-remove express@4.18.2
 ```
 
@@ -193,7 +193,7 @@ Ensure:
 1. Version in `patchedDependencies` matches installed version exactly
 2. Run `pnpm install` after adding patch configuration
 
-<!-- 
+<!--
 Source references:
 - https://pnpm.io/cli/patch
 - https://pnpm.io/cli/patch-commit

@@ -63,14 +63,14 @@ function handleSubmit(formData) {
 const emit = defineEmits({
   submit: (data) => {
     if (!data?.email) {
-      return false  // Validation fails
+      return false // Validation fails
     }
     return true
   }
 })
 
 function badSubmit() {
-  emit('submit', {})  // Missing email
+  emit('submit', {}) // Missing email
   // Console: [Vue warn]: Invalid event arguments: event validation failed for event "submit"
   // Event STILL fires - validation is advisory only
 }
@@ -135,8 +135,8 @@ interface SubmitPayload {
 }
 
 const emit = defineEmits<{
-  submit: [payload: SubmitPayload]
-  cancel: []
+  'submit': [payload: SubmitPayload]
+  'cancel': []
   'page-change': [page: number]
 }>()
 

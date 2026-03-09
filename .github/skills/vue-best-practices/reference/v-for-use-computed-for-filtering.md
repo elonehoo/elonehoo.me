@@ -53,7 +53,7 @@ const activeItems = computed(() => {
 })
 
 const sortedItems = computed(() => {
-  return [...items.value].sort((a, b) => a.name.localeCompare(b.name))
+  return items.value.toSorted((a, b) => a.name.localeCompare(b.name))
 })
 
 // Combine filtering and sorting

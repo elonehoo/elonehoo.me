@@ -32,9 +32,9 @@ Plugins receive a context object:
 import { PiniaPluginContext } from 'pinia'
 
 export function myPiniaPlugin(context: PiniaPluginContext) {
-  context.pinia   // pinia instance
-  context.app     // Vue app instance
-  context.store   // store being augmented
+  context.pinia // pinia instance
+  context.app // Vue app instance
+  context.store // store being augmented
   context.options // store definition options
 }
 ```
@@ -64,10 +64,10 @@ pinia.use(({ store }) => {
 Add to both `store` and `store.$state` for SSR/devtools:
 
 ```ts
-import { toRef, ref } from 'vue'
+import { ref, toRef } from 'vue'
 
 pinia.use(({ store }) => {
-  if (!store.$state.hasOwnProperty('hasError')) {
+  if (!Object.hasOwn(store.$state, 'hasError')) {
     const hasError = ref(false)
     store.$state.hasError = hasError
   }
@@ -94,6 +94,9 @@ Define custom options consumed by plugins:
 
 ```ts
 // Store definition
+// Plugin reads custom option
+import debounce from 'lodash/debounce'
+
 defineStore('search', {
   actions: {
     searchContacts() { /* ... */ },
@@ -102,9 +105,6 @@ defineStore('search', {
     searchContacts: 300,
   },
 })
-
-// Plugin reads custom option
-import debounce from 'lodash/debounce'
 
 pinia.use(({ options, store }) => {
   if (options.debounce) {
@@ -133,8 +133,8 @@ defineStore(
 ### Custom Properties
 
 ```ts
-import 'pinia'
 import type { Router } from 'vue-router'
+import 'pinia'
 
 declare module 'pinia' {
   export interface PiniaCustomProperties {

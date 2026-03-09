@@ -51,9 +51,9 @@ watch(items, (newItems) => {
 })
 
 // Batch of changes
-items.push('a')  // length: 1
-items.push('b')  // length: 2
-items.push('c')  // length: 3
+items.push('a') // length: 1
+items.push('b') // length: 2
+items.push('c') // length: 3
 
 // Output: "Items count: 3"
 // You won't see 1, 2, 3 logged separately
@@ -70,9 +70,9 @@ watch(count, (newValue) => {
   console.log('Immediate:', newValue)
 }, { flush: 'sync' })
 
-count.value = 1  // Logs: "Immediate: 1"
-count.value = 2  // Logs: "Immediate: 2"
-count.value = 3  // Logs: "Immediate: 3"
+count.value = 1 // Logs: "Immediate: 1"
+count.value = 2 // Logs: "Immediate: 2"
+count.value = 3 // Logs: "Immediate: 3"
 
 // WARNING: flush: 'sync' can cause performance issues
 // and creates less predictable behavior. Avoid if possible.
@@ -80,7 +80,7 @@ count.value = 3  // Logs: "Immediate: 3"
 
 **Using nextTick to separate batches:**
 ```javascript
-import { ref, watch, nextTick } from 'vue'
+import { nextTick, ref, watch } from 'vue'
 
 const count = ref(0)
 
@@ -90,7 +90,7 @@ watch(count, (newValue) => {
 
 async function separatedUpdates() {
   count.value = 1
-  await nextTick()  // Force flush
+  await nextTick() // Force flush
   // Output: "Count: 1"
 
   count.value = 2
@@ -147,7 +147,7 @@ import { ref, watch } from 'vue'
 const count = ref(0)
 
 // Method 1: Sync watcher (not recommended for production)
-watch(count, (val) => console.log('DEBUG:', val), { flush: 'sync' })
+watch(count, val => console.log('DEBUG:', val), { flush: 'sync' })
 
 // Method 2: Track history manually
 const history = []

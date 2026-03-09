@@ -36,7 +36,7 @@ const apiResponse = ref(await fetch('/api/big-data').then(r => r.json()))
 
 **Correct:**
 ```javascript
-import { shallowRef, markRaw, triggerRef } from 'vue'
+import { markRaw, shallowRef, triggerRef } from 'vue'
 
 // EFFICIENT: Only .value replacement is tracked
 const users = shallowRef(await fetchUsers())

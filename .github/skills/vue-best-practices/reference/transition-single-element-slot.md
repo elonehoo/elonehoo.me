@@ -63,8 +63,12 @@ This is one of the most common mistakes when using Vue transitions, especially f
 <template>
   <!-- GOOD: v-if/v-else with mutually exclusive elements -->
   <Transition name="fade" mode="out-in">
-    <button v-if="isEditing" @click="save">Save</button>
-    <button v-else @click="edit">Edit</button>
+    <button v-if="isEditing" @click="save">
+      Save
+    </button>
+    <button v-else @click="edit">
+      Edit
+    </button>
   </Transition>
 </template>
 ```
@@ -90,20 +94,20 @@ This is one of the most common mistakes when using Vue transitions, especially f
 ## Dynamic Components with Transition
 
 ```vue
+<script setup>
+import { shallowRef } from 'vue'
+import About from './About.vue'
+import Home from './Home.vue'
+
+const currentView = shallowRef(Home)
+</script>
+
 <template>
   <!-- GOOD: Dynamic components work as single elements -->
   <Transition name="fade" mode="out-in">
     <component :is="currentView" />
   </Transition>
 </template>
-
-<script setup>
-import { shallowRef } from 'vue'
-import Home from './Home.vue'
-import About from './About.vue'
-
-const currentView = shallowRef(Home)
-</script>
 ```
 
 ## Common Symptoms of This Issue

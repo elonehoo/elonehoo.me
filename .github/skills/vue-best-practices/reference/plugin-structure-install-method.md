@@ -99,7 +99,7 @@ const i18n = createI18n({
   }
 })
 
-app.use(i18n)  // No second argument needed
+app.use(i18n) // No second argument needed
 ```
 
 ## Common Plugin Capabilities
@@ -170,7 +170,7 @@ const simplePlugin: Plugin = {
 const notAPlugin = {
   doSomething() { /* ... */ }
 }
-app.use(notAPlugin)  // Error or silent failure
+app.use(notAPlugin) // Error or silent failure
 
 // GOOD
 const actualPlugin = {
@@ -195,7 +195,7 @@ const uselessPlugin = {
 const usefulPlugin = {
   install(app, options) {
     const service = createService(options)
-    app.provide('service', service)  // Actually makes it available
+    app.provide('service', service) // Actually makes it available
   }
 }
 ```

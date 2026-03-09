@@ -64,7 +64,7 @@ Vue's provide/inject API allows ancestor components to share data with any desce
 ```vue
 <!-- App.vue -->
 <script setup>
-import { provide, ref, readonly } from 'vue'
+import { provide, readonly, ref } from 'vue'
 
 const user = ref({ name: 'John', role: 'admin' })
 const theme = ref('dark')
@@ -153,7 +153,7 @@ export const ThemeKey = Symbol('theme')
 ```vue
 <script setup>
 import { provide } from 'vue'
-import { UserKey, ThemeKey } from './keys'
+import { ThemeKey, UserKey } from './keys'
 
 provide(UserKey, user)
 provide(ThemeKey, theme)
@@ -191,7 +191,7 @@ Prevent descendants from mutating provided data:
 
 ```vue
 <script setup>
-import { provide, ref, readonly } from 'vue'
+import { provide, readonly, ref } from 'vue'
 
 const user = ref({ name: 'John' })
 
@@ -209,7 +209,7 @@ provide('updateUser', (updates) => {
 
 ```vue
 <script setup>
-import { provide, computed } from 'vue'
+import { computed, provide } from 'vue'
 
 const items = ref([1, 2, 3])
 

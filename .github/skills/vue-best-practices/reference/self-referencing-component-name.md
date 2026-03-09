@@ -49,7 +49,7 @@ defineProps({
 <template>
   <div class="comment">
     <p>{{ comment.text }}</p>
-    <div class="replies" v-if="comment.replies?.length">
+    <div v-if="comment.replies?.length" class="replies">
       <!-- Self-reference for nested replies -->
       <Comment
         v-for="reply in comment.replies"

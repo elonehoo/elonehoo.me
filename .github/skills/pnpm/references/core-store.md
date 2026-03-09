@@ -171,7 +171,7 @@ package-import-method=copy
 chmod -R u+w ~/.pnpm-store
 ```
 
-<!-- 
+<!--
 Source references:
 - https://pnpm.io/symlinked-node-modules-structure
 - https://pnpm.io/cli/store

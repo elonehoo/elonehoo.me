@@ -28,10 +28,10 @@ function updateAndLog() {
   model.value = 'new value'
 
   // WRONG: This still logs the OLD value!
-  console.log(model.value)  // Logs previous value, not 'new value'
+  console.log(model.value) // Logs previous value, not 'new value'
 
   // WRONG: Computation uses stale value
-  const length = model.value.length  // Length of OLD value
+  const length = model.value.length // Length of OLD value
 
   // WRONG: Conditional check on stale value
   if (model.value === 'new value') {
@@ -52,7 +52,7 @@ function updateAndLog() {
   model.value = newValue
 
   // CORRECT: Use the value you just assigned
-  console.log(newValue)  // Logs 'new value'
+  console.log(newValue) // Logs 'new value'
 
   // CORRECT: Compute from the known value
   const length = newValue.length
@@ -79,7 +79,7 @@ async function updateAndProcess() {
   await nextTick()
 
   // NOW model.value reflects the new value
-  console.log(model.value)  // 'new value'
+  console.log(model.value) // 'new value'
   processUpdatedValue(model.value)
 }
 
@@ -89,7 +89,7 @@ function updateWithCallback() {
 
   nextTick(() => {
     // Safe to read updated value here
-    console.log(model.value)  // 'new value'
+    console.log(model.value) // 'new value'
   })
 }
 </script>
@@ -112,7 +112,7 @@ During this cycle, the child's local value briefly differs from what's been comm
 <script setup>
 import { nextTick } from 'vue'
 
-const model = defineModel<{ name: string; validated: boolean }>()
+const model = defineModel<{ name: string, validated: boolean }>()
 
 async function validateAndUpdate(newName: string) {
   // Build the new object
@@ -126,11 +126,11 @@ async function validateAndUpdate(newName: string) {
   model.value = updated
 
   // Use 'updated' for immediate operations, not model.value
-  saveToServer(updated)  // CORRECT: Use local reference
+  saveToServer(updated) // CORRECT: Use local reference
 
   // If you need model.value specifically (e.g., for DOM sync):
   await nextTick()
-  focusValidatedField()  // Now safe to assume DOM updated
+  focusValidatedField() // Now safe to assume DOM updated
 }
 </script>
 ```

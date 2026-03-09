@@ -26,7 +26,7 @@ const vColor = {
     el.style.color = binding.value
   },
   updated(el, binding) {
-    el.style.color = binding.value  // Same as mounted
+    el.style.color = binding.value // Same as mounted
   }
 }
 
@@ -35,7 +35,7 @@ const vHighlight = {
     el.style.backgroundColor = binding.value || 'yellow'
   },
   updated(el, binding) {
-    el.style.backgroundColor = binding.value || 'yellow'  // Duplicated
+    el.style.backgroundColor = binding.value || 'yellow' // Duplicated
   }
 }
 
@@ -43,11 +43,11 @@ const vHighlight = {
 app.directive('pin', {
   mounted(el, binding) {
     el.style.position = 'fixed'
-    el.style.top = binding.value + 'px'
+    el.style.top = `${binding.value}px`
   },
   updated(el, binding) {
     el.style.position = 'fixed'
-    el.style.top = binding.value + 'px'
+    el.style.top = `${binding.value}px`
   }
 })
 ```
@@ -55,18 +55,18 @@ app.directive('pin', {
 **Concise (function shorthand):**
 ```javascript
 // CONCISE: Function shorthand
-const vColor = (el, binding) => {
+function vColor(el, binding) {
   el.style.color = binding.value
 }
 
-const vHighlight = (el, binding) => {
+function vHighlight(el, binding) {
   el.style.backgroundColor = binding.value || 'yellow'
 }
 
 // Global registration - concise
 app.directive('pin', (el, binding) => {
   el.style.position = 'fixed'
-  el.style.top = binding.value + 'px'
+  el.style.top = `${binding.value}px`
 })
 ```
 
@@ -75,25 +75,29 @@ app.directive('pin', (el, binding) => {
 ```vue
 <script setup>
 // Function shorthand for local directives
-const vFocus = (el) => {
+function vFocus(el) {
   el.focus()
 }
 
-const vColor = (el, binding) => {
+function vColor(el, binding) {
   el.style.color = binding.value
 }
 
-const vPin = (el, binding) => {
+function vPin(el, binding) {
   el.style.position = binding.modifiers.absolute ? 'absolute' : 'fixed'
   const position = binding.arg || 'top'
-  el.style[position] = binding.value + 'px'
+  el.style[position] = `${binding.value}px`
 }
 </script>
 
 <template>
-  <input v-focus />
-  <p v-color="'red'">Colored text</p>
-  <div v-pin:left.absolute="100">Positioned element</div>
+  <input v-focus>
+  <p v-color="'red'">
+    Colored text
+  </p>
+  <div v-pin:left.absolute="100">
+    Positioned element
+  </div>
 </template>
 ```
 
@@ -107,7 +111,8 @@ Use the full object syntax when:
 const vClickOutside = {
   mounted(el, binding) {
     el._handler = (e) => {
-      if (!el.contains(e.target)) binding.value(e)
+      if (!el.contains(e.target))
+        binding.value(e)
     }
     document.addEventListener('click', el._handler)
   },
@@ -123,7 +128,7 @@ const vClickOutside = {
 const vLazyLoad = {
   mounted(el, binding) {
     // Initial setup - create observer
-    el._observer = new IntersectionObserver(entries => {
+    el._observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
         el.src = binding.value
         el._observer.disconnect()
@@ -170,9 +175,9 @@ const vAnimate = {
 Function shorthand works well with object literal values:
 
 ```javascript
-const vDemo = (el, binding) => {
-  console.log(binding.value.color)  // => "white"
-  console.log(binding.value.text)   // => "hello!"
+function vDemo(el, binding) {
+  console.log(binding.value.color) // => "white"
+  console.log(binding.value.text) // => "hello!"
 
   el.style.color = binding.value.color
   el.textContent = binding.value.text
@@ -181,7 +186,7 @@ const vDemo = (el, binding) => {
 
 ```vue
 <template>
-  <div v-demo="{ color: 'white', text: 'hello!' }"></div>
+  <div v-demo="{ color: 'white', text: 'hello!' }" />
 </template>
 ```
 

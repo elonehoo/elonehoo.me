@@ -42,7 +42,7 @@ const [todos, updateTodos] = useImmer([
 ])
 
 // Update with Immer's mutable API (produces immutable result)
-updateTodos(draft => {
+updateTodos((draft) => {
   draft[0].done = true
   draft.push({ id: 2, text: 'Use Immer', done: false })
 })
@@ -50,8 +50,8 @@ updateTodos(draft => {
 
 **Integrating with XState:**
 ```javascript
+import { onUnmounted, shallowRef } from 'vue'
 import { createMachine, interpret } from 'xstate'
-import { shallowRef, onUnmounted } from 'vue'
 
 export function useMachine(options) {
   const machine = createMachine(options)
@@ -64,7 +64,7 @@ export function useMachine(options) {
     })
     .start()
 
-  const send = (event) => service.send(event)
+  const send = event => service.send(event)
 
   onUnmounted(() => service.stop())
 
@@ -87,7 +87,7 @@ send('TOGGLE')
 
 **Integrating with Redux-style stores:**
 ```javascript
-import { shallowRef, readonly } from 'vue'
+import { readonly, shallowRef } from 'vue'
 
 export function createStore(reducer, initialState) {
   const state = shallowRef(initialState)
@@ -101,7 +101,7 @@ export function createStore(reducer, initialState) {
   }
 
   return {
-    state: readonly(state),  // Prevent direct mutations
+    state: readonly(state), // Prevent direct mutations
     dispatch,
     getState
   }
@@ -126,8 +126,8 @@ console.log(store.state.value.count) // 1
 
 **Why NOT use ref() for external state:**
 ```javascript
-import { ref } from 'vue'
 import { produce } from 'immer'
+import { ref } from 'vue'
 
 // WRONG: ref() deep-wraps the state
 const state = ref({ nested: { value: 1 } })
@@ -138,7 +138,7 @@ const state = ref({ nested: { value: 1 } })
 // 3. Causes identity issues and potential conflicts
 
 // WRONG: Mutating ref with Immer
-state.value = produce(state.value, draft => {
+state.value = produce(state.value, (draft) => {
   draft.nested.value = 2
 })
 // Vue's deep proxy on state.value may interfere with Immer's proxies
@@ -152,7 +152,7 @@ import { shallowRef } from 'vue'
 const state = shallowRef({ nested: { value: 1 } })
 
 // External library works with raw objects inside
-state.value = produce(state.value, draft => {
+state.value = produce(state.value, (draft) => {
   draft.nested.value = 2
 })
 // Clean separation: Vue tracks outer ref, library manages inner state

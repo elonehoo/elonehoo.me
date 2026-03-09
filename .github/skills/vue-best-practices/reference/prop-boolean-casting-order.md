@@ -24,7 +24,7 @@ Vue applies special boolean casting rules, but String appearing before Boolean d
 <script setup>
 // WRONG: String before Boolean disables boolean casting
 defineProps({
-  disabled: [String, Boolean]  // disabled="" is parsed as empty string ""
+  disabled: [String, Boolean] // disabled="" is parsed as empty string ""
 })
 </script>
 
@@ -36,8 +36,8 @@ defineProps({
 <script setup>
 defineProps({
   // PROBLEMATIC: Order matters and may cause confusion
-  loading: [String, Boolean],  // <Component loading /> gives ""
-  active: [Boolean, String]    // <Component active /> gives true
+  loading: [String, Boolean], // <Component loading /> gives ""
+  active: [Boolean, String] // <Component active /> gives true
 })
 </script>
 ```
@@ -47,14 +47,17 @@ defineProps({
 <script setup>
 // CORRECT: Boolean before String enables boolean casting
 defineProps({
-  disabled: [Boolean, String]  // <Component disabled /> parsed as true
+  disabled: [Boolean, String] // <Component disabled /> parsed as true
 })
 </script>
 
 <!-- All of these work as expected -->
 <MyComponent disabled />           <!-- props.disabled === true -->
+
 <MyComponent :disabled="true" />   <!-- props.disabled === true -->
+
 <MyComponent :disabled="false" />  <!-- props.disabled === false -->
+
 <MyComponent disabled="custom" />  <!-- props.disabled === "custom" -->
 ```
 
@@ -62,7 +65,7 @@ defineProps({
 <script setup>
 // BEST: Use only Boolean if you don't need String values
 defineProps({
-  disabled: Boolean  // Clear intent, no ambiguity
+  disabled: Boolean // Clear intent, no ambiguity
 })
 </script>
 ```
@@ -88,7 +91,7 @@ Note: The String type is special - it's the only type that overrides Boolean cas
 defineProps({
   // Animation can be true/false OR a timing string like "fast", "slow"
   animate: {
-    type: [Boolean, String],  // Boolean first for casting
+    type: [Boolean, String], // Boolean first for casting
     default: false
   }
 })
@@ -96,7 +99,9 @@ defineProps({
 
 <!-- Usage examples -->
 <Dialog animate />                <!-- true - use default animation -->
+
 <Dialog :animate="false" />       <!-- false - no animation -->
+
 <Dialog animate="slow" />         <!-- "slow" - custom timing -->
 ```
 

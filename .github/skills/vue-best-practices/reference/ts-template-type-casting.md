@@ -25,7 +25,7 @@ When a variable has a union type, TypeScript cannot know which specific type it 
 ```vue
 <script setup lang="ts">
 // Union type: could be string OR number
-let x: string | number = 1
+const x: string | number = 1
 </script>
 
 <template>
@@ -42,7 +42,7 @@ Use `(value as Type)` syntax directly in the template:
 
 ```vue
 <script setup lang="ts">
-let x: string | number = 1
+const x: string | number = 1
 </script>
 
 <template>
@@ -57,7 +57,7 @@ Create a computed property that narrows or transforms the type:
 
 ```vue
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const value = ref<string | number>(1)
 
@@ -157,7 +157,7 @@ function handleInput(event: Event) {
 </script>
 
 <template>
-  <input @input="handleInput" />
+  <input @input="handleInput">
 </template>
 ```
 

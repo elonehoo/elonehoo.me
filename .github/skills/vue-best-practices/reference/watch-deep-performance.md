@@ -46,7 +46,7 @@ watch(
   (users) => {
     updateUserList(users)
   },
-  { deep: true }  // Expensive for large arrays!
+  { deep: true } // Expensive for large arrays!
 )
 ```
 
@@ -103,7 +103,7 @@ watch(
   (newState) => {
     console.log('Shallow nested change detected')
   },
-  { deep: 2 }  // Only traverse 2 levels deep
+  { deep: 2 } // Only traverse 2 levels deep
 )
 ```
 

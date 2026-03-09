@@ -31,7 +31,7 @@ my-nuxt-module/
 
 ```ts
 // src/module.ts
-import { defineNuxtModule, createResolver, addPlugin, addComponent, addImports } from '@nuxt/kit'
+import { addComponent, addImports, addPlugin, createResolver, defineNuxtModule } from '@nuxt/kit'
 
 export interface ModuleOptions {
   prefix?: string
@@ -52,7 +52,8 @@ export default defineNuxtModule<ModuleOptions>({
     enabled: true,
   },
   setup(options, nuxt) {
-    if (!options.enabled) return
+    if (!options.enabled)
+      return
 
     const { resolve } = createResolver(import.meta.url)
 
@@ -244,7 +245,7 @@ export default defineNitroPlugin((nitroApp) => {
 ### Generate Virtual Files
 
 ```ts
-import { addTemplate, addTypeTemplate, addServerTemplate, createResolver } from '@nuxt/kit'
+import { addServerTemplate, addTemplate, addTypeTemplate, createResolver } from '@nuxt/kit'
 
 export default defineNuxtModule({
   setup(options, nuxt) {
@@ -290,7 +291,7 @@ import { config } from '#my-module/config.js'
 ## Extending Pages and Routes
 
 ```ts
-import { extendPages, extendRouteRules, addRouteMiddleware, createResolver } from '@nuxt/kit'
+import { addRouteMiddleware, createResolver, extendPages, extendRouteRules } from '@nuxt/kit'
 
 export default defineNuxtModule({
   setup() {
@@ -453,7 +454,7 @@ export default defineNuxtModule({
 ## Path Resolution
 
 ```ts
-import { createResolver, resolvePath, findPath } from '@nuxt/kit'
+import { createResolver, findPath, resolvePath } from '@nuxt/kit'
 
 export default defineNuxtModule({
   async setup(options, nuxt) {

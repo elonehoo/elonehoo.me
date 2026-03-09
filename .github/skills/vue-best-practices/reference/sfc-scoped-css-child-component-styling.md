@@ -70,7 +70,8 @@ Vue scoped CSS adds a unique data attribute to all elements in the component's t
 <!-- Template output -->
 <div class="container" data-v-7ba5bd90>
   <!-- Child component elements DON'T get data-v-7ba5bd90 -->
-  <div class="date-input">...</div>
+  <div class="date-input">...
+</div>
 </div>
 ```
 

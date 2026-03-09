@@ -57,7 +57,9 @@ function handleClick() {
 <template>
   <div class="container">
     <h1>{{ title }}</h1>
-    <button @click="handleClick">Click me</button>
+    <button @click="handleClick">
+      Click me
+    </button>
   </div>
 </template>
 

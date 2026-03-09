@@ -220,7 +220,7 @@ pnpm install -P
 pnpm install --no-optional
 ```
 
-<!-- 
+<!--
 Source references:
 - https://pnpm.io/cli/install
 - https://pnpm.io/cli/add

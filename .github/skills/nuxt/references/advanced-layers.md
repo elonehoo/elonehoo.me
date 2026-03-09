@@ -200,9 +200,9 @@ export GIGET_AUTH=<github-token>
 ### Use Resolved Paths
 
 ```ts
+import { dirname, join } from 'node:path'
 // my-layer/nuxt.config.ts
 import { fileURLToPath } from 'node:url'
-import { dirname, join } from 'node:path'
 
 const currentDir = dirname(fileURLToPath(import.meta.url))
 
@@ -292,7 +292,7 @@ export default defineAppConfig({
 })
 ```
 
-<!-- 
+<!--
 Source references:
 - https://nuxt.com/docs/getting-started/layers
 - https://nuxt.com/docs/guide/going-further/layers

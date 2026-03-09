@@ -23,16 +23,16 @@ When a composable has unexpected side effects, consumers can't reason about what
 **Incorrect:**
 ```javascript
 // WRONG: Hidden provide/inject dependency
+// WRONG: Modifying global store internally
+import { useUserStore } from '@/stores/user'
+
 export function useTheme() {
   // Consumer has no idea this depends on a provided theme
-  const theme = inject('theme')  // What if nothing provides this?
+  const theme = inject('theme') // What if nothing provides this?
 
   const isDark = computed(() => theme?.mode === 'dark')
   return { isDark }
 }
-
-// WRONG: Modifying global store internally
-import { useUserStore } from '@/stores/user'
 
 export function useLogin() {
   const userStore = useUserStore()
@@ -95,10 +95,12 @@ export function useLogin() {
       user.value = response.user
       token.value = response.token
       return response
-    } catch (e) {
+    }
+    catch (e) {
       error.value = e
       throw e
-    } finally {
+    }
+    finally {
       isLoading.value = false
     }
   }
@@ -154,7 +156,7 @@ Some side effects are acceptable when they're the core purpose of the composable
  * SIDE EFFECTS:
  * - Adds 'mousemove' event listener to window (cleaned up on unmount)
  *
- * @returns {Object} Mouse coordinates { x, y }
+ * @returns {object} Mouse coordinates { x, y }
  */
 export function useMouse() {
   const x = ref(0)

@@ -20,7 +20,7 @@ tags: [vue3, attrs, reactivity, composition-api]
 **Incorrect:**
 ```vue
 <script setup>
-import { watch, useAttrs } from 'vue'
+import { useAttrs, watch } from 'vue'
 
 const attrs = useAttrs()
 
@@ -105,7 +105,7 @@ function handleClick() {
   </div>
 
   <!-- Using v-bind to spread all attrs -->
-  <input v-bind="attrs" />
+  <input v-bind="attrs">
 </template>
 ```
 
@@ -140,7 +140,7 @@ For advanced use cases, you can access attrs through the component instance:
 
 ```vue
 <script setup>
-import { watch, getCurrentInstance } from 'vue'
+import { getCurrentInstance, watch } from 'vue'
 
 const instance = getCurrentInstance()
 

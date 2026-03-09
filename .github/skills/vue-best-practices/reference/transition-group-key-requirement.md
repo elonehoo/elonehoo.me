@@ -95,7 +95,9 @@ Ensure all draggable items have unique keys:
   <draggable v-model="items" item-key="id">
     <template #item="{ element }">
       <TransitionGroup name="list" tag="div">
-        <div :key="element.id">{{ element.name }}</div>
+        <div :key="element.id">
+          {{ element.name }}
+        </div>
       </TransitionGroup>
     </template>
   </draggable>

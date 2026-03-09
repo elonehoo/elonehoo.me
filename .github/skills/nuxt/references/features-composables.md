@@ -222,7 +222,7 @@ Use `#imports` alias when needed:
 
 ```vue
 <script setup lang="ts">
-import { ref, computed, useFetch } from '#imports'
+import { computed, ref, useFetch } from '#imports'
 </script>
 ```
 
@@ -268,7 +268,7 @@ export default defineNuxtConfig({
 })
 ```
 
-<!-- 
+<!--
 Source references:
 - https://nuxt.com/docs/guide/concepts/auto-imports
 - https://nuxt.com/docs/directory-structure/app/composables

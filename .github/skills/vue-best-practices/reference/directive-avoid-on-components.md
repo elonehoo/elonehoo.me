@@ -21,17 +21,9 @@ Custom directives are designed for direct DOM manipulation on native HTML elemen
 
 **Incorrect:**
 ```vue
-<template>
-  <!-- WRONG: Directive on a component - may be ignored -->
-  <MyComponent v-focus />
-
-  <!-- WRONG: Multi-root component - directive is ignored with warning -->
-  <MultiRootComponent v-highlight />
-</template>
-
 <script setup>
-import MyComponent from './MyComponent.vue'
 import MultiRootComponent from './MultiRootComponent.vue'
+import MyComponent from './MyComponent.vue'
 
 // MultiRootComponent.vue has:
 // <template>
@@ -39,13 +31,25 @@ import MultiRootComponent from './MultiRootComponent.vue'
 //   <div>Second root</div>
 // </template>
 </script>
+
+<template>
+  <!-- WRONG: Directive on a component - may be ignored -->
+  <MyComponent v-focus />
+
+  <!-- WRONG: Multi-root component - directive is ignored with warning -->
+  <MultiRootComponent v-highlight />
+</template>
 ```
 
 **Correct:**
 ```vue
+<script setup>
+import MyComponent from './MyComponent.vue'
+</script>
+
 <template>
   <!-- CORRECT: Directive on native HTML element -->
-  <input v-focus />
+  <input v-focus>
 
   <!-- CORRECT: Use props/events for component behavior -->
   <MyComponent :should-focus="true" />
@@ -55,10 +59,6 @@ import MultiRootComponent from './MultiRootComponent.vue'
     <MyComponent />
   </div>
 </template>
-
-<script setup>
-import MyComponent from './MyComponent.vue'
-</script>
 ```
 
 ## When a Directive on Component Works
@@ -88,12 +88,8 @@ However, this is still not recommended because:
 ### Option 1: Component Prop
 ```vue
 <!-- FocusableInput.vue -->
-<template>
-  <input ref="inputRef" v-bind="$attrs" />
-</template>
-
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 const props = defineProps({
   autofocus: Boolean
@@ -108,6 +104,10 @@ onMounted(() => {
 })
 </script>
 
+<template>
+  <input ref="inputRef" v-bind="$attrs">
+</template>
+
 <!-- Usage -->
 <FocusableInput autofocus />
 ```
@@ -115,27 +115,16 @@ onMounted(() => {
 ### Option 2: Exposed Method
 ```vue
 <!-- FocusableInput.vue -->
-<template>
-  <input ref="inputRef" />
-</template>
+<script setup>
+import { onMounted, ref } from 'vue'
+</script>
 
 <script setup>
-import { ref } from 'vue'
-
 const inputRef = ref(null)
 
 const focus = () => inputRef.value?.focus()
 
 defineExpose({ focus })
-</script>
-
-<!-- Parent.vue -->
-<template>
-  <FocusableInput ref="myInput" />
-</template>
-
-<script setup>
-import { ref, onMounted } from 'vue'
 
 const myInput = ref(null)
 
@@ -143,6 +132,15 @@ onMounted(() => {
   myInput.value?.focus()
 })
 </script>
+
+<!-- Parent.vue -->
+<template>
+  <input ref="inputRef">
+</template>
+
+<template>
+  <FocusableInput ref="myInput" />
+</template>
 ```
 
 ## Reference

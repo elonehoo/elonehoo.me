@@ -22,8 +22,8 @@ However, this should be a transitional pattern. For new code, pick one API style
 
 **Using Composition API in Options API Component:**
 ```javascript
-import { ref, computed, onMounted } from 'vue'
 import { useExternalLibrary } from 'some-composition-library'
+import { computed, onMounted, ref } from 'vue'
 
 export default {
   // Options API parts
@@ -36,7 +36,7 @@ export default {
   computed: {
     legacyComputed() {
       // Can access both Options API data AND setup() returned values
-      return this.legacyData + ' - ' + this.newFeatureData
+      return `${this.legacyData} - ${this.newFeatureData}`
     }
   },
 
@@ -151,7 +151,7 @@ export default {
 
   setup(props, context) {
     // WRONG: 'this' is NOT available in setup()
-    console.log(this.optionsData)  // undefined!
+    console.log(this.optionsData) // undefined!
 
     // CORRECT: Access props and context via parameters
     console.log(props.someProp)

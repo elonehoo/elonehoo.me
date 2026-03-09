@@ -23,7 +23,9 @@ tags: [vue3, transition, animation, duration, nested, timing]
   <!-- BAD: Inner element has longer animation that gets cut off -->
   <Transition name="nested">
     <div v-if="show" class="outer">
-      <div class="inner">Hello</div>
+      <div class="inner">
+        Hello
+      </div>
     </div>
   </Transition>
 </template>
@@ -58,7 +60,9 @@ tags: [vue3, transition, animation, duration, nested, timing]
   <!-- GOOD: Explicit duration ensures all nested animations complete -->
   <Transition name="nested" :duration="700">
     <div v-if="show" class="outer">
-      <div class="inner">Hello</div>
+      <div class="inner">
+        Hello
+      </div>
     </div>
   </Transition>
 </template>
@@ -97,8 +101,12 @@ tags: [vue3, transition, animation, duration, nested, timing]
     :duration="{ enter: 500, leave: 800 }"
   >
     <div v-if="show" class="container">
-      <h1 class="title">Title</h1>
-      <p class="content">Content with staggered animation</p>
+      <h1 class="title">
+        Title
+      </h1>
+      <p class="content">
+        Content with staggered animation
+      </p>
     </div>
   </Transition>
 </template>
@@ -138,10 +146,16 @@ tags: [vue3, transition, animation, duration, nested, timing]
 <template>
   <Transition name="stagger" :duration="800">
     <div v-if="show" class="card">
-      <img class="card-image" src="..." />
-      <h2 class="card-title">Title</h2>
-      <p class="card-body">Body text...</p>
-      <button class="card-action">Action</button>
+      <img class="card-image" src="...">
+      <h2 class="card-title">
+        Title
+      </h2>
+      <p class="card-body">
+        Body text...
+      </p>
+      <button class="card-action">
+        Action
+      </button>
     </div>
   </Transition>
 </template>

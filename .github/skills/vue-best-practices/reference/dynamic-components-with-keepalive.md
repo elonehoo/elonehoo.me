@@ -30,8 +30,12 @@ const currentTab = shallowRef(TabA)
 </script>
 
 <template>
-  <button @click="currentTab = TabA">Tab A</button>
-  <button @click="currentTab = TabB">Tab B</button>
+  <button @click="currentTab = TabA">
+    Tab A
+  </button>
+  <button @click="currentTab = TabB">
+    Tab B
+  </button>
 
   <!-- State is lost when switching tabs! -->
   <component :is="currentTab" />
@@ -44,8 +48,12 @@ If TabA has a form with user input, switching to TabB and back resets all input.
 
 ```vue
 <template>
-  <button @click="currentTab = TabA">Tab A</button>
-  <button @click="currentTab = TabB">Tab B</button>
+  <button @click="currentTab = TabA">
+    Tab A
+  </button>
+  <button @click="currentTab = TabB">
+    Tab B
+  </button>
 
   <!-- State is preserved when switching -->
   <KeepAlive>
@@ -133,7 +141,7 @@ Cached components need special lifecycle hooks:
 ```vue
 <!-- TabA.vue -->
 <script setup>
-import { onMounted, onUnmounted, onActivated, onDeactivated } from 'vue'
+import { onActivated, onDeactivated, onMounted, onUnmounted } from 'vue'
 
 // Only called on first mount, NOT when switching back
 onMounted(() => {

@@ -37,18 +37,18 @@ counts.get('clicks')++                // Does nothing useful
 
 **Correct:**
 ```javascript
-import { ref, reactive } from 'vue'
+import { reactive, ref } from 'vue'
 
 const books = reactive([ref('Vue 3 Guide')])
 const counts = reactive(new Map([['clicks', ref(0)]]))
 
 // CORRECT: Use .value for refs in arrays
-console.log(books[0].value)    // 'Vue 3 Guide'
-books[0].value = 'New Title'   // Updates the ref's value
+console.log(books[0].value) // 'Vue 3 Guide'
+books[0].value = 'New Title' // Updates the ref's value
 
 // CORRECT: Use .value for refs in Maps
-console.log(counts.get('clicks').value)  // 0
-counts.get('clicks').value++             // Increments to 1
+console.log(counts.get('clicks').value) // 0
+counts.get('clicks').value++ // Increments to 1
 ```
 
 ```javascript
@@ -57,12 +57,12 @@ const books = reactive(['Vue 3 Guide', 'Vuex Handbook'])
 const counts = reactive(new Map([['clicks', 0]]))
 
 // No .value needed - but changes to individual items aren't independently reactive
-console.log(books[0])            // 'Vue 3 Guide'
+console.log(books[0]) // 'Vue 3 Guide'
 console.log(counts.get('clicks')) // 0
 
 // Mutations still trigger reactivity through the reactive wrapper
-books[0] = 'New Title'           // Works
-counts.set('clicks', counts.get('clicks') + 1)  // Works
+books[0] = 'New Title' // Works
+counts.set('clicks', counts.get('clicks') + 1) // Works
 ```
 
 ```vue

@@ -19,7 +19,7 @@ tags: [vue3, watch, watchers, immediate, best-practices, DRY]
 **Incorrect:**
 ```vue
 <script setup>
-import { ref, watch, onMounted } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 const userId = ref(1)
 const userData = ref(null)
@@ -31,11 +31,11 @@ async function loadUser(id) {
 }
 
 onMounted(() => {
-  loadUser(userId.value)  // Initial call
+  loadUser(userId.value) // Initial call
 })
 
 watch(userId, (newId) => {
-  loadUser(newId)  // On change
+  loadUser(newId) // On change
 })
 </script>
 ```
@@ -47,11 +47,11 @@ export default {
     return { userId: 1, userData: null }
   },
   created() {
-    this.loadUser()  // Initial call
+    this.loadUser() // Initial call
   },
   watch: {
     userId() {
-      this.loadUser()  // On change - duplicate!
+      this.loadUser() // On change - duplicate!
     }
   },
   methods: {
@@ -133,7 +133,8 @@ watch(
     // oldVal is undefined
     if (oldVal === undefined) {
       console.log('Initial run, count is:', newVal)
-    } else {
+    }
+    else {
       console.log(`Count changed from ${oldVal} to ${newVal}`)
     }
   },

@@ -44,7 +44,8 @@ export default defineNuxtModule({
     enabled: true,
   },
   setup(options, nuxt) {
-    if (!options.enabled) return
+    if (!options.enabled)
+      return
 
     console.log('My module is running!')
   },
@@ -284,7 +285,7 @@ export default defineNuxtModule({
 })
 ```
 
-<!-- 
+<!--
 Source references:
 - https://nuxt.com/docs/guide/modules
 - https://nuxt.com/docs/guide/modules/module-anatomy

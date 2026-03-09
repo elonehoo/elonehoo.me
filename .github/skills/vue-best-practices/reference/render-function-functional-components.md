@@ -36,8 +36,8 @@ export default MyButton
 
 **With TypeScript:**
 ```typescript
-import { h } from 'vue'
 import type { FunctionalComponent } from 'vue'
+import { h } from 'vue'
 
 interface Props {
   message: string
@@ -63,8 +63,8 @@ export default Alert
 
 **With Emits:**
 ```typescript
-import { h } from 'vue'
 import type { FunctionalComponent } from 'vue'
+import { h } from 'vue'
 
 interface Props {
   value: string

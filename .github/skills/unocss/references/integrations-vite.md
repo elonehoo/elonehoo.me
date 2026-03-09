@@ -184,8 +184,8 @@ export default {
 ### Elm
 
 ```ts
-import Elm from 'vite-plugin-elm'
 import UnoCSS from 'unocss/vite'
+import Elm from 'vite-plugin-elm'
 
 export default {
   plugins: [
@@ -277,7 +277,7 @@ export const classes = {
 }
 ```
 
-<!-- 
+<!--
 Source references:
 - https://unocss.dev/integrations/vite
 -->

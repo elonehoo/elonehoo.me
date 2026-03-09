@@ -68,9 +68,9 @@ const props = defineProps<{
 
 // Define slot types
 defineSlots<{
-  default(props: { item: Item; index: number }): any
-  header(props: { count: number }): any
-  empty(): any  // Slot with no props
+  default: (props: { item: Item, index: number }) => any
+  header: (props: { count: number }) => any
+  empty: () => any // Slot with no props
 }>()
 </script>
 
@@ -134,7 +134,7 @@ defineProps<{
 }>()
 
 defineSlots<{
-  default(props: { item: T; index: number }): any
+  default: (props: { item: T, index: number }) => any
 }>()
 </script>
 ```
@@ -156,7 +156,7 @@ Avoid slot prop names that match parent component data:
 Consider renaming slot props to be more specific when collisions are likely:
 ```typescript
 defineSlots<{
-  default(props: { listItem: T; itemIndex: number }): any
+  default: (props: { listItem: T, itemIndex: number }) => any
 }>()
 ```
 

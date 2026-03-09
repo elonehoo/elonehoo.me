@@ -28,7 +28,7 @@ export default {
     // WRONG: Returns a static vnode, created once
     // Clicking the button updates count.value, but the DOM never changes!
     return h('div', [
-      h('p', `Count: ${count.value}`),  // Captures count.value at setup time (0)
+      h('p', `Count: ${count.value}`), // Captures count.value at setup time (0)
       h('button', { onClick: increment }, 'Increment')
     ])
   }
@@ -47,7 +47,7 @@ export default {
     // CORRECT: Returns a render function
     // Vue calls this function on every reactive update
     return () => h('div', [
-      h('p', `Count: ${count.value}`),  // Re-evaluated each render
+      h('p', `Count: ${count.value}`), // Re-evaluated each render
       h('button', { onClick: increment }, 'Increment')
     ])
   }

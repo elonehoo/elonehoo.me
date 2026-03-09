@@ -84,9 +84,9 @@ export function createAppInstance() {
 ```
 
 ```javascript
+import { renderToString } from 'vue/server-renderer'
 // entry-server.js
 import { createAppInstance } from './main'
-import { renderToString } from 'vue/server-renderer'
 
 export async function render(url, context) {
   // Fresh app and store instance per request
@@ -146,9 +146,9 @@ export function createStore() {
 ```
 
 ```javascript
+import { provide } from 'vue'
 // entry-server.js
 import { createStore } from './store'
-import { provide } from 'vue'
 
 export async function render(url) {
   const app = createApp(App)
@@ -204,7 +204,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
 ```javascript
 // test/ssr-state-isolation.test.js
-import { describe, it, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { render } from './entry-server'
 
 describe('SSR State Isolation', () => {
@@ -259,7 +259,7 @@ export const appState = reactive({})
 export const cache = new Map()
 
 // BAD: Even plain objects can be problematic
-let requestCount = 0  // Shared across requests
+const requestCount = 0 // Shared across requests
 ```
 
 ## Why Pinia is Recommended for SSR

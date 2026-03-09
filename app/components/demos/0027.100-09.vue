@@ -9,10 +9,7 @@ const displayText = ref(props.label)
 const charset = 'abcdefghijklmnopqrstuvwxyz'
 
 function randomChars(length: number) {
-  return Array.from(
-    { length },
-    () => charset[Math.floor(Math.random() * charset.length)],
-  ).join('')
+  return Array.from({ length }).fill(charset[Math.floor(Math.random() * charset.length)]).join('')
 }
 
 async function scramble(input: string) {

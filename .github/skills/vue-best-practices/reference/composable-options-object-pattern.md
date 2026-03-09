@@ -112,7 +112,7 @@ Options can also be reactive for dynamic behavior:
 ```javascript
 export function useFetch(url, options = {}) {
   const {
-    refetch = ref(true),  // Can be a ref!
+    refetch = ref(true), // Can be a ref!
     interval = null
   } = options
 
@@ -170,7 +170,7 @@ const { count, increment, decrement } = useCounter({
 VueUse uses this pattern extensively:
 
 ```javascript
-import { useDebounceFn, useThrottleFn, useLocalStorage } from '@vueuse/core'
+import { useDebounceFn, useLocalStorage, useThrottleFn } from '@vueuse/core'
 
 // All use options objects
 const debouncedFn = useDebounceFn(fn, 1000, { maxWait: 5000 })

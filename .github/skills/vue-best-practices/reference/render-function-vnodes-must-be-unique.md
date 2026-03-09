@@ -43,8 +43,8 @@ export default {
       // WRONG: Reusing vnode in different parts of tree
       const icon = h('span', { class: 'icon' }, '★')
       return h('div', [
-        h('button', [icon, ' Save']),    // Uses icon
-        h('button', [icon, ' Delete'])   // Reuses same icon - Bug!
+        h('button', [icon, ' Save']), // Uses icon
+        h('button', [icon, ' Delete']) // Reuses same icon - Bug!
       ])
     }
   }
@@ -92,9 +92,7 @@ export default {
   setup() {
     return () => {
       // CORRECT: Using map to create multiple vnodes
-      return h('div',
-        Array.from({ length: 20 }).map(() => h('p', 'Hello'))
-      )
+      return h('div', Array.from({ length: 20 }).map(() => h('p', 'Hello')))
     }
   }
 }
@@ -111,8 +109,7 @@ export default {
       // CORRECT: Each iteration creates a new vnode
       items.map((item, index) =>
         h('li', { key: index }, item)
-      )
-    )
+      ))
   }
 }
 ```

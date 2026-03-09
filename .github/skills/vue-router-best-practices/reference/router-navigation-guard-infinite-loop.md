@@ -23,7 +23,7 @@ tags: [vue3, vue-router, navigation-guards, redirect, debugging]
 // WRONG: Infinite loop - always redirects to login, even when on login!
 router.beforeEach((to, from) => {
   if (!isAuthenticated()) {
-    return '/login'  // Redirects to /login, which triggers guard again...
+    return '/login' // Redirects to /login, which triggers guard again...
   }
 })
 
@@ -33,7 +33,7 @@ router.beforeEach((to, from) => {
     return '/profile'
   }
   if (to.path === '/profile' && !isVerified()) {
-    return '/dashboard'  // Back to dashboard, which goes to profile...
+    return '/dashboard' // Back to dashboard, which goes to profile...
   }
 })
 ```
@@ -107,7 +107,7 @@ router.beforeEach((to, from) => {
 
   if (redirectCount > 3) {
     console.error('Too many redirects, stopping at:', to.path)
-    return '/error'  // Escape hatch
+    return '/error' // Escape hatch
   }
 
   if (needsRedirect(to)) {

@@ -41,7 +41,7 @@ test('displays user data', async () => {
 
 **Correct - Manual Wrapper Component:**
 ```javascript
-import { mount, flushPromises } from '@vue/test-utils'
+import { flushPromises, mount } from '@vue/test-utils'
 import { defineComponent, Suspense } from 'vue'
 import AsyncUserProfile from './AsyncUserProfile.vue'
 
@@ -74,8 +74,8 @@ test('displays user data', async () => {
 **Correct - Reusable Helper Function:**
 ```javascript
 // test-utils.js
-import { mount, flushPromises } from '@vue/test-utils'
-import { defineComponent, Suspense, h } from 'vue'
+import { flushPromises, mount } from '@vue/test-utils'
+import { defineComponent, h, Suspense } from 'vue'
 
 export async function mountSuspense(component, options = {}) {
   const { props, slots, ...mountOptions } = options
@@ -108,9 +108,9 @@ export async function mountSuspense(component, options = {}) {
 ```
 
 ```javascript
+import AsyncUserProfile from './AsyncUserProfile.vue'
 // AsyncUserProfile.test.js
 import { mountSuspense } from './test-utils'
-import AsyncUserProfile from './AsyncUserProfile.vue'
 
 test('displays user data', async () => {
   const { component } = await mountSuspense(AsyncUserProfile, {
@@ -137,8 +137,8 @@ test('handles errors gracefully', async () => {
 ## Testing with onErrorCaptured
 
 ```javascript
-import { mount, flushPromises } from '@vue/test-utils'
-import { defineComponent, Suspense, h, ref, onErrorCaptured } from 'vue'
+import { flushPromises, mount } from '@vue/test-utils'
+import { defineComponent, h, onErrorCaptured, ref, Suspense } from 'vue'
 import AsyncComponent from './AsyncComponent.vue'
 
 test('catches async errors', async () => {
