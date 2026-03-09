@@ -1,11 +1,16 @@
 <script setup lang="ts">
+const route = useRoute()
+
 const { data } = await useAsyncData(() => {
   return queryCollection('content')
-    .path('/projects')
+    .where('path', 'LIKE', `%/${route.params.id}`)
     .first()
 })
 
-const list = computed(() => data.value?.meta.projects)
+const list = computed(() => {
+  const id = Array.isArray(route.params.id) ? route.params.id[0] : route.params.id
+  return (id && data.value?.meta[id]) ?? []
+})
 </script>
 
 <template>
@@ -13,7 +18,7 @@ const list = computed(() => data.value?.meta.projects)
     <section v-for="(group, name) in list" :key="name" class="space-y-4">
       <OnlyTitle size="sm" :value="name" />
       <div>
-        <ProjectItem
+        <LinkItem
           v-for="record in group"
           :key="record.name"
           :record="record"
