@@ -41,10 +41,10 @@ function hasActiveChild(children?: TocLink[]): boolean {
         class="outline-link relative"
         :class="[
           isActive(header)
-            ? 'text-gray-12 dark:text-gray-1'
+            ? 'text-gray-12'
             : hasActiveChild(header.children)
               ? 'text-gray-11'
-              : 'text-gray-9 hover:text-gray-12 dark:hover:text-gray-1',
+              : 'text-gray-9 hover:text-gray-12',
         ]"
       >
         {{ header.text }}

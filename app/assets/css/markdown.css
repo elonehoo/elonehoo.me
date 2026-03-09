@@ -11,7 +11,7 @@
 }
 
 .prose-md a:hover code{
-  --at-apply: text-gray-12;
+  --at-apply: text-gray-1;
 }
 
 .prose-md hr {
