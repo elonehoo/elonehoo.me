@@ -27,3 +27,4 @@ cache
 public/og
 .vitepress/cache
 .specstory
+.alma-snapshots
