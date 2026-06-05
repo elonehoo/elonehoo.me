@@ -9,7 +9,6 @@ const props = defineProps<{
 <template>
   <NuxtLink
     :to="props.link"
-    target="_self"
     class="
     flex items-center gap-x-0.5 w-fit text-gray-8 text-sm
     hover:bg-action hover:text-gray-1! px-1.5 py-1 rounded-sm

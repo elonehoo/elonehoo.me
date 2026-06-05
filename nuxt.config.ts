@@ -13,6 +13,13 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
+  vite: {
+    optimizeDeps: {
+      include: [
+        'dayjs',
+      ],
+    },
+  },
   css: [
     '~/assets/css/index.css',
   ],

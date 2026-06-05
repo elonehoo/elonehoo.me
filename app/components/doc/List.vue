@@ -1,11 +1,18 @@
 <script setup lang="ts">
 const route = useRoute()
 
-const { data } = await useAsyncData(() => {
-  return queryCollection('content')
-    .where('path', 'LIKE', `%/${route.params.id}/%`)
-    .all()
-})
+const contentId = computed(() => getRouteParam(route.params.id))
+
+const listKey = computed(() => `doc-list:${contentId.value}`)
+
+const { data } = await useAsyncData(
+  listKey,
+  () => {
+    return queryCollection('content')
+      .where('path', 'LIKE', `/${contentId.value}/%`)
+      .all()
+  },
+)
 
 const list = computed(() => groupByTime(data.value ?? [], post => post.date))
 </script>

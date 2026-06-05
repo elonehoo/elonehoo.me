@@ -8,15 +8,24 @@ definePageMeta({
 
 const route = useRoute()
 
-const { data } = await useAsyncData(() => {
-  return queryCollection('content')
-    .where('path', 'LIKE', `%${route.params.id}%`)
-    .first()
+const contentPath = computed(() => {
+  return `/${getRouteParam(route.params.type)}/${getRouteParam(route.params.id)}`
 })
 
+const contentKey = computed(() => `content-detail:${contentPath.value}`)
+
+const { data } = await useAsyncData(
+  contentKey,
+  () => {
+    return queryCollection('content')
+      .path(contentPath.value)
+      .first()
+  },
+)
+
 useSeoMeta({
-  title: `${data.value?.seo.title} - Elone Hoo`,
-  description: data.value?.seo.description,
+  title: () => `${data.value?.seo.title} - Elone Hoo`,
+  description: () => data.value?.seo.description,
 })
 </script>
 

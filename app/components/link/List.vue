@@ -1,15 +1,21 @@
 <script setup lang="ts">
 const route = useRoute()
 
-const { data } = await useAsyncData(() => {
-  return queryCollection('content')
-    .where('path', 'LIKE', `%/${route.params.id}`)
-    .first()
-})
+const contentId = computed(() => getRouteParam(route.params.id))
+
+const listKey = computed(() => `link-list:${contentId.value}`)
+
+const { data } = await useAsyncData(
+  listKey,
+  () => {
+    return queryCollection('content')
+      .path(`/${contentId.value}`)
+      .first()
+  },
+)
 
 const list = computed(() => {
-  const id = Array.isArray(route.params.id) ? route.params.id[0] : route.params.id
-  return (id && data.value?.meta[id]) ?? []
+  return (contentId.value && data.value?.meta[contentId.value]) ?? []
 })
 </script>
 

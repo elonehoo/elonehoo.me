@@ -18,7 +18,7 @@ useSeoMeta({
     <Background>
       <CustomContent>
         <NuxtLayout>
-          <NuxtPage />
+          <NuxtPage :page-key="route.path" />
         </NuxtLayout>
         <div v-if="showBack" class="mt-10 flex justify-between items-center">
           <Back />

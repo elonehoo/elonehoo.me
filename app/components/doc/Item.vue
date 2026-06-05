@@ -9,7 +9,7 @@ const props = defineProps<{
 <template>
   <div class="flex flex-col mt-4 group">
     <div class="flex justify-between md:gap-x-8 gap-x-4">
-      <NuxtLink :to="props.record.url" target="_self">
+      <NuxtLink :to="props.record.url">
         {{ props.record.title }}
       </NuxtLink>
       <time class="hidden md:block text-gray-9 group-hover:text-gray-12">
