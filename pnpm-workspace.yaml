@@ -1,5 +1,5 @@
+minimumReleaseAge: 1440
 shellEmulator: true
-
 trustPolicy: no-downgrade
 trustPolicyExclude:
   - chokidar@4.0.3
@@ -7,9 +7,21 @@ trustPolicyExclude:
 packages:
   - .
 
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - better-sqlite3
-  - esbuild
-  - unrs-resolver
-  - vue-demi
+overrides:
+  '@ai-sdk/gateway': 3.0.124
+  '@ai-sdk/vue': 3.0.196
+  '@types/node': 25.9.1
+  ai: 6.0.196
+  bare-url: 2.4.3
+  ioredis: 5.11.0
+  obug: 2.1.1
+  rollup: 4.61.0
+  semver: 7.8.1
+  streamx: 2.26.0
+
+allowBuilds:
+  '@parcel/watcher': true
+  better-sqlite3: true
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
