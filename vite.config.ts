@@ -4,6 +4,13 @@ import UnoCSS from 'unocss/vite'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
+  build: {
+    rolldownOptions: {
+      output: {
+        assetFileNames: 'assets/[name][extname]',
+      },
+    },
+  },
   resolve: {
     tsconfigPaths: true,
   },

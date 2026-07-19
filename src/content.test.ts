@@ -10,7 +10,7 @@ describe('content manifest', () => {
   })
 
   it('indexes every Markdown page without duplicate paths', () => {
-    expect(contentRecords).toHaveLength(142)
+    expect(contentRecords).toHaveLength(143)
     expect(new Set(contentRecords.map(record => record.path)).size).toBe(contentRecords.length)
     expect(getContent('/posts/building-cloud-agent-infrastructure')?.title).toBe('云上的 Agent，和本地有什么不同')
   })
