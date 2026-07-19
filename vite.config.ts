@@ -1,3 +1,4 @@
+import { devtools } from '@tanstack/devtools-vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import viteReact from '@vitejs/plugin-react'
 import UnoCSS from 'unocss/vite'
@@ -15,6 +16,7 @@ export default defineConfig({
     tsconfigPaths: true,
   },
   plugins: [
+    devtools(),
     UnoCSS(),
     tanstackStart({
       prerender: {

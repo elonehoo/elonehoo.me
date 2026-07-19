@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { TanStackDevtools } from '@tanstack/react-devtools'
 import { createRootRoute, HeadContent, Outlet, Scripts } from '@tanstack/react-router'
 import { AppShell } from '../components/AppShell'
 import { siteConfig } from '../config'
@@ -38,9 +39,12 @@ export const Route = createRootRoute({
 
 function RootLayout() {
   return (
-    <AppShell>
-      <Outlet />
-    </AppShell>
+    <>
+      <AppShell>
+        <Outlet />
+      </AppShell>
+      <TanStackDevtools />
+    </>
   )
 }
 
@@ -48,6 +52,12 @@ function RootDocument({ children }: { children: ReactNode }) {
   return (
     <html lang="zh-CN" suppressHydrationWarning>
       <head>
+        {import.meta.env.DEV && (
+          <script
+            crossOrigin="anonymous"
+            src="/node_modules/react-scan/dist/auto.global.js"
+          />
+        )}
         <HeadContent />
       </head>
       <body>
