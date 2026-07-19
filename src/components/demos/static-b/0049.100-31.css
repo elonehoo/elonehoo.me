@@ -1,0 +1,36 @@
+.demo-b-0049__stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.demo-b-0049 {
+  position: absolute;
+  width: 400px;
+  margin-top: -60px;
+  fill: none;
+  filter: blur(40px);
+}
+
+.demo-b-0049 path {
+  d: path('M0,25 C150,110 150, -60 300,25');
+  stroke: #00ff00;
+  stroke-width: 50;
+  stroke-linecap: round;
+  transform: translate(50px, 50%);
+  animation: demo-b-0049-wave 2s ease-in-out infinite;
+}
+
+@keyframes demo-b-0049-wave {
+  0% {
+    d: path('M0,25 C150,110 150, -60 300,25');
+    stroke: #00ff00;
+  }
+  50% {
+    d: path('M0,25 C160,-50 140, 110 300,25');
+    stroke: #ff0092;
+  }
+}

@@ -1,0 +1,61 @@
+.demo-b-0047__loader {
+  position: relative;
+  display: block;
+  width: 300px;
+  height: 300px;
+  transform: rotateX(-20deg);
+  transform-style: preserve-3d;
+}
+
+.demo-b-0047__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: demo-b-0047-spin 4s linear infinite;
+}
+
+.demo-b-0047__side {
+  position: absolute;
+  inset: 0;
+  width: 70px;
+  height: 70px;
+  margin: auto;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  transform-origin: center top;
+}
+
+.demo-b-0047__side--1 {
+  background: conic-gradient(#2bdeac, #f028fd, #d8cce6, #2f2585);
+  transform: rotateZ(-30deg) rotateY(90deg);
+}
+
+.demo-b-0047__side--2 {
+  background: conic-gradient(#2f2585, #d8cce6, #f028fd, #2bdeac);
+  transform: rotateZ(30deg) rotateY(90deg);
+}
+
+.demo-b-0047__side--3 {
+  background: conic-gradient(#2f2585, #d8cce6, #f028fd, #2bdeac);
+  transform: rotateX(30deg);
+}
+
+.demo-b-0047__side--4 {
+  background: conic-gradient(#2bdeac, #f028fd, #d8cce6, #2f2585);
+  transform: rotateX(-30deg);
+}
+
+.demo-b-0047__shadow {
+  position: absolute;
+  inset: 0;
+  width: 60px;
+  height: 60px;
+  margin: auto;
+  background: #8b5ad5;
+  filter: blur(1rem);
+  transform: rotateX(90deg) translateZ(-40px);
+}
+
+@keyframes demo-b-0047-spin {
+  to { transform: rotateY(360deg); }
+}

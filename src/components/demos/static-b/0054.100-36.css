@@ -1,0 +1,65 @@
+.demo-b-0054 {
+  width: 224px;
+  height: 160px;
+}
+
+.demo-b-0054__canvas { fill: #fff; }
+.dark .demo-b-0054__canvas { fill: #000; }
+.demo-b-0054__ink-fill { fill: #000; }
+.dark .demo-b-0054__ink-fill { fill: #fff; }
+.demo-b-0054__ink-stroke { stroke: #000; }
+.dark .demo-b-0054__ink-stroke { stroke: #fff; }
+.demo-b-0054__action { fill: hsl(var(--theme-action)); }
+
+.demo-b-0054__title,
+.demo-b-0054__menu,
+.demo-b-0054__visual,
+.demo-b-0054__text,
+.demo-b-0054__cell {
+  animation: demo-b-0054-fade-in 8s cubic-bezier(0.33, 1, 0.68, 1) infinite both paused;
+}
+
+.demo-b-0054__visual { animation-delay: 0.1s; }
+.demo-b-0054__text { animation-delay: 0.2s; }
+.demo-b-0054__cell:nth-child(1) { animation-delay: 0.2s; }
+.demo-b-0054__cell:nth-child(2) { animation-delay: 0.25s; }
+.demo-b-0054__cell:nth-child(3) { animation-delay: 0.3s; }
+
+.demo-b-0054__loader path:nth-child(1) {
+  animation: demo-b-0054-loader-1 8s cubic-bezier(0.87, 0, 0.13, 1) 2s infinite both paused;
+}
+
+.demo-b-0054__loader path:nth-child(2) {
+  animation: demo-b-0054-loader-2 8s cubic-bezier(0.87, 0, 0.13, 1) 2s infinite both paused;
+}
+
+.demo-b-0054__animated .demo-b-0054__loader path,
+.demo-b-0054__animated .demo-b-0054__title,
+.demo-b-0054__animated .demo-b-0054__menu,
+.demo-b-0054__animated .demo-b-0054__visual,
+.demo-b-0054__animated .demo-b-0054__text,
+.demo-b-0054__animated .demo-b-0054__grid path {
+  animation-play-state: running;
+}
+
+@keyframes demo-b-0054-fade-in {
+  0%, 32% { opacity: 1; transform: translate3d(0, 0, 0); }
+  32.01%, 43% { opacity: 0; transform: translate3d(0, 5px, 0); }
+  46.75%, 100% { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes demo-b-0054-loader-1 {
+  0% { opacity: 1; transform: scaleX(0); transform-origin: 2% 50%; }
+  10% { transform: scaleX(1); transform-origin: 2% 50%; }
+  14.01% { transform: scaleX(1); transform-origin: 99% 50%; }
+  24% { transform: scaleX(0.001); transform-origin: 99% 50%; }
+  24.01%, 100% { transform: scaleX(0.001); transform-origin: 2% 50%; }
+}
+
+@keyframes demo-b-0054-loader-2 {
+  0%, 2% { transform: scaleX(0.001); transform-origin: 2% 50%; }
+  12% { transform: scaleX(1); transform-origin: 2% 50%; }
+  12.1% { transform: scaleX(1); transform-origin: 99% 50%; }
+  22% { transform: scaleX(0.001); transform-origin: 99% 50%; }
+  22.1%, 100% { transform: scaleX(0.001); transform-origin: 2% 50%; }
+}

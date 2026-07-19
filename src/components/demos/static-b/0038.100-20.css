@@ -1,0 +1,46 @@
+.demo-b-0038__star {
+  width: 12em;
+  height: 12em;
+  margin: auto;
+}
+
+.demo-b-0038__stroke {
+  --demo-b-0038-duration: 2s;
+  animation: demo-b-0038-stroke-1 var(--demo-b-0038-duration) linear infinite;
+}
+
+.demo-b-0038__stroke--2 {
+  animation-name: demo-b-0038-stroke-2;
+  animation-delay: calc(var(--demo-b-0038-duration) / -2);
+}
+
+.demo-b-0038__stroke--3 {
+  animation-name: demo-b-0038-stroke-3;
+  animation-direction: reverse;
+}
+
+.demo-b-0038__stroke--4 {
+  animation-name: demo-b-0038-stroke-4;
+  animation-delay: calc(var(--demo-b-0038-duration) / -2);
+  animation-direction: reverse;
+}
+
+@keyframes demo-b-0038-stroke-1 {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 124; }
+}
+
+@keyframes demo-b-0038-stroke-2 {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 248; }
+}
+
+@keyframes demo-b-0038-stroke-3 {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 372; }
+}
+
+@keyframes demo-b-0038-stroke-4 {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 496; }
+}

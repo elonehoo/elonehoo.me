@@ -1,0 +1,42 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "eslint",
+    "typescript",
+    "unicorn",
+    "oxc",
+    "react",
+    "import",
+    "vitest"
+  ],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "off",
+    "perf": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "ignorePatterns": [
+    ".github/skills/**",
+    ".kun-canvas/**",
+    ".kun-design/**",
+    ".yuxiaolong-design/**",
+    ".yuxiaolong/**",
+    ".output/**",
+    ".tanstack/**",
+    "dist/**",
+    "src/routeTree.gen.ts",
+    "**/*.md/**"
+  ],
+  "options": {
+    "reportUnusedDisableDirectives": "error"
+  },
+  "rules": {
+    "import/no-unassigned-import": "off",
+    "react/iframe-missing-sandbox": "off",
+    "react/no-unstable-nested-components": "off",
+    "react/react-in-jsx-scope": "off"
+  }
+}

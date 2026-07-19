@@ -1,0 +1,60 @@
+.demo-b-0050__switch {
+  --demo-b-0050-focus: #2d8cf0;
+  --demo-b-0050-background: #fff;
+  --demo-b-0050-main: #323232;
+  --demo-b-0050-idle: #ccc;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 36px;
+  transform: translateX(calc(50% - 10px));
+}
+
+.demo-b-0050__toggle {
+  opacity: 0;
+}
+
+.demo-b-0050__slider {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: var(--demo-b-0050-idle);
+  border: 2px solid var(--demo-b-0050-main);
+  border-radius: 100px;
+  box-shadow: 4px 4px var(--demo-b-0050-main);
+  transition: 0.3s;
+}
+
+.demo-b-0050__slider::before {
+  position: absolute;
+  bottom: 1px;
+  left: 2px;
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  color: var(--demo-b-0050-main);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 25px;
+  text-align: center;
+  background: var(--demo-b-0050-background);
+  border: 2px solid var(--demo-b-0050-main);
+  border-radius: 100px;
+  content: 'off';
+  transition: 0.3s;
+}
+
+.demo-b-0050__toggle:checked + .demo-b-0050__slider {
+  background: var(--demo-b-0050-focus);
+  transform: translateX(-32px);
+}
+
+.demo-b-0050__toggle:checked + .demo-b-0050__slider::before {
+  content: 'on';
+  transform: translateX(32px);
+}

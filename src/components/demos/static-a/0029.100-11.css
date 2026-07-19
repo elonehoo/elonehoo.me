@@ -1,0 +1,34 @@
+.demo0029-spinner {
+  --demo0029-color: #000;
+
+  position: relative;
+  z-index: 2;
+  width: 0;
+  height: 0;
+  perspective: 200px;
+}
+
+.dark .demo0029-spinner {
+  --demo0029-color: #fff;
+}
+
+.demo0029-spinner i {
+  position: absolute;
+  display: block;
+  opacity: 1;
+}
+
+.demo0029-spinner b {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: var(--demo0029-color);
+  border-radius: 6px;
+  box-shadow: 0 0 14px var(--demo0029-color);
+  animation: demo0029-spin 3s ease-in-out infinite;
+}
+
+@keyframes demo0029-spin {
+  0%, 50% { transform: scale(1); }
+  15% { transform: translate(-3px, -3px) scale(3); }
+}

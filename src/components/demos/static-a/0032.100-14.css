@@ -1,0 +1,32 @@
+.demo0032-orbit {
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 60px;
+  border: 3px solid #808080;
+  border-radius: 100%;
+  animation: demo0032-rotate 1500ms linear infinite;
+}
+
+.demo0032-orbit-a {
+  position: relative;
+}
+
+.demo0032-orbit-b {
+  width: 40px;
+  height: 40px;
+  transform-origin: 63% 63%;
+  animation-duration: 4500ms;
+}
+
+.demo0032-orbit-c {
+  width: 20px;
+  height: 20px;
+  transform-origin: 74% 74%;
+  animation-duration: 9000ms;
+}
+
+@keyframes demo0032-rotate {
+  from { transform: rotateZ(0deg); }
+  to { transform: rotateZ(360deg); }
+}

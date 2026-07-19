@@ -1,0 +1,53 @@
+.demo0016-tea {
+  --demo0016-secondary: #000;
+}
+
+.dark .demo0016-tea {
+  --demo0016-secondary: #f8f9fa;
+}
+
+.demo0016-teabag {
+  transform: rotate(3deg);
+  transform-origin: top center;
+  animation: demo0016-swing 2s infinite;
+}
+
+.demo0016-steam-large {
+  stroke-dasharray: 13;
+  stroke-dashoffset: 13;
+  animation: demo0016-steam-large 2s infinite;
+}
+
+.demo0016-steam-small {
+  stroke-dasharray: 9;
+  stroke-dashoffset: 9;
+  animation: demo0016-steam-small 2s infinite;
+}
+
+@keyframes demo0016-swing {
+  50% { transform: rotate(-3deg); }
+}
+
+@keyframes demo0016-steam-large {
+  from {
+    opacity: 0.6;
+    stroke-dashoffset: 13;
+  }
+
+  to {
+    opacity: 0;
+    stroke-dashoffset: 39;
+  }
+}
+
+@keyframes demo0016-steam-small {
+  10% {
+    opacity: 0.6;
+    stroke-dashoffset: 9;
+  }
+
+  80%, 100% {
+    opacity: 0;
+    stroke-dashoffset: 27;
+  }
+}

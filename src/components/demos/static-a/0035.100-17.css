@@ -1,0 +1,24 @@
+.demo0035-wiggle {
+  --demo0035-color: rgb(0 0 0 / 90%);
+
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+.dark .demo0035-wiggle {
+  --demo0035-color: rgb(255 255 255 / 50%);
+}
+
+.demo0035-wiggle b {
+  position: absolute;
+  display: block;
+  border-radius: 5%;
+  transform: rotate(-10deg);
+  animation: demo0035-wiggle 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+}
+
+@keyframes demo0035-wiggle {
+  from { transform: rotate(-10deg); }
+  to { transform: rotate(10deg); }
+}

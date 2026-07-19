@@ -1,0 +1,75 @@
+.demo0011-motion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo0011-shape {
+  display: block;
+  width: 35px;
+  height: 35px;
+  border-radius: 4px;
+  background-color: #6469ff;
+  animation-duration: 0.9s;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.4, 1);
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+
+.demo0011-circle {
+  border-radius: 50%;
+  background-image: radial-gradient(circle at top left, #f8ff00, #00ffff00), radial-gradient(circle at bottom right, #ff1414, #ff149200);
+  animation-name: demo0011-circle-motion;
+}
+
+.demo0011-rectangle {
+  margin-left: 32px;
+  background-image: radial-gradient(circle at top right, #0ff, rgb(0 255 255 / 0%)), radial-gradient(circle at bottom left, #ff1492, rgb(255 20 146 / 0%));
+  animation-name: demo0011-rectangle-motion;
+}
+
+.demo0011-triangle {
+  margin-left: 32px;
+  border-radius: 50% 50% 4px 4px;
+  background-image: radial-gradient(circle at top right, #00ff51, rgb(0 255 255 / 0%)), radial-gradient(circle at top left, #14ffec, rgb(255 20 146 / 0%));
+  animation-name: demo0011-triangle-motion;
+}
+
+@keyframes demo0011-circle-motion {
+  from {
+    box-shadow: 0 4px 16px -1px rgb(255 161 161 / 50%);
+    transform: scale(1);
+  }
+
+  to {
+    box-shadow: 0 8px 16px -1px rgb(255 161 161 / 70%);
+    transform: scale(1.4);
+  }
+}
+
+@keyframes demo0011-rectangle-motion {
+  from {
+    border-radius: 4px;
+    box-shadow: 0 4px 16px -1px rgb(189 161 255 / 50%);
+    transform: scale(1);
+  }
+
+  to {
+    border-radius: 20%;
+    box-shadow: 0 8px 16px -1px rgb(189 161 255 / 70%);
+    transform: scale(1.4);
+  }
+}
+
+@keyframes demo0011-triangle-motion {
+  from {
+    border-radius: 50% 50% 4px 4px;
+    box-shadow: 0 4px 16px -1px rgb(93 224 255 / 50%);
+    transform: scale(1);
+  }
+
+  to {
+    box-shadow: 0 8px 16px -1px rgb(93 224 255 / 70%);
+    transform: scale(1.4);
+  }
+}

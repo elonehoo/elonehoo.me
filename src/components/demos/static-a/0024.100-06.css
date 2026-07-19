@@ -1,0 +1,84 @@
+.demo0024-box-picker {
+  --demo0024-size: 48px;
+  --demo0024-bg: #444;
+  --demo0024-border: #fff;
+  --demo0024-rotate: 0deg;
+  --demo0024-scale: 1;
+  --demo0024-x: 0;
+  --demo0024-y: 0;
+
+  position: relative;
+  width: calc(var(--demo0024-size) * 2);
+  height: calc(var(--demo0024-size) * 2);
+}
+
+.demo0024-box-picker input,
+.demo0024-box-picker label {
+  position: absolute;
+  width: var(--demo0024-size);
+  height: var(--demo0024-size);
+}
+
+.demo0024-box-picker input {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.demo0024-box-picker label {
+  top: var(--demo0024-y);
+  left: var(--demo0024-x);
+  box-sizing: border-box;
+  padding: 4px;
+  color: #fff;
+  font-size: 12px;
+  background: var(--demo0024-bg);
+  border: 1.5px solid var(--demo0024-border);
+  border-radius: calc(var(--demo0024-size) * 0.18);
+  cursor: pointer;
+  transform: rotate(var(--demo0024-rotate)) scale(var(--demo0024-scale));
+  transition: 0.3s;
+}
+
+.demo0024-box-picker input:not(:checked) + label {
+  --demo0024-rotate: -16deg;
+  --demo0024-x: calc(var(--demo0024-size) * -0.48);
+  --demo0024-y: calc(var(--demo0024-size) * -0.3);
+}
+
+.demo0024-box-picker input:not(:checked) ~ input:not(:checked) + label {
+  --demo0024-rotate: 16deg;
+  --demo0024-x: calc(var(--demo0024-size) * 0.48);
+  --demo0024-y: calc(var(--demo0024-size) * -0.3);
+}
+
+.demo0024-box-picker input:checked + label {
+  --demo0024-bg: #39f;
+  --demo0024-scale: 1.2;
+
+  z-index: 1;
+}
+
+.demo0024-box-picker:hover label {
+  --demo0024-bg: #39f;
+  --demo0024-border: #39f;
+}
+
+.demo0024-box-picker:hover label:hover {
+  --demo0024-scale: 1.2;
+}
+
+.demo0024-box-picker:hover input:not(:checked) + label {
+  --demo0024-rotate: 0deg;
+  --demo0024-x: calc(var(--demo0024-size) * -1.3);
+  --demo0024-y: 0;
+}
+
+.demo0024-box-picker:hover input:not(:checked) ~ input:not(:checked) + label {
+  --demo0024-rotate: 0deg;
+  --demo0024-x: calc(var(--demo0024-size) * 1.3);
+  --demo0024-y: 0;
+}
+
+.demo0024-box-picker:hover input:checked + label {
+  --demo0024-scale: 1;
+}

@@ -1,0 +1,61 @@
+@property --demo0036-ay {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@property --demo0036-az {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.demo0036-system,
+.demo0036-system::before,
+.demo0036-system::after,
+.demo0036-glass {
+  display: grid;
+  grid-area: 1 / 1;
+  aspect-ratio: 1;
+  place-items: center;
+}
+
+.demo0036-system {
+  transform-style: preserve-3d;
+  rotate: -22.5deg;
+}
+
+.demo0036-system::before,
+.demo0036-system::after {
+  --demo0036-p: 0;
+
+  width: 33.3%;
+  background: hsl(113deg calc(var(--demo0036-p) * 81%) calc((1 - var(--demo0036-p) / 3) * 100%));
+  border-radius: calc(var(--demo0036-p) * 50%);
+  content: '';
+  transform: rotateY(calc(-1 * var(--demo0036-ay))) translate(275%) rotateY(var(--demo0036-ay)) rotate(calc(var(--demo0036-az) - 45deg));
+  animation: demo0036-ay 6s ease-in-out infinite, demo0036-az 3s ease-in-out infinite;
+  animation-delay: calc(var(--demo0036-p) * -3s);
+}
+
+.demo0036-system::after {
+  --demo0036-p: 1;
+}
+
+.demo0036-glass {
+  width: min(10em, 50vmin);
+  color: rgb(255 255 255 / 20%);
+  background: currentcolor;
+  border-radius: 50%;
+  box-shadow: inset 0 3px 2px currentcolor;
+  backdrop-filter: blur(15px);
+}
+
+@keyframes demo0036-ay {
+  50% { --demo0036-ay: 0.5turn; }
+  100% { --demo0036-ay: 1turn; }
+}
+
+@keyframes demo0036-az {
+  to { --demo0036-az: 1turn; }
+}
