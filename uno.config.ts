@@ -1,3 +1,4 @@
+import { presetTypography } from '@unocss/preset-typography'
 import {
   defineConfig,
   presetAttributify,
@@ -39,6 +40,7 @@ export default defineConfig({
   },
   presets: [
     presetWind4(),
+    presetTypography(),
     presetAttributify(),
     presetAnimations(),
     presetIcons(),

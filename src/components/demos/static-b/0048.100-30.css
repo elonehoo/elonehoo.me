@@ -1,0 +1,36 @@
+.demo-b-0048 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+}
+
+.demo-b-0048__loader {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border-radius: 30px;
+}
+
+.demo-b-0048__loader--glass {
+  z-index: 2;
+  background: rgb(255 255 255 / 0.2);
+  border: 2px solid rgb(0 0 0 / 0.3);
+}
+
+.dark .demo-b-0048__loader--glass {
+  border-color: rgb(255 255 255 / 0.3);
+}
+
+.demo-b-0048__loader--color {
+  z-index: 1;
+  background: linear-gradient(135deg, #1afbf0, #da00ff);
+  filter: blur(2px);
+  animation: demo-b-0048-rotate 2.5s ease-in-out infinite;
+}
+
+@keyframes demo-b-0048-rotate {
+  50% { transform: rotate(-80deg); }
+}

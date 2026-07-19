@@ -24,6 +24,9 @@ dist-ssr
 cache
 .nuxt
 .output
+.data
+.tanstack
+src/routeTree.gen.ts
 public/og
 .vitepress/cache
 .specstory

@@ -1,0 +1,44 @@
+.demo0028-hole {
+  --demo0028-line-color: rgb(0 0 0 / 50%);
+
+  position: relative;
+  z-index: 2;
+  width: 0;
+  height: 0;
+}
+
+.dark .demo0028-hole {
+  --demo0028-line-color: rgb(255 255 255 / 50%);
+}
+
+.demo0028-hole i {
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  display: block;
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  border-radius: 50%;
+  animation: demo0028-scale 3s linear infinite;
+}
+
+@keyframes demo0028-scale {
+  0% {
+    opacity: 0;
+    box-shadow: 0 0 50px var(--demo0028-line-color);
+    transform: scale(2);
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow: 0 8px 20px var(--demo0028-line-color);
+    transform: scale(1) translateY(-5px);
+  }
+
+  100% {
+    opacity: 0;
+    box-shadow: 0 10px 20px rgb(255 255 255 / 0%);
+    transform: scale(0.1) translateY(5px);
+  }
+}

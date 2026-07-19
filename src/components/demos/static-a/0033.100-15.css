@@ -1,0 +1,84 @@
+.demo0033-form {
+  position: relative;
+  width: 150px;
+  height: 50px;
+}
+
+.demo0033-form > input {
+  display: none;
+}
+
+.demo0033-switch {
+  position: absolute;
+  inset: 0;
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  background: #4cd964;
+  border-radius: 25px;
+  transition: all 0.2s ease;
+}
+
+.demo0033-switch > span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 20px;
+  height: 4px;
+  margin: -2px 0 0 -4px;
+  background: #fff;
+  border-radius: 2px;
+  transform: rotate(-45deg);
+  transition: all 0.2s ease;
+}
+
+.demo0033-switch > span::after {
+  position: absolute;
+  display: block;
+  width: 4px;
+  height: 12px;
+  margin-top: -8px;
+  background: #fff;
+  border-radius: 2px;
+  content: '';
+  transition: all 0.2s ease;
+}
+
+.demo0033-switch label {
+  width: 60px;
+  color: rgb(0 0 0 / 20%);
+  line-height: 50px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.demo0033-yes-label {
+  position: absolute;
+  left: 0;
+  height: 20px;
+}
+
+.demo0033-no-label {
+  position: absolute;
+  right: 0;
+}
+
+.demo0033-no-input:checked ~ .demo0033-switch {
+  background: #ff3b30;
+}
+
+.demo0033-no-input:checked ~ .demo0033-switch > span {
+  margin-left: -8px;
+}
+
+.demo0033-no-input:checked ~ .demo0033-switch > span::after {
+  height: 20px;
+  margin-top: -8px;
+  margin-left: 8px;
+}
+
+.demo0033-yes-input:checked ~ .demo0033-switch .demo0033-yes-label,
+.demo0033-no-input:checked ~ .demo0033-switch .demo0033-no-label {
+  color: #fff;
+}

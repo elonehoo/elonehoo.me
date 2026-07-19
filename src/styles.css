@@ -1,0 +1,76 @@
+@import './assets/css/index.css';
+
+:root {
+  color-scheme: light;
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+.site-background {
+  background-image: linear-gradient(90deg, #fff, rgba(255, 255, 255, .63)), url('/assets/noise.svg'), linear-gradient(hsl(var(--theme-action)) 1px, transparent 0), linear-gradient(90deg, hsl(var(--theme-action)) 1px, #fff 0);
+  background-size: auto, auto, 20px 20px, 20px 20px;
+}
+
+.dark .site-background {
+  background-image: linear-gradient(90deg, #101010, rgba(0, 0, 0, .83)), url('/assets/noise.svg'), linear-gradient(hsl(var(--theme-action)) 1px, transparent 0), linear-gradient(90deg, hsl(var(--theme-action)) 1px, #000 0);
+  background-size: auto, auto, 20px 20px, 20px 20px;
+}
+
+.heading-anchor {
+  color: inherit !important;
+  text-decoration: none;
+}
+
+.demo-frame {
+  background: #f8f8f8;
+  border: 1px solid #ededed;
+}
+
+.dark .demo-frame {
+  background: #1c1c1c;
+  border-color: #282828;
+}
+
+.newsletter-backdrop {
+  background: rgb(0 0 0 / 35%);
+  backdrop-filter: blur(4px);
+}
+
+.toc-link[data-active='true'] {
+  color: hsl(var(--theme-action));
+}
+
+.embed-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 8px;
+}
+
+.github-card {
+  display: block;
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px solid var(--gray-6);
+  border-radius: 6px;
+}

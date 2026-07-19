@@ -1,0 +1,53 @@
+.demo0025-sentence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  color: #374151;
+  font-weight: 800;
+  font-size: 1.125rem;
+  text-wrap: balance;
+}
+
+.dark .demo0025-sentence {
+  color: #e5e7eb;
+}
+
+.demo0025-window {
+  display: inline-flex;
+  height: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  line-height: 1.5rem;
+}
+
+.demo0025-list {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  animation: demo0025-text-slide 10.5s cubic-bezier(0.83, 0, 0.17, 1) infinite;
+}
+
+.demo0025-item {
+  display: block;
+  height: 1.5rem;
+  white-space: nowrap;
+}
+
+.demo0025-indigo { color: #6366f1; }
+.demo0025-rose { color: #f43f5e; }
+.demo0025-yellow { color: #eab308; }
+.demo0025-teal { color: #14b8a6; }
+.demo0025-pink { color: #ec4899; }
+.demo0025-sky { color: #0ea5e9; }
+
+@keyframes demo0025-text-slide {
+  0%, 16% { transform: translateY(0%); }
+  20%, 36% { transform: translateY(-16.6667%); }
+  40%, 56% { transform: translateY(-33.3333%); }
+  60%, 76% { transform: translateY(-50%); }
+  80%, 96% { transform: translateY(-66.6667%); }
+  100% { transform: translateY(-83.3333%); }
+}

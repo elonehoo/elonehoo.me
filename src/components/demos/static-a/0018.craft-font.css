@@ -1,0 +1,19 @@
+.demo0018-outline-text {
+  color: transparent;
+  font-size: 3rem;
+  line-height: 1;
+  -webkit-text-stroke: 1px #000;
+  transition: color 300ms linear;
+}
+
+.demo0018-outline-text:hover {
+  color: #111;
+}
+
+.dark .demo0018-outline-text {
+  -webkit-text-stroke-color: #fff;
+}
+
+.dark .demo0018-outline-text:hover {
+  color: #fff;
+}

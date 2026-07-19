@@ -1,0 +1,50 @@
+.demo-b-0045__button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  background: rgb(20 20 20);
+  border: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgb(0 0 0 / 0.164);
+  transition: width 0.3s, border-radius 0.3s, background-color 0.3s;
+}
+
+.demo-b-0045__icon {
+  width: 12px;
+  transition: width 0.3s, transform 0.3s;
+}
+
+.demo-b-0045__icon path {
+  fill: #fff;
+}
+
+.demo-b-0045__button:hover {
+  width: 140px;
+  background: rgb(255 69 69);
+  border-radius: 50px;
+}
+
+.demo-b-0045__button:hover .demo-b-0045__icon {
+  width: 50px;
+  transform: translateY(60%);
+}
+
+.demo-b-0045__button::before {
+  position: absolute;
+  top: -20px;
+  color: #fff;
+  font-size: 2px;
+  content: 'Delete';
+  transition: font-size 0.3s, opacity 0.3s, transform 0.3s;
+}
+
+.demo-b-0045__button:hover::before {
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(30px);
+}
