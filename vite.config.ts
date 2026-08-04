@@ -23,6 +23,10 @@ export default defineConfig({
         enabled: true,
         crawlLinks: true,
         failOnError: true,
+        // Default is os.cpus().length; on small CI builders concurrent SSR + Shiki OOMs the prerender server.
+        concurrency: 2,
+        retryCount: 2,
+        retryDelay: 500,
         filter: ({ path }) => !path.startsWith('/api/'),
       },
     }),
