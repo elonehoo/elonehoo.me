@@ -12,6 +12,7 @@ import remarkSupersub from 'remark-supersub'
 import { visit } from 'unist-util-visit'
 import { navigation } from '../config'
 import { getSectionRecords, groupRecordsByYear } from '../content'
+import { rehypeShikiVitesse } from '../lib/shiki-rehype'
 import { DemoRenderer } from './demos/DemoRenderer'
 
 function remarkContentDirectives() {
@@ -254,9 +255,24 @@ export function MarkdownContent({ record }: { record: ContentRecord }) {
     ),
     'link-list': () => <LinkList record={record} />,
     'navigation-list': NavigationList,
-    'span': ({ children, ...props }: { 'children'?: ReactNode, 'data-directive'?: string, 'value'?: string }) => (
-      <RatingOrValue directive={props['data-directive']} value={props.value}>{children}</RatingOrValue>
-    ),
+    // Directive spans only; default path keeps Shiki token style/className intact.
+    'span': ({ node: _node, children, ...props }: {
+      'node'?: unknown
+      'children'?: ReactNode
+      'data-directive'?: string
+      'value'?: string
+      [key: string]: unknown
+    }) => {
+      if (props['data-directive']) {
+        return (
+          <RatingOrValue directive={props['data-directive']} value={props.value as string | undefined}>
+            {children}
+          </RatingOrValue>
+        )
+      }
+
+      return <span {...props}>{children}</span>
+    },
     'tweet': ({ id }: { id?: string }) => id
       ? <a className="github-card" href={`https://x.com/i/status/${id}`} target="_blank" rel="noreferrer">View post on X</a>
       : null,
@@ -267,7 +283,12 @@ export function MarkdownContent({ record }: { record: ContentRecord }) {
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm, remarkDirective, remarkContentDirectives, remarkSupersub]}
-      rehypePlugins={[rehypeRaw, rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap', properties: { className: ['heading-anchor'] } }]]}
+      rehypePlugins={[
+        rehypeRaw,
+        rehypeSlug,
+        [rehypeAutolinkHeadings, { behavior: 'wrap', properties: { className: ['heading-anchor'] } }],
+        rehypeShikiVitesse,
+      ]}
       components={components}
     >
       {prepareMarkdown(record.source)}

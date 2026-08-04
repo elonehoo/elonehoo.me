@@ -17,6 +17,7 @@
     "lint:fix": "oxlint . --fix --deny-warnings"
   },
   "dependencies": {
+    "@shikijs/rehype": "^4.4.1",
     "@tanstack/react-router": "^1.170.18",
     "@tanstack/react-start": "^1.168.30",
     "dayjs": "^1.11.21",
@@ -32,6 +33,7 @@
     "remark-directive": "^4.0.0",
     "remark-gfm": "^4.0.1",
     "remark-supersub": "^1.0.0",
+    "shiki": "^4.4.1",
     "srvx": "^0.11.22",
     "unist-util-visit": "^5.0.0",
     "yaml": "^2.9.0"
