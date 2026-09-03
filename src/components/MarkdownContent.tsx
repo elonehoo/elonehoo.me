@@ -150,7 +150,14 @@ function DocumentList({ record }: { record: ContentRecord }) {
             {group.records.map(item => (
               <div key={item.path} className="group mt-4 flex flex-col">
                 <div className="flex justify-between gap-x-4 md:gap-x-8">
-                  <Link to={item.path as never}>{item.title}</Link>
+                  {item.meta.upcoming === true
+                    ? (
+                        <span className="inline-flex items-center gap-x-1.5">
+                          <a aria-disabled="true" tabIndex={-1}>{item.title}</a>
+                          <span className="rounded-sm bg-gray-3 px-1 py-0.5 text-xs text-gray-9">upcoming</span>
+                        </span>
+                      )
+                    : <Link to={item.path as never}>{item.title}</Link>}
                   {item.date && (
                     <time className="hidden text-gray-9 group-hover:text-gray-12 md:block" dateTime={item.date}>
                       {dayjs(item.date).format('M月D日')}
