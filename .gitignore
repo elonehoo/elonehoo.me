@@ -33,3 +33,5 @@ public/og
 .alma-snapshots
 
 .yuxiaolong*
+.vercel
+.env*

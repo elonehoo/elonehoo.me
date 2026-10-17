@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url'
 
 import matter from 'gray-matter'
 import nodemailer from 'nodemailer'
+import { get, list } from '@vercel/blob'
 
 const rootDir = join(dirname(fileURLToPath(import.meta.url)), '..')
 const siteUrl = process.env.NEWSLETTER_SITE_URL || 'https://elonehoo.me'
@@ -44,7 +45,25 @@ function writeJsonFile(filePath, value) {
   writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`)
 }
 
-function readSubscribers() {
+async function readSubscribers() {
+  if (process.env.BLOB_READ_WRITE_TOKEN || process.env.BLOB_STORE_ID) {
+    const subscribers = new Set()
+    let cursor
+    do {
+      const page = await list({ prefix: 'newsletter/subscribers/', cursor })
+      for (const blob of page.blobs) {
+        const result = await get(blob.url, { access: 'private', useCache: false })
+        if (!result || result.statusCode !== 200)
+          throw new Error('A stored newsletter subscriber could not be read.')
+        const subscriber = await new Response(result.stream).json()
+        if (typeof subscriber.email === 'string' && subscriber.email)
+          subscribers.add(subscriber.email)
+      }
+      cursor = page.hasMore ? page.cursor : undefined
+    } while (cursor)
+    return [...subscribers]
+  }
+
   const filePath = resolveDataPath(
     'NEWSLETTER_SUBSCRIBERS_PATH',
     join('data', 'newsletter', 'subscribers.json'),
@@ -221,7 +240,7 @@ async function sendPost(transporter, post, subscribers) {
 }
 
 async function main() {
-  const subscribers = readSubscribers()
+  const subscribers = await readSubscribers()
   const sentStore = readSentPosts()
   const sentPostPaths = new Set(sentStore.posts.map(post => post.path))
   const posts = pickPosts(readPosts(), sentPostPaths)
