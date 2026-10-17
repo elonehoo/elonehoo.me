@@ -3,7 +3,7 @@ import { TanStackDevtools } from '@tanstack/react-devtools'
 import { createRootRoute, HeadContent, Outlet, Scripts } from '@tanstack/react-router'
 import { AppShell } from '../components/AppShell'
 import { siteConfig } from '../config'
-import appCss from '../styles.css?url'
+import '../styles.css'
 import 'virtual:uno.css'
 
 const themeScript = `(() => {
@@ -23,7 +23,6 @@ export const Route = createRootRoute({
       { name: 'description', content: siteConfig.description },
     ],
     links: [
-      { rel: 'stylesheet', href: appCss },
       { rel: 'icon', href: '/favicon.ico' },
     ],
   }),
