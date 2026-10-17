@@ -1,8 +1,10 @@
 import { execFile } from 'node:child_process'
+import { createHash } from 'node:crypto'
 import { mkdir, readFile, rename, writeFile } from 'node:fs/promises'
 import { dirname, isAbsolute, join, relative } from 'node:path'
 import process from 'node:process'
 import { promisify } from 'node:util'
+import { head, put } from '@vercel/blob'
 
 const execFileAsync = promisify(execFile)
 
@@ -16,6 +18,37 @@ interface NewsletterStore {
 }
 
 let writeQueue = Promise.resolve()
+
+export class NewsletterUnavailableError extends Error {}
+
+function hasBlobStore() {
+  return Boolean(process.env.BLOB_READ_WRITE_TOKEN || process.env.BLOB_STORE_ID)
+}
+
+async function addBlobSubscriber(email: string) {
+  const key = createHash('sha256').update(email).digest('hex')
+  const pathname = `newsletter/subscribers/${key}.json`
+  try {
+    await put(pathname, JSON.stringify({ email, subscribedAt: new Date().toISOString() }), {
+      access: 'private',
+      addRandomSuffix: false,
+      allowOverwrite: false,
+      contentType: 'application/json',
+    })
+    return { created: true, filePath: pathname }
+  }
+  catch (error) {
+    // A deterministic, non-overwriting object makes duplicate and concurrent
+    // subscriptions safe without rewriting a shared subscriber list.
+    try {
+      await head(pathname)
+      return { created: false, filePath: pathname }
+    }
+    catch {
+      throw error
+    }
+  }
+}
 
 function getGitCwd() {
   return process.env.NEWSLETTER_GIT_CWD || process.cwd()
@@ -89,6 +122,16 @@ export function normalizeNewsletterEmail(value: unknown) {
 }
 
 export function addNewsletterSubscriber(email: string) {
+  // Preview deployments must never add test addresses to the production list.
+  if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== 'production')
+    return Promise.reject(new NewsletterUnavailableError('Newsletter subscriptions are unavailable in previews.'))
+
+  if (hasBlobStore())
+    return addBlobSubscriber(email)
+
+  if (process.env.VERCEL)
+    return Promise.reject(new NewsletterUnavailableError('Newsletter storage is not configured.'))
+
   const operation = writeQueue.then(async () => {
     const filePath = getSubscribersPath()
     const store = await readNewsletterStore(filePath)

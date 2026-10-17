@@ -1,10 +1,11 @@
 import { devtools } from '@tanstack/devtools-vite'
 import { tanstackStart } from '@tanstack/react-start/plugin/vite'
 import React from '@vitejs/plugin-react'
+import { nitro } from 'nitro/vite'
 import UnoCSS from 'unocss/vite'
 import { defineConfig } from 'vite'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   build: {
     rolldownOptions: {
       output: {
@@ -30,6 +31,7 @@ export default defineConfig({
         filter: ({ path }) => !path.startsWith('/api/'),
       },
     }),
+    ...(mode === 'test' ? [] : [nitro()]),
     React(),
   ],
-})
+}))
