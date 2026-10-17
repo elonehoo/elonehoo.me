@@ -18,8 +18,8 @@
   },
   "dependencies": {
     "@shikijs/rehype": "^4.4.1",
-    "@tanstack/react-router": "^1.170.18",
-    "@tanstack/react-start": "^1.168.30",
+    "@tanstack/react-router": "^1.170.41",
+    "@tanstack/react-start": "^1.168.60",
     "@vercel/blob": "^2.8.2",
     "dayjs": "^1.11.21",
     "gray-matter": "^4.0.3",
