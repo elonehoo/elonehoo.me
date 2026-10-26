@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ComponentPropsWithoutRef, ReactNode } from 'react'
 import type { ContentRecord } from '../content'
 import { Link } from '@tanstack/react-router'
 import dayjs from 'dayjs'
@@ -14,6 +14,7 @@ import { navigation } from '../config'
 import { getSectionRecords, groupRecordsByYear } from '../content'
 import { rehypeShikiVitesse } from '../lib/shiki-rehype'
 import { DemoRenderer } from './demos/DemoRenderer'
+import { HoSignature } from './HoSignature'
 
 function remarkContentDirectives() {
   return (tree: unknown) => {
@@ -253,6 +254,12 @@ export function MarkdownContent({ record }: { record: ContentRecord }) {
     'document-list': () => <DocumentList record={record} />,
     'githubcard': (props: Record<string, string>) => <GitHubCard {...props} />,
     'githublink': (props: Record<string, string>) => <GitHubCard {...props} />,
+    'h1': ({ node: _node, children, className, ...props }: ComponentPropsWithoutRef<'h1'> & { node?: unknown }) => (
+      <h1 {...props} className={record.path === '/' ? `home-title ${className || ''}`.trim() : className}>
+        {record.path === '/' && <HoSignature />}
+        {children}
+      </h1>
+    ),
     'icon': () => <span aria-hidden="true" />,
     'lang-tag': ({ name, status }: { name?: string, status?: string }) => (
       <span>

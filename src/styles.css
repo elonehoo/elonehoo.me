@@ -41,6 +41,51 @@ button {
   text-decoration: none;
 }
 
+.prose-md h1.home-title {
+  gap: 10px;
+}
+
+.prose-md h1.home-title::before {
+  content: none;
+}
+
+.home-signature {
+  display: block;
+  flex: 0 0 36px;
+  overflow: visible;
+}
+
+.home-signature-stroke {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+  animation: home-signature-write 4s ease-in-out .2s infinite both;
+}
+
+@keyframes home-signature-write {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 1;
+  }
+  45%,
+  75% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  90%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-signature-stroke {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
 .demo-frame {
   background: #f8f8f8;
   border: 1px solid #ededed;
