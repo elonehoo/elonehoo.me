@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 10 80 80" fill="none">
+  <title>Elone Hoo</title>
+  <style>
+    svg { color: #171717; }
+    @media (prefers-color-scheme: dark) {
+      svg { color: #f1f1f1; }
+    }
+  </style>
+  <path d="M19 66 C29 55 41 33 44 22 C47 11 39 14 34 28 C29 43 27 66 24 84 C30 71 39 53 46 55 C54 57 43 73 45 80 C47 87 57 76 61 66 C65 56 75 54 78 60 C83 69 69 87 62 82 C55 77 63 59 73 58 C79 57 77 67 85 62" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

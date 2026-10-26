@@ -23,7 +23,9 @@ export const Route = createRootRoute({
       { name: 'description', content: siteConfig.description },
     ],
     links: [
-      { rel: 'icon', href: '/favicon.ico' },
+      { rel: 'icon', href: '/favicon.ico?v=ho', sizes: '16x16 32x32 48x48 64x64' },
+      { rel: 'icon', href: '/favicon.svg?v=ho', type: 'image/svg+xml' },
+      { rel: 'apple-touch-icon', href: '/assets/me/favicon.png?v=ho', sizes: '180x180' },
     ],
   }),
   component: RootLayout,
