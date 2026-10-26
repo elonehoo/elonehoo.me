@@ -3,7 +3,6 @@ import { useRouterState } from '@tanstack/react-router'
 import { ArrowLeft, ArrowUp } from 'lucide-react'
 import { siteConfig, socialLinks } from '../config'
 import { NewsletterSubscribe } from './NewsletterSubscribe'
-import { SiteLogo } from './SiteLogo'
 import { SocialIcon } from './SocialIcon'
 import { TableOfContents } from './TableOfContents'
 
@@ -64,13 +63,6 @@ export function AppShell({ children }: { children: ReactNode }) {
     <div id="page-top" className="site-background min-h-screen p-4 py-10 md:p-12" onDoubleClick={toggleColorMode}>
       <div className="animate-in justify-between fade-in duration-500 md:flex">
         <main className="page-content flex flex-col gap-y-6 overflow-x-hidden md:max-w-[550px] md:gap-y-0">
-          <a
-            href="/"
-            aria-label="Elone Hoo 首页"
-            className="mb-0 inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-sm text-gray-12 transition-colors hover:text-action focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-action md:mb-6"
-          >
-            <SiteLogo />
-          </a>
           {children}
           {pathname !== '/' && (
             <div className="mt-10 flex items-center justify-between">
