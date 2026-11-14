@@ -5,7 +5,7 @@ import { createHighlighter } from 'shiki'
  * Preload highlighter so rehype stays sync (react-markdown uses runSync).
  * Dual theme: vitesse-light (inline) + vitesse-dark (css vars, switched by html.dark).
  */
-const highlighter = await createHighlighter({
+export const highlighter = await createHighlighter({
   themes: ['vitesse-light', 'vitesse-dark'],
   langs: [
     'typescript',
@@ -27,6 +27,8 @@ const highlighter = await createHighlighter({
     'toml',
     'sql',
     'diff',
+    'glsl',
+    'c',
   ],
   langAlias: {
     ts: 'typescript',

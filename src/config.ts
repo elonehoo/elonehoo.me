@@ -2,6 +2,7 @@ export const navigation = [
   { text: '博客', link: '/posts' },
   { text: '分享', link: '/talks' },
   { text: '随笔', link: '/notes' },
+  { text: '学习', link: '/learn' },
   { text: '项目', link: '/projects' },
   { text: '小样', link: '/demos' },
   { text: '书签', link: '/bookmarks' },

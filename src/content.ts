@@ -20,25 +20,36 @@ const markdownFiles = import.meta.glob('../content/**/*.md', {
   query: '?raw',
 }) as Record<string, string>
 
-function stripOrderingPrefix(segment: string) {
+export interface ContentSegment {
+  order: number
+  slug: string
+}
+
+function parseContentSegment(segment: string): ContentSegment {
   const match = segment.match(/^(\d+)\.(.+)$/)
 
   if (!match || /^\d+$/.test(match[2]))
-    return segment
+    return { order: 0, slug: segment.normalize('NFC') }
 
-  return match[2]
+  return { order: Number(match[1]), slug: match[2].normalize('NFC') }
 }
 
-export function contentPathFromFilename(filename: string) {
+export function contentSegmentsFromFilename(filename: string) {
   const relative = filename
     .replace(/^.*?content\//, '')
     .replace(/\.md$/, '')
-  const segments = relative.split('/').map(stripOrderingPrefix)
+  const segments = relative.split('/').filter(Boolean).map(parseContentSegment)
 
-  if (segments.at(-1) === 'index')
+  if (segments.at(-1)?.slug === 'index')
     segments.pop()
 
-  return `/${segments.join('/')}`.replace(/\/$/, '') || '/'
+  return segments
+}
+
+export function contentPathFromFilename(filename: string) {
+  const segments = contentSegmentsFromFilename(filename)
+
+  return `/${segments.map(segment => segment.slug).join('/')}`.replace(/\/$/, '') || '/'
 }
 
 function toOptionalString(value: unknown) {

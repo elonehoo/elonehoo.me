@@ -89,3 +89,11 @@ html.dark .prose-md .shiki span {
 .prose-md pre.shiki .line {
   --at-apply: inline-block w-full;
 }
+
+.lesson-code pre.shiki {
+  max-height: 60vh;
+}
+
+.lesson-code pre.shiki code {
+  padding-left: 0;
+}
