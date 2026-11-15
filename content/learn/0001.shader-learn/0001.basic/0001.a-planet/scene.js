@@ -8,7 +8,7 @@ renderer.setSize(canvas.clientWidth, canvas.clientHeight, false)
 const scene = new THREE.Scene()
 scene.background = new THREE.Color(0x101b23)
 const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 50)
-camera.position.set(0, 0.3, 8.3)
+camera.position.set(0, 0.3, 14)
 
 scene.add(new THREE.HemisphereLight(0xd9e9ee, 0x38443b, 1.5))
 const light = new THREE.DirectionalLight(0xfff2dc, 3)
