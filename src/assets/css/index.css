@@ -2,6 +2,7 @@
 @import './bootstrap.css';
 @import './markdown.css';
 @import './code.css';
+@import './learn.css';
 @import './transition.css';
 
 html {

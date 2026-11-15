@@ -2,7 +2,6 @@ import type { MouseEvent, ReactNode } from 'react'
 import { useRouterState } from '@tanstack/react-router'
 import { ArrowLeft, ArrowUp } from 'lucide-react'
 import { siteConfig, socialLinks } from '../config'
-import { LearnToc } from './LearnOutline'
 import { NewsletterSubscribe } from './NewsletterSubscribe'
 import { SocialIcon } from './SocialIcon'
 import { TableOfContents } from './TableOfContents'
@@ -61,12 +60,20 @@ export function AppShell({ children }: { children: ReactNode }) {
     transition.finished.finally(() => delete root.dataset.themeSwitch)
   }
 
+  if (isLearnTutorial) {
+    return (
+      <div id="page-top" className="learn-course site-background" onDoubleClick={toggleColorMode}>
+        {children}
+      </div>
+    )
+  }
+
   return (
     <div id="page-top" className="site-background min-h-screen p-4 py-10 md:p-12" onDoubleClick={toggleColorMode}>
-      <div className={`animate-in fade-in duration-500 md:flex ${isLearnTutorial ? 'md:items-start md:gap-10' : 'justify-between'}`}>
-        <main className={`page-content flex flex-col gap-y-6 overflow-x-hidden md:gap-y-0 ${isLearnTutorial ? 'md:w-[550px] md:shrink-0' : 'md:max-w-[550px]'}`}>
+      <div className="animate-in fade-in duration-500 md:flex justify-between">
+        <main className="page-content flex flex-col gap-y-6 overflow-x-hidden md:max-w-[550px] md:gap-y-0">
           {children}
-          {pathname !== '/' && !isLearnTutorial && (
+          {pathname !== '/' && (
             <div className="mt-10 flex items-center justify-between">
               <button
                 className="flex cursor-pointer items-center gap-x-1 rounded-sm bg-action/80 px-1 py-0.5 text-sm font-medium text-gray-1 hover:bg-action dark:bg-action dark:text-dark"
@@ -89,17 +96,14 @@ export function AppShell({ children }: { children: ReactNode }) {
             <span className="ml-1">{siteConfig.footer.copyright}</span>
           </footer>
         </main>
-        <aside className={isLearnTutorial ? 'mt-10 w-full md:mt-0 md:w-[min(100%,28rem)] md:shrink-0 md:text-right' : 'md:max-w-[550px] md:text-right'}>
+        <aside className="md:max-w-[550px] md:text-right">
           <div className="p-1 md:p-4">
             <div className="mt-12 flex flex-wrap gap-x-6 gap-y-2 md:mt-0 md:flex-col md:items-end md:gap-y-0">
-              {isLearnTutorial
-                ? <LearnToc pathname={pathname} />
-                : isDetailPage
-                  ? <TableOfContents pathname={pathname} />
-                  : <SocialOutline />}
+              {isDetailPage
+                ? <TableOfContents pathname={pathname} />
+                : <SocialOutline />}
             </div>
           </div>
-          {isLearnTutorial && <div id="learn-stage" className="mt-6 h-[60vh] w-full" />}
         </aside>
       </div>
     </div>

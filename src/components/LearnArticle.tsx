@@ -1,20 +1,18 @@
 import { Link } from '@tanstack/react-router'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { coreCode, filesBesideMarkdown, lessonDependencies, splitLessonPreview } from '../learn-preview'
-import { findLearnNode, getLearnTutorials, learnNeighbors } from '../learn'
+import { findLearnNode, getLearnTutorials, learnAncestors, learnNeighbors, learnReadingOrder } from '../learn'
 import { CompareCode, LessonCode } from './LessonCode'
+import { LearnBack, LearnSidebar } from './LearnOutline'
 import { LessonStage } from './LessonPreview'
 import { MarkdownContent } from './MarkdownContent'
 
 export function LearnArticle({ path }: { path: string }) {
   const found = findLearnNode(getLearnTutorials(), path)
-  if (!found)
-    return null
-
-  const { node, tutorial } = found
-  const { next, prev } = learnNeighbors(tutorial, path)
+  const node = found?.node
+  const tutorial = found?.tutorial
   const preview = useMemo(() => {
-    if (!node.record)
+    if (!node?.record)
       return
     const fromMarkdown = splitLessonPreview(node.record.source)
     const fromDisk = filesBesideMarkdown(node.record.file)
@@ -25,62 +23,104 @@ export function LearnArticle({ path }: { path: string }) {
       explanation: fromMarkdown.explanation,
       files: Object.keys(files).length ? files : undefined,
     }
-  }, [node.record])
+  }, [node])
+  const [view, setView] = useState<'code' | 'explain'>('explain')
+  const [tocOpen, setTocOpen] = useState(false)
+
+  useEffect(() => {
+    setView('explain')
+    setTocOpen(false)
+  }, [path])
+
+  if (!node || !tutorial)
+    return null
+
   const record = node.record && preview
     ? { ...node.record, source: preview.explanation }
     : node.record
   const lesson = preview?.files ? coreCode(preview.files) : undefined
-  const [view, setView] = useState<'code' | 'explain'>('explain')
+  const compare = Boolean(preview?.compare?.c && preview.compare.glsl)
+  const pages = learnReadingOrder(tutorial)
+  const index = pages.findIndex(page => page.path === path)
+  const { next, prev } = learnNeighbors(tutorial, path)
+  const chapter = learnAncestors(tutorial, path).find(item => item !== tutorial && item.children.length > 0)
 
   return (
-    <article>
-      <h1 className="mt-4 flex items-center gap-x-1.5 pt-2 text-18px font-medium before:flex before:items-center before:justify-center before:text-action before:content-['#']">
-        {node.title}
-      </h1>
+    <div className={tocOpen ? 'learn-frame is-toc-open' : 'learn-frame'}>
+      <header className="learn-running-head">
+        <LearnBack />
+        <button type="button" aria-expanded={tocOpen} aria-controls="learn-toc" onClick={() => setTocOpen(true)}>
+          {index >= 0 && <span className="learn-progress">{index + 1} / {pages.length}</span>}
+          目录
+        </button>
+      </header>
+      <button className="learn-scrim" type="button" aria-label="关闭目录" onClick={() => setTocOpen(false)} />
+      <aside id="learn-toc" className="learn-toc" aria-label="目录">
+        <LearnSidebar pathname={path} onNavigate={() => setTocOpen(false)} />
+      </aside>
+      <main className="learn-page">
+        <header className="learn-heading">
+          {chapter && <p className="learn-kicker">{chapter.title}</p>}
+          <h1>{node.title}</h1>
+          {node.description && <p className="learn-description">{node.description}</p>}
+        </header>
+        <div className="learn-workspace">
+          {preview?.files && (
+            <figure className="learn-figure" aria-label="实时画面">
+              <div id="learn-stage" className="learn-stage" />
+            </figure>
+          )}
+          <section className="learn-panel" aria-label="讲解">
+            {(lesson || compare) && (
+              <div className="learn-bar">
+                <strong>{view === 'explain' ? '讲解' : compare ? '对照' : 'JavaScript'}</strong>
+                <button
+                  type="button"
+                  aria-pressed={view === 'code'}
+                  onClick={() => setView(view === 'explain' ? 'code' : 'explain')}
+                >
+                  {view === 'code' ? '核心代码' : '完整代码'}
+                </button>
+              </div>
+            )}
+            {view === 'code' && compare && preview?.compare?.c && preview.compare.glsl
+              ? <CompareCode c={preview.compare.c} glsl={preview.compare.glsl} />
+              : view === 'code' && lesson
+                ? <LessonCode code={lesson.code} lang={lesson.lang} />
+                : (
+                    <div className="learn-notes">
+                      {record && <MarkdownContent record={record} />}
+                    </div>
+                  )}
+          </section>
+        </div>
+        {(prev || next) && (
+          <nav className="learn-pager" aria-label="翻页">
+            {prev
+              ? (
+                  <Link to={prev.path as never}>
+                    <small>上一课</small>
+                    <span>{prev.title}</span>
+                  </Link>
+                )
+              : <span />}
+            {next
+              ? (
+                  <Link className="learn-next" to={next.path as never}>
+                    <small>下一课</small>
+                    <span>{next.title}</span>
+                  </Link>
+                )
+              : <span />}
+          </nav>
+        )}
+      </main>
       {preview?.files && (
         <LessonStage
           dependencies={lessonDependencies(node.record?.meta)}
           files={preview.files}
         />
       )}
-      {(lesson || preview?.compare) && (
-        <div className="not-prose mt-6 flex items-baseline justify-between gap-3 border-b border-gray-12 pb-1.5 text-sm">
-          <span className="font-medium">{view === 'explain' ? '讲解' : 'JavaScript'}</span>
-          <button
-            className="text-gray-9 hover:text-gray-12"
-            type="button"
-            aria-pressed={view === 'code'}
-            onClick={() => setView(view === 'explain' ? 'code' : 'explain')}
-          >
-            {view === 'code' ? '讲解' : '核心代码'}
-          </button>
-        </div>
-      )}
-      {view === 'code' && preview?.compare?.c && preview.compare.glsl
-        ? <CompareCode c={preview.compare.c} glsl={preview.compare.glsl} />
-        : view === 'code' && lesson
-          ? <LessonCode code={lesson.code} lang={lesson.lang} />
-          : (
-              <div className="prose-md mt-4">
-                {record && <MarkdownContent record={record} />}
-              </div>
-            )}
-      <div className="prose-md">
-        <div className="not-prose">
-          {(prev || next) && (
-            <div className="mt-10 flex items-start justify-between gap-6 text-sm">
-              {prev
-                ? <Link className="text-gray-9 hover:text-gray-12" to={prev.path as never}>上一节 · {prev.title}</Link>
-                : <span />}
-              {next
-                ? <Link className="text-right text-gray-9 hover:text-gray-12" to={next.path as never}>下一节 · {next.title}</Link>
-                : <span />}
-            </div>
-          )}
-        </div>
-      </div>
-    </article>
+    </div>
   )
 }
-
-

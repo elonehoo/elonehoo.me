@@ -40,18 +40,18 @@ function LessonPreview({ dependencies, files }: { dependencies?: Record<string, 
   }, [])
 
   return (
-    <div className="h-[60vh] w-full overflow-hidden bg-[#101b23]">
+    <div className="absolute inset-0">
       {Preview
         ? (
             <Preview
               dependencies={dependencies}
               files={runtimeFiles}
-              style={{ background: '#101b23', border: 0, height: '100%', width: '100%' }}
+              style={{ background: '#101b23', border: 0, display: 'block', height: '100%', width: '100%' }}
               tailwind={false}
               title="实例"
             />
           )
-        : <div className="h-full w-full" />}
+        : null}
     </div>
   )
 }
