@@ -8,24 +8,32 @@ export function filesBesideMarkdown(markdownFile: string) {
   const directory = /\/(?:\d+\.)?index\.md$/.test(markdownFile)
     ? markdownFile.replace(/[^/]+$/, '')
     : markdownFile.replace(/\.md$/, '/')
-  const files: Record<string, string> = {}
+  const code: Record<string, string> = {}
+  const preview: Record<string, string> = {}
   const compare: { c?: string, glsl?: string } = {}
 
   for (const [path, source] of Object.entries(lessonAssets)) {
     if (!path.startsWith(directory))
       continue
     const name = path.slice(directory.length)
-    if (name.includes('/'))
+    const folder = name.startsWith('code/') ? 'code' : name.startsWith('preview/') ? 'preview' : ''
+    const file = folder ? name.slice(folder.length + 1) : name
+    if (!file || file.includes('/'))
       continue
-    if (name === 'cpu.c')
-      compare.c = source.trim()
-    else if (name === 'shader.glsl')
-      compare.glsl = source.trim()
+    const text = source.replace(/\n$/, '')
+    if (folder === 'preview') {
+      preview[file] = text
+      continue
+    }
+    if (file === 'cpu.c')
+      compare.c = text.trim()
+    else if (file === 'shader.glsl')
+      compare.glsl = text.trim()
     else
-      files[name] = source.replace(/\n$/, '')
+      code[file] = text
   }
 
-  return { compare, files }
+  return { code, compare, files: code, preview }
 }
 
 export function splitLessonPreview(source: string) {
@@ -62,15 +70,22 @@ export function splitLessonPreview(source: string) {
 }
 
 export function previewRuntimeFiles(files: Record<string, string>) {
-  if (files['pages/index.tsx'] || files['pages/index.jsx'])
-    return files
+  const prepared = files['fragment.glsl'] && files['scene.js']?.includes('__FRAGMENT_SOURCE__')
+    ? {
+        ...files,
+        'scene.js': files['scene.js'].replaceAll('__FRAGMENT_SOURCE__', JSON.stringify(files['fragment.glsl'])),
+      }
+    : files
 
-  const script = Object.keys(files).find(name => name.endsWith('.js'))
+  if (prepared['pages/index.tsx'] || prepared['pages/index.jsx'])
+    return prepared
+
+  const script = Object.keys(prepared).find(name => name.endsWith('.js'))
   if (!script)
-    return files
+    return prepared
 
   return {
-    ...files,
+    ...prepared,
     'pages/index.tsx': `import { useEffect, useRef } from 'react'
 
 export default function Page() {
@@ -96,13 +111,21 @@ export default function Page() {
   }
 }
 
+const codeNumberPattern = /(?<![A-Za-z_])-?(?:\d+\.\d*|\.\d+|\d+)/g
+
+export function replaceCodeNumber(source: string, index: number, next: string) {
+  let current = 0
+  return source.replace(codeNumberPattern, match => current++ === index ? next : match)
+}
+
 export function coreCode(files: Record<string, string>) {
-  const entry = Object.entries(files).find(([name]) => !name.startsWith('pages/') && !name.endsWith('.css'))
-  if (!entry)
+  const names = Object.keys(files).filter(name => !name.startsWith('pages/') && !name.endsWith('.css'))
+  const name = names.find(item => item.endsWith('.glsl') || item.endsWith('.frag')) ?? names[0]
+  if (!name)
     return
-  const [name, code] = entry
-  const lang = name.endsWith('.css')
-    ? 'css'
+  const code = files[name]
+  const lang = name.endsWith('.glsl') || name.endsWith('.frag')
+    ? 'glsl'
     : name.endsWith('.tsx') || name.endsWith('.jsx')
       ? 'tsx'
       : 'javascript'

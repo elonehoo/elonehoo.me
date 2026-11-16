@@ -1,8 +1,10 @@
 import { Link } from '@tanstack/react-router'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { coreCode, filesBesideMarkdown, lessonDependencies, splitLessonPreview } from '../learn-preview'
 import { findLearnNode, getLearnTutorials, learnAncestors, learnNeighbors, learnReadingOrder } from '../learn'
 import { CompareCode, LessonCode } from './LessonCode'
+import { LearnLessonProvider } from './learn-lesson'
+import { LessonSwitch } from './LessonSwitch'
 import { LearnBack, LearnSidebar } from './LearnOutline'
 import { LessonStage } from './LessonPreview'
 import { MarkdownContent } from './MarkdownContent'
@@ -16,21 +18,46 @@ export function LearnArticle({ path }: { path: string }) {
       return
     const fromMarkdown = splitLessonPreview(node.record.source)
     const fromDisk = filesBesideMarkdown(node.record.file)
-    const files = { ...fromDisk.files, ...fromMarkdown.files }
+    const files = { ...fromDisk.code, ...fromMarkdown.files }
+    const runtime = { ...files, ...fromDisk.preview }
     const compare = { ...fromDisk.compare, ...fromMarkdown.compare }
     return {
       compare: compare.c || compare.glsl ? compare : undefined,
       explanation: fromMarkdown.explanation,
       files: Object.keys(files).length ? files : undefined,
+      runtime: Object.keys(runtime).length ? runtime : undefined,
     }
   }, [node])
-  const [view, setView] = useState<'code' | 'explain'>('explain')
   const [tocOpen, setTocOpen] = useState(false)
+  const [draft, setDraft] = useState<string | null>(null)
+  const draftRef = useRef<string | null>(null)
+  draftRef.current = draft
 
   useEffect(() => {
-    setView('explain')
     setTocOpen(false)
+    setDraft(null)
   }, [path])
+
+  useEffect(() => {
+    function onMessage(event: MessageEvent) {
+      if (event.data?.type !== 'learn-ready')
+        return
+      const source = draftRef.current
+      if (!source)
+        return
+      const frame = event.source as Window | null
+      frame?.postMessage({ type: 'learn-fragment', source }, '*')
+    }
+    window.addEventListener('message', onMessage)
+    return () => window.removeEventListener('message', onMessage)
+  }, [])
+
+  useEffect(() => {
+    if (!draft)
+      return
+    const iframe = document.querySelector('#learn-stage iframe') as HTMLIFrameElement | null
+    iframe?.contentWindow?.postMessage({ type: 'learn-fragment', source: draft }, '*')
+  }, [draft])
 
   if (!node || !tutorial)
     return null
@@ -39,6 +66,7 @@ export function LearnArticle({ path }: { path: string }) {
     ? { ...node.record, source: preview.explanation }
     : node.record
   const lesson = preview?.files ? coreCode(preview.files) : undefined
+  const usesLesson = Boolean(record?.source.includes(':::lesson') || record?.source.includes('::::lesson'))
   const compare = Boolean(preview?.compare?.c && preview.compare.glsl)
   const pages = learnReadingOrder(tutorial)
   const index = pages.findIndex(page => page.path === path)
@@ -61,37 +89,38 @@ export function LearnArticle({ path }: { path: string }) {
       <main className="learn-page">
         <header className="learn-heading">
           {chapter && <p className="learn-kicker">{chapter.title}</p>}
-          <h1>{node.title}</h1>
+          <h1>{node.heading}</h1>
           {node.description && <p className="learn-description">{node.description}</p>}
         </header>
         <div className="learn-workspace">
-          {preview?.files && (
+          {(preview?.runtime || usesLesson) && (
             <figure className="learn-figure" aria-label="实时画面">
               <div id="learn-stage" className="learn-stage" />
             </figure>
           )}
           <section className="learn-panel" aria-label="讲解">
-            {(lesson || compare) && (
-              <div className="learn-bar">
-                <strong>{view === 'explain' ? '讲解' : compare ? '对照' : 'JavaScript'}</strong>
-                <button
-                  type="button"
-                  aria-pressed={view === 'code'}
-                  onClick={() => setView(view === 'explain' ? 'code' : 'explain')}
-                >
-                  {view === 'code' ? '核心代码' : '完整代码'}
-                </button>
-              </div>
-            )}
-            {view === 'code' && compare && preview?.compare?.c && preview.compare.glsl
-              ? <CompareCode c={preview.compare.c} glsl={preview.compare.glsl} />
-              : view === 'code' && lesson
-                ? <LessonCode code={lesson.code} lang={lesson.lang} />
+            <LearnLessonProvider code={draft} path={path} setCode={setDraft}>
+              {usesLesson
+                ? (record ? <MarkdownContent record={record} /> : null)
                 : (
-                    <div className="learn-notes">
-                      {record && <MarkdownContent record={record} />}
-                    </div>
+                    <LessonSwitch
+                      resetKey={path}
+                      codeLabel={compare ? '对照' : lesson?.lang === 'glsl' ? 'GLSL' : 'JavaScript'}
+                      explain={record ? <MarkdownContent record={record} /> : null}
+                      code={compare && preview?.compare?.c && preview.compare.glsl
+                        ? <CompareCode c={preview.compare.c} glsl={preview.compare.glsl} />
+                        : lesson
+                          ? (
+                            <LessonCode
+                              code={draft ?? lesson.code}
+                              lang={lesson.lang}
+                              onChange={lesson.lang === 'glsl' ? setDraft : undefined}
+                            />
+                          )
+                          : undefined}
+                    />
                   )}
+            </LearnLessonProvider>
           </section>
         </div>
         {(prev || next) && (
@@ -115,10 +144,11 @@ export function LearnArticle({ path }: { path: string }) {
           </nav>
         )}
       </main>
-      {preview?.files && (
+      {preview?.runtime && !usesLesson && (
         <LessonStage
           dependencies={lessonDependencies(node.record?.meta)}
-          files={preview.files}
+          files={preview.runtime}
+          resetKey={path}
         />
       )}
     </div>

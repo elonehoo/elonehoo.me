@@ -233,6 +233,10 @@
   grid-area: code;
 }
 
+.learn-panel [hidden] {
+  display: none !important;
+}
+
 .learn-bar {
   display: flex;
   align-items: baseline;
@@ -255,6 +259,138 @@
 
 .learn-bar button:hover {
   color: var(--ink);
+}
+
+.learn-cpu-hint,
+.learn-cpu-note {
+  margin: 12px 0 0;
+  color: var(--soft);
+  font-size: 15px;
+}
+
+.learn-cpu-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: stretch;
+  margin-top: 14px;
+}
+
+.learn-cpu-columns section {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 10px 12px 8px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+}
+
+.learn-cpu-columns section.is-active {
+  border-color: hsl(var(--theme-action) / 70%);
+}
+
+.learn-cpu-columns section > button {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.learn-cpu-columns section.is-active > button {
+  color: var(--accent);
+}
+
+.learn-cpu-columns .lesson-code {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+}
+
+.learn-cpu-columns .lesson-code pre.shiki {
+  flex: 1;
+  margin: 8px 0 0;
+  overflow-x: auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
+}
+
+.learn-cpu-columns .lesson-code pre.shiki code {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.learn-cpu .line {
+  min-height: 1.5em;
+}
+
+.learn-cpu-columns .learn-cpu-count {
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.learn-cpu-count {
+  margin: 10px 0 0;
+  color: var(--soft);
+  font-size: 13px;
+}
+
+.learn-cpu-count output {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.learn-cpu-facts {
+  margin: 18px 0 0;
+}
+
+.learn-cpu-facts div {
+  display: grid;
+  grid-template-columns: 5.5em minmax(0, 1fr);
+  gap: 12px;
+  padding: 8px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.learn-cpu-facts dt {
+  color: var(--soft);
+}
+
+.learn-cpu-facts dd {
+  margin: 0;
+}
+
+.learn-rgba-flow,
+.learn-rgba-bytes,
+.learn-rgba > p {
+  margin: 14px 0 0;
+}
+
+.learn-rgba-bytes code {
+  font-family: var(--mono);
+}
+
+.learn-rgba > button {
+  margin-top: 12px;
+  color: var(--soft);
+  font-size: 14px;
+}
+
+.learn-rgba > button[aria-pressed='true'] {
+  color: var(--accent);
+}
+
+.learn-rgba blockquote {
+  margin: 14px 0 0;
+  padding-left: 12px;
+  border-left: 3px solid var(--accent);
+}
+
+.learn-rgba blockquote p {
+  margin: 0;
 }
 
 .learn-notes {
@@ -314,6 +450,38 @@
 
 .learn-course .lesson-code pre.shiki code {
   padding-left: 0;
+}
+
+.learn-course .lesson-code .line {
+  display: block;
+  width: auto;
+  min-height: 1.5em;
+}
+
+.learn-course .learn-number {
+  display: inline-block;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px dashed hsl(var(--theme-action));
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  caret-color: hsl(var(--theme-action));
+  cursor: ew-resize;
+}
+
+.learn-course .learn-number:focus {
+  outline: none;
+  background: hsl(var(--theme-action) / 14%);
+  cursor: text;
+}
+
+html.dark .learn-course .learn-number {
+  color: var(--shiki-dark) !important;
 }
 
 .learn-compare {
@@ -519,10 +687,21 @@
   }
 
   .learn-panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .learn-panel-body {
     overflow: auto;
     overscroll-behavior: contain;
     min-height: 0;
-    padding-right: 6px;
+    scrollbar-width: none;
+  }
+
+  .learn-panel-body::-webkit-scrollbar {
+    display: none;
   }
 
   .learn-pager {

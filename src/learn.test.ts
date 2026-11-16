@@ -53,8 +53,16 @@ describe('learn tutorials', () => {
       title: section.title,
     }))).toEqual([
       { path: '/learn/shader-learn/basic/a-planet', title: '开场 一颗星球' },
+      { path: '/learn/shader-learn/basic/canvas', title: '网页与 Canvas' },
       { path: '/learn/shader-learn/basic/cpu-gpu', title: 'C 循环 vs GPU' },
+      { path: '/learn/shader-learn/basic/buffer', title: 'RGBA → 缓冲区' },
     ])
-    expect(learnReadingOrder(tutorial!).map(item => item.title)).toEqual(['开场 一颗星球', 'C 循环 vs GPU'])
+    expect(tutorial?.children[0]?.children[0]?.heading).toBe('你会亲手写出这颗星球')
+    expect(learnReadingOrder(tutorial!).map(item => item.title)).toEqual([
+      '开场 一颗星球',
+      '网页与 Canvas',
+      'C 循环 vs GPU',
+      'RGBA → 缓冲区',
+    ])
   })
 })

@@ -2,13 +2,28 @@ import * as THREE from 'three'
 
 const canvas = document.querySelector('canvas')
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true })
-renderer.setPixelRatio(Math.min(devicePixelRatio, 2))
-renderer.setSize(canvas.clientWidth, canvas.clientHeight, false)
 
 const scene = new THREE.Scene()
 scene.background = new THREE.Color(0x101b23)
-const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 50)
-camera.position.set(0, 0.3, 14)
+const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 50)
+camera.position.set(0, 0.3, 10)
+
+function framePlanet() {
+  const width = canvas.clientWidth
+  const height = canvas.clientHeight
+  if (!width || !height) return
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2))
+  renderer.setSize(width, height, false)
+  camera.aspect = width / height
+  const span = Math.min(width, height) * 0.5
+  const halfFov = THREE.MathUtils.degToRad(camera.fov / 2)
+  camera.position.z = height / (span * Math.tan(halfFov))
+  camera.updateProjectionMatrix()
+}
+
+framePlanet()
+new ResizeObserver(framePlanet).observe(canvas)
+window.addEventListener('resize', framePlanet)
 
 scene.add(new THREE.HemisphereLight(0xd9e9ee, 0x38443b, 1.5))
 const light = new THREE.DirectionalLight(0xfff2dc, 3)

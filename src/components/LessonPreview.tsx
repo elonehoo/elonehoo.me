@@ -11,17 +11,17 @@ type PreviewComponent = (props: {
   title?: string
 }) => ReactNode
 
-export function LessonStage({ dependencies, files }: { dependencies?: Record<string, string>, files: Record<string, string> }) {
+export function LessonStage({ dependencies, files, resetKey }: { dependencies?: Record<string, string>, files: Record<string, string>, resetKey: string }) {
   const [host, setHost] = useState<HTMLElement | null>(null)
 
   useEffect(() => {
     setHost(document.getElementById('learn-stage'))
-  }, [])
+  }, [resetKey])
 
   if (!host)
     return null
 
-  return createPortal(<LessonPreview dependencies={dependencies} files={files} />, host)
+  return createPortal(<LessonPreview key={resetKey} dependencies={dependencies} files={files} />, host)
 }
 
 function LessonPreview({ dependencies, files }: { dependencies?: Record<string, string>, files: Record<string, string> }) {

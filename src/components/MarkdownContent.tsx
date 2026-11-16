@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef, ReactNode } from 'react'
+import type { ComponentPropsWithoutRef, ComponentType, ReactNode } from 'react'
 import type { ContentRecord } from '../content'
 import { Link } from '@tanstack/react-router'
 import ReactMarkdown from 'react-markdown'
@@ -14,7 +14,9 @@ import { getSectionRecords } from '../content'
 import { rehypeShikiVitesse } from '../lib/shiki-rehype'
 import { DemoRenderer } from './demos/DemoRenderer'
 import { HoSignature } from './HoSignature'
+import { LessonFrame } from './LessonFrame'
 import { TutorialCatalog } from './LearnOutline'
+import { lessonFileComponent, LessonFileProvider, useLessonFile } from './learn-widgets'
 import { OutlineYear, TimelineList } from './TimelineList'
 
 function remarkContentDirectives() {
@@ -39,16 +41,29 @@ function remarkContentDirectives() {
         return
       }
 
+      if (node.name === 'lesson') {
+        data.hName = 'lesson-frame'
+        data.hProperties = attributes
+        return
+      }
+
+      if (node.name === 'explain' || node.name === 'code') {
+        data.hName = 'div'
+        data.hProperties = { 'data-slot': node.name, className: `slot-${node.name}` }
+        return
+      }
+
       if (node.name === 'div') {
         data.hName = 'div'
         data.hProperties = attributes
         return
       }
 
-      const hName = componentNames[node.name] || 'span'
+      const hName = componentNames[node.name] || 'lesson-widget'
       const hProperties = {
         ...attributes,
         'data-directive': node.name,
+        ...(hName === 'lesson-widget' ? { name: node.name } : {}),
       }
 
       if (parent?.type === 'paragraph' && parent.children?.length === 1 && hName !== 'span') {
@@ -67,6 +82,10 @@ function prepareMarkdown(source: string) {
   return source
     .replace(/<script\s+setup[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/^::div(\{[^\n]*\})\n([\s\S]*?)\n::$/gm, ':::div$1\n$2\n:::')
+    .replace(/^:::Lesson\b/gm, '::::lesson')
+    .replace(/^:::lesson\b/gm, '::::lesson')
+    .replace(/^:::讲解\s*$/gm, ':::explain')
+    .replace(/^:::代码\s*$/gm, ':::code')
     .replace(
       /<GitHubCard\s+v-for="pr in olds"[^>]*\/>/g,
       [
@@ -187,6 +206,18 @@ function GitHubCard({ to, title, repo, name }: { to?: string, title?: string, re
   return <a className="github-card" href={href} target="_blank" rel="noreferrer">{title || name || repo || href}</a>
 }
 
+function LessonWidget({ file, lang, name }: { file?: string, lang?: string, name?: string }) {
+  const markdownFile = useLessonFile()
+  const Widget = (markdownFile && name ? lessonFileComponent(markdownFile, name) : undefined) as
+    | ComponentType<{ file?: string, lang?: string }>
+    | undefined
+  if (!Widget)
+    return null
+  // `file` on ::lesson-code is the source filename. Local components such as
+  // ::Code receive the markdown path, which is what their `file` prop reads.
+  return <Widget file={file ?? markdownFile} lang={lang} />
+}
+
 function RatingOrValue({ directive, value, children }: { directive?: string, value?: string, children?: ReactNode }) {
   if (directive?.toLowerCase() === 'start') {
     return (
@@ -228,6 +259,10 @@ export function MarkdownContent({ record }: { record: ContentRecord }) {
         {status && <sup>{status}</sup>}
       </span>
     ),
+    // Stable types. Inline functions here remount the switch on every edit,
+    // which resets the view from 完整代码 back to 讲解.
+    'lesson-frame': LessonFrame,
+    'lesson-widget': LessonWidget,
     'link-list': () => <LinkList record={record} />,
     'navigation-list': NavigationList,
     'tutorial-list': () => <TutorialCatalog />,
@@ -257,6 +292,7 @@ export function MarkdownContent({ record }: { record: ContentRecord }) {
   }
 
   return (
+    <LessonFileProvider file={record.file} meta={record.meta}>
     <ReactMarkdown
       remarkPlugins={[remarkGfm, remarkDirective, remarkContentDirectives, remarkSupersub]}
       rehypePlugins={[
@@ -269,5 +305,6 @@ export function MarkdownContent({ record }: { record: ContentRecord }) {
     >
       {prepareMarkdown(record.source)}
     </ReactMarkdown>
+    </LessonFileProvider>
   )
 }

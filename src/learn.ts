@@ -4,6 +4,7 @@ import { contentRecords, contentSegmentsFromFilename } from './content'
 export interface LearnNode {
   children: LearnNode[]
   description: string
+  heading: string
   order: number
   path: string
   record?: ContentRecord
@@ -15,6 +16,7 @@ export function buildLearnTree(records: ContentRecord[]) {
   const root: LearnNode = {
     children: [],
     description: '',
+    heading: '学习',
     order: 0,
     path: '/learn',
     title: '学习',
@@ -39,6 +41,7 @@ export function buildLearnTree(records: ContentRecord[]) {
         node = {
           children: [],
           description: '',
+          heading: segment.slug,
           order: segment.order,
           path,
           title: segment.slug,
@@ -50,6 +53,9 @@ export function buildLearnTree(records: ContentRecord[]) {
       if (index === segments.length - 1) {
         node.record = record
         node.title = record.title
+        node.heading = typeof record.meta.heading === 'string' && record.meta.heading.trim()
+          ? record.meta.heading.trim()
+          : record.title
         node.description = record.description
       }
 

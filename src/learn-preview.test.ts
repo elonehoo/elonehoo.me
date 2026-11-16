@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
-import { coreCode, extractShaders, splitLessonPreview } from './learn-preview'
+import { coreCode, extractShaders, filesBesideMarkdown, replaceCodeNumber, splitLessonPreview } from './learn-preview'
 
 describe('splitLessonPreview', () => {
   it('moves preview fences to the example and leaves the explanation', () => {
@@ -46,10 +46,21 @@ describe('splitLessonPreview', () => {
 
     const lesson = readFileSync('content/learn/0001.shader-learn/0001.basic/0001.a-planet/0000.index.md', 'utf8')
     expect(lesson).not.toContain('```')
-    const scene = readFileSync('content/learn/0001.shader-learn/0001.basic/0001.a-planet/scene.js', 'utf8')
+    const scene = readFileSync('content/learn/0001.shader-learn/0001.basic/0001.a-planet/preview/scene.js', 'utf8')
     expect(scene).toContain("import * as THREE from 'three'")
     expect(scene).not.toContain('useEffect')
-    expect(coreCode({ 'scene.js': scene })?.lang).toBe('javascript')
+    const planet = filesBesideMarkdown('../content/learn/0001.shader-learn/0001.basic/0001.a-planet/0000.index.md')
+    expect(planet.preview['scene.js']).toContain("import * as THREE from 'three'")
+    expect(planet.code['scene.js']).toBe(planet.preview['scene.js'])
+    expect(coreCode(planet.code)?.lang).toBe('javascript')
+
+    expect(replaceCodeNumber('vec3(0.480, 0.830, 0.690)', 0, '1.0')).toBe('vec3(1.0, 0.830, 0.690)')
+    expect(replaceCodeNumber('vec3(0.480, 0.830, 0.690)', 2, '0.0')).toBe('vec3(0.480, 0.830, 0.0)')
+
+    const canvas = filesBesideMarkdown('../content/learn/0001.shader-learn/0001.basic/0002.canvas/0000.index.md')
+    expect(canvas.code['fragment.glsl']).toContain('gl_FragColor')
+    expect(canvas.preview['scene.js']).toContain('__FRAGMENT_SOURCE__')
+    expect(canvas.code['scene.js']).toBeUndefined()
 
     expect(extractShaders(source)).toEqual({
       vertex: 'void main() { gl_Position = vec4(position, 1.0); }',

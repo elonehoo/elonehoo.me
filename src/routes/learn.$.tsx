@@ -31,8 +31,8 @@ export const Route = createFileRoute('/learn/$')({
     }
 
     const title = page.path === found.tutorial.path
-      ? `${page.title} - Elone Hoo`
-      : `${page.title} - ${found.tutorial.title}`
+      ? `${page.heading} - Elone Hoo`
+      : `${page.heading} - ${found.tutorial.title}`
 
     return {
       description: page.description || found.tutorial.description,

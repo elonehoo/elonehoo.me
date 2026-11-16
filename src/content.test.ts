@@ -12,7 +12,7 @@ describe('content manifest', () => {
   })
 
   it('indexes every Markdown page without duplicate paths', () => {
-    expect(contentRecords).toHaveLength(150)
+    expect(contentRecords).toHaveLength(152)
     expect(getContent('/learn')?.title).toBe('Learn - Elone Hoo')
     expect(getContent('/learn/shader-learn')?.title).toBe('Shader Learn')
     expect(getContent('/learn/shader-learn')?.description).toBe('看得见的基础课')
