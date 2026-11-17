@@ -1,5 +1,7 @@
 import type { CSSProperties } from 'react'
+import { useMemo } from 'react'
 import { DevJar } from 'devjar'
+import { lessonMarkdown, lessonRuntime } from '../learn-preview'
 
 const frameStyle: CSSProperties = {
   background: '#101b23',
@@ -9,13 +11,15 @@ const frameStyle: CSSProperties = {
   width: '100%',
 }
 
-export function LessonDevPreview({ dependencies, files }: {
-  dependencies?: Record<string, string>
-  files: Record<string, string>
-}) {
+export function LessonDevPreview({ path = '' }: { file?: string, path?: string }) {
+  const markdownFile = lessonMarkdown(path)
+  const preview = useMemo(() => markdownFile ? lessonRuntime(markdownFile) : undefined, [markdownFile])
+  if (!preview)
+    return null
+
   return (
-    <div className="absolute inset-0">
-      <DevJar dependencies={dependencies} files={files} style={frameStyle} tailwind={false} title="实例" />
+    <div className="learn-dev-preview">
+      <DevJar key={path} dependencies={preview.dependencies} files={preview.files} style={frameStyle} tailwind={false} title="实例" />
     </div>
   )
 }

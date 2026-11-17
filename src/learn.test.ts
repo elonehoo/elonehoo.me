@@ -47,7 +47,11 @@ describe('learn tutorials', () => {
     expect(tutorial?.record?.date?.startsWith('2026-11-14')).toBe(true)
     expect(tutorial?.record?.meta.chapter).toBe(true)
     expect(tutorial?.children[0]?.record?.meta.chapter).toBe(true)
-    expect(tutorial?.children.map(chapter => chapter.title)).toEqual(['序章 GPU 如何绘制画面'])
+    expect(tutorial?.children[1]?.record?.meta.chapter).toBe(true)
+    expect(tutorial?.children.map(chapter => chapter.title)).toEqual([
+      '序章 GPU 如何绘制画面',
+      '片元与数据',
+    ])
     expect(tutorial?.children[0]?.children.map(section => ({
       path: section.path,
       title: section.title,
@@ -57,12 +61,39 @@ describe('learn tutorials', () => {
       { path: '/learn/shader-learn/basic/cpu-gpu', title: 'C 循环 vs GPU' },
       { path: '/learn/shader-learn/basic/buffer', title: 'RGBA → 缓冲区' },
     ])
+    expect(tutorial?.children[1]?.children.map(section => ({
+      path: section.path,
+      title: section.title,
+    }))).toEqual([
+      { path: '/learn/shader-learn/fragment-data/one-rule', title: '一份规则画整个画面' },
+      { path: '/learn/shader-learn/fragment-data/variables-main', title: '变量与 main' },
+      { path: '/learn/shader-learn/fragment-data/glsl-types', title: 'GLSL 的类型比 C 严格' },
+      { path: '/learn/shader-learn/fragment-data/rgb-alpha', title: 'RGB 与 Alpha' },
+      { path: '/learn/shader-learn/fragment-data/vec2', title: 'vec2 二维坐标' },
+      { path: '/learn/shader-learn/fragment-data/uv', title: 'UV 坐标' },
+      { path: '/learn/shader-learn/fragment-data/screen-pixels', title: '屏幕与像素' },
+      { path: '/learn/shader-learn/fragment-data/swizzle', title: '分量与重排' },
+      { path: '/learn/shader-learn/fragment-data/mix', title: 'mix 混合' },
+    ])
     expect(tutorial?.children[0]?.children[0]?.heading).toBe('你会亲手写出这颗星球')
+    expect(tutorial?.children[1]?.children[0]?.heading).toBe('一份规则，画出整个画面')
+    expect(tutorial?.children[1]?.children[0]?.description).toBe('拖动半径。每个位置执行同一份程序，算出不同的颜色。')
+    expect(tutorial?.children[1]?.children[1]?.heading).toBe('main：读输入、计算、写输出')
+    expect(tutorial?.children[1]?.children[1]?.description).toBe('左边是原始亮度，右边是调光后。像 C 函数一样，一行行执行。')
     expect(learnReadingOrder(tutorial!).map(item => item.title)).toEqual([
       '开场 一颗星球',
       '网页与 Canvas',
       'C 循环 vs GPU',
       'RGBA → 缓冲区',
+      '一份规则画整个画面',
+      '变量与 main',
+      'GLSL 的类型比 C 严格',
+      'RGB 与 Alpha',
+      'vec2 二维坐标',
+      'UV 坐标',
+      '屏幕与像素',
+      '分量与重排',
+      'mix 混合',
     ])
   })
 })

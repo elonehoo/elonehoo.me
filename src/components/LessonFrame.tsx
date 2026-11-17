@@ -1,7 +1,8 @@
 import type { ReactElement, ReactNode } from 'react'
 import { Children, isValidElement, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { lessonFileComponent, useLessonFile } from './learn-widgets'
+import { LessonDevPreview } from './LessonDevPreview'
+import { useLessonFile } from './learn-widgets'
 import { LessonSwitch } from './LessonSwitch'
 
 function slotName(child: ReactElement<{ 'className'?: string, 'data-slot'?: string }>) {
@@ -20,19 +21,36 @@ function slot(children: ReactNode, name: string) {
   return found
 }
 
-export function LessonFrame({ children, preview }: { children?: ReactNode, preview?: string }) {
+function isDevPreview(child: ReactElement) {
+  if (child.type === LessonDevPreview)
+    return true
+  const props = child.props as { name?: string }
+  return props.name === 'dev-preview'
+}
+
+function previewNode(children: ReactNode) {
+  let found: ReactElement | null = null
+  Children.forEach(children, (child) => {
+    if (found || !isValidElement(child) || !isDevPreview(child))
+      return
+    found = child
+  })
+  return found
+}
+
+export function LessonFrame({ children }: { children?: ReactNode }) {
   const file = useLessonFile()
   const [host, setHost] = useState<HTMLElement | null>(null)
-  const Preview = file && preview ? lessonFileComponent(file, preview) : undefined
+  const preview = previewNode(children)
 
   useEffect(() => {
     setHost(document.getElementById('learn-stage'))
-  }, [])
+  }, [file])
 
   return (
     <>
-      {host && Preview
-        ? createPortal(<Preview file={file} />, host)
+      {host && preview
+        ? createPortal(preview, host)
         : null}
       <LessonSwitch
         resetKey={file}

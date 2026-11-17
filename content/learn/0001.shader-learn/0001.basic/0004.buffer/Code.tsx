@@ -29,10 +29,12 @@ function withRewrite(source: string, enabled: boolean) {
   return plain.replace(/\n}\s*$/, `\n${overwrite}}`)
 }
 
-export default function Lesson({ file }: { file: string }) {
+export default function Lesson({ file = '', show }: { file?: string, show?: string }) {
   const lesson = useLearnLesson()
   const base = filesBesideMarkdown(file).code['fragment.glsl'] || ''
   const code = lesson?.code || base
+  if (show === 'bytes')
+    return <code className="learn-rgba-bytes">[{bufferBytes(code).join(', ')}]</code>
   if (!lesson)
     return null
 
@@ -41,7 +43,6 @@ export default function Lesson({ file }: { file: string }) {
   return (
     <div className="learn-rgba">
       <LessonCode code={code} lang="glsl" onChange={lesson.setCode} />
-      <p className="learn-rgba-bytes mt-4">写进缓冲区的 8 位字节 <code>[{bufferBytes(code).join(', ')}]</code></p>
       <button
         type="button"
         aria-pressed={rewrite}

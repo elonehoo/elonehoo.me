@@ -91,9 +91,14 @@ export const contentRecords = Object.entries(markdownFiles)
   .map(([file, raw]) => createContentRecord(file, raw))
 
 const contentByPath = new Map(contentRecords.map(record => [record.path, record]))
+const contentByFile = new Map(contentRecords.map(record => [record.file, record]))
 
 export function getContent(path: string) {
   return contentByPath.get(path)
+}
+
+export function getContentByFile(file: string) {
+  return contentByFile.get(file)
 }
 
 export function getSectionRecords(sectionPath: string) {

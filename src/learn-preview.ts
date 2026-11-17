@@ -1,3 +1,5 @@
+import { getContent, getContentByFile } from './content'
+
 const lessonAssets = import.meta.glob('../content/**/*.{js,c,glsl,css}', {
   eager: true,
   import: 'default',
@@ -29,8 +31,7 @@ export function filesBesideMarkdown(markdownFile: string) {
       compare.c = text.trim()
     else if (file === 'shader.glsl')
       compare.glsl = text.trim()
-    else
-      code[file] = text
+    code[file] = text
   }
 
   return { code, compare, files: code, preview }
@@ -70,11 +71,13 @@ export function splitLessonPreview(source: string) {
 }
 
 export function previewRuntimeFiles(files: Record<string, string>) {
-  const prepared = files['fragment.glsl'] && files['scene.js']?.includes('__FRAGMENT_SOURCE__')
-    ? {
-        ...files,
-        'scene.js': files['scene.js'].replaceAll('__FRAGMENT_SOURCE__', JSON.stringify(files['fragment.glsl'])),
-      }
+  let scene = files['scene.js']
+  if (scene?.includes('__FRAGMENT_SOURCE__') && files['fragment.glsl'])
+    scene = scene.replaceAll('__FRAGMENT_SOURCE__', JSON.stringify(files['fragment.glsl']))
+  if (scene?.includes('__VERTEX_SOURCE__') && files['vertex.glsl'])
+    scene = scene.replaceAll('__VERTEX_SOURCE__', JSON.stringify(files['vertex.glsl']))
+  const prepared = scene && scene !== files['scene.js']
+    ? { ...files, 'scene.js': scene }
     : files
 
   if (prepared['pages/index.tsx'] || prepared['pages/index.jsx'])
@@ -120,7 +123,9 @@ export function replaceCodeNumber(source: string, index: number, next: string) {
 
 export function coreCode(files: Record<string, string>) {
   const names = Object.keys(files).filter(name => !name.startsWith('pages/') && !name.endsWith('.css'))
-  const name = names.find(item => item.endsWith('.glsl') || item.endsWith('.frag')) ?? names[0]
+  const name = names.find(item => item === 'fragment.glsl')
+    ?? names.find(item => item.endsWith('.glsl') || item.endsWith('.frag'))
+    ?? names[0]
   if (!name)
     return
   const code = files[name]
@@ -149,6 +154,22 @@ function shaderTemplate(source: string, key: string) {
   if (open < 0 || close < 0)
     return
   return source.slice(open + 1, close).trim()
+}
+
+export function lessonMarkdown(path: string) {
+  if (!path)
+    return
+  if (path.startsWith('/'))
+    return getContent(path)?.file
+  return getContentByFile(path)?.file ?? path
+}
+
+export function lessonRuntime(markdownFile: string) {
+  const disk = filesBesideMarkdown(markdownFile)
+  return {
+    dependencies: lessonDependencies(getContentByFile(markdownFile)?.meta),
+    files: previewRuntimeFiles({ ...disk.code, ...disk.preview }),
+  }
 }
 
 export function lessonDependencies(meta: Record<string, unknown> | undefined) {

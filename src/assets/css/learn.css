@@ -152,6 +152,10 @@
   line-height: 1.5;
 }
 
+.learn-toc-list section .learn-choice {
+  padding-left: calc((11px * 1.9 + 10px) / 2);
+}
+
 .learn-choice:hover {
   color: var(--soft);
 }
@@ -219,6 +223,15 @@
   margin: 0;
 }
 
+.learn-under:empty {
+  display: none;
+}
+
+.learn-under:not(:empty) {
+  flex-shrink: 0;
+  margin-top: 16px;
+}
+
 .learn-stage {
   position: relative;
   width: 100%;
@@ -227,6 +240,23 @@
   overflow: hidden;
   background: var(--figure);
   border-radius: 2px;
+}
+
+.learn-dev-preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  max-height: 62vh;
+  overflow: hidden;
+  background: #101b23;
+}
+
+.learn-stage .learn-dev-preview {
+  position: absolute;
+  inset: 0;
+  max-height: none;
+  aspect-ratio: auto;
+  height: 100%;
 }
 
 .learn-panel {
@@ -266,6 +296,21 @@
   margin: 12px 0 0;
   color: var(--soft);
   font-size: 15px;
+}
+
+.learn-cpu-switch {
+  display: flex;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.learn-cpu-switch button {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.learn-cpu-switch button[aria-pressed="true"] {
+  color: var(--accent);
 }
 
 .learn-cpu-columns {
@@ -369,7 +414,7 @@
   margin: 14px 0 0;
 }
 
-.learn-rgba-bytes code {
+.learn-rgba-bytes {
   font-family: var(--mono);
 }
 
@@ -393,12 +438,201 @@
   margin: 0;
 }
 
+.learn-rule-hud,
+.learn-rule-actions,
+.learn-rule-sliders label,
+.learn-rule-task-meta {
+  display: flex;
+  align-items: baseline;
+}
+
+.learn-rule-hud {
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.learn-rule-hud p,
+.learn-rule-task small {
+  margin: 0;
+  color: var(--soft);
+  font-size: 14px;
+}
+
+.learn-rule-actions {
+  gap: 16px;
+}
+
+.learn-rule-actions button,
+.learn-rule-task button {
+  color: var(--soft);
+  font-size: 14px;
+}
+
+.learn-rule-actions button[aria-pressed='true'] {
+  color: var(--accent);
+}
+
+.learn-rule-readout {
+  display: flex;
+  gap: 16px;
+  margin: 8px 0 0;
+  color: var(--soft);
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+.learn-rule-sliders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+  margin-top: 16px;
+}
+
+.learn-rule-sliders label {
+  gap: 12px;
+  min-width: min(100%, 260px);
+  flex: 1;
+  font-size: 14px;
+}
+
+.learn-rule-sliders input[type='range'] {
+  flex: 1;
+  min-width: 72px;
+  accent-color: var(--ink);
+}
+
+.learn-rule-sliders output {
+  min-width: 3.4em;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.learn-rule-task {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+}
+
+.learn-rule-swatch {
+  width: 48px;
+  height: 48px;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 0 62%, var(--figure) 68%),
+    linear-gradient(#7ad4b0, #f56e4d);
+}
+
+.learn-rule-task p {
+  margin: 4px 0 0;
+}
+
+.learn-rule-task .learn-rule-task-meta {
+  gap: 10px;
+  margin: 0;
+}
+
+.learn-rule-task strong {
+  margin-left: auto;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.learn-rule-task button {
+  margin-top: 6px;
+  color: var(--accent);
+}
+
+.learn-rule-hint {
+  margin-top: 8px;
+  color: var(--soft);
+  font-size: 14px;
+}
+
+.learn-rule-hint p {
+  margin: 0;
+}
+
+.learn-rule-hint p + p {
+  margin-top: 6px;
+}
+
+.learn-main-hint {
+  color: var(--soft);
+  font-size: 13px;
+}
+
+.learn-main-result {
+  margin: 10px 0 0;
+  font-size: 14px;
+}
+
+.learn-main-result strong {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.learn-main-modes {
+  display: flex;
+  gap: 18px;
+}
+
+.learn-main-modes button {
+  color: var(--soft);
+  font-size: 14px;
+}
+
+.learn-main-modes button[aria-pressed='true'] {
+  color: var(--accent);
+}
+
+.learn-main-terms {
+  display: grid;
+  grid-template-columns: 7em minmax(0, 1fr);
+  margin: 0;
+}
+
+.learn-main-terms dt,
+.learn-main-terms dd {
+  margin: 0;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: 14px;
+}
+
+.learn-main-terms dt {
+  font-family: var(--mono);
+}
+
+.learn-main-terms dd {
+  color: var(--soft);
+}
+
+.learn-main-js {
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
 .learn-notes {
   display: flex;
   flex-direction: column;
   gap: 16px;
   margin-top: 12px;
   font-size: 16px;
+}
+
+.learn-notes blockquote {
+  margin: 0;
+  padding-left: 12px;
+  border-left: 3px solid var(--accent);
+}
+
+.learn-notes blockquote p {
+  margin: 0;
 }
 
 .learn-notes p {

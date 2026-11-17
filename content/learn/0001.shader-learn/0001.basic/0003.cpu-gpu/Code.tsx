@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { filesBesideMarkdown } from '#/learn-preview'
 import { useLearnLesson } from '#/components/learn-lesson'
 import { LessonCode } from '#/components/LessonCode'
 
@@ -74,7 +75,25 @@ function readSpeed(source: string, speed: number) {
   return match ? clampSpeed(Number(match[1])) : speed
 }
 
-export default function Lesson() {
+function SourceSwitch({ file }: { file: string }) {
+  const lesson = useLearnLesson()
+  const mode = lesson?.mode ?? 0
+  const setMode = lesson?.setMode ?? (() => {})
+  const disk = filesBesideMarkdown(file).code
+  const source = mode === 0 ? disk['cpu.c'] || '' : disk['shader.glsl'] || ''
+
+  return (
+    <div className="learn-cpu">
+      <div className="learn-cpu-switch">
+        <button type="button" aria-pressed={mode === 0} onClick={() => setMode(0)}>C · CPU 逐个</button>
+        <button type="button" aria-pressed={mode === 1} onClick={() => setMode(1)}>GLSL · GPU 同时</button>
+      </div>
+      <LessonCode code={source} lang={mode === 0 ? 'c' : 'glsl'} />
+    </div>
+  )
+}
+
+function Comparison() {
   const lesson = useLearnLesson()
   const cells = lesson?.cells ?? 12
   const speed = lesson?.speed ?? 24
@@ -98,16 +117,12 @@ export default function Lesson() {
   }
 
   const editable = (value: string) => value === String(cells) || value === String(speed)
-  const c = `int cells = ${cells}; // 每行的格子
-int speed = ${speed}; // 格/秒
+  const c = `int cells = ${cells};
+int speed = ${speed};
 for (int y = 0; y < cells; y++)
   for (int x = 0; x < cells; x++)
-    image[y][x] = shade(x, y);
-
-// 第 i 次调用`
+    image[y][x] = shade(x, y);`
   const glsl = `void main() {
-  // 不写循环：GPU 为每个像素
-  // 各调用一次 main
   gl_FragColor = shade(vUv);
 }`
 
@@ -128,4 +143,10 @@ for (int y = 0; y < cells; y++)
       <CpuFacts />
     </div>
   )
+}
+
+export default function Lesson({ file = '', show }: { file?: string, show?: string }) {
+  if (show === 'source')
+    return <SourceSwitch file={file} />
+  return <Comparison />
 }

@@ -1,6 +1,6 @@
 import { Link } from '@tanstack/react-router'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { coreCode, filesBesideMarkdown, lessonDependencies, splitLessonPreview } from '../learn-preview'
+import { coreCode, filesBesideMarkdown, splitLessonPreview } from '../learn-preview'
 import { findLearnNode, getLearnTutorials, learnAncestors, learnNeighbors, learnReadingOrder } from '../learn'
 import { CompareCode, LessonCode } from './LessonCode'
 import { LearnLessonProvider } from './learn-lesson'
@@ -96,6 +96,7 @@ export function LearnArticle({ path }: { path: string }) {
           {(preview?.runtime || usesLesson) && (
             <figure className="learn-figure" aria-label="实时画面">
               <div id="learn-stage" className="learn-stage" />
+              <div id="learn-under" className="learn-under" />
             </figure>
           )}
           <section className="learn-panel" aria-label="讲解">
@@ -144,10 +145,9 @@ export function LearnArticle({ path }: { path: string }) {
           </nav>
         )}
       </main>
-      {preview?.runtime && !usesLesson && (
+      {preview?.runtime && !usesLesson && node.record && (
         <LessonStage
-          dependencies={lessonDependencies(node.record?.meta)}
-          files={preview.runtime}
+          file={node.record.file}
           resetKey={path}
         />
       )}

@@ -206,16 +206,14 @@ function GitHubCard({ to, title, repo, name }: { to?: string, title?: string, re
   return <a className="github-card" href={href} target="_blank" rel="noreferrer">{title || name || repo || href}</a>
 }
 
-function LessonWidget({ file, lang, name }: { file?: string, lang?: string, name?: string }) {
+function LessonWidget({ file, lang, name, path, show }: { file?: string, lang?: string, name?: string, path?: string, show?: string }) {
   const markdownFile = useLessonFile()
   const Widget = (markdownFile && name ? lessonFileComponent(markdownFile, name) : undefined) as
-    | ComponentType<{ file?: string, lang?: string }>
+    | ComponentType<{ file?: string, lang?: string, path?: string, show?: string }>
     | undefined
   if (!Widget)
     return null
-  // `file` on ::lesson-code is the source filename. Local components such as
-  // ::Code receive the markdown path, which is what their `file` prop reads.
-  return <Widget file={file ?? markdownFile} lang={lang} />
+  return <Widget file={file ?? markdownFile} lang={lang} path={path} show={show} />
 }
 
 function RatingOrValue({ directive, value, children }: { directive?: string, value?: string, children?: ReactNode }) {
@@ -292,7 +290,7 @@ export function MarkdownContent({ record }: { record: ContentRecord }) {
   }
 
   return (
-    <LessonFileProvider file={record.file} meta={record.meta}>
+    <LessonFileProvider file={record.file}>
     <ReactMarkdown
       remarkPlugins={[remarkGfm, remarkDirective, remarkContentDirectives, remarkSupersub]}
       rehypePlugins={[

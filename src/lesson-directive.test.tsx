@@ -1,19 +1,24 @@
 import { renderToStaticMarkup } from 'react-dom/server'
 import { describe, expect, it } from 'vitest'
+import { circleAt, isSquare, readShape, replaceMain, shaderMain, writeShape } from '../content/learn/0001.shader-learn/0002.fragment-data/0001.one-rule/Code'
+import { explainSource, toneFromEdit } from '../content/learn/0001.shader-learn/0002.fragment-data/0002.variables-main/Code'
 import { MarkdownContent } from './components/MarkdownContent'
-import { getLearnTutorials } from './learn'
+import { findLearnNode, getLearnTutorials } from './learn'
 
 function lesson(path: string) {
-  const tutorial = getLearnTutorials().find(item => item.path === '/learn/shader-learn')
-  const page = tutorial?.children[0]?.children.find(item => item.path === path)
-  if (!page?.record)
+  const found = findLearnNode(getLearnTutorials(), path)
+  if (!found?.node.record)
     throw new Error(`missing ${path}`)
-  return page.record
+  return found.node.record
 }
 
 describe('lesson directive', () => {
   it('shows the switch and the planet source, not a stray fence', () => {
-    const html = renderToStaticMarkup(<MarkdownContent record={lesson('/learn/shader-learn/basic/a-planet')} />)
+    const record = lesson('/learn/shader-learn/basic/a-planet')
+    expect(record.source).toContain('::dev-preview{path="/learn/shader-learn/basic/a-planet"}')
+    expect(record.source).not.toContain('preview="dev-preview"')
+    const html = renderToStaticMarkup(<MarkdownContent record={record} />)
+    expect(html).not.toContain('::dev-preview')
     expect(html).toContain('完整代码')
     expect(html).toContain('IcosahedronGeometry')
     expect(html).toContain('querySelector')
@@ -28,11 +33,114 @@ describe('lesson directive', () => {
     expect(html).not.toContain(':::')
   })
 
-  it('keeps the switch on the component lessons', () => {
-    for (const path of ['/learn/shader-learn/basic/cpu-gpu', '/learn/shader-learn/basic/buffer']) {
-      const html = renderToStaticMarkup(<MarkdownContent record={lesson(path)} />)
-      expect(html).toContain('完整代码')
-      expect(html).not.toContain(':::')
-    }
+  it('keeps the cpu comparison in the explanation and the sources in the code', () => {
+    const html = renderToStaticMarkup(<MarkdownContent record={lesson('/learn/shader-learn/basic/cpu-gpu')} />)
+    const notesAt = html.indexOf('class="learn-notes"')
+    const widgetAt = html.indexOf('C · CPU 逐个', notesAt)
+    const codeAt = html.indexOf('每行的格子')
+    expect(notesAt).toBeGreaterThan(-1)
+    expect(codeAt).toBeGreaterThan(-1)
+    expect(codeAt).toBeLessThan(notesAt)
+    expect(html).not.toContain('mediump')
+    expect(widgetAt).toBeGreaterThan(notesAt)
+    expect(widgetAt).toBeLessThan(html.indexOf('只知道自己的位置'))
+    expect(html).toContain('把指针移到格子上')
+    expect(html).not.toContain(':::')
+  })
+
+  it('keeps the switch on the buffer lesson', () => {
+    const html = renderToStaticMarkup(<MarkdownContent record={lesson('/learn/shader-learn/basic/buffer')} />)
+    expect(html).toContain('完整代码')
+    expect(html).toContain('<blockquote>')
+    expect(html).toContain('最后一次写入才算数')
+    expect(html).not.toContain(':::')
+  })
+
+  it('shows the circle rule, the vertex shader, and the fragment source', () => {
+    const html = renderToStaticMarkup(<MarkdownContent record={lesson('/learn/shader-learn/fragment-data/one-rule')} />)
+    const plain = html.replace(/<[^>]+>/g, '')
+    const notesAt = plain.indexOf('屏幕坐标')
+    const notes = plain.slice(notesAt)
+    const code = plain.slice(0, notesAt)
+    const mainAt = notes.indexOf('gl_FragColor')
+    const quoteAt = notes.indexOf('同一份代码，位置不同，结果不同')
+    expect(notesAt).toBeGreaterThan(-1)
+    expect(code).toContain('precision mediump float')
+    expect(code).toContain('gl_FragColor')
+    expect(code).not.toContain('attribute vec3 aColor')
+    expect(notes).not.toContain('attribute vec3 aColor')
+    expect(notes).not.toContain('gl_Position')
+    expect(notes).not.toContain('precision mediump float')
+    expect(notes).toContain('void main')
+    expect(notes).toContain('gl_FragColor')
+    expect(html).toContain('learn-number')
+    expect(plain.indexOf('smoothstep')).toBeGreaterThan(-1)
+    expect(plain.indexOf('smoothstep')).toBeLessThan(notesAt)
+    expect(mainAt).toBeGreaterThan(-1)
+    expect(quoteAt).toBeGreaterThan(mainAt)
+    expect(html).toContain('像素调试')
+    expect(html).toContain('圆的半径')
+    expect(html).toContain('边缘柔和度')
+    expect(html).toContain('把圆改成正方形')
+    expect(plain.indexOf('试一试')).toBeGreaterThan(-1)
+    expect(plain.indexOf('把圆改成正方形')).toBeGreaterThan(plain.indexOf('试一试'))
+    expect(html).toContain('0.300')
+    expect(html).toContain('gl.uniform2f(uResolution, 572, 358)')
+    expect(html).not.toContain(':::')
+
+    const source = 'float d = length(p);\nfloat circle = 1.0 - smoothstep(0.300, 0.300 + 0.040, d);'
+    expect(readShape(source)).toEqual({ radius: 0.3, softness: 0.04 })
+    expect(writeShape(source, 0.5, 0.08)).toContain('smoothstep(0.500, 0.500 + 0.080, d)')
+    expect(isSquare(source)).toBe(false)
+    expect(isSquare('float d = max(abs(p.x), abs(p.y));')).toBe(true)
+    expect(circleAt([0, 0], 0.3, 0.04).circle).toBe(1)
+    expect(circleAt([0.34, 0], 0.3, 0.04).circle).toBe(0)
+    const vertex = 'attribute vec3 aPosition;\nvarying vec2 vUv;\n\nvoid main() {\n  gl_Position = vec4(aPosition, 1.0);\n}'
+    expect(shaderMain(vertex)).toBe('void main() {\n  gl_Position = vec4(aPosition, 1.0);\n}')
+    expect(replaceMain(`precision mediump float;\n${shaderMain(vertex)}`, 'void main() {\n  gl_FragColor = vec4(color, 1.0);\n}')).toBe('precision mediump float;\nvoid main() {\n  gl_FragColor = vec4(color, 1.0);\n}')
+  })
+
+  it('shows the main lesson as a flat split, with the full shader in the code slot', () => {
+    const html = renderToStaticMarkup(<MarkdownContent record={lesson('/learn/shader-learn/fragment-data/variables-main')} />)
+    const plain = html.replace(/<[^>]+>/g, '')
+    const notesAt = plain.indexOf('带下划线的数字可以左右拖动')
+    const code = plain.slice(0, notesAt)
+    const notes = plain.slice(notesAt)
+    expect(notesAt).toBeGreaterThan(-1)
+    expect(code).toContain('precision mediump float')
+    expect(code).toContain('mix(uInput, result, step(0.5, vUv.x))')
+    expect(notes).not.toContain('mix(')
+    expect(notes).not.toContain('precision mediump float')
+    expect(notes).toContain('void main')
+    expect(notes).toContain('原始亮度')
+    expect(notes).toContain('保留比例')
+    expect(html).toContain('learn-number')
+    expect(html).toContain('value="0.70"')
+    expect(html).toContain('value="0.40"')
+    expect(notes).toContain('原样')
+    expect(notes).toContain('减半')
+    expect(notes).toContain('全黑')
+    expect(notes).toContain('读输入 → 乘法 → 写输出')
+    expect(notes).toContain('JS 传入，所有片元共用')
+    expect(notes).toContain('每次调用从这里开始执行')
+    expect(notes).toContain('把右边的结果存入左边')
+    expect(notes).toContain('gl.uniform1f(uInput, 0.70)')
+    expect(notes).toContain('gl.uniform1f(uGain, 0.40)')
+    expect(notes).toContain('uniform 是 JS 传进来的值；main 读输入、计算、写输出，像 C 函数一样从上往下执行。')
+    expect(plain.indexOf('试一试')).toBeGreaterThan(notesAt)
+    expect(notes).toContain('点「减半」，结果变成多少？')
+    expect(notes).toContain('把 uGain 拉到 0，右边变成全黑')
+    expect(html).toContain('最终亮度')
+    expect(html).toContain('uInput · 原始亮度')
+    expect(html).toContain('uGain · 保留比例')
+    expect(html).not.toContain(':::')
+    expect(html).not.toContain('::Code')
+
+    expect(explainSource(0.7, 0.4)).toContain('// 0.70 原始亮度')
+    expect(explainSource(0.7, 0.4)).toContain('// = 0.28')
+    expect(explainSource(0.7, 0.4)).not.toContain('mix(')
+    expect(toneFromEdit({ uInput: 0.7, uGain: 0.4 }, 'gain', 0.5)).toEqual({ uInput: 0.7, uGain: 0.5 })
+    expect(toneFromEdit({ uInput: 0.7, uGain: 0.4 }, 'result', 0.35).uGain).toBeCloseTo(0.5)
+    expect(toneFromEdit({ uInput: 0.7, uGain: 0.4 }, 'input', 0.8).uInput).toBeCloseTo(0.8)
   })
 })

@@ -26,9 +26,15 @@ function compile(type, source) {
   return null
 }
 
+function withPrecision(source) {
+  if (/precision\s+(?:lowp|mediump|highp)\s+float/.test(source))
+    return source
+  return `precision mediump float;\n${source}`
+}
+
 function useFragment(source) {
   const vertex = compile(gl.VERTEX_SHADER, vertexSource)
-  const fragment = compile(gl.FRAGMENT_SHADER, source)
+  const fragment = compile(gl.FRAGMENT_SHADER, withPrecision(source))
   if (!vertex || !fragment) {
     if (vertex) gl.deleteShader(vertex)
     if (fragment) gl.deleteShader(fragment)
@@ -59,9 +65,18 @@ function draw() {
   const height = canvas.clientHeight
   if (!width || !height || !program) return
   const ratio = Math.min(devicePixelRatio, 2)
-  canvas.width = Math.floor(width * ratio)
-  canvas.height = Math.floor(height * ratio)
+  const nextWidth = Math.floor(width * ratio)
+  const nextHeight = Math.floor(height * ratio)
+  if (canvas.width !== nextWidth || canvas.height !== nextHeight) {
+    canvas.width = nextWidth
+    canvas.height = nextHeight
+  }
   gl.viewport(0, 0, canvas.width, canvas.height)
+  gl.useProgram(program)
+  gl.bindBuffer(gl.ARRAY_BUFFER, buffer)
+  const position = gl.getAttribLocation(program, 'aPosition')
+  gl.enableVertexAttribArray(position)
+  gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0)
   gl.clearColor(0, 0, 0, 0)
   gl.clear(gl.COLOR_BUFFER_BIT)
   gl.drawArrays(gl.TRIANGLES, 0, 3)
