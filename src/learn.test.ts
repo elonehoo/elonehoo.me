@@ -88,6 +88,12 @@ describe('learn tutorials', () => {
     expect(tutorial?.children[1]?.children[4]?.description).toBe('两个 float，一起表示 X、Y。拖动代码里的数字，点的位置也会变。')
     expect(tutorial?.children[1]?.children[5]?.heading).toBe('UV：给表面一个地址')
     expect(tutorial?.children[1]?.children[5]?.description).toBe('X 变红，Y 变绿。移动指针查看坐标。')
+    expect(tutorial?.children[1]?.children[6]?.heading).toBe('屏幕坐标与分辨率')
+    expect(tutorial?.children[1]?.children[6]?.description).toBe('像素位置 ÷ 分辨率 = 0～1 的屏幕坐标。')
+    expect(tutorial?.children[1]?.children[7]?.heading).toBe('分量：取出、调换、复制')
+    expect(tutorial?.children[1]?.children[7]?.description).toBe('同样三个数，换个排列就变了颜色。')
+    expect(tutorial?.children[1]?.children[8]?.heading).toBe('mix：在两个值之间插值')
+    expect(tutorial?.children[1]?.children[8]?.description).toBe('把比例从 0 推到 1，观察两个端点之间的颜色。')
     expect(learnReadingOrder(tutorial!).map(item => item.title)).toEqual([
       '开场 一颗星球',
       '网页与 Canvas',

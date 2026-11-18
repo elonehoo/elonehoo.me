@@ -701,6 +701,107 @@
   font-weight: 600;
 }
 
+.learn-swizzle-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 16px;
+}
+
+.learn-swizzle-row > span {
+  color: var(--soft);
+  font-size: 14px;
+}
+
+.learn-swizzle-row select {
+  flex: 1;
+  min-width: 0;
+  padding: 4px 24px 6px 0;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  background-color: transparent;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--soft) 50%),
+    linear-gradient(135deg, var(--soft) 50%, transparent 50%);
+  background-position: calc(100% - 10px) 55%, calc(100% - 5px) 55%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 14px;
+  appearance: none;
+}
+
+.learn-swizzle-swatch {
+  width: 48px;
+  height: 48px;
+}
+
+.learn-mix-hud {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  min-width: 0;
+}
+
+.learn-mix-hud select {
+  padding: 0 14px 0 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--accent) 50%),
+    linear-gradient(135deg, var(--accent) 50%, transparent 50%);
+  background-position: calc(100% - 8px) 55%, calc(100% - 4px) 55%;
+  background-size: 4px 4px, 4px 4px;
+  background-repeat: no-repeat;
+  color: var(--accent);
+  font-size: 14px;
+  appearance: none;
+}
+
+.learn-mix-swatch {
+  width: 48px;
+  height: 48px;
+  background: rgb(147, 191, 156);
+}
+
+.learn-mix-code {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  align-items: flex-start;
+}
+
+.learn-mix-code .lesson-code {
+  flex: 1 1 280px;
+  min-width: 0;
+}
+
+.learn-mix-legend {
+  margin: 12px 0 0;
+  padding: 14px 0 0;
+  color: var(--soft);
+  font-family: var(--mono);
+  font-size: 13px;
+  list-style: none;
+}
+
+.learn-mix-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: calc(14px * 1.5);
+  white-space: nowrap;
+}
+
+.learn-mix-chip {
+  width: 12px;
+  height: 12px;
+  flex: none;
+}
+
 @media (max-width: 720px) {
   .learn-types-grid {
     grid-template-columns: 1fr;
