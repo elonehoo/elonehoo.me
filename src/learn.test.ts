@@ -80,6 +80,14 @@ describe('learn tutorials', () => {
     expect(tutorial?.children[1]?.children[0]?.description).toBe('拖动半径。每个位置执行同一份程序，算出不同的颜色。')
     expect(tutorial?.children[1]?.children[1]?.heading).toBe('main：读输入、计算、写输出')
     expect(tutorial?.children[1]?.children[1]?.description).toBe('左边是原始亮度，右边是调光后。像 C 函数一样，一行行执行。')
+    expect(tutorial?.children[1]?.children[2]?.heading).toBe('float、int、bool：比 C 更严格')
+    expect(tutorial?.children[1]?.children[2]?.description).toBe('float 控制亮度，int 控制条数，bool 控制是否反转。再试试 C 语言里的常见写法。')
+    expect(tutorial?.children[1]?.children[3]?.heading).toBe('颜色，就是四个数')
+    expect(tutorial?.children[1]?.children[3]?.description).toBe('调 RGB 混出颜色；降低 A，看前景怎样与背后的棋盘混合。')
+    expect(tutorial?.children[1]?.children[4]?.heading).toBe('vec2：两个分量组成的向量')
+    expect(tutorial?.children[1]?.children[4]?.description).toBe('两个 float，一起表示 X、Y。拖动代码里的数字，点的位置也会变。')
+    expect(tutorial?.children[1]?.children[5]?.heading).toBe('UV：给表面一个地址')
+    expect(tutorial?.children[1]?.children[5]?.description).toBe('X 变红，Y 变绿。移动指针查看坐标。')
     expect(learnReadingOrder(tutorial!).map(item => item.title)).toEqual([
       '开场 一颗星球',
       '网页与 Canvas',
